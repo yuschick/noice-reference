@@ -1,0 +1,32 @@
+@layer noice.ui {
+  .link {
+    font-weight: var(--noi-font-weight-medium);
+    line-height: var(--noi-line-height-tight);
+    text-decoration: underline;
+
+    &:has(.external-link-icon) {
+      display: inline-flex;
+      flex-wrap: nowrap;
+      /* stylelint-disable-next-line unit-allowed-list */
+      gap: 0.25em;
+      align-items: center;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &.light {
+      color: var(--noi-color-text-light);
+    }
+
+    &.dark {
+      color: var(--noi-color-text-dark);
+    }
+  }
+
+  .external-link-icon {
+    color: inherit;
+    block-size: 1lh;
+  }
+}

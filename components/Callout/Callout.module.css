@@ -1,0 +1,91 @@
+@layer noice.ui {
+  .callout-wrapper {
+    --_callout-background-color: transparent;
+    --_callout-border-radius: var(--noi-border-radius-lg);
+    --_callout-border-size: getRem(4);
+    --_callout-icon-color: var(--noi-color-text-light);
+    --_callout-message-color: var(--noi-color-text-light);
+    --_callout-padding-inline: getRem(16);
+    --_callout-type-color: transparent;
+
+    display: grid;
+    grid-auto-columns: min-content;
+    grid-auto-flow: column;
+    grid-template-columns: min-content minmax(0, 1fr);
+    gap: var(--noi-spacing-2x);
+    align-content: center;
+    align-items: center;
+    padding: getRem(8) var(--_callout-padding-inline);
+    color: var(--_callout-message-color);
+    font-weight: var(--noi-font-weight-medium);
+    font-size: var(--noi-font-size-sm);
+    line-height: var(--noi-line-height-medium);
+    text-wrap: pretty;
+    background: var(--_callout-background-color);
+    border-radius: var(--_callout-border-radius);
+    max-inline-size: 100%;
+
+    /** Themes */
+    &.blue {
+      --_callout-background-color: var(--noi-color-dark-main);
+    }
+
+    &.gray {
+      --_callout-background-color: var(--noi-color-gray-850);
+    }
+
+    &.type {
+      --_callout-icon-color: var(--noi-color-text-dark);
+      --_callout-message-color: var(--noi-color-text-dark);
+    }
+
+    /** Types */
+    &.error {
+      --_callout-message-color: var(--noi-color-text-light);
+      --_callout-icon-color: var(--noi-color-text-light);
+      --_callout-type-color: var(--noi-color-status-error-main);
+
+      &.type {
+        --_callout-background-color: var(--noi-color-status-error-main);
+      }
+    }
+
+    &.info {
+      --_callout-type-color: var(--noi-color-teal-main);
+
+      &.type {
+        --_callout-background-color: var(--noi-color-teal-main);
+      }
+    }
+
+    &.success {
+      --_callout-type-color: var(--noi-color-green-main);
+
+      &.type {
+        --_callout-background-color: var(--noi-color-green-main);
+      }
+    }
+
+    &.warning {
+      --_callout-type-color: var(--noi-color-status-alert-main);
+
+      &.type {
+        --_callout-background-color: var(--noi-color-status-alert-main);
+      }
+    }
+
+    /** Variants */
+    &.bordered {
+      --_callout-border-radius: 0;
+
+      border-inline-start: var(--_callout-border-size) solid var(--_callout-type-color);
+      padding-inline-start: calc(
+        var(--_callout-padding-inline) - var(--_callout-border-size)
+      );
+    }
+  }
+
+  .callout-icon {
+    color: var(--_callout-icon-color);
+  }
+}

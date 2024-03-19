@@ -1,0 +1,5 @@
+.show-on-focus a {
+  padding: var(--noi-spacing-2x);
+  color: var(--noi-color-text-dark);
+  background-color: var(--noi-color-status-error-main);
+}

@@ -1,0 +1,38 @@
+@layer noice.ui {
+  .loading-skeleton-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: var(--skeleton-wrapper-gap, 0.5rem);
+    block-size: 100%;
+    max-inline-size: 100%;
+
+    &.direction-row {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+
+  .loading-skeleton-item {
+    @mixin loading-shine var(--noi-color-gray-700);
+    display: inline-flex;
+    flex-wrap: nowrap;
+    block-size: var(--skeleton-block-size, 100%);
+    inline-size: var(--skeleton-inline-size, 100%);
+    overflow: hidden;
+
+    @media (prefers-reduced-motion: reduce) {
+      background-image: linear-gradient(
+        125deg,
+        transparent 0%,
+        var(--noi-color-gray-700) 50%,
+        transparent 100%
+      );
+      background-size: 100% 100%;
+
+      &::after {
+        animation: none;
+      }
+    }
+  }
+}

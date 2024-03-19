@@ -1,0 +1,49 @@
+@layer nioce.ui {
+  .text-area {
+    display: block;
+    font-size: var(--noi-font-size-md);
+    font-family: var(--noi-font-family-body);
+    line-height: var(--noi-line-height-loose);
+    block-size: revert;
+    padding-block-start: getRem(24);
+    max-inline-size: 100%;
+
+    @supports (form-sizing: content) {
+      /* stylelint-disable-next-line property-no-unknown */
+      form-sizing: content;
+    }
+
+    &.has-hidden-label {
+      padding-block-start: getRem(16);
+    }
+
+    &:not([rows]),
+    &[rows='1'] {
+      block-size: getRem(56);
+    }
+  }
+
+  .text-area-label-text {
+    /* Prevent the label from stretching wih resized textareas and keep it set at the half point of its default, single line block size. */
+    inset-block-start: calc(getRem(56) / 2);
+
+    .text-area:not(:placeholder-shown) + &,
+    .text-area[rows]:not([rows='1']) + &,
+    .text-area:not(:disabled):focus + & {
+      inset-block-start: revert-layer;
+    }
+  }
+}
+
+.below-input {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+
+.char-amount {
+  display: block;
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}

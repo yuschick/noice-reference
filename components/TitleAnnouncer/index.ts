@@ -1,0 +1,1 @@
+export { TitleAnnouncer } from './TitleAnnouncer';

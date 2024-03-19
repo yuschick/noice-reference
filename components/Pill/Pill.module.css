@@ -1,0 +1,22 @@
+@layer noice.ui {
+  .pill {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    color: var(--_pill-color, var(--noi-color-text-light));
+    font-weight: var(--noi-font-weight-medium);
+    font-size: var(--noi-font-size-sm);
+    line-height: var(--noi-line-height-tight);
+    background: var(--_pill-background, var(--noi-gradient-green-teal));
+    border-radius: var(--noi-border-radius-sm);
+    padding-inline: getRem(8);
+    block-size: getRem(24);
+    inline-size: max-content;
+    font-variant-numeric: tabular-nums;
+
+    .text {
+      padding-inline: getRem(4);
+    }
+  }
+}

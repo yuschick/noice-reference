@@ -1,0 +1,89 @@
+@layer noice.ui {
+  .profile-image-status-wrapper {
+    --shape-border-radius: var(--noi-border-radius-circle);
+
+    contain: content;
+    content-visibility: auto;
+    position: relative;
+    min-inline-size: var(--profile-image-size);
+
+    &.xs {
+      --profile-image-clip-path: 'M23.14 16.48a12 12 0 1 0-6.66 6.66 5 5 0 0 1 6.66-6.66Z';
+      --profile-image-size: getRem(24);
+      --status-indicator-size: getRem(6);
+    }
+
+    &.sm {
+      --profile-image-clip-path: 'M30.59 22.58a16 16 0 1 0-8 8 6 6 0 0 1 8-8Z';
+      --profile-image-size: getRem(32);
+      --status-indicator-size: getRem(8);
+    }
+
+    &.md {
+      --profile-image-clip-path: 'M37.2 30.1a20 20 0 1 0-7.1 7.1 6 6 0 0 1 7.1-7z';
+      --profile-image-size: getRem(40);
+      --status-indicator-size: getRem(8);
+    }
+
+    &.lg {
+      --profile-image-clip-path: 'M51 44a28 28 0 1 0-7 7 7 7 0 0 1 7-7z';
+      --profile-image-size: getRem(56);
+      --status-indicator-size: getRem(10);
+    }
+
+    &.show-as-offline {
+      opacity: 0.5;
+    }
+  }
+
+  .profile-image-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    background-color: var(--noi-color-gray-850);
+    border-radius: var(--shape-border-radius);
+    outline: getRem(8) solid transparent;
+    inline-size: var(--profile-image-size);
+    min-inline-size: var(--profile-image-size);
+    aspect-ratio: 1 / 1;
+    place-items: center;
+
+    &.loading {
+      @mixin loading-shine var(--noi-color-gray-700);
+    }
+
+    .show-as-online & {
+      clip-path: path(var(--profile-image-clip-path));
+    }
+  }
+
+  .profile-image {
+    display: contents;
+    min-inline-size: 100%;
+    min-block-size: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .profile-image-placeholder {
+    block-size: calc(var(--profile-image-size) / 2);
+  }
+
+  .profile-status-wrapper {
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline-end: 0;
+  }
+
+  .profile-status-indicator {
+    block-size: var(--status-indicator-size);
+    inline-size: var(--status-indicator-size);
+    border-radius: var(--noi-border-radius-circle);
+
+    .show-as-online & {
+      background-color: var(--noi-color-green-main);
+    }
+  }
+}

@@ -1,0 +1,107 @@
+@layer noice.ui {
+  .tooltip-content {
+    padding: getRem(8) getRem(16);
+    overflow: hidden;
+  }
+
+  .tooltip {
+    position: fixed;
+    z-index: var(--noi-z-index-level-5);
+    color: var(--noi-color-text-light);
+    font-size: var(--noi-font-size-sm);
+    line-height: var(--noi-line-height-loose);
+    background-color: var(--noi-color-gray-950);
+    border-radius: var(--noi-border-radius-md);
+    opacity: 0;
+    transition: opacity var(--noi-duration-quick) var(--tooltip-delay) ease-in-out;
+    max-inline-size: min(100%, getRem(500));
+
+    @media (prefers-reduced-motion: reduce) {
+      opacity: 0.9;
+    }
+
+    &.is-visible {
+      opacity: 1;
+    }
+
+    /* Hitbox for hover */
+    &::after {
+      position: absolute;
+      display: block;
+      content: '';
+      inset: 0;
+    }
+
+    &[data-placement^='bottom']::after {
+      inset-block-start: calc(var(--tooltip-offset) * -1);
+    }
+
+    &[data-placement^='left']::after {
+      inset-inline-end: calc(var(--tooltip-offset) * -1);
+    }
+
+    &[data-placement^='right']::after {
+      inset-inline-start: calc(var(--tooltip-offset) * -1);
+    }
+
+    &[data-placement^='top']::after {
+      inset-block-end: calc(var(--tooltip-offset) * -1);
+    }
+
+    /* Arrow */
+    &::before {
+      position: absolute;
+      background: var(--noi-color-gray-950);
+      transform: rotate(45deg);
+      transform-origin: center;
+      content: '';
+      /* stylelint-disable unit-allowed-list */
+      /* The arrow doesn't need to be relative to font size since its a minor decoration */
+      inline-size: 12px;
+      block-size: 12px;
+      /* stylelint-enable unit-allowed-list */
+    }
+
+    &[data-placement^='top']::before {
+      inset-block-end: getRem(-4);
+    }
+
+    &[data-placement^='bottom']::before {
+      inset-block-start: getRem(-4);
+    }
+
+    &:is([data-placement='top'], [data-placement='bottom'])::before {
+      inset-inline-start: 50%;
+      translate: -50% 0;
+    }
+
+    &:is([data-placement='top-start'], [data-placement='bottom-start'])::before {
+      inset-inline-start: getRem(16);
+    }
+
+    &:is([data-placement='top-end'], [data-placement='bottom-end'])::before {
+      inset-inline-end: getRem(16);
+    }
+
+    &[data-placement^='left']::before {
+      inset-inline-end: getRem(-4);
+    }
+
+    &[data-placement^='right']::before {
+      inset-inline-start: getRem(-4);
+    }
+
+    &:is([data-placement='left'], [data-placement='right'])::before {
+      inset-block-start: 50%;
+      translate: 0 -50%;
+    }
+
+    &:is([data-placement='left-start'], [data-placement='right-start'])::before {
+      inset-block-start: getRem(16);
+    }
+
+    &:is([data-placement='left-end'], [data-placement='right-end'])::before {
+      inset-block-end: getRem(16);
+    }
+  }
+}

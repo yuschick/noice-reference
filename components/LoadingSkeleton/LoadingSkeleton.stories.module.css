@@ -1,0 +1,9 @@
+.custom-skeleton-item {
+  block-size: getRem(250);
+  inline-size: getRem(250);
+  border-radius: var(--noi-border-radius-circle);
+}
+
+.custom-skeleton-border-radius {
+  border-radius: var(--noi-border-radius-md);
+}

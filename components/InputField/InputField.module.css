@@ -1,0 +1,209 @@
+@layer noice.ui {
+  .input-and-description-wrapper {
+    --_input-field-background-disabled: var(--noi-color-blue-100);
+    --_input-field-background-hover: var(--noi-color-blue-50);
+    --_input-field-background-readonly: var(--noi-color-blue-100);
+    --_input-field-background: var(--noi-color-blue-50);
+    --_input-field-border-focus: var(--noi-color-teal-main);
+    --_input-field-border-hover: var(--noi-color-blue-400);
+    --_input-field-border: var(--noi-color-blue-200);
+    --_input-field-color-disabled: var(--noi-color-blue-400);
+    --_input-field-color: var(--noi-color-text-dark);
+    --_input-field-error-color: var(--noi-color-status-error-main);
+    --_input-field-size: getRem(48);
+    --_input-label-color-focus: var(--noi-color-teal-600);
+    --_input-label-color: var(--noi-color-text-dark-secondary);
+    --_input-label-active-offset: getRem(4);
+    --_input-label-active-offset-multiplier: 2;
+    --_input-padding-inline: getRem(24);
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--noi-spacing-1x);
+    inline-size: 100%;
+
+    /* Sizes */
+    &.sm {
+      --_input-field-size: getRem(40);
+      --_input-label-active-offset: getRem(2);
+      --_input-label-active-offset-multiplier: 4;
+    }
+
+    &.lg {
+      --_input-field-size: getRem(56);
+      --_input-label-active-offset: getRem(8);
+      --_input-label-active-offset-multiplier: 1.5;
+    }
+
+    /* Colors */
+    &.blue {
+      --_input-field-background-disabled: var(--noi-color-blue-700);
+      --_input-field-background-hover: var(--noi-color-blue-750);
+      --_input-field-background-readonly: var(--noi-color-blue-700);
+      --_input-field-background: var(--noi-color-blue-750);
+      --_input-field-border-hover: var(--noi-color-blue-500);
+      --_input-field-border: var(--noi-color-blue-650);
+      --_input-field-color-disabled: var(--noi-color-blue-500);
+      --_input-field-color: var(--noi-color-text-light);
+      --_input-label-color-focus: var(--noi-color-teal-main);
+      --_input-field-error-color: var(--noi-color-status-error-300);
+      --_input-label-color: var(--noi-color-text-light-secondary);
+    }
+
+    &.gray {
+      --_input-field-background-disabled: var(--noi-color-gray-700);
+      --_input-field-background-hover: var(--noi-color-gray-750);
+      --_input-field-background-readonly: var(--noi-color-gray-700);
+      --_input-field-background: var(--noi-color-gray-750);
+      --_input-field-border-hover: var(--noi-color-gray-500);
+      --_input-field-border: var(--noi-color-gray-650);
+      --_input-field-color-disabled: var(--noi-color-gray-500);
+      --_input-field-color: var(--noi-color-text-light);
+      --_input-label-color-focus: var(--noi-color-teal-main);
+      --_input-field-error-color: var(--noi-color-status-error-300);
+      --_input-label-color: var(--noi-color-text-light-secondary);
+    }
+  }
+
+  .input-and-slots-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: var(--noi-spacing-2x);
+    align-content: center;
+    align-items: center;
+    color: var(--_input-field-color);
+    background-color: var(--_input-field-background);
+    border: 1px solid var(--_input-field-border);
+    border-radius: var(--noi-border-radius-sm);
+    min-block-size: var(--_input-field-size);
+    inline-size: 100%;
+    max-inline-size: 100%;
+
+    &:has(.slot-end) {
+      padding-inline-end: var(--_input-padding-inline);
+    }
+
+    &:has(.slot-start) {
+      padding-inline-start: var(--_input-padding-inline);
+    }
+
+    &:has(:disabled) {
+      --_input-field-color: var(--_input-field-color-disabled);
+      background-color: var(--_input-field-background-disabled);
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    &:not(:has(:disabled, [aria-invalid='true'], :user-invalid)):hover {
+      background-color: var(--_input-field-background-hover);
+      border-color: var(--_input-field-border-hover);
+    }
+
+    &:not(:has(:disabled)):has([aria-invalid='true'], :user-invalid) {
+      --_input-field-border: var(--noi-color-status-error-main);
+    }
+
+    &:not(:has(:disabled)):has([readonly]) {
+      background-color: var(--_input-field-background-readonly);
+      cursor: default;
+    }
+
+    &:not(:has(:disabled, [aria-invalid='true'], :user-invalid)):has(
+        .input-field:focus-visible
+      ) {
+      border-color: var(--_input-field-border-focus);
+      outline: none;
+    }
+  }
+
+  .input-label-wrapper {
+    position: relative;
+    flex-grow: 1;
+    block-size: 100%;
+  }
+
+  .label-text {
+    --_label-text-inline-offset: var(--_input-padding-inline);
+
+    position: absolute;
+    color: var(--_input-label-color);
+    font-size: var(--noi-font-size-md);
+    transition: font-size var(--noi-duration-quick), translate var(--noi-duration-quick),
+      inset-block-start var(--noi-duration-quick);
+    inset-block-start: 50%;
+    inset-inline-start: 0;
+    translate: var(--_label-text-inline-offset) -50%;
+
+    .input-and-slots-wrapper:has(.slot-start) & {
+      --_label-text-inline-offset: 0;
+    }
+
+    .input-label-wrapper:has(
+        .input-field:not(:placeholder-shown),
+        .input-field[rows]:not([rows='1']),
+        .input-field:not(:disabled):focus
+      )
+      & {
+      font-size: var(--noi-font-size-sm);
+      inset-block-start: 0;
+      translate: var(--_label-text-inline-offset) var(--_input-label-active-offset);
+    }
+
+    .input-label-wrapper:has(.input-field[aria-invalid='true']:not(:disabled)) & {
+      color: var(--noi-color-status-error-main);
+    }
+
+    .input-label-wrapper:has(.input-field:not(:disabled, [aria-invalid='true']):focus) & {
+      color: var(--_input-label-color-focus);
+    }
+  }
+
+  .input-field {
+    color: var(--_input-field-color);
+    inline-size: 100%;
+    font-weight: var(--noi-font-weight-medium);
+    font-size: var(--noi-font-size-md);
+    font-family: var(--noi-font-family-body);
+    background-color: transparent;
+    border: none;
+    padding-inline: var(--_input-padding-inline);
+    padding-block-start: calc(
+      var(--_input-label-active-offset) * var(--_input-label-active-offset-multiplier)
+    );
+    block-size: 100%;
+
+    &:focus,
+    &:focus-visible {
+      border: none;
+      outline: none;
+    }
+
+    .input-and-slots-wrapper:has(.slot-end) & {
+      padding-inline-end: 0;
+    }
+
+    .input-and-slots-wrapper:has(.slot-start) & {
+      padding-inline-start: 0;
+    }
+  }
+
+  .input-description {
+    max-inline-size: 100%;
+  }
+
+  .input-secondary-wrapper {
+    color: var(--_input-label-color);
+    font-size: var(--noi-font-size-sm);
+    line-height: var(--noi-line-height-loose);
+    padding-inline: var(--_input-padding-inline);
+  }
+
+  .error {
+    color: var(--_input-field-error-color);
+    max-inline-size: 100%;
+
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
+}

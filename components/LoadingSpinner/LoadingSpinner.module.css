@@ -1,0 +1,33 @@
+@layer noice.ui {
+  @keyframes rotate {
+    to {
+      rotate: 360deg;
+    }
+  }
+
+  .loading-spinner {
+    --loading-spinner-size-sm: getRem(24);
+    --loading-spinner-size-md: getRem(32);
+    --loading-spinner-size-lg: getRem(48);
+
+    border: 3px solid var(--noi-color-teal-800);
+    border-radius: var(--noi-border-radius-circle);
+    animation: rotate 1000ms linear infinite;
+    inline-size: var(--loading-spinner-size, var(--loading-spinner-size-md));
+    block-size: var(--loading-spinner-size, var(--loading-spinner-size-md));
+    border-block-start-color: var(--noi-color-teal-main);
+
+    @media (prefers-reduced-motion: reduce) {
+      display: none;
+      animation: none;
+    }
+  }
+
+  .loading-text-fallback {
+    display: none;
+
+    @media (prefers-reduced-motion: reduce) {
+      display: inline-block;
+    }
+  }
+}

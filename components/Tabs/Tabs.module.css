@@ -1,0 +1,158 @@
+@layer noice.ui {
+  .tabs-wrapper {
+    position: relative;
+  }
+
+  /* stylelint-disable no-descending-specificity */
+  .tabs-list-wrapper {
+    --_tabs-list-block-size: getRem(48);
+
+    @mixin no-scroll-bar;
+    overflow-x: auto;
+
+    .show-start-scroll-button & {
+      mask-image: linear-gradient(90deg, transparent getRem(48), black getRem(96));
+    }
+
+    .show-end-scroll-button & {
+      mask-image: linear-gradient(270deg, transparent getRem(48), black getRem(96));
+    }
+
+    .show-end-scroll-button.show-start-scroll-button & {
+      mask-image: linear-gradient(
+        90deg,
+        transparent getRem(48),
+        black getRem(96),
+        black calc(100% - getRem(96)),
+        transparent calc(100% - getRem(48))
+      );
+    }
+  }
+
+  .tab-list-container {
+    display: flex;
+    flex-wrap: nowrap;
+    min-inline-size: min-content;
+    gap: var(--noi-spacing-2x);
+
+    .page & {
+      display: flex;
+      flex-wrap: nowrap;
+      inline-size: 100%;
+      max-inline-size: 100%;
+      gap: var(--noi-spacing-2x);
+      min-block-size: var(--_tabs-list-block-size);
+      border-block-end: 1px solid var(--noi-color-light-main-transparent-10);
+      justify-content: start;
+    }
+
+    .panel & {
+      --_tabs-list-tab-block-size: calc(var(--_tabs-list-block-size) - getRem(8));
+
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+      gap: var(--noi-spacing-1x);
+      align-items: center;
+      padding: var(--noi-spacing-1x);
+      background: var(--noi-color-gray-900);
+      border-radius: var(--noi-border-radius-pill);
+      inline-size: 100%;
+      max-inline-size: 100%;
+      min-block-size: var(--_tabs-list-block-size);
+    }
+  }
+
+  .tabs-list-tab {
+    --outline-color: var(--noi-color-light-main);
+
+    font-weight: var(--noi-font-weight-medium);
+    font-size: var(--noi-font-size-md);
+    line-height: var(--noi-line-height-tight);
+    letter-spacing: var(--noi-letter-spacing-loose);
+    white-space: nowrap;
+    text-transform: uppercase;
+    text-decoration: none;
+    user-select: none;
+
+    .page & {
+      position: relative;
+      display: grid;
+      color: var(--noi-color-text-light-secondary);
+      background: transparent;
+      cursor: pointer;
+      padding-inline: getRem(24);
+      block-size: var(--_tabs-list-block-size);
+      place-items: center;
+
+      &:not([aria-selected='true'], [aria-current='page']):hover {
+        color: var(--noi-color-text-light);
+      }
+
+      &[aria-selected='true'],
+      &[aria-current='page'] {
+        color: var(--noi-color-text-light);
+        cursor: default;
+      }
+
+      &[aria-selected='true']::after,
+      &[aria-current='page']::after {
+        position: absolute;
+        background-color: var(--noi-color-light-main);
+        content: '';
+        inset-block-end: getRem(-1);
+        inset-inline: 0;
+        block-size: getRem(2);
+      }
+    }
+
+    .panel & {
+      display: grid;
+      color: var(--noi-color-text-light-secondary);
+      background: transparent;
+      border-radius: var(--noi-border-radius-pill);
+      cursor: pointer;
+      min-inline-size: fit-content;
+      place-items: center;
+      padding-inline: getRem(16);
+      block-size: var(--_tabs-list-tab-block-size);
+
+      &:not([aria-selected='true'], [aria-current='page']):hover {
+        color: var(--noi-color-text-light);
+        background: var(--noi-color-light-main-transparent-10);
+      }
+
+      &[aria-selected='true'],
+      &[aria-current='page'] {
+        color: var(--noi-color-text-light);
+        background: var(--noi-gradient-violet);
+        cursor: default;
+      }
+    }
+  }
+
+  .tabs-panel {
+    block-size: 100%;
+
+    &[aria-hidden='true'] {
+      display: none;
+    }
+  }
+
+  .navigation-button {
+    position: absolute;
+    inset-block-start: 0;
+    z-index: var(--noi-z-index-level-1);
+
+    &[aria-hidden] {
+      display: none;
+    }
+
+    &.start {
+      inset-inline-start: 0;
+    }
+
+    &.end {
+      inset-inline-end: 0;
+    }
+  }
+}
