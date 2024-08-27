@@ -44,7 +44,10 @@ export const Image = forwardRef<HTMLImageElement, Props>(function Image(
    */
 
   // We want to exclude client-cdn images, they are images from our codebase
-  const isExternalImage = src?.startsWith('https') && !src.includes('client-cdn');
+  const isExternalImage =
+    src?.startsWith('https') &&
+    !src.includes('client-cdn') &&
+    !src.includes('studio-cdn');
   const fetchImageFromCDN =
     isExternalImage &&
     // We can only fetch responsive images if we have a sizes attributes or a non-percentage width
@@ -111,6 +114,12 @@ export const Image = forwardRef<HTMLImageElement, Props>(function Image(
     };
   }, [src, waitForSrc]);
 
+  const cdnImageSrc = src
+    ? `https://cf-cdn.noice.com/?image=${encodeURIComponent(src)}&width=${
+        supportedSizes[0]
+      }&quality=${quality}`
+    : undefined;
+
   return (
     <picture
       className={classNames(styles.pictureWrapper, className, {
@@ -138,20 +147,14 @@ export const Image = forwardRef<HTMLImageElement, Props>(function Image(
         {...htmlAttributes}
         alt={alt || ''}
         className={styles.image}
-        decoding="async"
+        decoding="auto"
         // fetchPriority={priority}
         height={height}
-        loading="lazy"
+        loading={htmlAttributes.loading ?? 'lazy'}
         ref={ref}
         role={!alt ? 'presentation' : undefined}
         sizes={sizes ?? sizesFallback}
-        src={
-          fetchImageFromCDN
-            ? `https://cf-cdn.noice.com/?image=${src}&width=${supportedSizes.at(
-                -1,
-              )}&quality=${quality}`
-            : src
-        }
+        src={fetchImageFromCDN ? cdnImageSrc : src}
         srcSet={
           srcSet ?? fetchImageFromCDN ? generateSrcSet({ src, quality }) : undefined
         }

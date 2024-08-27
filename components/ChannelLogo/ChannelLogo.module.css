@@ -3,7 +3,7 @@
     --_shape-radius: var(--noi-border-radius-circle);
 
     display: grid;
-    overflow: hidden;
+    overflow: clip;
     color: var(--noi-color-text-light);
     background-color: var(--noi-color-teal-main);
     border-radius: var(--_shape-radius);
@@ -14,7 +14,10 @@
     max-block-size: var(--channel-logo-size);
     min-inline-size: var(--channel-logo-size);
     max-inline-size: var(--channel-logo-size);
-    aspect-ratio: 1/1;
+
+    > picture {
+      aspect-ratio: 1/1;
+    }
 
     &.xs {
       --channel-logo-size: getRem(24);
@@ -40,16 +43,16 @@
 
   .channel-logo-image {
     border-radius: var(--_shape-radius);
-    min-inline-size: var(--profile-image-size);
-    min-block-size: var(--profile-image-size);
-    aspect-ratio: 1 / 1;
   }
 
   .channel-initials {
+    display: inline-flex;
+    flex-wrap: nowrap;
     color: var(--noi-color-text-dark);
     font-weight: var(--noi-font-weight-bold);
     font-size: var(--noi-font-size-md);
     text-transform: uppercase;
+    place-self: center;
 
     .xs & {
       font-size: var(--noi-font-size-xs);

@@ -1,50 +1,57 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from '@storybook/react';
 
-import { RadioButton } from "./RadioButton";
+import { RadioButton } from './RadioButton';
 
 const meta: Meta<typeof RadioButton> = {
-  title: "Radio Button",
+  title: 'Radio Button',
   component: RadioButton,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   args: {
-    label: "Radio Button",
+    label: 'Radio Button',
   },
   argTypes: {
-    theme: {
-      control: { type: "select" },
-      defaultValue: "light",
-      description: "The color of the radio button.",
-      options: ["dark", "light"],
-    },
     label: {
-      control: { type: "text" },
+      control: { type: 'text' },
       description:
-        "The label to be associated with the radio button, can be a component or a string.",
+        'The label to be associated with the radio button, can be a component or a string.',
       required: true,
     },
     description: {
-      control: { type: "text" },
-      description: "The description to be associated with the checkbox.",
+      control: { type: 'text' },
+      description: 'The description to be associated with the radio button.',
+    },
+    direction: {
+      control: { type: 'select' },
+      defaultValue: 'ltr',
+      description:
+        'Define whether the input and label should flow from left to right or right to left.',
+      options: ['ltr', 'rtl'],
     },
     labelType: {
-      control: { type: "select" },
-      defaultValue: "visible",
-      description: "Whether or not to show the label.",
-      options: ["hidden", "visible"],
+      control: { type: 'select' },
+      defaultValue: 'visible',
+      description: 'Whether or not to show the label.',
+      options: ['hidden', 'visible'],
     },
     name: {
-      control: { type: "text" },
+      control: { type: 'text' },
       description:
-        "The name of the radio button. This is required to group radio buttons together.",
+        'The name of the radio button. This is required to group radio buttons together.',
       required: true,
     },
     checked: {
-      control: { type: "boolean" },
-      description: "Whether or not the radio button is checked.",
+      control: { type: 'boolean' },
+      description: 'Whether or not the radio button is checked.',
     },
     disabled: {
-      control: { type: "boolean" },
-      description: "Whether or not the radio button is disabled.",
+      control: { type: 'boolean' },
+      description: 'Whether or not the radio button is disabled.',
+    },
+    theme: {
+      control: { type: 'select' },
+      defaultValue: 'light',
+      description: 'The color theme of the radio button.',
+      options: ['dark', 'light'],
     },
   },
   parameters: {
@@ -65,9 +72,17 @@ export const Default: Story = {};
 export const Color: Story = {
   render: () => {
     return (
-      <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-        <RadioButton theme="dark" label="Dark" name="color" />
-        <RadioButton theme="light" label="Dark" name="color" />
+      <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+        <RadioButton
+          label="Dark"
+          name="color"
+          theme="dark"
+        />
+        <RadioButton
+          label="Dark"
+          name="color"
+          theme="light"
+        />
       </div>
     );
   },
@@ -87,15 +102,13 @@ export const Disabled: Story = {
   render: ({ ...args }) => {
     return (
       <div
-        style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-        }}
+        style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}
       >
         <RadioButton {...args} />
-        <RadioButton {...args} checked />
+        <RadioButton
+          {...args}
+          checked
+        />
       </div>
     );
   },
@@ -110,7 +123,7 @@ export const HideLabel: Story = {
     },
   },
   args: {
-    labelType: "hidden",
+    labelType: 'hidden',
   },
 };
 
@@ -123,9 +136,8 @@ export const WithDescription: Story = {
     },
   },
   args: {
-    label: "Show online status",
-    description:
-      "When enabled, your online status will be shown to other users.",
+    label: 'Show online status',
+    description: 'When enabled, your online status will be shown to other users.',
   },
 };
 
@@ -134,18 +146,18 @@ export const LabelAsComponent: Story = {
     docs: {
       descriptions: {
         story:
-          "Provide react node as label props, enabling more styling etc. rendering for the label",
+          'Provide react node as label props, enabling more styling etc. rendering for the label',
       },
     },
   },
   args: {
-    label: <span style={{ color: "pink" }}>Label as component</span>,
+    label: <span style={{ color: 'pink' }}>Label as component</span>,
   },
 };
 
 export const RadioGroup: Story = {
   args: {
-    labelType: "hidden",
+    labelType: 'hidden',
   },
   parameters: {
     docs: {
@@ -156,14 +168,9 @@ export const RadioGroup: Story = {
   },
   render: ({ ...args }) => {
     return (
-      <div style={{ display: "grid", gap: "1rem" }}>
+      <div style={{ display: 'grid', gap: '1rem' }}>
         <div
-          style={{
-            display: "flex",
-            gap: "1rem",
-            alignItems: "center",
-            flexWrap: "wrap",
-          }}
+          style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}
         >
           <RadioButton
             {...args}
@@ -171,35 +178,38 @@ export const RadioGroup: Story = {
             name="radio-group"
             defaultChecked
           />
-          <RadioButton {...args} label="Option 2" name="radio-group" />
-          <RadioButton {...args} label="Option 3" name="radio-group" />
+          <RadioButton
+            {...args}
+            label="Option 2"
+            name="radio-group"
+          />
+          <RadioButton
+            {...args}
+            label="Option 3"
+            name="radio-group"
+          />
         </div>
         <div
-          style={{
-            display: "flex",
-            gap: "1rem",
-            alignItems: "center",
-            flexWrap: "wrap",
-          }}
+          style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}
         >
           <RadioButton
             {...args}
-            theme="dark"
             label="Option 1"
             name="radio-group-dark"
+            theme="dark"
             defaultChecked
           />
           <RadioButton
             {...args}
-            theme="dark"
             label="Option 2"
             name="radio-group-dark"
+            theme="dark"
           />
           <RadioButton
             {...args}
-            theme="dark"
             label="Option 3"
             name="radio-group-dark"
+            theme="dark"
           />
         </div>
       </div>

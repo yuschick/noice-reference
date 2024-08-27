@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import {
-  buttonColors,
+  buttonThemes,
   buttonLevels,
   buttonShapes,
   buttonSizes,
@@ -18,12 +18,6 @@ const meta: Meta<typeof ButtonLink> = {
     children: 'Button Link',
   },
   argTypes: {
-    theme: {
-      control: { type: 'select' },
-      defaultValue: 'light',
-      description: 'Define the theme palette of the button.',
-      options: buttonColors,
-    },
     iconEnd: {
       control: { type: 'text' },
       description:
@@ -55,6 +49,12 @@ const meta: Meta<typeof ButtonLink> = {
       description:
         'Define the size of the button. This value defines the button block size, while the inline size is built to fill its container.',
       options: buttonSizes,
+    },
+    theme: {
+      control: { type: 'select' },
+      defaultValue: 'light',
+      description: 'Define the color theme of the button.',
+      options: buttonThemes,
     },
     to: {
       control: { type: 'text' },

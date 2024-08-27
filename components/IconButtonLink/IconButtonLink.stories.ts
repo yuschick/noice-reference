@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { GiUnicorn } from 'react-icons/gi';
 
 import {
-  buttonColors,
+  buttonThemes,
   buttonLevels,
   buttonSizes,
   buttonVariants,
@@ -18,12 +18,6 @@ const meta: Meta<typeof IconButtonLink> = {
     icon: GiUnicorn,
   },
   argTypes: {
-    theme: {
-      control: { type: 'select' },
-      defaultValue: 'light',
-      description: 'Define the theme palette of the button.',
-      options: buttonColors,
-    },
     icon: {
       control: { type: 'text' },
       description: 'Provide the `SvgComponent` to be rendered inside the button.',
@@ -44,6 +38,12 @@ const meta: Meta<typeof IconButtonLink> = {
       description:
         'Define the size of the button. This value defines the button block size, while the inline size is built to fill its container.',
       options: buttonSizes,
+    },
+    theme: {
+      control: { type: 'select' },
+      defaultValue: 'light',
+      description: 'Define the color theme of the button.',
+      options: buttonThemes,
     },
     variant: {
       control: { type: 'select' },

@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { InputHTMLAttributes, ReactNode, forwardRef, useId } from 'react';
 
 import { InteractiveInputDescription } from '../InteractiveInputDescription';
@@ -12,9 +13,10 @@ interface Props
     InputHTMLAttributes<HTMLInputElement>,
     'className' | 'id' | 'role' | 'style' | 'type'
   > {
+  description?: string;
+  direction?: 'ltr' | 'rtl';
   isLoading?: boolean;
   label: string | ReactNode;
-  description?: string;
   labelType?: 'hidden' | 'visible';
 }
 
@@ -22,6 +24,7 @@ export const Switch = forwardRef<HTMLInputElement, Props>(function Switch(
   {
     checked,
     defaultChecked,
+    direction = 'ltr',
     disabled,
     isLoading,
     label,
@@ -42,7 +45,11 @@ export const Switch = forwardRef<HTMLInputElement, Props>(function Switch(
   const showDescription = !!description && showLabel;
 
   return (
-    <div className={styles.switchRoot}>
+    <div
+      className={classNames(styles.switchRoot, {
+        [styles.rtl]: direction === 'rtl',
+      })}
+    >
       <label className={styles.labelWrapper}>
         <div className={styles.switchWrapper}>
           <input

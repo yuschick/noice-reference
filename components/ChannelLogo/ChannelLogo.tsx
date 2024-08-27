@@ -79,6 +79,7 @@ export function ChannelLogo({
             showLiveStatus ? ` (${getLiveStatusLabel(channel.liveStatus)})` : ''
           }`}
           className={styles.channelInitials}
+          translate="no"
         >
           {channel.name[0]}
           {channel.name[1]}

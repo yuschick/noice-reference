@@ -12,8 +12,20 @@
       align-items: center;
     }
 
-    &:hover {
-      text-decoration: none;
+    @supports not selector(:has(*)) {
+      &[data-icon='external'] {
+        display: inline-flex;
+        flex-wrap: nowrap;
+        /* stylelint-disable-next-line unit-allowed-list */
+        gap: 0.25em;
+        align-items: center;
+      }
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        text-decoration: none;
+      }
     }
 
     &.light {

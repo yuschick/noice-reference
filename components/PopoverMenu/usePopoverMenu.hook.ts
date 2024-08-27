@@ -16,13 +16,19 @@ import {
   useState,
 } from 'react';
 
-import { useOnOutsideClick } from '@common-hooks';
+import { useMediaQuery, useOnOutsideClick, useStableBodyOverflow } from '@common-hooks';
+import { getRem } from '@common-utils';
+
+type Options = {
+  anchorRef?: RefObject<HTMLElement>;
+  display?: 'popover' | 'overlay';
+};
 
 interface Props {
-  display?: 'popover' | 'overlay';
   initialState?: 'open' | 'closed';
   onClose?: () => void;
   onOpen?: () => void;
+  options?: Options;
   placement: Placement;
 }
 
@@ -41,14 +47,22 @@ export interface UsePopoverMenuResult {
 }
 
 export function usePopoverMenu({
-  display = 'popover',
   initialState,
   onClose,
   onOpen,
+  options,
   placement,
 }: Props): UsePopoverMenuResult {
   const [popoverMenuIsOpen, setPopoverMenuIsOpen] = useState(initialState === 'open');
   const [focusedMenuItemIndex, setFocusedMenuItemIndex] = useState(-1);
+
+  const { display = 'popover', anchorRef } = options || {};
+
+  const isMobileView = useMediaQuery(`(max-width: ${getRem(420)})`);
+  const isOverlayActive = display === 'overlay' && isMobileView;
+  const stableOverflow = useStableBodyOverflow({
+    isActive: popoverMenuIsOpen && isOverlayActive,
+  });
 
   const popoverMenuId = useId();
   const popoverMenuTriggerId = useId();
@@ -63,13 +77,21 @@ export function usePopoverMenu({
       onClose?.();
       setFocusedMenuItemIndex(-1);
       setPopoverMenuIsOpen(false);
+
+      if (isOverlayActive) {
+        stableOverflow.disable();
+      }
       return;
     }
 
     onOpen?.();
     setFocusedMenuItemIndex(0);
     setPopoverMenuIsOpen(true);
-  }, [onClose, onOpen, popoverMenuIsOpen]);
+
+    if (isOverlayActive) {
+      stableOverflow.enable();
+    }
+  }, [isOverlayActive, onClose, onOpen, popoverMenuIsOpen, stableOverflow]);
 
   const handleKeyDown = useCallback(
     (event: KeyboardEvent): void => {
@@ -193,7 +215,7 @@ export function usePopoverMenu({
    * Handle FloatingUI positioning.
    */
   useEffect(() => {
-    const triggerEl = popoverMenuTriggerRef.current;
+    const triggerEl = anchorRef?.current ?? popoverMenuTriggerRef.current;
     const menuEl = popoverMenuRef.current;
 
     if (!triggerEl || !menuEl || !popoverMenuIsOpen) {
@@ -225,7 +247,7 @@ export function usePopoverMenu({
     return () => {
       cleanup();
     };
-  }, [placement, popoverMenuIsOpen]);
+  }, [anchorRef, placement, popoverMenuIsOpen]);
 
   return {
     actions: {

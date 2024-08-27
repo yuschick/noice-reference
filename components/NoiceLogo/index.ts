@@ -11,3 +11,5 @@ export { default as NoiceLogoTypeDark } from './assets/logo-noice-type-dark.svg'
 export { default as NoiceLogoTypeLight } from './assets/logo-noice-type-light.svg';
 export { default as NoiceLogoVerticalSpectrumDark } from './assets/logo-noice-vertical-spectrum-dark.svg';
 export { default as NoiceLogoVerticalSpectrumLight } from './assets/logo-noice-vertical-spectrum-light.svg';
+
+export type { NoiceLogoBase, NoiceLogoMark } from './NoiceLogo.types';

@@ -1,43 +1,42 @@
-import { CoreAssets } from "@noice-com/assets-core";
-import { Meta, StoryObj } from "@storybook/react";
+import { CoreAssets } from '@noice-com/assets-core';
+import { Meta, StoryObj } from '@storybook/react';
 
-import { Icon } from "../Icon";
+import { Icon } from '../Icon';
 
-import { InputField, inputFieldColors } from "./InputField";
+import { InputField, inputFieldThemes } from './InputField';
 
 const meta: Meta<typeof InputField> = {
-  title: "Input Field",
+  title: 'Input Field',
   component: InputField,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   args: {
-    size: "lg",
+    size: 'lg',
   },
   argTypes: {
     theme: {
-      control: { type: "select" },
-      defaultValue: "light",
-      description:
-        "Provide the color scheme for the input. Defaults to 'light'.",
-      options: inputFieldColors,
+      control: { type: 'select' },
+      defaultValue: 'light',
+      description: "Provide the color theme for the input. Defaults to 'light'.",
+      options: inputFieldThemes,
     },
     error: {
-      control: { type: "object" },
+      control: { type: 'object' },
       description: `When the field is invalid, provide a message to describe the error. This message will be announced to assistive technologies and trigger the invalid UI styles for the component.`,
     },
     isDisabled: {
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
       description:
-        "Mark the field as disabled. This should only ever happen when a form is submitting. Otherwise, if the field should be rendered without the ability to edit, either display the value is raw text, or use the input in `readonly` mode.",
+        'Mark the field as disabled. This should only ever happen when a form is submitting. Otherwise, if the field should be rendered without the ability to edit, either display the value is raw text, or use the input in `readonly` mode.',
     },
     readOnly: {
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
       description:
-        "Mark the field as read-only. This should only ever happen when a form is submitting. Otherwise, if the field should be rendered without the ability to edit, either display the value is raw text, or use the input in `readonly` mode.",
+        'Mark the field as read-only. This should only ever happen when a form is submitting. Otherwise, if the field should be rendered without the ability to edit, either display the value is raw text, or use the input in `readonly` mode.',
     },
     ref: {
       control: { type: null },
       description:
-        "The RefObject<HTMLInputElement> to provide the underlying `<input>` element.",
+        'The RefObject<HTMLInputElement> to provide the underlying `<input>` element.',
     },
   },
   parameters: {
@@ -59,7 +58,7 @@ type Story = StoryObj<typeof InputField>;
 
 export const Default: Story = {
   args: {
-    label: "Default input",
+    label: 'Default input',
   },
   parameters: {
     docs: {
@@ -79,10 +78,44 @@ export const Colors: Story = {
     },
   },
   render: (args) => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-      <InputField {...args} label="Light input (Default)" />
-      <InputField {...args} theme="blue" label="Blue input" />
-      <InputField {...args} theme="gray" label="Gray input" />
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <InputField
+        {...args}
+        label="Light input (Default)"
+      />
+      <InputField
+        {...args}
+        label="Blue input"
+        theme="blue"
+      />
+      <InputField
+        {...args}
+        label="Gray input"
+        theme="gray"
+      />
+    </div>
+  ),
+};
+
+export const Shapes: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: `The \`InputField\` component supports two shapes: \`rounded\` and \`pill\`. The default is \`rounded\`.`,
+      },
+    },
+  },
+  render: (args) => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <InputField
+        {...args}
+        label="Rounded input (Default)"
+      />
+      <InputField
+        {...args}
+        label="Pill input"
+        shape="pill"
+      />
     </div>
   ),
 };
@@ -98,65 +131,56 @@ Additionally, if a field is invalid, focus will be moved to it. If there are mul
     },
   },
   render: (args) => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-      <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
         <InputField
           {...args}
-          error={{ message: "The email address is not a valid format." }}
+          error={{ message: 'The email address is not a valid format.' }}
           label="Light input (Default)"
           value="look@you"
         />
         <InputField
           {...args}
-          theme="blue"
-          error={{ message: "The email address is not a valid format." }}
+          error={{ message: 'The email address is not a valid format.' }}
           label="Blue input"
+          theme="blue"
           value="look@you"
         />
         <InputField
           {...args}
-          theme="gray"
-          error={{ message: "The email address is not a valid format." }}
+          error={{ message: 'The email address is not a valid format.' }}
           label="Gray input"
+          theme="gray"
           value="look@you"
         />
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
         <InputField
           {...args}
-          error={{
-            message: "The email address is not a valid format.",
-            type: "visible",
-          }}
+          error={{ message: 'The email address is not a valid format.', type: 'visible' }}
           label="Light input (Default)"
           value="look@you"
         />
         <InputField
           {...args}
-          theme="blue"
-          error={{
-            message: "The email address is not a valid format.",
-            type: "visible",
-          }}
+          error={{ message: 'The email address is not a valid format.', type: 'visible' }}
           label="Blue input"
+          theme="blue"
           value="look@you"
         />
         <InputField
           {...args}
-          theme="gray"
-          error={{
-            message: "The email address is not a valid format.",
-            type: "visible",
-          }}
+          error={{ message: 'The email address is not a valid format.', type: 'visible' }}
           label="Gray input"
+          theme="gray"
           value="look@you"
         />
         <InputField
           {...args}
-          theme="gray"
           defaultValue="look@you."
           label="Native error"
+          theme="gray"
           type="email"
         />
       </div>
@@ -173,7 +197,7 @@ export const Description: Story = {
     },
   },
   render: (args) => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       <InputField
         {...args}
         description="Must be at least 8 characters long."
@@ -181,15 +205,15 @@ export const Description: Story = {
       />
       <InputField
         {...args}
-        theme="blue"
         description="This is a super long hint that will wrap to multiple lines. This is a super long hint that will wrap to multiple lines. This is a super long hint that will wrap to multiple lines. This is a super long hint that will wrap to multiple lines."
         label="With hint"
+        theme="blue"
       />
       <InputField
         {...args}
-        theme="gray"
         description="This is a super long hint that will wrap to multiple lines. This is a super long hint that will wrap to multiple lines. This is a super long hint that will wrap to multiple lines. This is a super long hint that will wrap to multiple lines."
         label="With hint"
+        theme="gray"
       />
     </div>
   ),
@@ -197,12 +221,12 @@ export const Description: Story = {
 
 export const Label: Story = {
   args: {
-    label: "First name",
+    label: 'First name',
   },
   parameters: {
     docs: {
       description: {
-        story: `Provide a label to be used visually and associated with the input field for assistive technologies. The label can have a \`labelType\` of either 'floating (default)' or 'hidden'.`,
+        story: `Provide a label to be used visually and associated with the input field for assistive technologies. The label can have a \`labelType\` of either 'floating (default)', 'hidden' or 'disappearing'.`,
       },
       required: true,
     },
@@ -211,54 +235,96 @@ export const Label: Story = {
     <>
       <div
         style={{
-          color: "var(--noi-color-text-dark",
-          display: "flex",
-          flexDirection: "column",
-          gap: "1rem",
-          marginBlockEnd: "1rem",
+          color: 'var(--noi-color-text-dark',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '1rem',
+          marginBlockEnd: '1rem',
         }}
       >
         <InputField {...args} />
-        <InputField {...args} theme="blue" />
-        <InputField {...args} theme="gray" />
+        <InputField
+          {...args}
+          theme="blue"
+        />
+        <InputField
+          {...args}
+          theme="gray"
+        />
       </div>
 
       <div
         style={{
-          color: "var(--noi-color-text-dark",
-          display: "flex",
-          flexDirection: "column",
-          gap: "1rem",
+          color: 'var(--noi-color-text-dark',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '1rem',
+          marginBlockEnd: '1rem',
         }}
       >
         <p>Hidden Label</p>
-        <InputField {...args} labelType="hidden" />
-        <InputField {...args} theme="blue" labelType="hidden" />
-        <InputField {...args} theme="gray" labelType="hidden" />
+        <InputField
+          {...args}
+          labelType="hidden"
+        />
+        <InputField
+          {...args}
+          labelType="hidden"
+          theme="blue"
+        />
+        <InputField
+          {...args}
+          labelType="hidden"
+          theme="gray"
+        />
+      </div>
+
+      <div
+        style={{
+          color: 'var(--noi-color-text-dark',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '1rem',
+        }}
+      >
+        <p>Disappearing Label</p>
+        <InputField
+          {...args}
+          labelType="disappearing"
+        />
+        <InputField
+          {...args}
+          labelType="disappearing"
+          theme="blue"
+        />
+        <InputField
+          {...args}
+          labelType="disappearing"
+          theme="gray"
+        />
       </div>
     </>
   ),
 };
 
-const SlotButton = ({
-  iconColor,
-}: {
-  iconColor: (typeof inputFieldColors)[number];
-}) => (
+const SlotButton = ({ iconColor }: { iconColor: (typeof inputFieldThemes)[number] }) => (
   <button
     aria-label="Non-functional demo button"
     style={{
-      backgroundColor: "transparent",
-      inlineSize: "100%",
-      borderRadius: "var(--noi-border-radius-circle)",
+      backgroundColor: 'transparent',
+      inlineSize: '100%',
+      borderRadius: 'var(--noi-border-radius-circle)',
       padding: 0,
-      display: "grid",
-      placeItems: "center",
+      display: 'grid',
+      placeItems: 'center',
     }}
     type="button"
     onClick={() => false}
   >
-    <Icon color={`${iconColor}-main`} icon={CoreAssets.Icons.Exclamation} />
+    <Icon
+      color={`${iconColor}-main`}
+      icon={CoreAssets.Icons.Exclamation}
+    />
   </button>
 );
 
@@ -271,7 +337,7 @@ export const Slots: Story = {
     },
   },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       <InputField
         label="Slots InputStart"
         size="lg"
@@ -280,22 +346,22 @@ export const Slots: Story = {
         }}
       />
       <InputField
-        theme="blue"
         label="Slots InputEnd"
         size="lg"
         slots={{
           inputEnd: <SlotButton iconColor="light" />,
         }}
+        theme="blue"
         type="password"
       />
       <InputField
-        theme="gray"
         label="Slots Both"
         size="lg"
         slots={{
           inputEnd: <SlotButton iconColor="light" />,
           inputStart: <SlotButton iconColor="light" />,
         }}
+        theme="gray"
       />
     </div>
   ),

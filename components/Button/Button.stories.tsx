@@ -1,89 +1,89 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { BiChevronLeft, BiChevronDown } from "react-icons/bi";
+import { Meta, StoryObj } from '@storybook/react';
+import { BiChevronLeft, BiChevronDown } from 'react-icons/bi';
 
-import { Button } from "./Button";
+import { Button } from './Button';
 import {
-  buttonColors,
+  buttonThemes,
   buttonLevels,
   buttonShapes,
   buttonSizes,
   buttonVariants,
-} from "./Button.types";
+} from './Button.types';
 
 const meta: Meta<typeof Button> = {
-  title: "Button",
+  title: 'Button',
   component: Button,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   args: {
-    children: "Button",
+    children: 'Button',
   },
   argTypes: {
-    theme: {
-      control: { type: "select" },
-      defaultValue: "light",
-      description: "Define the theme palette of the button.",
-      options: buttonColors,
-    },
     fit: {
-      control: { type: "select" },
-      defaultValue: "container",
+      control: { type: 'select' },
+      defaultValue: 'container',
       description:
-        "Define the fit of the button. If `container` (default), the button will stretch to fill its container. If `content` the button will shrink to the size of its content only.",
-      options: ["container", "content"],
+        'Define the fit of the button. If `container` (default), the button will stretch to fill its container. If `content` the button will shrink to the size of its content only.',
+      options: ['container', 'content'],
     },
     iconEnd: {
-      control: { type: "text" },
+      control: { type: 'text' },
       description:
-        "Provide an `SvgComponent` to be rendered at the inline end of the button.",
+        'Provide an `SvgComponent` to be rendered at the inline end of the button.',
     },
     iconStart: {
-      control: { type: "text" },
+      control: { type: 'text' },
       description:
-        "Provide an `SvgComponent` to be rendered at the inline start of the button.",
+        'Provide an `SvgComponent` to be rendered at the inline start of the button.',
     },
     isDisabled: {
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
       defaultValue: false,
       description:
-        "Define if the button is disabled. This props maps to `aria-disabled` instead of `disabled` and avoids using `pointer-events: none` to allow for better accessibility.",
+        'Define if the button is disabled. This props maps to `aria-disabled` instead of `disabled` and avoids using `pointer-events: none` to allow for better accessibility.',
     },
     isLoading: {
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
       defaultValue: false,
       description:
-        "Define if the button is in a loading state. This will also disable the button from additional triggers.",
+        'Define if the button is in a loading state. This will also disable the button from additional triggers.',
     },
     level: {
-      control: { type: "select" },
-      defaultValue: "primary",
-      description: "Define the hierarchy level of the button.",
+      control: { type: 'select' },
+      defaultValue: 'primary',
+      description: 'Define the hierarchy level of the button.',
       options: buttonLevels,
     },
     ref: {
-      description: "Define a HTMLButtonElement ref to be passed to the button.",
+      description: 'Define a HTMLButtonElement ref to be passed to the button.',
     },
     shape: {
-      control: { type: "select" },
-      defaultValue: "pill",
-      description: "Define the shape of the button.",
+      control: { type: 'select' },
+      defaultValue: 'pill',
+      description: 'Define the shape of the button.',
       options: buttonShapes,
     },
     size: {
-      control: { type: "select" },
-      defaultValue: "md",
+      control: { type: 'select' },
+      defaultValue: 'md',
       description:
-        "Define the size of the button. This value defines the button block size, while the inline size is built to fill its container.",
+        'Define the size of the button. This value defines the button block size, while the inline size is built to fill its container.',
       options: buttonSizes,
     },
+    theme: {
+      control: { type: 'select' },
+      defaultValue: 'light',
+      description: 'Define the color theme of the button.',
+      options: buttonThemes,
+    },
     variant: {
-      control: { type: "select" },
-      defaultValue: "solid",
-      description: "Define the button variant, or style, type.",
+      control: { type: 'select' },
+      defaultValue: 'solid',
+      description: 'Define the button variant, or style, type.',
       options: buttonVariants,
     },
   },
   parameters: {
-    backgrounds: { default: "dark" },
+    backgrounds: { default: 'dark' },
     docs: {
       description: {
         component: `The base button component with multiple variant, level and color combinations. The button supports icons at either or both sides, and incorporates accessibility benefits while disabled and loading.
@@ -100,12 +100,12 @@ type Story = StoryObj<typeof Button>;
 
 export const Default: Story = {
   args: {
-    theme: "light",
-    variant: "solid",
-    level: "primary",
+    theme: 'light',
+    variant: 'solid',
+    level: 'primary',
   },
   render: (args) => (
-    <div style={{ inlineSize: "500px" }}>
+    <div style={{ inlineSize: '500px' }}>
       <Button {...args}>Button</Button>
     </div>
   ),
@@ -113,7 +113,7 @@ export const Default: Story = {
 
 export const CTAButtons: Story = {
   args: {
-    variant: "cta",
+    variant: 'cta',
   },
   parameters: {
     docs: {
@@ -125,66 +125,121 @@ export const CTAButtons: Story = {
   render: (args) => (
     <div
       style={{
-        display: "grid",
-        gap: "2rem",
-        gridTemplateColumns: "repeat(auto-fill, minmax(100px, 1fr))",
+        display: 'grid',
+        gap: '2rem',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))',
       }}
     >
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} size="xs" />
-        <Button {...args} size="sm" />
+        <Button
+          {...args}
+          size="xs"
+        />
+        <Button
+          {...args}
+          size="sm"
+        />
         <Button {...args} />
-        <Button {...args} size="lg" />
+        <Button
+          {...args}
+          size="lg"
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} size="xs" isDisabled />
-        <Button {...args} size="sm" isDisabled />
-        <Button {...args} isDisabled />
-        <Button {...args} size="lg" isDisabled />
+        <Button
+          {...args}
+          size="xs"
+          isDisabled
+        />
+        <Button
+          {...args}
+          size="sm"
+          isDisabled
+        />
+        <Button
+          {...args}
+          isDisabled
+        />
+        <Button
+          {...args}
+          size="lg"
+          isDisabled
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} size="xs" isLoading />
-        <Button {...args} size="sm" isLoading />
-        <Button {...args} isLoading />
-        <Button {...args} size="lg" isLoading />
+        <Button
+          {...args}
+          size="xs"
+          isLoading
+        />
+        <Button
+          {...args}
+          size="sm"
+          isLoading
+        />
+        <Button
+          {...args}
+          isLoading
+        />
+        <Button
+          {...args}
+          size="lg"
+          isLoading
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} iconStart={BiChevronLeft} size="xs" />
-        <Button {...args} iconStart={BiChevronLeft} size="sm" />
-        <Button {...args} iconEnd={BiChevronDown} iconStart={BiChevronLeft} />
-        <Button {...args} iconEnd={BiChevronDown} size="lg" />
+        <Button
+          {...args}
+          iconStart={BiChevronLeft}
+          size="xs"
+        />
+        <Button
+          {...args}
+          iconStart={BiChevronLeft}
+          size="sm"
+        />
+        <Button
+          {...args}
+          iconEnd={BiChevronDown}
+          iconStart={BiChevronLeft}
+        />
+        <Button
+          {...args}
+          iconEnd={BiChevronDown}
+          size="lg"
+        />
       </div>
     </div>
   ),
@@ -192,8 +247,8 @@ export const CTAButtons: Story = {
 
 export const SolidLightPrimaryButtons: Story = {
   args: {
-    theme: "light",
-    variant: "solid",
+    theme: 'light',
+    variant: 'solid',
   },
   parameters: {
     docs: {
@@ -205,66 +260,121 @@ export const SolidLightPrimaryButtons: Story = {
   render: (args) => (
     <div
       style={{
-        display: "grid",
-        gap: "2rem",
-        gridTemplateColumns: "repeat(auto-fill, minmax(100px, 1fr))",
+        display: 'grid',
+        gap: '2rem',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))',
       }}
     >
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} size="xs" />
-        <Button {...args} size="sm" />
+        <Button
+          {...args}
+          size="xs"
+        />
+        <Button
+          {...args}
+          size="sm"
+        />
         <Button {...args} />
-        <Button {...args} size="lg" />
+        <Button
+          {...args}
+          size="lg"
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} size="xs" isDisabled />
-        <Button {...args} size="sm" isDisabled />
-        <Button {...args} isDisabled />
-        <Button {...args} size="lg" isDisabled />
+        <Button
+          {...args}
+          size="xs"
+          isDisabled
+        />
+        <Button
+          {...args}
+          size="sm"
+          isDisabled
+        />
+        <Button
+          {...args}
+          isDisabled
+        />
+        <Button
+          {...args}
+          size="lg"
+          isDisabled
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} size="xs" isLoading />
-        <Button {...args} size="sm" isLoading />
-        <Button {...args} isLoading />
-        <Button {...args} size="lg" isLoading />
+        <Button
+          {...args}
+          size="xs"
+          isLoading
+        />
+        <Button
+          {...args}
+          size="sm"
+          isLoading
+        />
+        <Button
+          {...args}
+          isLoading
+        />
+        <Button
+          {...args}
+          size="lg"
+          isLoading
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} iconStart={BiChevronLeft} size="xs" />
-        <Button {...args} iconStart={BiChevronLeft} size="sm" />
-        <Button {...args} iconEnd={BiChevronDown} iconStart={BiChevronLeft} />
-        <Button {...args} iconEnd={BiChevronDown} size="lg" />
+        <Button
+          {...args}
+          iconStart={BiChevronLeft}
+          size="xs"
+        />
+        <Button
+          {...args}
+          iconStart={BiChevronLeft}
+          size="sm"
+        />
+        <Button
+          {...args}
+          iconEnd={BiChevronDown}
+          iconStart={BiChevronLeft}
+        />
+        <Button
+          {...args}
+          iconEnd={BiChevronDown}
+          size="lg"
+        />
       </div>
     </div>
   ),
@@ -272,9 +382,9 @@ export const SolidLightPrimaryButtons: Story = {
 
 export const SolidLightSecondaryButtons: Story = {
   args: {
-    theme: "light",
-    level: "secondary",
-    variant: "solid",
+    theme: 'light',
+    level: 'secondary',
+    variant: 'solid',
   },
   parameters: {
     docs: {
@@ -286,66 +396,121 @@ export const SolidLightSecondaryButtons: Story = {
   render: (args) => (
     <div
       style={{
-        display: "grid",
-        gap: "2rem",
-        gridTemplateColumns: "repeat(auto-fill, minmax(100px, 1fr))",
+        display: 'grid',
+        gap: '2rem',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))',
       }}
     >
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} size="xs" />
-        <Button {...args} size="sm" />
+        <Button
+          {...args}
+          size="xs"
+        />
+        <Button
+          {...args}
+          size="sm"
+        />
         <Button {...args} />
-        <Button {...args} size="lg" />
+        <Button
+          {...args}
+          size="lg"
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} size="xs" isDisabled />
-        <Button {...args} size="sm" isDisabled />
-        <Button {...args} isDisabled />
-        <Button {...args} size="lg" isDisabled />
+        <Button
+          {...args}
+          size="xs"
+          isDisabled
+        />
+        <Button
+          {...args}
+          size="sm"
+          isDisabled
+        />
+        <Button
+          {...args}
+          isDisabled
+        />
+        <Button
+          {...args}
+          size="lg"
+          isDisabled
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} size="xs" isLoading />
-        <Button {...args} size="sm" isLoading />
-        <Button {...args} isLoading />
-        <Button {...args} size="lg" isLoading />
+        <Button
+          {...args}
+          size="xs"
+          isLoading
+        />
+        <Button
+          {...args}
+          size="sm"
+          isLoading
+        />
+        <Button
+          {...args}
+          isLoading
+        />
+        <Button
+          {...args}
+          size="lg"
+          isLoading
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} iconStart={BiChevronLeft} size="xs" />
-        <Button {...args} iconStart={BiChevronLeft} size="sm" />
-        <Button {...args} iconEnd={BiChevronDown} iconStart={BiChevronLeft} />
-        <Button {...args} iconEnd={BiChevronDown} size="lg" />
+        <Button
+          {...args}
+          iconStart={BiChevronLeft}
+          size="xs"
+        />
+        <Button
+          {...args}
+          iconStart={BiChevronLeft}
+          size="sm"
+        />
+        <Button
+          {...args}
+          iconEnd={BiChevronDown}
+          iconStart={BiChevronLeft}
+        />
+        <Button
+          {...args}
+          iconEnd={BiChevronDown}
+          size="lg"
+        />
       </div>
     </div>
   ),
@@ -353,11 +518,11 @@ export const SolidLightSecondaryButtons: Story = {
 
 export const SolidDarkPrimaryButtons: Story = {
   args: {
-    theme: "dark",
-    variant: "solid",
+    theme: 'dark',
+    variant: 'solid',
   },
   parameters: {
-    backgrounds: { default: "light" },
+    backgrounds: { default: 'light' },
     docs: {
       description: {
         story: `Solid buttons will be used most often, with multiple colors and levels. They can be used in any context, and should be used for secondary and lesser actions on a page.`,
@@ -367,66 +532,121 @@ export const SolidDarkPrimaryButtons: Story = {
   render: (args) => (
     <div
       style={{
-        display: "grid",
-        gap: "2rem",
-        gridTemplateColumns: "repeat(auto-fill, minmax(100px, 1fr))",
+        display: 'grid',
+        gap: '2rem',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))',
       }}
     >
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} size="xs" />
-        <Button {...args} size="sm" />
+        <Button
+          {...args}
+          size="xs"
+        />
+        <Button
+          {...args}
+          size="sm"
+        />
         <Button {...args} />
-        <Button {...args} size="lg" />
+        <Button
+          {...args}
+          size="lg"
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} size="xs" isDisabled />
-        <Button {...args} size="sm" isDisabled />
-        <Button {...args} isDisabled />
-        <Button {...args} size="lg" isDisabled />
+        <Button
+          {...args}
+          size="xs"
+          isDisabled
+        />
+        <Button
+          {...args}
+          size="sm"
+          isDisabled
+        />
+        <Button
+          {...args}
+          isDisabled
+        />
+        <Button
+          {...args}
+          size="lg"
+          isDisabled
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} size="xs" isLoading />
-        <Button {...args} size="sm" isLoading />
-        <Button {...args} isLoading />
-        <Button {...args} size="lg" isLoading />
+        <Button
+          {...args}
+          size="xs"
+          isLoading
+        />
+        <Button
+          {...args}
+          size="sm"
+          isLoading
+        />
+        <Button
+          {...args}
+          isLoading
+        />
+        <Button
+          {...args}
+          size="lg"
+          isLoading
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} iconStart={BiChevronLeft} size="xs" />
-        <Button {...args} iconStart={BiChevronLeft} size="sm" />
-        <Button {...args} iconEnd={BiChevronDown} iconStart={BiChevronLeft} />
-        <Button {...args} iconEnd={BiChevronDown} size="lg" />
+        <Button
+          {...args}
+          iconStart={BiChevronLeft}
+          size="xs"
+        />
+        <Button
+          {...args}
+          iconStart={BiChevronLeft}
+          size="sm"
+        />
+        <Button
+          {...args}
+          iconEnd={BiChevronDown}
+          iconStart={BiChevronLeft}
+        />
+        <Button
+          {...args}
+          iconEnd={BiChevronDown}
+          size="lg"
+        />
       </div>
     </div>
   ),
@@ -434,12 +654,12 @@ export const SolidDarkPrimaryButtons: Story = {
 
 export const SolidDarkSecondaryButtons: Story = {
   args: {
-    theme: "dark",
-    level: "secondary",
-    variant: "solid",
+    theme: 'dark',
+    level: 'secondary',
+    variant: 'solid',
   },
   parameters: {
-    backgrounds: { default: "light" },
+    backgrounds: { default: 'light' },
     docs: {
       description: {
         story: `Solid buttons will be used most often, with multiple colors and levels. They can be used in any context, and should be used for secondary and lesser actions on a page.`,
@@ -449,66 +669,121 @@ export const SolidDarkSecondaryButtons: Story = {
   render: (args) => (
     <div
       style={{
-        display: "grid",
-        gap: "2rem",
-        gridTemplateColumns: "repeat(auto-fill, minmax(100px, 1fr))",
+        display: 'grid',
+        gap: '2rem',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))',
       }}
     >
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} size="xs" />
-        <Button {...args} size="sm" />
+        <Button
+          {...args}
+          size="xs"
+        />
+        <Button
+          {...args}
+          size="sm"
+        />
         <Button {...args} />
-        <Button {...args} size="lg" />
+        <Button
+          {...args}
+          size="lg"
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} size="xs" isDisabled />
-        <Button {...args} size="sm" isDisabled />
-        <Button {...args} isDisabled />
-        <Button {...args} size="lg" isDisabled />
+        <Button
+          {...args}
+          size="xs"
+          isDisabled
+        />
+        <Button
+          {...args}
+          size="sm"
+          isDisabled
+        />
+        <Button
+          {...args}
+          isDisabled
+        />
+        <Button
+          {...args}
+          size="lg"
+          isDisabled
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} size="xs" isLoading />
-        <Button {...args} size="sm" isLoading />
-        <Button {...args} isLoading />
-        <Button {...args} size="lg" isLoading />
+        <Button
+          {...args}
+          size="xs"
+          isLoading
+        />
+        <Button
+          {...args}
+          size="sm"
+          isLoading
+        />
+        <Button
+          {...args}
+          isLoading
+        />
+        <Button
+          {...args}
+          size="lg"
+          isLoading
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} iconStart={BiChevronLeft} size="xs" />
-        <Button {...args} iconStart={BiChevronLeft} size="sm" />
-        <Button {...args} iconEnd={BiChevronDown} iconStart={BiChevronLeft} />
-        <Button {...args} iconEnd={BiChevronDown} size="lg" />
+        <Button
+          {...args}
+          iconStart={BiChevronLeft}
+          size="xs"
+        />
+        <Button
+          {...args}
+          iconStart={BiChevronLeft}
+          size="sm"
+        />
+        <Button
+          {...args}
+          iconEnd={BiChevronDown}
+          iconStart={BiChevronLeft}
+        />
+        <Button
+          {...args}
+          iconEnd={BiChevronDown}
+          size="lg"
+        />
       </div>
     </div>
   ),
@@ -516,7 +791,7 @@ export const SolidDarkSecondaryButtons: Story = {
 
 export const GhostButtons: Story = {
   args: {
-    variant: "ghost",
+    variant: 'ghost',
   },
   parameters: {
     docs: {
@@ -528,80 +803,154 @@ export const GhostButtons: Story = {
   render: (args) => (
     <div
       style={{
-        display: "grid",
-        gap: "2rem",
-        gridTemplateColumns: "repeat(auto-fill, minmax(100px, 1fr))",
+        display: 'grid',
+        gap: '2rem',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))',
       }}
     >
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} size="xs" />
-        <Button {...args} size="sm" />
+        <Button
+          {...args}
+          size="xs"
+        />
+        <Button
+          {...args}
+          size="sm"
+        />
         <Button {...args} />
-        <Button {...args} size="lg" />
+        <Button
+          {...args}
+          size="lg"
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} theme="dark" size="xs" variant="ghost" />
-        <Button {...args} theme="dark" size="sm" variant="ghost" />
-        <Button {...args} theme="dark" variant="ghost" />
-        <Button {...args} theme="dark" size="lg" variant="ghost" />
+        <Button
+          {...args}
+          size="xs"
+          theme="dark"
+          variant="ghost"
+        />
+        <Button
+          {...args}
+          size="sm"
+          theme="dark"
+          variant="ghost"
+        />
+        <Button
+          {...args}
+          theme="dark"
+          variant="ghost"
+        />
+        <Button
+          {...args}
+          size="lg"
+          theme="dark"
+          variant="ghost"
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} size="xs" isDisabled />
-        <Button {...args} size="sm" isDisabled />
-        <Button {...args} isDisabled />
-        <Button {...args} size="lg" isDisabled />
+        <Button
+          {...args}
+          size="xs"
+          isDisabled
+        />
+        <Button
+          {...args}
+          size="sm"
+          isDisabled
+        />
+        <Button
+          {...args}
+          isDisabled
+        />
+        <Button
+          {...args}
+          size="lg"
+          isDisabled
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} size="xs" isLoading />
-        <Button {...args} size="sm" isLoading />
-        <Button {...args} isLoading />
-        <Button {...args} size="lg" isLoading />
+        <Button
+          {...args}
+          size="xs"
+          isLoading
+        />
+        <Button
+          {...args}
+          size="sm"
+          isLoading
+        />
+        <Button
+          {...args}
+          isLoading
+        />
+        <Button
+          {...args}
+          size="lg"
+          isLoading
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <Button {...args} iconStart={BiChevronLeft} size="xs" />
-        <Button {...args} iconStart={BiChevronLeft} size="sm" />
-        <Button {...args} iconEnd={BiChevronDown} iconStart={BiChevronLeft} />
-        <Button {...args} iconEnd={BiChevronDown} size="lg" />
+        <Button
+          {...args}
+          iconStart={BiChevronLeft}
+          size="xs"
+        />
+        <Button
+          {...args}
+          iconStart={BiChevronLeft}
+          size="sm"
+        />
+        <Button
+          {...args}
+          iconEnd={BiChevronDown}
+          iconStart={BiChevronLeft}
+        />
+        <Button
+          {...args}
+          iconEnd={BiChevronDown}
+          size="lg"
+        />
       </div>
     </div>
   ),
@@ -609,7 +958,7 @@ export const GhostButtons: Story = {
 
 export const ButtonShapes: Story = {
   args: {
-    variant: "solid",
+    variant: 'solid',
   },
   parameters: {
     docs: {
@@ -623,13 +972,19 @@ export const ButtonShapes: Story = {
   render: (args) => (
     <div
       style={{
-        display: "grid",
-        gap: "2rem",
-        gridTemplateColumns: "repeat(auto-fill, minmax(100px, 1fr))",
+        display: 'grid',
+        gap: '2rem',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))',
       }}
     >
-      <Button {...args} shape="sharp" />
-      <Button {...args} shape="rounded" />
+      <Button
+        {...args}
+        shape="sharp"
+      />
+      <Button
+        {...args}
+        shape="rounded"
+      />
       <Button {...args} />
     </div>
   ),
@@ -637,24 +992,30 @@ export const ButtonShapes: Story = {
 
 export const Fit: Story = {
   args: {
-    theme: "light",
-    variant: "solid",
-    level: "primary",
+    theme: 'light',
+    variant: 'solid',
+    level: 'primary',
   },
   parameters: {
     docs: {
       description: {
         story:
-          "A button can be sized to either its container or its content by providing a `fit` prop. The default is `container`.",
+          'A button can be sized to either its container or its content by providing a `fit` prop. The default is `container`.',
       },
     },
   },
   render: (args) => (
-    <div style={{ inlineSize: "500px", display: "grid", gap: "1rem" }}>
-      <Button fit="container" {...args}>
+    <div style={{ inlineSize: '500px', display: 'grid', gap: '1rem' }}>
+      <Button
+        fit="container"
+        {...args}
+      >
         Container
       </Button>
-      <Button fit="content" {...args}>
+      <Button
+        fit="content"
+        {...args}
+      >
         Content
       </Button>
     </div>

@@ -8,7 +8,11 @@ import { Image } from '../Image';
 
 import styles from './ProfileImage.module.css';
 
-import { ProfileImageProfileFragment, ProfilePresenceStatus } from '@common-gen';
+import {
+  ProfileImageProfileFragment,
+  ProfileImageShowOnlineStatusProfileFragment,
+  ProfilePresenceStatus,
+} from '@common-gen';
 
 export const profileImageSizes = ['xs', 'sm', 'md', 'lg'] as const;
 export const profileImageStatuses = ['offline', 'online'] as const;
@@ -20,24 +24,24 @@ const sizeMap = {
   lg: 56,
 };
 
-interface Props
-  extends Omit<
-    ImgHTMLAttributes<HTMLImageElement>,
-    'alt' | 'className' | 'onError' | 'src' | 'style' | 'onLoad'
-  > {
-  /**
-   * The profile containing the user name and profile image to use.
-   */
-  profile: ProfileImageProfileFragment;
-  /**
-   * Show the offline or online status of the account.
-   */
-  showOnlineStatus?: boolean;
-  /**
-   * Override the default (md) size of the profile image.
-   */
-  size?: (typeof profileImageSizes)[number];
+interface ShowOnlineProps {
+  showOnlineStatus: true;
+  profile: ProfileImageShowOnlineStatusProfileFragment;
 }
+
+type Props = Omit<
+  ImgHTMLAttributes<HTMLImageElement>,
+  'alt' | 'className' | 'onError' | 'src' | 'style' | 'onLoad'
+> &
+  (
+    | ShowOnlineProps
+    | { profile: ProfileImageProfileFragment; showOnlineStatus?: false }
+  ) & {
+    /**
+     * Override the default (md) size of the profile image.
+     */
+    size?: (typeof profileImageSizes)[number];
+  };
 
 export function ProfileImage({
   profile,
@@ -79,18 +83,20 @@ export function ProfileImage({
         )}
       </div>
 
-      <div
-        aria-live="polite"
-        className={styles.profileStatusWrapper}
-      >
-        {showAsOnline && (
-          <div
-            aria-label={`${profile.userTag} is online`}
-            className={styles.profileStatusIndicator}
-            role="status"
-          />
-        )}
-      </div>
+      {showOnlineStatus && (
+        <div
+          aria-live="polite"
+          className={styles.profileStatusWrapper}
+        >
+          {showAsOnline && (
+            <div
+              aria-label={`${profile.userTag} is online`}
+              className={styles.profileStatusIndicator}
+              role="status"
+            />
+          )}
+        </div>
+      )}
     </div>
   );
 }
@@ -101,6 +107,17 @@ ProfileImage.Loading = ({ size = 'md' }: Pick<Props, 'size'>) => (
   </span>
 );
 
+ProfileImage.Empty = ({ size = 'md' }: Pick<Props, 'size'>) => (
+  <div className={classNames(styles.profileImageStatusWrapper, styles[size])}>
+    <div className={styles.profileImageWrapper}>
+      <Icon
+        className={styles.profileImagePlaceholder}
+        icon={CoreAssets.Icons.AvatarPlaceholder}
+      />
+    </div>
+  </div>
+);
+
 ProfileImage.fragments = {
   entry: gql`
     fragment ProfileImageProfile on ProfileProfile {
@@ -108,6 +125,10 @@ ProfileImage.fragments = {
         avatar2D
       }
       userTag
+    }
+
+    fragment ProfileImageShowOnlineStatusProfile on ProfileProfile {
+      ...ProfileImageProfile
       onlineStatus
       settings {
         privacy {

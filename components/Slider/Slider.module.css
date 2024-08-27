@@ -1,0 +1,55 @@
+@layer noice.ui {
+  .slider-wrapper {
+    display: grid;
+    grid-template-areas: 'prev items next';
+    grid-template-columns: min-content auto min-content;
+    gap: var(--noi-spacing-2x);
+    align-content: baseline;
+    align-items: start;
+    overflow: clip;
+    max-inline-size: 100%;
+    container: slider / inline-size;
+
+    .next,
+    .prev {
+      display: none;
+      align-self: center;
+    }
+
+    .prev {
+      grid-area: prev;
+    }
+
+    .next {
+      grid-area: next;
+    }
+
+    @media (hover: hover) and (min-width: getRem(791)) {
+      .next,
+      .prev {
+        display: block;
+      }
+    }
+  }
+
+  .slider-items-wrapper {
+    @mixin no-scroll-bar;
+
+    display: flex;
+    flex-wrap: nowrap;
+    grid-area: items;
+    gap: var(--noi-spacing-2x);
+    align-items: start;
+    justify-content: start;
+    overflow-x: auto;
+    max-inline-size: 100%;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior: contain;
+  }
+
+  .slider-item-wrapper {
+    flex-shrink: 0;
+    scroll-snap-stop: normal;
+    scroll-snap-align: start;
+  }
+}

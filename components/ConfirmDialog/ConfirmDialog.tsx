@@ -1,20 +1,14 @@
-import { DialogHTMLAttributes } from "react";
+import { DialogHTMLAttributes } from 'react';
 
-import { Button } from "../Button";
+import { Button } from '../Button';
 
-import styles from "./ConfirmDialog.module.css";
-import { UseConfirmDialogResult } from "./useConfirmDialog.hook";
+import styles from './ConfirmDialog.module.css';
+import { UseConfirmDialogResult } from './useConfirmDialog.hook';
 
 interface Props
   extends Omit<
     DialogHTMLAttributes<HTMLDialogElement>,
-    | "aria-labelledby"
-    | "className"
-    | "open"
-    | "role"
-    | "style"
-    | "tabIndex"
-    | "title"
+    'aria-labelledby' | 'className' | 'open' | 'role' | 'style' | 'tabIndex' | 'title'
   > {
   /**
    * The result of the useConfirmDialog hook containing all data for running the component.
@@ -33,7 +27,11 @@ export function ConfirmDialog({ store, ...htmlAttributes }: Props) {
       role="alertdialog"
       {...htmlAttributes}
     >
-      <form className={styles.confirmForm} method="dialog" ref={state.formRef}>
+      <form
+        className={styles.confirmForm}
+        method="dialog"
+        ref={state.formRef}
+      >
         <div className={styles.confirmFormInnerWrapper}>
           <h1
             className={styles.confirmHeading}
@@ -53,10 +51,10 @@ export function ConfirmDialog({ store, ...htmlAttributes }: Props) {
         <div className={styles.confirmActionsWrapper}>
           {!!actions.cancel?.handler && (
             <Button
-              theme="dark"
               formMethod="dialog"
               isDisabled={actions.confirm.isLoading}
               level="secondary"
+              theme="dark"
               variant="solid"
               onClick={async () => {
                 await actions.cancel?.handler();
@@ -67,9 +65,9 @@ export function ConfirmDialog({ store, ...htmlAttributes }: Props) {
             </Button>
           )}
           <Button
-            theme="dark"
             isLoading={actions.confirm.isLoading}
             level="primary"
+            theme="dark"
             variant="solid"
             onClick={async () => {
               await actions.confirm.handler();

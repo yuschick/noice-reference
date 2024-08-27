@@ -1,10 +1,14 @@
-import { RefObject, useCallback, useId, useRef, useState } from 'react';
+import { RefObject, useCallback, useId, useRef, useState, useMemo } from 'react';
 
 import {
   useLoadingPromise,
   useOnOutsideClick,
   useStableBodyOverflow,
 } from '@common-hooks';
+
+type Options = {
+  closeOnOutsideClick?: boolean;
+};
 
 type ActionOptions = {
   label: string;
@@ -22,25 +26,31 @@ export interface Props {
   onConfirm:
     | (() => Promise<void>)
     | (() => void)
-    | [() => Promise<void> | void, ActionOptions];
+    | [() => Promise<void>, ActionOptions]
+    | [() => void, ActionOptions];
   onOpen?: () => void;
+  options?: Options;
+  title: string;
+}
+
+export interface UseConfirmDialogActions {
+  cancel?: Action;
+  close: () => void;
+  confirm: Action;
+  open: () => void;
+}
+
+export interface UseConfirmDialogState {
+  description?: string;
+  dialogRef: RefObject<HTMLDialogElement>;
+  formRef: RefObject<HTMLFormElement>;
+  labelledById: string;
   title: string;
 }
 
 export interface UseConfirmDialogResult {
-  actions: {
-    cancel?: Action;
-    close: () => void;
-    confirm: Action;
-    open: () => void;
-  };
-  state: {
-    description?: string;
-    dialogRef: RefObject<HTMLDialogElement>;
-    formRef: RefObject<HTMLFormElement>;
-    labelledById: string;
-    title: string;
-  };
+  actions: UseConfirmDialogActions;
+  state: UseConfirmDialogState;
 }
 
 export function useConfirmDialog({
@@ -49,13 +59,19 @@ export function useConfirmDialog({
   onClose,
   onConfirm,
   onOpen,
+  options,
   title,
 }: Props): UseConfirmDialogResult {
   const [dialogIsOpen, setDialogIsOpen] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const labelledById = useId();
-  const stableOverflow = useStableBodyOverflow();
+
+  const { closeOnOutsideClick = true } = options || {};
+
+  const { disable: disableOverflow, enable: enableOverflow } = useStableBodyOverflow({
+    isActive: dialogIsOpen,
+  });
   const confirmAction = Array.isArray(onConfirm) ? onConfirm[0] : onConfirm;
 
   const [handleConfirm, loadingConfirm] = useLoadingPromise(
@@ -66,53 +82,64 @@ export function useConfirmDialog({
     dialogRef.current?.close();
   }, []);
 
-  const cancel = onCancel
-    ? Array.isArray(onCancel)
-      ? { handler: onCancel?.[0], label: onCancel?.[1].label }
-      : { handler: onCancel, label: 'No' }
-    : undefined;
-  const confirm = {
-    handler: handleConfirm,
-    isLoading: loadingConfirm,
-    label: Array.isArray(onConfirm) ? onConfirm[1].label : 'Yes',
-  };
+  const confirm = useMemo<Action>(() => {
+    return {
+      handler: handleConfirm,
+      isLoading: loadingConfirm,
+      label: Array.isArray(onConfirm) ? onConfirm[1].label : 'Yes',
+    };
+  }, [handleConfirm, loadingConfirm, onConfirm]);
 
-  function close() {
+  const close = useCallback(() => {
     onClose?.();
     setDialogIsOpen(false);
-    stableOverflow.disable();
+    disableOverflow();
     dialogRef.current?.removeEventListener('close', close);
-  }
+  }, [onClose, disableOverflow]);
 
-  function open() {
+  const open = useCallback(() => {
     if (dialogIsOpen || dialogRef.current?.open) {
       return;
     }
 
     onOpen?.();
     setDialogIsOpen(true);
-    stableOverflow.enable();
+    enableOverflow();
     dialogRef.current?.showModal();
     dialogRef.current?.addEventListener('close', close);
-  }
+  }, [close, onOpen, enableOverflow, dialogIsOpen]);
 
   useOnOutsideClick(formRef, nativeHtmlClose, {
-    condition: dialogIsOpen && !loadingConfirm,
+    condition: dialogIsOpen && !loadingConfirm && closeOnOutsideClick,
   });
 
-  return {
-    actions: {
+  const actions = useMemo<UseConfirmDialogActions>(() => {
+    const cancel = onCancel
+      ? Array.isArray(onCancel)
+        ? { handler: onCancel?.[0], label: onCancel?.[1].label }
+        : { handler: onCancel, label: 'No' }
+      : undefined;
+
+    return {
       cancel,
       close: nativeHtmlClose,
       confirm,
       open,
-    },
-    state: {
+    };
+  }, [nativeHtmlClose, confirm, open, onCancel]);
+
+  const state = useMemo<UseConfirmDialogState>(() => {
+    return {
       description,
       dialogRef,
       formRef,
       labelledById,
       title,
-    },
+    };
+  }, [description, formRef, labelledById, title]);
+
+  return {
+    actions,
+    state,
   };
 }

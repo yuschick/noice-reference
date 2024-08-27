@@ -7,12 +7,12 @@ const meta: Meta<typeof NoiceLogo> = {
   component: NoiceLogo,
   tags: ['autodocs'],
   argTypes: {
-    color: {
+    theme: {
       control: {
         type: 'select',
         required: true,
       },
-      description: 'Defines which color scheme to use.',
+      description: 'Defines which color theme to use.',
       options: ['black', 'black-flat', 'dark', 'light', 'light-flat', 'spectrum'],
     },
     variant: {
@@ -41,7 +41,7 @@ type Story = StoryObj<typeof NoiceLogo>;
 
 export const Basic: Story = {
   args: {
-    color: 'light',
+    theme: 'light',
     variant: 'horizontal',
   },
 };
@@ -60,13 +60,13 @@ export const Horizontal: Story = {
         style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}
       >
         <NoiceLogo
-          color="dark"
           height={100}
+          theme="dark"
           variant="horizontal"
         />
         <NoiceLogo
-          color="light"
           height={100}
+          theme="light"
           variant="horizontal"
         />
       </div>
@@ -88,28 +88,28 @@ export const Mark: Story = {
         style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}
       >
         <NoiceLogo
-          color="black"
           height={100}
+          theme="black"
           variant="mark"
         />
         <NoiceLogo
-          color="black-flat"
           height={100}
+          theme="black-flat"
           variant="mark"
         />
         <NoiceLogo
-          color="light"
           height={100}
+          theme="light"
           variant="mark"
         />
         <NoiceLogo
-          color="light-flat"
           height={100}
+          theme="light-flat"
           variant="mark"
         />
         <NoiceLogo
-          color="spectrum"
           height={100}
+          theme="spectrum"
           variant="mark"
         />
       </div>
@@ -131,13 +131,13 @@ export const Type: Story = {
         style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}
       >
         <NoiceLogo
-          color="dark"
           height={100}
+          theme="dark"
           variant="type"
         />
         <NoiceLogo
-          color="light"
           height={100}
+          theme="light"
           variant="type"
         />
       </div>
@@ -159,13 +159,13 @@ export const Vertical: Story = {
         style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}
       >
         <NoiceLogo
-          color="dark"
           height={100}
+          theme="dark"
           variant="vertical"
         />
         <NoiceLogo
-          color="light"
           height={100}
+          theme="light"
           variant="vertical"
         />
       </div>

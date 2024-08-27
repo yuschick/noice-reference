@@ -1,0 +1,9 @@
+@layer noice.ui {
+  .status-indicator {
+    block-size: getRem(8);
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    background-color: var(--status-indicator-color);
+    border-radius: var(--noi-border-radius-circle);
+    inline-size: getRem(8);
+  }
+}

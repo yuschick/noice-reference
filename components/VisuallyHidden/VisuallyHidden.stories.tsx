@@ -1,14 +1,14 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from '@storybook/react';
 
-import { NoiceLogo } from "../NoiceLogo";
+import { NoiceLogo } from '../NoiceLogo';
 
-import { VisuallyHidden } from "./VisuallyHidden";
-import styles from "./VisuallyHidden.stories.module.css";
+import { VisuallyHidden } from './VisuallyHidden';
+import styles from './VisuallyHidden.stories.module.css';
 
 const meta: Meta<typeof VisuallyHidden> = {
-  title: "Visually Hidden",
+  title: 'Visually Hidden',
   component: VisuallyHidden,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
   parameters: {
     docs: {
@@ -34,7 +34,10 @@ export const Default: Story = {
   render: () => {
     return (
       <a href="/">
-        <NoiceLogo color="light" variant="horizontal" />
+        <NoiceLogo
+          theme="light"
+          variant="horizontal"
+        />
         <VisuallyHidden>Go to home</VisuallyHidden>
       </a>
     );
@@ -51,7 +54,7 @@ export const ShowOnFocus: Story = {
   render: () => {
     return (
       <div>
-        <p style={{ color: "black" }}>
+        <p style={{ color: 'black' }}>
           Use the <kbd>Tab</kbd> key to focus the following link.
         </p>
 

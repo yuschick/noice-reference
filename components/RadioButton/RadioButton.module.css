@@ -25,6 +25,12 @@
     flex-wrap: nowrap;
     gap: var(--_radio-gap);
     align-items: center;
+    justify-content: start;
+
+    .rtl & {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
   }
 
   .radio-button-wrapper {
@@ -64,6 +70,14 @@
       inset-inline-start: 50%;
       translate: -50% -50%;
       scale: 0;
+
+      @supports not (translate: 50%) {
+        transform: translate(-50%, -50%);
+      }
+
+      @supports not (scale: 0) {
+        transform: scale(0);
+      }
     }
 
     &:disabled {
@@ -80,6 +94,10 @@
 
     &:checked::after {
       scale: 1;
+
+      @supports not (scale: 1) {
+        transform: scale(1);
+      }
     }
   }
 
@@ -87,5 +105,10 @@
     display: inline-flex;
     flex-wrap: nowrap;
     margin-inline-start: calc(var(--_radio-size) + var(--_radio-gap));
+
+    .rtl & {
+      margin-inline-start: 0;
+      margin-inline-end: calc(var(--_radio-size) + var(--_radio-gap));
+    }
   }
 }

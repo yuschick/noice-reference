@@ -4,23 +4,26 @@
     --_switch-gap: var(--noi-spacing-2x);
     --_indicator-size: getRem(16);
     --_track-padding: var(--noi-spacing-half);
-
-    display: inline-flex;
-    flex-direction: column;
   }
 
   .label-wrapper {
-    display: inline-flex;
+    display: flex;
     flex-wrap: nowrap;
     gap: var(--_switch-gap);
     align-items: center;
+    justify-content: start;
+
+    .rtl & {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
   }
 
   .switch-wrapper {
     position: relative;
     inline-size: var(--_switch-inline-size);
     block-size: getRem(24);
-    padding-block: getRem(2);
+    padding-block: var(--noi-spacing-half);
     flex-shrink: 0;
   }
 
@@ -42,6 +45,10 @@
       inset-block-start: 50%;
       inset-inline-start: var(--_track-padding);
       translate: 0 -50%;
+
+      @supports not (translate: 50%) {
+        transform: translate(0, -50%);
+      }
 
       @media (prefers-reduced-motion: reduce) {
         transition: none;
@@ -125,11 +132,20 @@
     display: inline-flex;
     flex-wrap: nowrap;
     margin-inline-start: calc(var(--_switch-inline-size) + var(--_switch-gap));
+
+    .rtl & {
+      margin-inline-start: 0;
+      margin-inline-end: calc(var(--_switch-inline-size) + var(--_switch-gap));
+    }
   }
 
   @keyframes rotate {
     to {
       rotate: 360deg;
+
+      @supports not (rotate: 360deg) {
+        transform: rotate(360deg);
+      }
     }
   }
 }

@@ -1,77 +1,77 @@
-import { Placement as FloatingUIPlacement } from "@floating-ui/dom";
-import { CoreAssets } from "@noice-com/assets-core";
-import { Meta, StoryObj } from "@storybook/react";
+import { Placement as FloatingUIPlacement } from '@floating-ui/dom';
+import { CoreAssets } from '@noice-com/assets-core';
+import { Meta, StoryObj } from '@storybook/react';
 
-import { IconButton } from "../IconButton";
+import { IconButton } from '../IconButton';
 
-import { Tooltip } from "./Tooltip";
+import { Tooltip } from './Tooltip';
 
 const placements: FloatingUIPlacement[] = [
-  "bottom-end",
-  "bottom",
-  "bottom-start",
-  "left-end",
-  "left",
-  "left-start",
-  "right-end",
-  "right",
-  "right-start",
-  "top-end",
-  "top",
-  "top-start",
+  'bottom-end',
+  'bottom',
+  'bottom-start',
+  'left-end',
+  'left',
+  'left-start',
+  'right-end',
+  'right',
+  'right-start',
+  'top-end',
+  'top',
+  'top-start',
 ];
 
 const meta: Meta<typeof Tooltip> = {
-  title: "Tooltip",
+  title: 'Tooltip',
   component: Tooltip,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   args: {
-    placement: "bottom",
+    placement: 'bottom',
   },
   argTypes: {
     content: {
-      control: "text",
-      description: "The content of the tooltip",
-      defaultValue: "Tooltip content",
+      control: 'text',
+      description: 'The content of the tooltip',
+      defaultValue: 'Tooltip content',
     },
     delay: {
-      control: "number",
-      description: "The delay time before the tooltip is shown",
+      control: 'number',
+      description: 'The delay time before the tooltip is shown',
       defaultValue: 10,
     },
     distance: {
-      control: "number",
-      description: "The distance between the tooltip and the trigger",
+      control: 'number',
+      description: 'The distance between the tooltip and the trigger',
       defaultValue: 10,
     },
     forceState: {
       control: {
-        type: "select",
+        type: 'select',
       },
-      options: ["hide", "show"],
-      description: "Force the tooltip to hide or show",
+      options: ['hide', 'show'],
+      description: 'Force the tooltip to hide or show',
     },
     initialState: {
       control: {
-        type: "select",
+        type: 'select',
       },
-      options: ["hide", "show"],
-      description: "The initial state of the tooltip",
+      options: ['hide', 'show'],
+      description: 'The initial state of the tooltip',
     },
     placement: {
       control: {
-        type: "select",
+        type: 'select',
       },
       options: placements,
-      description: "The placement of the tooltip",
+      description: 'The placement of the tooltip',
     },
     renderIn: {
       control: {
-        type: "select",
+        type: 'select',
       },
-      options: ["portals", "inline"],
-      description: "The element id of where the tooltip should be rendered.",
-      defaultValue: "portals",
+      options: ['portals', 'inline'],
+      description: 'The element id of where the tooltip should be rendered.',
+      defaultValue: 'portals',
     },
   },
   parameters: {
@@ -101,15 +101,15 @@ export const Default: Story = {
   },
   render: ({ ...args }) => {
     return (
-      <div style={{ padding: "4rem" }}>
+      <div style={{ padding: '4rem' }}>
         <Tooltip
           {...args}
           content="This is string content. This is string content. This is string content."
         >
           <IconButton
-            theme="dark"
             icon={CoreAssets.Icons.Exclamation}
             label="Details"
+            theme="dark"
             onClick={() => {}}
           />
         </Tooltip>
@@ -128,20 +128,20 @@ export const StyledContent: Story = {
   },
   render: ({ ...args }) => {
     return (
-      <div style={{ padding: "4rem" }}>
+      <div style={{ padding: '4rem' }}>
         <Tooltip
           {...args}
           content={
-            <div style={{ padding: "0.5rem 0" }}>
+            <div style={{ padding: '0.5rem 0' }}>
               <h2>This is a heading</h2>
               <p>This is a sentence of body text.</p>
             </div>
           }
         >
           <IconButton
-            theme="dark"
             icon={CoreAssets.Icons.Exclamation}
             label="Details"
+            theme="dark"
             onClick={() => {}}
           />
         </Tooltip>
@@ -163,15 +163,15 @@ export const CustomDelay: Story = {
   },
   render: ({ ...args }) => {
     return (
-      <div style={{ padding: "4rem" }}>
+      <div style={{ padding: '4rem' }}>
         <Tooltip
           {...args}
           content="This is string content. This is string content. This is string content."
         >
           <IconButton
-            theme="dark"
             icon={CoreAssets.Icons.Exclamation}
             label="Details"
+            theme="dark"
             onClick={() => {}}
           />
         </Tooltip>
@@ -183,7 +183,7 @@ export const CustomDelay: Story = {
 export const CustomDistance: Story = {
   args: {
     distance: 30,
-    placement: "right",
+    placement: 'right',
   },
   parameters: {
     docs: {
@@ -194,15 +194,15 @@ export const CustomDistance: Story = {
   },
   render: ({ ...args }) => {
     return (
-      <div style={{ padding: "4rem" }}>
+      <div style={{ padding: '4rem' }}>
         <Tooltip
           {...args}
           content="This is string content. This is string content. This is string content."
         >
           <IconButton
-            theme="dark"
             icon={CoreAssets.Icons.Exclamation}
             label="Details"
+            theme="dark"
             onClick={() => {}}
           />
         </Tooltip>
@@ -213,7 +213,7 @@ export const CustomDistance: Story = {
 
 export const ForcedState: Story = {
   args: {
-    forceState: "show",
+    forceState: 'show',
   },
   parameters: {
     docs: {
@@ -224,15 +224,15 @@ export const ForcedState: Story = {
   },
   render: ({ ...args }) => {
     return (
-      <div style={{ padding: "4rem" }}>
+      <div style={{ padding: '4rem' }}>
         <Tooltip
           {...args}
           content="This is string content. This is string content. This is string content."
         >
           <IconButton
-            theme="dark"
             icon={CoreAssets.Icons.Exclamation}
             label="Details"
+            theme="dark"
             onClick={() => {}}
           />
         </Tooltip>
@@ -243,7 +243,7 @@ export const ForcedState: Story = {
 
 export const InitialState: Story = {
   args: {
-    initialState: "show",
+    initialState: 'show',
   },
   parameters: {
     docs: {
@@ -254,15 +254,15 @@ export const InitialState: Story = {
   },
   render: ({ ...args }) => {
     return (
-      <div style={{ padding: "4rem" }}>
+      <div style={{ padding: '4rem' }}>
         <Tooltip
           {...args}
           content="This is string content. This is string content. This is string content."
         >
           <IconButton
-            theme="dark"
             icon={CoreAssets.Icons.Exclamation}
             label="Details"
+            theme="dark"
             onClick={() => {}}
           />
         </Tooltip>
@@ -273,7 +273,7 @@ export const InitialState: Story = {
 
 export const Placement: Story = {
   args: {
-    placement: "right",
+    placement: 'right',
   },
   parameters: {
     docs: {
@@ -284,13 +284,9 @@ export const Placement: Story = {
   },
   render: () => {
     return (
-      <div style={{ padding: "4rem" }}>
+      <div style={{ padding: '4rem' }}>
         <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "1rem",
-          }}
+          style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}
         >
           {placements.reverse().map((placement) => (
             <Tooltip
@@ -299,9 +295,9 @@ export const Placement: Story = {
               placement={placement}
             >
               <IconButton
-                theme="dark"
                 icon={CoreAssets.Icons.Exclamation}
                 label="Details"
+                theme="dark"
                 onClick={() => {}}
               />
             </Tooltip>
@@ -314,7 +310,7 @@ export const Placement: Story = {
 
 export const RenderIn: Story = {
   args: {
-    renderIn: "inline",
+    renderIn: 'inline',
   },
   parameters: {
     docs: {
@@ -325,15 +321,15 @@ export const RenderIn: Story = {
   },
   render: ({ ...args }) => {
     return (
-      <div style={{ padding: "4rem" }}>
+      <div style={{ padding: '4rem' }}>
         <Tooltip
           {...args}
           content="This is string content. This is string content. This is string content."
         >
           <IconButton
-            theme="dark"
             icon={CoreAssets.Icons.Exclamation}
             label="Details"
+            theme="dark"
             onClick={() => {}}
           />
         </Tooltip>

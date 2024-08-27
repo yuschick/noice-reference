@@ -5,7 +5,7 @@
     font-family: var(--noi-font-family-body);
     line-height: var(--noi-line-height-loose);
     block-size: revert;
-    padding-block-start: getRem(24);
+    padding-block-start: var(--noi-spacing-6x);
     max-inline-size: 100%;
 
     @supports (form-sizing: content) {
@@ -14,7 +14,7 @@
     }
 
     &.has-hidden-label {
-      padding-block-start: getRem(16);
+      padding-block-start: var(--noi-spacing-4x);
     }
 
     &:not([rows]),

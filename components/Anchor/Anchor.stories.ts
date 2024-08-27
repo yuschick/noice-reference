@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { buttonColors } from '../Button/Button.types';
+import { buttonThemes } from '../Button/Button.types';
 
 import { Anchor } from './Anchor';
 
@@ -16,7 +16,7 @@ const meta: Meta<typeof Anchor> = {
       control: { type: 'select' },
       defaultValue: 'light',
       description: 'Define the color palette of the button.',
-      options: buttonColors,
+      options: buttonThemes,
     },
     ref: {
       description: 'Define a HTMLAnchorElement ref to be passed to the link.',
@@ -46,6 +46,7 @@ export const ExternalLink: Story = {
   args: {
     color: 'light',
     href: 'https://www.google.com',
+    showExternalLinkIcon: true,
   },
   parameters: {
     docs: {

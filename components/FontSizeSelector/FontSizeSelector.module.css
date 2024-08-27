@@ -1,0 +1,11 @@
+.small {
+  font-size: var(--noi-font-size-sm);
+}
+
+.medium {
+  font-size: var(--noi-font-size-md);
+}
+
+.large {
+  font-size: var(--noi-font-size-lg);
+}

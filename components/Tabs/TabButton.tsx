@@ -25,15 +25,15 @@ export function TabButton({ children, ...htmlAttributes }: WithChildren<Props>) 
 
   useEffect(() => {
     if (
-      !context.store.state.tabs.current ||
       !tabRef.current ||
-      (tabRef && context.store.state.tabs.current.includes(tabRef.current))
+      !context.store.state.tabs ||
+      (tabRef && context.store.state.tabs.includes(tabRef))
     ) {
       return;
     }
 
-    context.store.state.tabs.current.push(tabRef.current);
-  }, [context.store.state]);
+    context.store.actions.setTabs([...context.store.state.tabs, tabRef]);
+  }, [context.store]);
 
   return (
     <button
@@ -46,7 +46,6 @@ export function TabButton({ children, ...htmlAttributes }: WithChildren<Props>) 
       id={`${context.store.state.tabsId}-tabs-tab-${tab.index}`}
       ref={tabRef}
       role="tab"
-      tabIndex={selectedTabIndex === tab.index ? 0 : -1}
       type="button"
       onClick={(event) => {
         htmlAttributes?.onClick?.(event);

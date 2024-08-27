@@ -2,15 +2,15 @@ import { ButtonHTMLAttributes } from 'react';
 
 import { SvgComponent } from '@common-types';
 
-export const buttonColors = ['dark', 'light'] as const;
+export const buttonThemes = ['dark', 'light'] as const;
 export const buttonLevels = ['primary', 'secondary'] as const;
 export const buttonShapes = ['circle', 'pill', 'rounded', 'sharp'] as const;
 export const buttonSizes = ['xs', 'sm', 'md', 'lg'] as const;
 export const buttonVariants = ['cta', 'ghost', 'solid'] as const;
 
 type ButtonNonSolidProps = {
-  level?: never;
   theme?: never;
+  level?: never;
   variant?: 'cta';
 };
 
@@ -18,7 +18,7 @@ type ButtonSolidProps = {
   /** @default 'primary' */
   level?: (typeof buttonLevels)[number];
   /** @default 'light' */
-  theme?: (typeof buttonColors)[number];
+  theme?: (typeof buttonThemes)[number];
   /** @default 'solid' */
   variant?: 'ghost' | 'solid';
 };
@@ -44,7 +44,7 @@ export type ButtonIconPositions = {
 
 export type HTMLButtonAttributes = Omit<
   ButtonHTMLAttributes<HTMLButtonElement>,
-  'className' | 'disabled' | 'style'
+  'className' | 'color' | 'disabled' | 'style'
 >;
 
 export type Props = HTMLButtonAttributes &

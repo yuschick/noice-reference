@@ -1,6 +1,6 @@
 @layer noice.ui {
   .button {
-    --_button-padding-inline: getRem(20);
+    --_button-padding-inline: var(--noi-spacing-5x);
     --_button-background: transparent;
     --_button-background-disabled: var(--noi-color-gray-400);
     --_button-color: var(--noi-color-text-dark);
@@ -28,7 +28,7 @@
     background: var(--_button-background);
     border-radius: var(--_button-shape-radius);
     cursor: pointer;
-    touch-action: none;
+    user-select: none;
     padding-inline: var(--_button-padding-inline);
     min-block-size: var(--_button-size);
     max-inline-size: 100%;
@@ -50,10 +50,16 @@
     &:not([aria-disabled='true'], [aria-busy='true']):active {
       filter: brightness(0.97);
       scale: 0.99;
+
+      @supports not (scale: 0.99) {
+        transform: scale(0.99);
+      }
     }
 
-    &:not([aria-disabled='true'], [aria-busy='true']):hover {
-      background: var(--_button-background-hover);
+    @media (hover: hover) {
+      &:not([aria-disabled='true'], [aria-busy='true']):hover {
+        background: var(--_button-background-hover);
+      }
     }
 
     &[data-type='icon'] {
@@ -77,7 +83,7 @@
     --_button-font-size: var(--noi-font-size-sm);
     --_button-icon-size: getRem(20);
     --_button-elements-gap: var(--noi-spacing-1x);
-    --_button-padding-inline: getRem(8);
+    --_button-padding-inline: var(--noi-spacing-2x);
   }
 
   .sm {
@@ -85,11 +91,11 @@
     --_button-font-size: var(--noi-font-size-sm);
     --_button-icon-size: getRem(20);
     --_button-elements-gap: var(--noi-spacing-1x);
-    --_button-padding-inline: getRem(12);
+    --_button-padding-inline: var(--noi-spacing-3x);
   }
 
   .lg {
-    --_button-padding-inline: getRem(28);
+    --_button-padding-inline: var(--noi-spacing-7x);
     --_button-size: getRem(56);
     --_button-elements-gap: var(--noi-spacing-3x);
   }
@@ -115,11 +121,13 @@
     --_button-background-hover: var(--noi-gradient-green-teal);
     --_button-color: var(--noi-color-text-dark);
 
-    &:not([aria-disabled='true'], [aria-busy='true']):hover::after {
-      position: absolute;
-      background-color: var(--noi-color-dark-main-transparent-20);
-      content: '';
-      inset: 0;
+    @media (hover: hover) {
+      &:not([aria-disabled='true'], [aria-busy='true']):hover::after {
+        position: absolute;
+        background-color: var(--noi-color-dark-main-transparent-20);
+        content: '';
+        inset: 0;
+      }
     }
   }
 
@@ -182,7 +190,7 @@
   }
 
   .button-child-content-wrapper {
-    padding-inline: getRem(4);
+    padding-inline: var(--noi-spacing-1x);
   }
 
   .button-loading-wrapper {
@@ -190,6 +198,10 @@
     inset-block-start: 50%;
     inset-inline-start: 50%;
     translate: -50% -50%;
+
+    @supports not (translate: 50%) {
+      transform: translate(-50%, -50%);
+    }
   }
 
   .button-icon {

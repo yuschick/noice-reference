@@ -11,10 +11,10 @@ import LogoVerticalSpectrumDark from './assets/logo-noice-vertical-spectrum-dark
 import LogoVerticalSpectrumLight from './assets/logo-noice-vertical-spectrum-light.svg?url';
 import { Props } from './NoiceLogo.types';
 
-export function getLogoVariant({ color, variant }: Pick<Props, 'color' | 'variant'>) {
+export function getLogoVariant({ theme, variant }: Pick<Props, 'theme' | 'variant'>) {
   switch (variant) {
     case 'horizontal':
-      switch (color) {
+      switch (theme) {
         case 'dark':
           return LogoHorizontalSpectrumDark;
         case 'light':
@@ -23,7 +23,7 @@ export function getLogoVariant({ color, variant }: Pick<Props, 'color' | 'varian
       break;
 
     case 'mark':
-      switch (color) {
+      switch (theme) {
         case 'black':
           return LogoMarkBlack;
         case 'black-flat':
@@ -38,7 +38,7 @@ export function getLogoVariant({ color, variant }: Pick<Props, 'color' | 'varian
       break;
 
     case 'type':
-      switch (color) {
+      switch (theme) {
         case 'dark':
           return LogoTypeDark;
         case 'light':
@@ -47,7 +47,7 @@ export function getLogoVariant({ color, variant }: Pick<Props, 'color' | 'varian
       break;
 
     case 'vertical':
-      switch (color) {
+      switch (theme) {
         case 'dark':
           return LogoVerticalSpectrumDark;
         case 'light':

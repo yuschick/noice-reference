@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import classNames from 'classnames';
 import {
   InputHTMLAttributes,
   ReactNode,
@@ -6,45 +6,46 @@ import {
   useEffect,
   useId,
   useRef,
-} from "react";
+} from 'react';
 
-import { VisuallyHidden } from "../VisuallyHidden";
+import { VisuallyHidden } from '../VisuallyHidden';
 
-import styles from "./InputField.module.css";
+import styles from './InputField.module.css';
 
-import { useMergeRefs } from "@common-hooks";
+import { useMergeRefs } from '@common-hooks';
 
-export const inputFieldColors = ["blue", "gray", "light"] as const;
-export const inputFieldSizes = ["sm", "md", "lg"] as const;
+export const inputFieldThemes = ['blue', 'gray', 'light'] as const;
+export const inputFieldSizes = ['sm', 'md', 'lg'] as const;
 
 export type BaseInputProps = {
-  theme?: (typeof inputFieldColors)[number];
   error?: {
     message: string;
-    type?: "hidden" | "visible";
+    type?: 'hidden' | 'visible';
   };
   description?: string;
-  inputSize?: InputHTMLAttributes<HTMLInputElement>["size"];
+  inputSize?: InputHTMLAttributes<HTMLInputElement>['size'];
   isDisabled?: boolean;
   label: string;
-  labelType?: "floating" | "hidden";
+  labelType?: 'disappearing' | 'fixed' | 'floating' | 'hidden';
   size?: (typeof inputFieldSizes)[number];
   slots?: {
     inputEnd?: ReactNode;
     inputStart?: ReactNode;
   };
+  theme?: (typeof inputFieldThemes)[number];
+  shape?: 'rounded' | 'pill';
 };
 
 type InputHTMLProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
-  | "aria-describedby"
-  | "aria-invalid"
-  | "className"
-  | "disabled"
-  | "id"
-  | "placeholder"
-  | "size"
-  | "style"
+  | 'aria-describedby'
+  | 'aria-invalid'
+  | 'className'
+  | 'color'
+  | 'disabled'
+  | 'id'
+  | 'size'
+  | 'style'
 >;
 
 export type InputFieldProps = InputHTMLProps & BaseInputProps;
@@ -57,13 +58,14 @@ export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
       inputSize,
       isDisabled,
       label,
-      labelType = "floating",
-      size = "md",
+      labelType = 'floating',
+      size = 'md',
       slots,
-      theme = "light",
+      theme = 'light',
+      shape = 'rounded',
       ...htmlAttributes
     },
-    externalRef
+    externalRef,
   ) {
     const internalRef = useRef<HTMLInputElement>(null);
     const ref = useMergeRefs([internalRef, externalRef]);
@@ -71,7 +73,8 @@ export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
     const errorMsgId = useId();
     const descriptionId = useId();
     const inputId = useId();
-    const hasHiddenLabel = labelType === "hidden";
+    const isFixedLabel = labelType === 'fixed';
+    const InputWrapperTag = isFixedLabel ? 'div' : 'label';
 
     useEffect(() => {
       const input = internalRef.current;
@@ -85,7 +88,7 @@ export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
        * In the case of a form that may have multiple errors, we focus the first field with an error.
        */
       const firstInputWithError = document.querySelector<HTMLInputElement>(
-        'input[aria-invalid="true"]:first-of-type'
+        'input[aria-invalid="true"]:first-of-type',
       );
 
       if (input === firstInputWithError) {
@@ -96,9 +99,7 @@ export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
 
     useEffect(() => {
       // Set input to be invalid if there is an error message
-      internalRef.current?.setCustomValidity(
-        error?.message ? error.message : ""
-      );
+      internalRef.current?.setCustomValidity(error?.message ? error.message : '');
     }, [error?.message]);
 
     return (
@@ -106,17 +107,40 @@ export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
         className={classNames(
           styles.inputAndDescriptionWrapper,
           styles[theme],
-          styles[size]
+          styles[size],
+          styles[shape],
+          styles[labelType],
         )}
       >
+        {isFixedLabel && (
+          <div className={styles.fixedLabelWrapper}>
+            <label
+              className={styles.labelTextFixed}
+              htmlFor={inputId}
+            >
+              {label}
+            </label>
+
+            {!!description && (
+              <p
+                className={styles.inputDescription}
+                id={descriptionId}
+              >
+                {description}
+              </p>
+            )}
+          </div>
+        )}
         <div className={styles.inputAndSlotsWrapper}>
           {!!slots?.inputStart && (
             <div className={styles.slotStart}>{slots.inputStart}</div>
           )}
 
-          <label className={styles.inputLabelWrapper} htmlFor={inputId}>
+          <InputWrapperTag
+            className={styles.inputLabelWrapper}
+            {...(InputWrapperTag === 'label' ? { htmlFor: inputId } : {})}
+          >
             <input
-              {...{ ...htmlAttributes, size: inputSize }}
               aria-describedby={`${descriptionId} ${errorMsgId}`}
               aria-invalid={!!error?.message}
               className={styles.inputField}
@@ -125,31 +149,36 @@ export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
               id={inputId}
               placeholder=" "
               ref={ref}
+              {...{ ...htmlAttributes, size: inputSize }}
             />
 
-            {hasHiddenLabel ? (
-              <VisuallyHidden>{label}</VisuallyHidden>
-            ) : (
+            {labelType === 'hidden' && <VisuallyHidden>{label}</VisuallyHidden>}
+
+            {labelType === 'floating' && (
               <span className={styles.labelText}>{label}</span>
             )}
-          </label>
+          </InputWrapperTag>
 
-          {!!slots?.inputEnd && (
-            <div className={styles.slotEnd}>{slots.inputEnd}</div>
-          )}
+          {!!slots?.inputEnd && <div className={styles.slotEnd}>{slots.inputEnd}</div>}
         </div>
 
         <div className={styles.inputSecondaryWrapper}>
-          {!!description && (
-            <div className={styles.inputDescription} id={descriptionId}>
+          {!!description && !isFixedLabel && (
+            <div
+              className={styles.inputDescription}
+              id={descriptionId}
+            >
               {description}
             </div>
           )}
 
-          <div aria-live={error?.message ? "assertive" : "off"} id={errorMsgId}>
+          <div
+            aria-live={error?.message ? 'assertive' : 'off'}
+            id={errorMsgId}
+          >
             {!!error?.message && (
               <>
-                {error.type === "visible" ? (
+                {error.type === 'visible' ? (
                   <div className={styles.error}>{error.message}</div>
                 ) : (
                   <VisuallyHidden>{error.message}</VisuallyHidden>
@@ -160,5 +189,5 @@ export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
         </div>
       </div>
     );
-  }
+  },
 );

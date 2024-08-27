@@ -1,9 +1,9 @@
+import { useMountEffect } from '@noice-com/common-react-core';
 import classNames from 'classnames';
 import { CSSProperties, SVGAttributes, useId, useRef } from 'react';
 
 import styles from './Icon.module.css';
 
-import { useMountEffect } from '@common-hooks';
 import { SvgComponent } from '@common-types';
 import { getRem } from '@common-utils';
 

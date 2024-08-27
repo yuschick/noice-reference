@@ -103,11 +103,24 @@ function CreatePopoverMenu(options?: Options) {
           </PopoverMenu.Section>
         )}
         <PopoverMenu.Section>
-          <PopoverMenu.Button onClick={() => console.log('Button Item 1')}>
+          <PopoverMenu.Button
+            iconStart={CoreAssets.Icons.Analytics}
+            onClick={() => console.log('Button Item 1')}
+          >
             Button Item 1
           </PopoverMenu.Button>
-          <PopoverMenu.Button onClick={() => console.log('Button Item 2')}>
+          <PopoverMenu.Button
+            iconEnd={CoreAssets.Icons.XpBadge}
+            onClick={() => console.log('Button Item 2')}
+          >
             Button Item 2
+          </PopoverMenu.Button>
+          <PopoverMenu.Button
+            iconEnd={CoreAssets.Icons.Analytics}
+            iconStart={CoreAssets.Icons.XpBadge}
+            onClick={() => console.log('Button Item 3')}
+          >
+            Button Item 3
           </PopoverMenu.Button>
           <PopoverMenu.Link to="/">Link Item 1</PopoverMenu.Link>
           <PopoverMenu.Link to="https://www.google.com">External Link</PopoverMenu.Link>

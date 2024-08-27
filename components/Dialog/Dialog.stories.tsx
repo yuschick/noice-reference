@@ -1,14 +1,14 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from "../Button";
+import { Button } from '../Button';
 
-import { Props, useDialog } from "./useDialog.hook";
+import { Props, useDialog } from './useDialog.hook';
 
-import { Dialog } from ".";
+import { Dialog } from '.';
 
 const meta: Meta<typeof Dialog> = {
-  title: "Dialog",
-  tags: ["autodocs"],
+  title: 'Dialog',
+  tags: ['autodocs'],
   argTypes: {},
   parameters: {
     docs: {
@@ -45,20 +45,22 @@ type Options = {
 function CreateConfirmDialog(props: Props, options?: Options) {
   const dialog = useDialog(props);
 
-  const content = Array.from({ length: options?.contentLength ?? 1 }).map(
-    (_, i) => (
-      <p key={i}>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis
-        officia molestias illo quidem laudantium, assumenda omnis doloremque
-        nobis fuga pariatur consequuntur voluptates corrupti eaque voluptas
-        reprehenderit magnam eius, excepturi earum.
-      </p>
-    )
-  );
+  const content = Array.from({ length: options?.contentLength ?? 1 }).map((_, i) => (
+    <p key={i}>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis officia
+      molestias illo quidem laudantium, assumenda omnis doloremque nobis fuga pariatur
+      consequuntur voluptates corrupti eaque voluptas reprehenderit magnam eius, excepturi
+      earum.
+    </p>
+  ));
 
   return (
     <>
-      <Button size="sm" variant="cta" onClick={dialog.actions.open}>
+      <Button
+        size="sm"
+        variant="cta"
+        onClick={dialog.actions.open}
+      >
         Open Dialog
       </Button>
 
@@ -67,14 +69,18 @@ function CreateConfirmDialog(props: Props, options?: Options) {
         <Dialog.Content>{content}</Dialog.Content>
         <Dialog.Actions>
           <Button
-            theme="dark"
             level="secondary"
             size="sm"
+            theme="dark"
             onClick={dialog.actions.close}
           >
             Cancel
           </Button>
-          <Button theme="dark" size="sm" onClick={dialog.actions.close}>
+          <Button
+            size="sm"
+            theme="dark"
+            onClick={dialog.actions.close}
+          >
             Okay
           </Button>
         </Dialog.Actions>
@@ -103,8 +109,7 @@ export const Default: Story = {
       },
     },
   },
-  render: () =>
-    CreateConfirmDialog({ title: "Default Dialog" }, { close: true }),
+  render: () => CreateConfirmDialog({ title: 'Default Dialog' }, { close: true }),
 };
 
 export const WithLongContent: Story = {
@@ -128,10 +133,7 @@ export const WithLongContent: Story = {
     },
   },
   render: () =>
-    CreateConfirmDialog(
-      { title: "Long Content" },
-      { close: true, contentLength: 10 }
-    ),
+    CreateConfirmDialog({ title: 'Long Content' }, { close: true, contentLength: 10 }),
 };
 
 export const WithoutCloseButton: Story = {
@@ -152,7 +154,34 @@ export const WithoutCloseButton: Story = {
       },
     },
   },
-  render: () => CreateConfirmDialog({ title: "Without Close Button" }),
+  render: () => CreateConfirmDialog({ title: 'Without Close Button' }),
+};
+
+export const WithNarrowSize: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: `The <code>useDialog</code> hook accepts <code>inlineSize</code> prop to have the dialog rendered in a narrow size.
+
+                
+    const store = useDialog({ title: "Narrow Size", options: { inlineSize: 'narrow' } });
+
+    return (
+      <Dialog store={store}>
+        <Dialog.Header />
+        <Dialog.Content> ... </Dialog.Content>
+        <Dialog.Actions> ... </Dialog.Actions>
+        <Dialog.Close />
+      </Dialog>
+    )`,
+      },
+    },
+  },
+  render: () =>
+    CreateConfirmDialog(
+      { title: 'Narrow Size', options: { inlineSize: 'narrow' } },
+      { close: true },
+    ),
 };
 
 export const WithCustomCallbacks: Story = {
@@ -180,9 +209,63 @@ export const WithCustomCallbacks: Story = {
   render: () =>
     CreateConfirmDialog({
       /* eslint-disable no-console */
-      onClose: () => console.log("Closed"),
-      onOpen: () => console.log("Opened"),
+      onClose: () => console.log('Closed'),
+      onOpen: () => console.log('Opened'),
       /* eslint-enable no-console */
-      title: "Custom Callbacks",
+      title: 'Custom Callbacks',
     }),
+};
+
+export const WithOverlayDisplay: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: `The <code>useDialog</code> hook accepts <code>display</code> prop to have the dialog rendered as overlay in small screens.
+
+                
+    const store = useDialog({ title: "Overlay Display", options: { display: 'overlay' } });
+
+    return (
+      <Dialog store={store}>
+        <Dialog.Header />
+        <Dialog.Content> ... </Dialog.Content>
+        <Dialog.Actions> ... </Dialog.Actions>
+        <Dialog.Close />
+      </Dialog>
+    )`,
+      },
+    },
+  },
+  render: () =>
+    CreateConfirmDialog(
+      { title: 'Overlay Display', options: { display: 'overlay' } },
+      { close: true },
+    ),
+};
+
+export const PreventCloseOnOutsideClick: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: `The <code>useDialog</code> hook accepts <code>closeOnOutsideClick</code> prop to prevent the dialog from closing on outside clicks. This is to be used with dialogs that require an action to be taken before closing.
+
+                
+    const store = useDialog({ title: "Overlay Display", options: { closeOnOutsideClick: false } });
+
+    return (
+      <Dialog store={store}>
+        <Dialog.Header />
+        <Dialog.Content> ... </Dialog.Content>
+        <Dialog.Actions> ... </Dialog.Actions>
+        <Dialog.Close />
+      </Dialog>
+    )`,
+      },
+    },
+  },
+  render: () =>
+    CreateConfirmDialog(
+      { title: 'Overlay Display', options: { closeOnOutsideClick: false } },
+      { close: true },
+    ),
 };

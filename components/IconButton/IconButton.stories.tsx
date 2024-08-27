@@ -1,75 +1,74 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { GiUnicorn } from "react-icons/gi";
+import { Meta, StoryObj } from '@storybook/react';
+import { GiUnicorn } from 'react-icons/gi';
 
 import {
-  buttonColors,
+  buttonThemes,
   buttonLevels,
   buttonSizes,
   buttonVariants,
-} from "../Button/Button.types";
+} from '../Button/Button.types';
 
-import { IconButton } from "./IconButton";
+import { IconButton } from './IconButton';
 
 const meta: Meta<typeof IconButton> = {
-  title: "Icon Button",
+  title: 'Icon Button',
   component: IconButton,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   args: {
-    label: "Test label",
+    label: 'Test label',
     icon: GiUnicorn,
   },
   argTypes: {
-    theme: {
-      control: { type: "select" },
-      defaultValue: "light",
-      description: "Define the theme palette of the button.",
-      options: buttonColors,
-    },
     icon: {
-      control: { type: "text" },
-      description:
-        "Provide the `SvgComponent` to be rendered inside the button.",
+      control: { type: 'text' },
+      description: 'Provide the `SvgComponent` to be rendered inside the button.',
       required: true,
     },
     isDisabled: {
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
       defaultValue: false,
       description:
-        "Define if the button is disabled. This props maps to `aria-disabled` instead of `disabled` and avoids using `pointer-events: none` to allow for better accessibility.",
+        'Define if the button is disabled. This props maps to `aria-disabled` instead of `disabled` and avoids using `pointer-events: none` to allow for better accessibility.',
     },
     isLoading: {
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
       defaultValue: false,
       description:
-        "Define if the button is in a loading state. This will also disable the button from additional triggers.",
+        'Define if the button is in a loading state. This will also disable the button from additional triggers.',
     },
     level: {
-      control: { type: "select" },
-      defaultValue: "primary",
-      description: "Define the hierarchy level of the button.",
+      control: { type: 'select' },
+      defaultValue: 'primary',
+      description: 'Define the hierarchy level of the button.',
       options: buttonLevels,
     },
     ref: {
-      description: "Define a HTMLButtonElement ref to be passed to the button.",
+      description: 'Define a HTMLButtonElement ref to be passed to the button.',
     },
     size: {
-      control: { type: "select" },
-      defaultValue: "md",
+      control: { type: 'select' },
+      defaultValue: 'md',
       description:
-        "Define the size of the button. This value defines the button block size, while the inline size is built to fill its container.",
+        'Define the size of the button. This value defines the button block size, while the inline size is built to fill its container.',
       options: buttonSizes,
     },
+    theme: {
+      control: { type: 'select' },
+      defaultValue: 'light',
+      description: 'Define the color theme of the button.',
+      options: buttonThemes,
+    },
     variant: {
-      control: { type: "select" },
-      defaultValue: "solid",
-      description: "Define the button variant, or style, type.",
+      control: { type: 'select' },
+      defaultValue: 'solid',
+      description: 'Define the button variant, or style, type.',
       options: buttonVariants,
     },
   },
   parameters: {
-    backgrounds: { default: "dark" },
+    backgrounds: { default: 'dark' },
     docs: {
-      controls: { exclude: ["iconEnd", "iconStart"] },
+      controls: { exclude: ['iconEnd', 'iconStart'] },
       description: {
         component: `The IconButton is built on top of the base Button component and therefor its APIs and styles are shared. Use it for actions that require a single icon, such as a favorite button.`,
       },
@@ -83,15 +82,15 @@ type Story = StoryObj<typeof IconButton>;
 
 export const Default: Story = {
   args: {
-    theme: "light",
-    variant: "solid",
-    level: "primary",
+    theme: 'light',
+    variant: 'solid',
+    level: 'primary',
   },
 };
 
 export const CTAButtons: Story = {
   args: {
-    variant: "cta",
+    variant: 'cta',
   },
   parameters: {
     docs: {
@@ -101,62 +100,110 @@ export const CTAButtons: Story = {
     },
   },
   render: (args) => (
-    <div style={{ display: "flex", gap: "1rem", flexDirection: "column" }}>
+    <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} size="xs" />
-        <IconButton {...args} size="sm" />
+        <IconButton
+          {...args}
+          size="xs"
+        />
+        <IconButton
+          {...args}
+          size="sm"
+        />
         <IconButton {...args} />
-        <IconButton {...args} size="lg" />
+        <IconButton
+          {...args}
+          size="lg"
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} size="xs" isDisabled />
-        <IconButton {...args} size="sm" isDisabled />
-        <IconButton {...args} isDisabled />
-        <IconButton {...args} size="lg" isDisabled />
+        <IconButton
+          {...args}
+          size="xs"
+          isDisabled
+        />
+        <IconButton
+          {...args}
+          size="sm"
+          isDisabled
+        />
+        <IconButton
+          {...args}
+          isDisabled
+        />
+        <IconButton
+          {...args}
+          size="lg"
+          isDisabled
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} size="xs" isLoading />
-        <IconButton {...args} size="sm" isLoading />
-        <IconButton {...args} isLoading />
-        <IconButton {...args} size="lg" isLoading />
+        <IconButton
+          {...args}
+          size="xs"
+          isLoading
+        />
+        <IconButton
+          {...args}
+          size="sm"
+          isLoading
+        />
+        <IconButton
+          {...args}
+          isLoading
+        />
+        <IconButton
+          {...args}
+          size="lg"
+          isLoading
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} size="xs" />
-        <IconButton {...args} size="sm" />
+        <IconButton
+          {...args}
+          size="xs"
+        />
+        <IconButton
+          {...args}
+          size="sm"
+        />
         <IconButton {...args} />
-        <IconButton {...args} size="lg" />
+        <IconButton
+          {...args}
+          size="lg"
+        />
       </div>
     </div>
   ),
@@ -164,8 +211,8 @@ export const CTAButtons: Story = {
 
 export const SolidLightPrimaryButtons: Story = {
   args: {
-    theme: "light",
-    variant: "solid",
+    theme: 'light',
+    variant: 'solid',
   },
   parameters: {
     docs: {
@@ -175,62 +222,110 @@ export const SolidLightPrimaryButtons: Story = {
     },
   },
   render: (args) => (
-    <div style={{ display: "flex", gap: "1rem", flexDirection: "column" }}>
+    <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} size="xs" />
-        <IconButton {...args} size="sm" />
+        <IconButton
+          {...args}
+          size="xs"
+        />
+        <IconButton
+          {...args}
+          size="sm"
+        />
         <IconButton {...args} />
-        <IconButton {...args} size="lg" />
+        <IconButton
+          {...args}
+          size="lg"
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} size="xs" isDisabled />
-        <IconButton {...args} size="sm" isDisabled />
-        <IconButton {...args} isDisabled />
-        <IconButton {...args} size="lg" isDisabled />
+        <IconButton
+          {...args}
+          size="xs"
+          isDisabled
+        />
+        <IconButton
+          {...args}
+          size="sm"
+          isDisabled
+        />
+        <IconButton
+          {...args}
+          isDisabled
+        />
+        <IconButton
+          {...args}
+          size="lg"
+          isDisabled
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} size="xs" isLoading />
-        <IconButton {...args} size="sm" isLoading />
-        <IconButton {...args} isLoading />
-        <IconButton {...args} size="lg" isLoading />
+        <IconButton
+          {...args}
+          size="xs"
+          isLoading
+        />
+        <IconButton
+          {...args}
+          size="sm"
+          isLoading
+        />
+        <IconButton
+          {...args}
+          isLoading
+        />
+        <IconButton
+          {...args}
+          size="lg"
+          isLoading
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} size="xs" />
-        <IconButton {...args} size="sm" />
+        <IconButton
+          {...args}
+          size="xs"
+        />
+        <IconButton
+          {...args}
+          size="sm"
+        />
         <IconButton {...args} />
-        <IconButton {...args} size="lg" />
+        <IconButton
+          {...args}
+          size="lg"
+        />
       </div>
     </div>
   ),
@@ -238,9 +333,9 @@ export const SolidLightPrimaryButtons: Story = {
 
 export const SolidLightSecondaryButtons: Story = {
   args: {
-    theme: "light",
-    level: "secondary",
-    variant: "solid",
+    theme: 'light',
+    level: 'secondary',
+    variant: 'solid',
   },
   parameters: {
     docs: {
@@ -250,62 +345,110 @@ export const SolidLightSecondaryButtons: Story = {
     },
   },
   render: (args) => (
-    <div style={{ display: "flex", gap: "1rem", flexDirection: "column" }}>
+    <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} size="xs" />
-        <IconButton {...args} size="sm" />
+        <IconButton
+          {...args}
+          size="xs"
+        />
+        <IconButton
+          {...args}
+          size="sm"
+        />
         <IconButton {...args} />
-        <IconButton {...args} size="lg" />
+        <IconButton
+          {...args}
+          size="lg"
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} size="xs" isDisabled />
-        <IconButton {...args} size="sm" isDisabled />
-        <IconButton {...args} isDisabled />
-        <IconButton {...args} size="lg" isDisabled />
+        <IconButton
+          {...args}
+          size="xs"
+          isDisabled
+        />
+        <IconButton
+          {...args}
+          size="sm"
+          isDisabled
+        />
+        <IconButton
+          {...args}
+          isDisabled
+        />
+        <IconButton
+          {...args}
+          size="lg"
+          isDisabled
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} size="xs" isLoading />
-        <IconButton {...args} size="sm" isLoading />
-        <IconButton {...args} isLoading />
-        <IconButton {...args} size="lg" isLoading />
+        <IconButton
+          {...args}
+          size="xs"
+          isLoading
+        />
+        <IconButton
+          {...args}
+          size="sm"
+          isLoading
+        />
+        <IconButton
+          {...args}
+          isLoading
+        />
+        <IconButton
+          {...args}
+          size="lg"
+          isLoading
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} size="xs" />
-        <IconButton {...args} size="sm" />
+        <IconButton
+          {...args}
+          size="xs"
+        />
+        <IconButton
+          {...args}
+          size="sm"
+        />
         <IconButton {...args} />
-        <IconButton {...args} size="lg" />
+        <IconButton
+          {...args}
+          size="lg"
+        />
       </div>
     </div>
   ),
@@ -313,11 +456,11 @@ export const SolidLightSecondaryButtons: Story = {
 
 export const SolidDarkPrimaryButtons: Story = {
   args: {
-    theme: "dark",
-    variant: "solid",
+    theme: 'dark',
+    variant: 'solid',
   },
   parameters: {
-    backgrounds: { default: "light" },
+    backgrounds: { default: 'light' },
     docs: {
       description: {
         story: `Solid buttons will be used most often, with multiple colors and levels. They can be used in any context, and should be used for secondary and lesser actions on a page.`,
@@ -325,62 +468,110 @@ export const SolidDarkPrimaryButtons: Story = {
     },
   },
   render: (args) => (
-    <div style={{ display: "flex", gap: "1rem", flexDirection: "column" }}>
+    <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} size="xs" />
-        <IconButton {...args} size="sm" />
+        <IconButton
+          {...args}
+          size="xs"
+        />
+        <IconButton
+          {...args}
+          size="sm"
+        />
         <IconButton {...args} />
-        <IconButton {...args} size="lg" />
+        <IconButton
+          {...args}
+          size="lg"
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} size="xs" isDisabled />
-        <IconButton {...args} size="sm" isDisabled />
-        <IconButton {...args} isDisabled />
-        <IconButton {...args} size="lg" isDisabled />
+        <IconButton
+          {...args}
+          size="xs"
+          isDisabled
+        />
+        <IconButton
+          {...args}
+          size="sm"
+          isDisabled
+        />
+        <IconButton
+          {...args}
+          isDisabled
+        />
+        <IconButton
+          {...args}
+          size="lg"
+          isDisabled
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} size="xs" isLoading />
-        <IconButton {...args} size="sm" isLoading />
-        <IconButton {...args} isLoading />
-        <IconButton {...args} size="lg" isLoading />
+        <IconButton
+          {...args}
+          size="xs"
+          isLoading
+        />
+        <IconButton
+          {...args}
+          size="sm"
+          isLoading
+        />
+        <IconButton
+          {...args}
+          isLoading
+        />
+        <IconButton
+          {...args}
+          size="lg"
+          isLoading
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} size="xs" />
-        <IconButton {...args} size="sm" />
+        <IconButton
+          {...args}
+          size="xs"
+        />
+        <IconButton
+          {...args}
+          size="sm"
+        />
         <IconButton {...args} />
-        <IconButton {...args} size="lg" />
+        <IconButton
+          {...args}
+          size="lg"
+        />
       </div>
     </div>
   ),
@@ -388,12 +579,12 @@ export const SolidDarkPrimaryButtons: Story = {
 
 export const SolidDarkSecondaryButtons: Story = {
   args: {
-    theme: "dark",
-    level: "secondary",
-    variant: "solid",
+    theme: 'dark',
+    level: 'secondary',
+    variant: 'solid',
   },
   parameters: {
-    backgrounds: { default: "light" },
+    backgrounds: { default: 'light' },
     docs: {
       description: {
         story: `Solid buttons will be used most often, with multiple colors and levels. They can be used in any context, and should be used for secondary and lesser actions on a page.`,
@@ -401,62 +592,110 @@ export const SolidDarkSecondaryButtons: Story = {
     },
   },
   render: (args) => (
-    <div style={{ display: "flex", gap: "1rem", flexDirection: "column" }}>
+    <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} size="xs" />
-        <IconButton {...args} size="sm" />
+        <IconButton
+          {...args}
+          size="xs"
+        />
+        <IconButton
+          {...args}
+          size="sm"
+        />
         <IconButton {...args} />
-        <IconButton {...args} size="lg" />
+        <IconButton
+          {...args}
+          size="lg"
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} size="xs" isDisabled />
-        <IconButton {...args} size="sm" isDisabled />
-        <IconButton {...args} isDisabled />
-        <IconButton {...args} size="lg" isDisabled />
+        <IconButton
+          {...args}
+          size="xs"
+          isDisabled
+        />
+        <IconButton
+          {...args}
+          size="sm"
+          isDisabled
+        />
+        <IconButton
+          {...args}
+          isDisabled
+        />
+        <IconButton
+          {...args}
+          size="lg"
+          isDisabled
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} size="xs" isLoading />
-        <IconButton {...args} size="sm" isLoading />
-        <IconButton {...args} isLoading />
-        <IconButton {...args} size="lg" isLoading />
+        <IconButton
+          {...args}
+          size="xs"
+          isLoading
+        />
+        <IconButton
+          {...args}
+          size="sm"
+          isLoading
+        />
+        <IconButton
+          {...args}
+          isLoading
+        />
+        <IconButton
+          {...args}
+          size="lg"
+          isLoading
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} size="xs" />
-        <IconButton {...args} size="sm" />
+        <IconButton
+          {...args}
+          size="xs"
+        />
+        <IconButton
+          {...args}
+          size="sm"
+        />
         <IconButton {...args} />
-        <IconButton {...args} size="lg" />
+        <IconButton
+          {...args}
+          size="lg"
+        />
       </div>
     </div>
   ),
@@ -464,7 +703,7 @@ export const SolidDarkSecondaryButtons: Story = {
 
 export const GhostButtons: Story = {
   args: {
-    variant: "ghost",
+    variant: 'ghost',
   },
   parameters: {
     docs: {
@@ -474,76 +713,143 @@ export const GhostButtons: Story = {
     },
   },
   render: (args) => (
-    <div style={{ display: "flex", gap: "1rem", flexDirection: "column" }}>
+    <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} size="xs" />
-        <IconButton {...args} size="sm" />
+        <IconButton
+          {...args}
+          size="xs"
+        />
+        <IconButton
+          {...args}
+          size="sm"
+        />
         <IconButton {...args} />
-        <IconButton {...args} size="lg" />
+        <IconButton
+          {...args}
+          size="lg"
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} theme="dark" size="xs" variant="ghost" />
-        <IconButton {...args} theme="dark" size="sm" variant="ghost" />
-        <IconButton {...args} theme="dark" variant="ghost" />
-        <IconButton {...args} theme="dark" size="lg" variant="ghost" />
+        <IconButton
+          {...args}
+          size="xs"
+          theme="dark"
+          variant="ghost"
+        />
+        <IconButton
+          {...args}
+          size="sm"
+          theme="dark"
+          variant="ghost"
+        />
+        <IconButton
+          {...args}
+          theme="dark"
+          variant="ghost"
+        />
+        <IconButton
+          {...args}
+          size="lg"
+          theme="dark"
+          variant="ghost"
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} size="xs" isDisabled />
-        <IconButton {...args} size="sm" isDisabled />
-        <IconButton {...args} isDisabled />
-        <IconButton {...args} size="lg" isDisabled />
+        <IconButton
+          {...args}
+          size="xs"
+          isDisabled
+        />
+        <IconButton
+          {...args}
+          size="sm"
+          isDisabled
+        />
+        <IconButton
+          {...args}
+          isDisabled
+        />
+        <IconButton
+          {...args}
+          size="lg"
+          isDisabled
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} size="xs" isLoading />
-        <IconButton {...args} size="sm" isLoading />
-        <IconButton {...args} isLoading />
-        <IconButton {...args} size="lg" isLoading />
+        <IconButton
+          {...args}
+          size="xs"
+          isLoading
+        />
+        <IconButton
+          {...args}
+          size="sm"
+          isLoading
+        />
+        <IconButton
+          {...args}
+          isLoading
+        />
+        <IconButton
+          {...args}
+          size="lg"
+          isLoading
+        />
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        <IconButton {...args} size="xs" />
-        <IconButton {...args} size="sm" />
+        <IconButton
+          {...args}
+          size="xs"
+        />
+        <IconButton
+          {...args}
+          size="sm"
+        />
         <IconButton {...args} />
-        <IconButton {...args} size="lg" />
+        <IconButton
+          {...args}
+          size="lg"
+        />
       </div>
     </div>
   ),

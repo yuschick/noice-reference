@@ -1,0 +1,76 @@
+@layer noice.ui {
+  .segmented-control-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--noi-spacing-2x);
+  }
+
+  .segmented-label-value-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: var(--noi-spacing-2x);
+    align-items: center;
+    justify-content: space-between;
+    color: var(--noi-color-text-light-secondary);
+    font-weight: var(--noi-font-weight-regular);
+    font-size: var(--noi-font-size-sm);
+    line-height: var(--noi-line-height-tight);
+
+    .control-value {
+      color: var(--noi-color-text-light-secondary);
+      text-transform: capitalize;
+    }
+  }
+
+  .control-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--noi-spacing-half);
+    inline-size: 100%;
+  }
+
+  .segmented-control {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    gap: var(--noi-spacing-1x);
+    align-items: center;
+    justify-content: center;
+    color: var(--_control-text-color);
+    background-color: var(--_control-background-color);
+    border: 1px solid var(--_control-border-color);
+    cursor: pointer;
+    min-block-size: getRem(40);
+    padding-inline: var(--noi-spacing-3x);
+    inline-size: 100%;
+
+    &[aria-current='true'] {
+      --_control-background-color: var(--noi-color-gray-850);
+      --_control-border-color: var(--noi-color-gray-700);
+      --_control-text-color: var(--noi-color-text-light);
+    }
+
+    @media (hover: hover) {
+      &:not([aria-current='true']):hover {
+        --_control-background-color: var(--noi-color-gray-750);
+      }
+    }
+  }
+
+  .control-list-item {
+    --_control-background-color: transparent;
+    --_control-border-color: var(--noi-color-gray-850);
+    --_control-text-color: var(--noi-color-text-light-secondary);
+
+    flex: 1;
+    inline-size: 100%;
+    min-inline-size: fit-content;
+
+    &:first-child:not(:last-child) > .segmented-control {
+      border-radius: var(--noi-border-radius-sm) 0 0 var(--noi-border-radius-sm);
+    }
+
+    &:last-child:not(:first-child) > .segmented-control {
+      border-radius: 0 var(--noi-border-radius-sm) var(--noi-border-radius-sm) 0;
+    }
+  }
+}

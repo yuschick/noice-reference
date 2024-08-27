@@ -5,7 +5,7 @@
     --_callout-border-size: getRem(4);
     --_callout-icon-color: var(--noi-color-text-light);
     --_callout-message-color: var(--noi-color-text-light);
-    --_callout-padding-inline: getRem(16);
+    --_callout-padding-inline: var(--noi-spacing-4x);
     --_callout-type-color: transparent;
 
     display: grid;
@@ -15,7 +15,7 @@
     gap: var(--noi-spacing-2x);
     align-content: center;
     align-items: center;
-    padding: getRem(8) var(--_callout-padding-inline);
+    padding: var(--noi-spacing-2x) var(--_callout-padding-inline);
     color: var(--_callout-message-color);
     font-weight: var(--noi-font-weight-medium);
     font-size: var(--noi-font-size-sm);

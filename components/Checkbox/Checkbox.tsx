@@ -1,44 +1,47 @@
-import classNames from "classnames";
-import { InputHTMLAttributes, ReactNode, forwardRef, useId } from "react";
+import classNames from 'classnames';
+import { InputHTMLAttributes, ReactNode, forwardRef, useId } from 'react';
 
-import { InteractiveInputDescription } from "../InteractiveInputDescription";
-import { InteractiveInputLabel } from "../InteractiveInputLabel";
+import { InteractiveInputDescription } from '../InteractiveInputDescription';
+import { InteractiveInputLabel } from '../InteractiveInputLabel';
 
-import styles from "./Checkbox.module.css";
+import styles from './Checkbox.module.css';
 
 interface Props
   extends Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    "className" | "name" | "style" | "type"
+    'className' | 'color' | 'name' | 'style' | 'type'
   > {
-  label: string | ReactNode;
+  direction?: 'ltr' | 'rtl';
   description?: string;
-  labelType?: "hidden" | "visible";
+  label: string | ReactNode;
+  labelType?: 'hidden' | 'visible';
+  theme?: 'dark' | 'light';
   name: string;
-  theme?: "dark" | "light";
 }
 
 export const Checkbox = forwardRef<HTMLInputElement, Props>(function Checkbox(
   {
-    label,
-    labelType = "visible",
-    disabled,
-    name,
     description,
-    theme = "light",
+    direction = 'ltr',
+    disabled,
+    label,
+    labelType = 'visible',
+    name,
+    theme = 'light',
     ...htmlAttributes
   },
-  externalRef
+  externalRef,
 ) {
   const descriptionId = useId();
 
-  const showLabel = labelType !== "hidden";
+  const showLabel = labelType !== 'hidden';
   const showDescription = !!description && showLabel;
 
   return (
     <div
       className={classNames(styles.checkboxRoot, styles[theme], {
         [styles.disabled]: disabled,
+        [styles.rtl]: direction === 'rtl',
       })}
     >
       <label className={styles.checkboxWrapper}>

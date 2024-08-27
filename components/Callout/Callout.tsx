@@ -1,18 +1,18 @@
-import { CoreAssets } from "@noice-com/assets-core";
-import classNames from "classnames";
-import { ReactNode, forwardRef } from "react";
+import { CoreAssets } from '@noice-com/assets-core';
+import classNames from 'classnames';
+import { ReactNode, forwardRef } from 'react';
 
-import { Icon } from "../Icon";
-import { IconButton } from "../IconButton";
+import { Icon } from '../Icon';
+import { IconButton } from '../IconButton';
 
-import styles from "./Callout.module.css";
+import styles from './Callout.module.css';
 
-import { SvgComponent } from "@common-types";
+import { SvgComponent } from '@common-types';
 
-export const calloutThemes = ["blue", "gray", "type"] as const;
-export const calloutTypes = ["error", "info", "success", "warning"] as const;
+export const calloutThemes = ['blue', 'gray', 'type'] as const;
+export const calloutTypes = ['error', 'info', 'success', 'warning'] as const;
 
-export const calloutVariants = ["bordered", "filled"] as const;
+export const calloutVariants = ['bordered', 'filled'] as const;
 
 interface Props {
   /**
@@ -40,15 +40,15 @@ interface Props {
   onDismiss?: () => void;
 }
 
-function getCalloutIcon(type: Props["type"]): SvgComponent {
+function getCalloutIcon(type: Props['type']): SvgComponent {
   switch (type) {
-    case "error":
+    case 'error':
       return CoreAssets.Icons.Error;
-    case "info":
+    case 'info':
       return CoreAssets.Icons.Info;
-    case "success":
+    case 'success':
       return CoreAssets.Icons.Check;
-    case "warning":
+    case 'warning':
       return CoreAssets.Icons.Exclamation;
     default:
       return CoreAssets.Icons.Info;
@@ -56,31 +56,27 @@ function getCalloutIcon(type: Props["type"]): SvgComponent {
 }
 
 export const Callout = forwardRef<HTMLDivElement, Props>(function Callout(
-  {
-    isLive,
-    message,
-    onDismiss,
-    slots,
-    theme = "type",
-    type,
-    variant = "filled",
-  },
-  externalRef
+  { isLive, message, onDismiss, slots, theme = 'type', type, variant = 'filled' },
+  externalRef,
 ) {
   const icon = slots?.icon ?? getCalloutIcon(type);
 
   return (
     <div
-      {...(isLive ? { "aria-live": "polite" } : {})}
+      {...(isLive ? { 'aria-live': 'polite' } : {})}
       className={classNames(
         styles.calloutWrapper,
         styles[type],
         styles[theme],
-        variant ? styles[variant] : null
+        variant ? styles[variant] : null,
       )}
       ref={externalRef}
     >
-      <Icon className={styles.calloutIcon} icon={icon} size={24} />
+      <Icon
+        className={styles.calloutIcon}
+        icon={icon}
+        size={24}
+      />
 
       {message}
 
@@ -93,10 +89,10 @@ export const Callout = forwardRef<HTMLDivElement, Props>(function Callout(
 
       {!slots?.actions && onDismiss && (
         <IconButton
-          theme={type === "error" || theme !== "type" ? "light" : "dark"}
           icon={CoreAssets.Icons.Close}
           label="Dismiss message"
           size="xs"
+          theme={type === 'error' || theme !== 'type' ? 'light' : 'dark'}
           variant="ghost"
           onClick={onDismiss}
         />

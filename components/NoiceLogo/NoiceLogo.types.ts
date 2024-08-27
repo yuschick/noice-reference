@@ -1,7 +1,7 @@
 import { ImgHTMLAttributes } from 'react';
 
 export type NoiceLogoVariant = 'horizontal' | 'mark' | 'type' | 'vertical';
-export type NoiceLogoColor =
+export type NoiceLogoTheme =
   | 'black'
   | 'black-flat'
   | 'dark'
@@ -9,14 +9,14 @@ export type NoiceLogoColor =
   | 'light-flat'
   | 'spectrum';
 
-type NoiceLogoBase = {
-  color: Extract<NoiceLogoColor, 'dark' | 'light'>;
+export type NoiceLogoBase = {
+  theme: Extract<NoiceLogoTheme, 'dark' | 'light'>;
   variant: Extract<NoiceLogoVariant, 'horizontal' | 'type' | 'vertical'>;
 };
 
-type NoiceLogoMark = {
-  color: Extract<
-    NoiceLogoColor,
+export type NoiceLogoMark = {
+  theme: Extract<
+    NoiceLogoTheme,
     'black' | 'black-flat' | 'light' | 'light-flat' | 'spectrum'
   >;
   variant: Extract<NoiceLogoVariant, 'mark'>;

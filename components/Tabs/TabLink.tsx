@@ -20,19 +20,17 @@ export function TabLink({ children, ...htmlAttributes }: WithChildren<Props>) {
     throw new Error('Tabs.Tab must be used within a Tabs component');
   }
 
-  const selectedTabIndex = context.store.state.selectedTabIndex;
-
   useEffect(() => {
     if (
       !tabRef.current ||
-      !context.store.state.tabs.current ||
-      (tabRef && context.store.state.tabs.current.includes(tabRef.current))
+      !context.store.state.tabs ||
+      (tabRef && context.store.state.tabs.includes(tabRef))
     ) {
       return;
     }
 
-    context.store.state.tabs.current.push(tabRef.current);
-  }, [context.store.state.tabs]);
+    context.store.actions.setTabs([...context.store.state.tabs, tabRef]);
+  }, [context.store]);
 
   return (
     <NavLink
@@ -43,7 +41,6 @@ export function TabLink({ children, ...htmlAttributes }: WithChildren<Props>) {
       id={`${context.store.state.tabsId}-tabs-tab-${tab.index}`}
       ref={tabRef}
       role="tab"
-      tabIndex={selectedTabIndex === tab.index ? 0 : -1}
       onClick={(event) => {
         htmlAttributes?.onClick?.(event);
         context.store.actions.handleChange(tab.index);

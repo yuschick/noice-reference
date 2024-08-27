@@ -22,6 +22,13 @@ const meta: Meta<typeof Switch> = {
       control: { type: 'text' },
       description: 'The description to be associated with the checkbox.',
     },
+    direction: {
+      control: { type: 'select' },
+      defaultValue: 'ltr',
+      description:
+        'Define whether the input and label should flow from left to right or right to left.',
+      options: ['ltr', 'rtl'],
+    },
     labelType: {
       control: { type: 'select' },
       defaultValue: 'visible',

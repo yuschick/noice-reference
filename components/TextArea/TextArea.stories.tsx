@@ -1,43 +1,42 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from '@storybook/react';
 
-import { inputFieldColors } from "../InputField/InputField";
+import { inputFieldThemes } from '../InputField/InputField';
 
-import { TextArea } from "./TextArea";
+import { TextArea } from './TextArea';
 
 const meta: Meta<typeof TextArea> = {
-  title: "TextArea",
+  title: 'TextArea',
   component: TextArea,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   args: {},
   argTypes: {
-    theme: {
-      control: { type: "select" },
-      defaultValue: "light",
-      description:
-        "Provide the color scheme for the input. Defaults to 'light'.",
-      options: inputFieldColors,
-    },
     error: {
-      control: { type: "object" },
+      control: { type: 'object' },
       description: `When the field is invalid, provide a message to describe the error. This message will be announced to assistive technologies and trigger the invalid UI styles for the component.`,
     },
     isDisabled: {
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
       description:
-        "Mark the field as disabled. This should only ever happen when a form is submitting. Otherwise, if the field should be rendered without the ability to edit, either display the value is raw text, or use the input in `readonly` mode.",
+        'Mark the field as disabled. This should only ever happen when a form is submitting. Otherwise, if the field should be rendered without the ability to edit, either display the value is raw text, or use the input in `readonly` mode.',
     },
     showCharacterCount: {
-      control: { type: "boolean" },
-      description: "Show the current character count of the field.",
+      control: { type: 'boolean' },
+      description: 'Show the current character count of the field.',
     },
     maxLength: {
-      control: { type: "number" },
-      description: "Max amount of chars allowed in the field.",
+      control: { type: 'number' },
+      description: 'Max amount of chars allowed in the field.',
     },
     ref: {
       control: { type: null },
       description:
-        "The RefObject<HTMLTextarea> to provide the underlying `<textarea>` element.",
+        'The RefObject<HTMLTextarea> to provide the underlying `<textarea>` element.',
+    },
+    theme: {
+      control: { type: 'select' },
+      defaultValue: 'light',
+      description: "Provide the color theme for the input. Defaults to 'light'.",
+      options: inputFieldThemes,
     },
   },
   parameters: {
@@ -57,7 +56,7 @@ type Story = StoryObj<typeof TextArea>;
 
 export const Default: Story = {
   args: {
-    label: "Enter a description",
+    label: 'Enter a description',
   },
   parameters: {
     docs: {
@@ -71,7 +70,7 @@ export const Default: Story = {
 
 export const ShowCharacterCount: Story = {
   args: {
-    label: "Enter a description",
+    label: 'Enter a description',
     showCharacterCount: true,
     maxLength: 100,
   },
@@ -94,7 +93,7 @@ export const Colors: Story = {
     },
   },
   render: (args) => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       <TextArea
         {...args}
         label="Light textarea (Default)"
@@ -102,14 +101,14 @@ export const Colors: Story = {
       />
       <TextArea
         {...args}
-        theme="blue"
         label="Blue textarea"
+        theme="blue"
         onChange={() => false}
       />
       <TextArea
         {...args}
-        theme="gray"
         label="Gray textarea"
+        theme="gray"
         onChange={() => false}
       />
     </div>
@@ -127,38 +126,38 @@ Additionally, if a field is invalid, focus will be moved to it. If there are mul
     },
   },
   render: (args) => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-      <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
         <TextArea
           {...args}
-          error={{ message: "The description must be at least 25 characters." }}
+          error={{ message: 'The description must be at least 25 characters.' }}
           label="Tell us about your experience"
           value="no"
           onChange={() => false}
         />
         <TextArea
           {...args}
+          error={{ message: 'The description must be at least 25 characters.' }}
+          label="Tell us about your experience"
           theme="blue"
-          error={{ message: "The description must be at least 25 characters." }}
-          label="Tell us about your experience"
           value="no"
           onChange={() => false}
         />
         <TextArea
           {...args}
-          theme="gray"
-          error={{ message: "The description must be at least 25 characters." }}
+          error={{ message: 'The description must be at least 25 characters.' }}
           label="Tell us about your experience"
+          theme="gray"
           value="no"
           onChange={() => false}
         />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
         <TextArea
           {...args}
           error={{
-            message: "The description must be at least 25 characters.",
-            type: "visible",
+            message: 'The description must be at least 25 characters.',
+            type: 'visible',
           }}
           label="Tell us about your experience"
           value="no"
@@ -166,23 +165,23 @@ Additionally, if a field is invalid, focus will be moved to it. If there are mul
         />
         <TextArea
           {...args}
+          error={{
+            message: 'The description must be at least 25 characters.',
+            type: 'visible',
+          }}
+          label="Tell us about your experience"
           theme="blue"
-          error={{
-            message: "The description must be at least 25 characters.",
-            type: "visible",
-          }}
-          label="Tell us about your experience"
           value="no"
           onChange={() => false}
         />
         <TextArea
           {...args}
-          theme="gray"
           error={{
-            message: "The description must be at least 25 characters.",
-            type: "visible",
+            message: 'The description must be at least 25 characters.',
+            type: 'visible',
           }}
           label="Tell us about your experience"
+          theme="gray"
           value="no"
           onChange={() => false}
         />
@@ -200,7 +199,7 @@ export const Description: Story = {
     },
   },
   render: (args) => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       <TextArea
         {...args}
         description="The description must be at least 25 characters."
@@ -209,16 +208,16 @@ export const Description: Story = {
       />
       <TextArea
         {...args}
+        description="The description must be at least 25 characters."
+        label="Tell us about your experience"
         theme="blue"
-        description="The description must be at least 25 characters."
-        label="Tell us about your experience"
         onChange={() => false}
       />
       <TextArea
         {...args}
-        theme="gray"
         description="The description must be at least 25 characters."
         label="Tell us about your experience"
+        theme="gray"
         onChange={() => false}
       />
     </div>
@@ -227,7 +226,7 @@ export const Description: Story = {
 
 export const Label: Story = {
   args: {
-    label: "Tell us more",
+    label: 'Tell us more',
   },
   parameters: {
     docs: {
@@ -241,38 +240,53 @@ export const Label: Story = {
     <>
       <div
         style={{
-          color: "var(--noi-color-text-dark",
-          display: "flex",
-          flexDirection: "column",
-          gap: "1rem",
-          marginBlockEnd: "1rem",
+          color: 'var(--noi-color-text-dark',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '1rem',
+          marginBlockEnd: '1rem',
         }}
       >
         <p>Floating Label</p>
-        <TextArea {...args} onChange={() => false} />
-        <TextArea {...args} theme="blue" onChange={() => false} />
-        <TextArea {...args} theme="gray" onChange={() => false} />
-      </div>
-      <div
-        style={{
-          color: "var(--noi-color-text-dark",
-          display: "flex",
-          flexDirection: "column",
-          gap: "1rem",
-        }}
-      >
-        <p>Hidden Label</p>
-        <TextArea {...args} labelType="hidden" onChange={() => false} />
+        <TextArea
+          {...args}
+          onChange={() => false}
+        />
         <TextArea
           {...args}
           theme="blue"
-          labelType="hidden"
           onChange={() => false}
         />
         <TextArea
           {...args}
           theme="gray"
+          onChange={() => false}
+        />
+      </div>
+      <div
+        style={{
+          color: 'var(--noi-color-text-dark',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '1rem',
+        }}
+      >
+        <p>Hidden Label</p>
+        <TextArea
+          {...args}
           labelType="hidden"
+          onChange={() => false}
+        />
+        <TextArea
+          {...args}
+          labelType="hidden"
+          theme="blue"
+          onChange={() => false}
+        />
+        <TextArea
+          {...args}
+          labelType="hidden"
+          theme="gray"
           onChange={() => false}
         />
       </div>
@@ -293,10 +307,10 @@ When the \`rows\` value is greater than 1, the label will be set in its 'docked'
   render: (args) => (
     <div
       style={{
-        minInlineSize: "500px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "1rem",
+        minInlineSize: '500px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '1rem',
       }}
     >
       <TextArea
@@ -307,16 +321,16 @@ When the \`rows\` value is greater than 1, the label will be set in its 'docked'
       />
       <TextArea
         {...args}
-        theme="blue"
         label="Tell us a lot more about your experience"
         rows={10}
+        theme="blue"
         onChange={() => false}
       />
       <TextArea
         {...args}
-        theme="gray"
         label="Tell us a lot more about your experience"
         rows={10}
+        theme="gray"
         onChange={() => false}
       />
     </div>

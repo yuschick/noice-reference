@@ -10,13 +10,13 @@
     line-height: var(--noi-line-height-tight);
     background: var(--_pill-background, var(--noi-gradient-green-teal));
     border-radius: var(--noi-border-radius-sm);
-    padding-inline: getRem(8);
+    padding-inline: var(--noi-spacing-2x);
     block-size: getRem(24);
     inline-size: max-content;
     font-variant-numeric: tabular-nums;
 
     .text {
-      padding-inline: getRem(4);
+      padding-inline: var(--noi-spacing-1x);
     }
   }
 }

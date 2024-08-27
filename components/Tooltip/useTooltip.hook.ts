@@ -5,6 +5,7 @@ import {
   flip,
   offset,
   shift,
+  arrow,
 } from '@floating-ui/dom';
 import { Nullable } from '@noice-com/utils';
 import { RefObject, useEffect, useId, useRef, useState } from 'react';
@@ -139,35 +140,70 @@ export function useTooltip({
   useEffect(() => {
     const triggerElement = tooltipTriggerRef.current;
     const tooltipElement = tooltipRef.current;
+    const arrowElement = tooltipElement?.querySelector('#tooltip-arrow') as HTMLElement;
 
-    if (!triggerElement || !tooltipElement || (!tooltipIsVisible && !tooltipIsHovered)) {
+    if (
+      !arrowElement ||
+      !triggerElement ||
+      !tooltipElement ||
+      (!tooltipIsVisible && !tooltipIsHovered) ||
+      forceState === 'hide'
+    ) {
       return;
     }
 
     const cleanup = autoUpdate(triggerElement, tooltipElement, async () => {
-      const { x, y } = await computePosition(triggerElement, tooltipElement, {
+      await computePosition(triggerElement, tooltipElement, {
         placement,
         strategy: 'fixed',
         middleware: [
           flip(),
-          shift({ padding: 4 }),
           offset({
             crossAxis: 0,
             mainAxis: distance,
           }),
+          shift({ padding: 4 }),
+          arrow({ element: arrowElement }),
         ],
-      });
+        /* eslint-disable promise/always-return */
+      }).then(({ middlewareData, x, y, placement }) => {
+        // Position the tooltip itself
+        Object.assign(tooltipElement.style, {
+          insetBlockStart: y ? `${y}px` : '',
+          insetInlineStart: x ? `${x}px` : '',
+        });
 
-      Object.assign(tooltipElement.style, {
-        insetBlockStart: `${y}px`,
-        insetInlineStart: `${x}px`,
+        // Position the tooltip arrow
+        const side = placement.split('-')[0];
+
+        const staticSide =
+          {
+            top: 'insetBlockEnd',
+            right: 'insetInlineStart',
+            bottom: 'insetBlockStart',
+            left: 'insetInlineEnd',
+          }[side] || '';
+
+        if (middlewareData.arrow) {
+          const { x: arrowX, y: arrowY } = middlewareData.arrow;
+
+          Object.assign(arrowElement.style, {
+            insetInlineStart: arrowX ? `${arrowX}px` : '',
+            insetBlockStart: arrowY ? `${arrowY}px` : '',
+            // Ensure the static side gets unset when
+            // flipping to other placements' axes.
+            insetInlineEnd: '',
+            insetBlockEnd: '',
+            [staticSide]: `${-arrowElement.offsetWidth / 2}px`,
+          });
+        }
       });
     });
 
     return () => {
       cleanup();
     };
-  }, [distance, placement, tooltipIsHovered, tooltipIsVisible]);
+  }, [distance, placement, tooltipIsHovered, tooltipIsVisible, forceState]);
 
   return {
     state: {

@@ -214,3 +214,33 @@ export const WithCustomCallbacks: Story = {
       title: 'Did you check the console?',
     }),
 };
+
+export const PreventCloseOnOutsideClick: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: `The <code>useConfirmDialog</code> hook accepts <code>closeOnOutsideClick</code> prop to prevent the dialog from closing on outside clicks. This is to be used with dialogs that require an action to be taken before closing.
+        
+    const store = useConfirmDialog({
+      description: 'Optional dialog description.',
+      onCancel: () => {},
+      onConfirm: () => new Promise((resolve) => setTimeout(resolve, 2000)),
+      title: 'Are you sure you want to leave the game?',
+      options: {
+        closeOnOutsideClick: false,
+      },
+    });`,
+      },
+    },
+  },
+  render: () =>
+    CreateConfirmDialog({
+      description: 'Optional dialog description.',
+      onCancel: () => {},
+      onConfirm: () => new Promise((resolve) => setTimeout(resolve, 2000)),
+      title: 'Are you sure you want to leave the game?',
+      options: {
+        closeOnOutsideClick: false,
+      },
+    }),
+};

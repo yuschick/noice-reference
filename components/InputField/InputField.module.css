@@ -9,13 +9,15 @@
     --_input-field-border: var(--noi-color-blue-200);
     --_input-field-color-disabled: var(--noi-color-blue-400);
     --_input-field-color: var(--noi-color-text-dark);
+    --_input-field-description-color: var(--noi-color-text-dark-secondary);
     --_input-field-error-color: var(--noi-color-status-error-main);
     --_input-field-size: getRem(48);
     --_input-label-color-focus: var(--noi-color-teal-600);
     --_input-label-color: var(--noi-color-text-dark-secondary);
-    --_input-label-active-offset: getRem(4);
+    --_input-label-active-offset: var(--noi-spacing-1x);
     --_input-label-active-offset-multiplier: 2;
-    --_input-padding-inline: getRem(24);
+    --_input-padding-inline: var(--noi-spacing-6x);
+    --_input-border-radius: var(--noi-border-radius-sm);
 
     display: grid;
     grid-template-columns: 1fr;
@@ -25,13 +27,13 @@
     /* Sizes */
     &.sm {
       --_input-field-size: getRem(40);
-      --_input-label-active-offset: getRem(2);
+      --_input-label-active-offset: var(--noi-spacing-half);
       --_input-label-active-offset-multiplier: 4;
     }
 
     &.lg {
       --_input-field-size: getRem(56);
-      --_input-label-active-offset: getRem(8);
+      --_input-label-active-offset: var(--noi-spacing-2x);
       --_input-label-active-offset-multiplier: 1.5;
     }
 
@@ -43,11 +45,16 @@
       --_input-field-background: var(--noi-color-blue-750);
       --_input-field-border-hover: var(--noi-color-blue-500);
       --_input-field-border: var(--noi-color-blue-650);
+      --_input-field-description-color: var(--noi-color-text-light-secondary);
       --_input-field-color-disabled: var(--noi-color-blue-500);
       --_input-field-color: var(--noi-color-text-light);
       --_input-label-color-focus: var(--noi-color-teal-main);
       --_input-field-error-color: var(--noi-color-status-error-300);
       --_input-label-color: var(--noi-color-text-light-secondary);
+
+      &.fixed {
+        --_input-label-color: var(--noi-color-text-light);
+      }
     }
 
     &.gray {
@@ -57,11 +64,31 @@
       --_input-field-background: var(--noi-color-gray-750);
       --_input-field-border-hover: var(--noi-color-gray-500);
       --_input-field-border: var(--noi-color-gray-650);
+      --_input-field-description-color: var(--noi-color-text-light-secondary);
       --_input-field-color-disabled: var(--noi-color-gray-500);
       --_input-field-color: var(--noi-color-text-light);
       --_input-label-color-focus: var(--noi-color-teal-main);
       --_input-field-error-color: var(--noi-color-status-error-300);
       --_input-label-color: var(--noi-color-text-light-secondary);
+
+      &.fixed {
+        --_input-label-color: var(--noi-color-text-light);
+      }
+    }
+
+    /* Shapes */
+    &.pill {
+      --_input-border-radius: var(--noi-border-radius-2xl);
+    }
+
+    /* Label types */
+    &.disappearing,
+    &.fixed {
+      --_input-label-active-offset: 0;
+    }
+
+    &.fixed {
+      --_input-label-color: var(--noi-color-text-dark);
     }
   }
 
@@ -74,7 +101,7 @@
     color: var(--_input-field-color);
     background-color: var(--_input-field-background);
     border: 1px solid var(--_input-field-border);
-    border-radius: var(--noi-border-radius-sm);
+    border-radius: var(--_input-border-radius);
     min-block-size: var(--_input-field-size);
     inline-size: 100%;
     max-inline-size: 100%;
@@ -94,9 +121,11 @@
       pointer-events: none;
     }
 
-    &:not(:has(:disabled, [aria-invalid='true'], :user-invalid)):hover {
-      background-color: var(--_input-field-background-hover);
-      border-color: var(--_input-field-border-hover);
+    @media (hover: hover) {
+      &:not(:has(:disabled, [aria-invalid='true'], :user-invalid)):hover {
+        background-color: var(--_input-field-background-hover);
+        border-color: var(--_input-field-border-hover);
+      }
     }
 
     &:not(:has(:disabled)):has([aria-invalid='true'], :user-invalid) {
@@ -122,6 +151,18 @@
     block-size: 100%;
   }
 
+  .fixed-label-wrapper {
+    margin-block-end: var(--noi-spacing-1x);
+    padding: 0 var(--_input-padding-inline);
+  }
+
+  .label-text-fixed {
+    color: var(--_input-label-color);
+    font-weight: var(--noi-font-weight-medium);
+    font-size: var(--noi-font-size-sm);
+    line-height: var(--noi-line-height-tight);
+  }
+
   .label-text {
     --_label-text-inline-offset: var(--_input-padding-inline);
 
@@ -134,8 +175,34 @@
     inset-inline-start: 0;
     translate: var(--_label-text-inline-offset) -50%;
 
+    @supports not (translate: 100%) {
+      transform: translate(var(--_label-text-inline-offset), -50%);
+    }
+
     .input-and-slots-wrapper:has(.slot-start) & {
       --_label-text-inline-offset: 0;
+    }
+
+    .input-and-description-wrapper.disappearing & {
+      transition: none;
+    }
+
+    .input-and-description-wrapper.disappearing:has(
+        .input-field:focus,
+        .input-field:not(:placeholder-shown)
+      )
+      & {
+      /* stylelint-disable unit-allowed-list */
+      position: absolute;
+      display: inline-block;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      border: none;
+      clip: rect(0 0 0 0);
+      block-size: 1px;
+      inline-size: 1px;
+      /* stylelint-enable unit-allowed-list */
     }
 
     .input-label-wrapper:has(
@@ -147,6 +214,13 @@
       font-size: var(--noi-font-size-sm);
       inset-block-start: 0;
       translate: var(--_label-text-inline-offset) var(--_input-label-active-offset);
+
+      @supports not (translate: 100%) {
+        transform: translate(
+          var(--_label-text-inline-offset),
+          var(--_input-label-active-offset)
+        );
+      }
     }
 
     .input-label-wrapper:has(.input-field[aria-invalid='true']:not(:disabled)) & {
@@ -172,6 +246,10 @@
     );
     block-size: 100%;
 
+    &::placeholder {
+      color: var(--noi-color-text-light-secondary);
+    }
+
     &:focus,
     &:focus-visible {
       border: none;
@@ -188,6 +266,7 @@
   }
 
   .input-description {
+    color: var(--_input-field-description-color);
     max-inline-size: 100%;
   }
 

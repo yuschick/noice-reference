@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { Children, DialogHTMLAttributes, isValidElement } from 'react';
 
 import styles from './Dialog.module.css';
@@ -65,7 +66,11 @@ export function Dialog({ children, store, ...htmlAttributes }: WithChildren<Prop
         {...(Header
           ? { 'aria-labelledby': state.labelledById }
           : { 'aria-label': state.title })}
-        className={styles.dialog}
+        className={classNames(
+          styles.dialog,
+          styles[state.inlineSize],
+          styles[state.display],
+        )}
         ref={state.dialogRef}
         {...(Actions ? { role: 'alertdialog' } : {})}
         {...htmlAttributes}

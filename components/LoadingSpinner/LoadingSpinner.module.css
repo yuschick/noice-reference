@@ -2,6 +2,10 @@
   @keyframes rotate {
     to {
       rotate: 360deg;
+
+      @supports not (rotate: 360deg) {
+        transform: rotate(360deg);
+      }
     }
   }
 

@@ -22,7 +22,7 @@ export function PopoverMenu({ children, store }: WithChildren<Props>) {
     <>
       {createPortal(
         <PopoverMenuProvider store={store}>
-          <div role="presentation">
+          <div role={store.state.popoverMenuIsOpen ? undefined : 'presentation'}>
             <div
               aria-labelledby={store.state.popoverMenuTriggerId}
               aria-orientation="vertical"

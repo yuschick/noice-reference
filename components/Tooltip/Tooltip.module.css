@@ -1,6 +1,6 @@
 @layer noice.ui {
   .tooltip-content {
-    padding: getRem(8) getRem(16);
+    padding: var(--noi-spacing-2x) var(--noi-spacing-4x);
     overflow: hidden;
   }
 
@@ -47,61 +47,16 @@
     &[data-placement^='top']::after {
       inset-block-end: calc(var(--tooltip-offset) * -1);
     }
+  }
 
-    /* Arrow */
-    &::before {
-      position: absolute;
-      background: var(--noi-color-gray-950);
-      transform: rotate(45deg);
-      transform-origin: center;
-      content: '';
-      /* stylelint-disable unit-allowed-list */
-      /* The arrow doesn't need to be relative to font size since its a minor decoration */
-      inline-size: 12px;
-      block-size: 12px;
-      /* stylelint-enable unit-allowed-list */
-    }
-
-    &[data-placement^='top']::before {
-      inset-block-end: getRem(-4);
-    }
-
-    &[data-placement^='bottom']::before {
-      inset-block-start: getRem(-4);
-    }
-
-    &:is([data-placement='top'], [data-placement='bottom'])::before {
-      inset-inline-start: 50%;
-      translate: -50% 0;
-    }
-
-    &:is([data-placement='top-start'], [data-placement='bottom-start'])::before {
-      inset-inline-start: getRem(16);
-    }
-
-    &:is([data-placement='top-end'], [data-placement='bottom-end'])::before {
-      inset-inline-end: getRem(16);
-    }
-
-    &[data-placement^='left']::before {
-      inset-inline-end: getRem(-4);
-    }
-
-    &[data-placement^='right']::before {
-      inset-inline-start: getRem(-4);
-    }
-
-    &:is([data-placement='left'], [data-placement='right'])::before {
-      inset-block-start: 50%;
-      translate: 0 -50%;
-    }
-
-    &:is([data-placement='left-start'], [data-placement='right-start'])::before {
-      inset-block-start: getRem(16);
-    }
-
-    &:is([data-placement='left-end'], [data-placement='right-end'])::before {
-      inset-block-end: getRem(16);
-    }
+  .tooltip-arrow {
+    position: absolute;
+    z-index: var(--noi-z-index-behind);
+    background: var(--noi-color-gray-950);
+    transform: rotate(45deg);
+    transform-origin: center;
+    pointer-events: none;
+    inline-size: getRem(12);
+    block-size: getRem(12);
   }
 }

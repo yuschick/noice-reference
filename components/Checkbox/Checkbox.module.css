@@ -22,7 +22,13 @@
     flex-wrap: nowrap;
     gap: var(--_checkbox-gap);
     align-items: center;
+    justify-content: start;
     user-select: none;
+
+    .rtl & {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
   }
 
   .checkbox {
@@ -64,5 +70,10 @@
     display: inline-flex;
     flex-wrap: nowrap;
     margin-inline-start: calc(var(--_checkbox-size) + var(--_checkbox-gap));
+
+    .rtl & {
+      margin-inline-start: 0;
+      margin-inline-end: calc(var(--_checkbox-size) + var(--_checkbox-gap));
+    }
   }
 }

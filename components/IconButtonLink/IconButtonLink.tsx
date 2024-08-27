@@ -1,36 +1,36 @@
-import classNames from "classnames";
-import { MouseEvent, forwardRef, useCallback } from "react";
-import { Link, LinkProps } from "react-router-dom";
+import classNames from 'classnames';
+import { MouseEvent, forwardRef, useCallback } from 'react';
+import { Link, LinkProps } from 'react-router-dom';
 
-import buttonStyles from "../Button/Button.module.css";
-import { Icon } from "../Icon/Icon";
-import { BaseIconButtonProps } from "../IconButton/IconButton";
-import iconButtonStyles from "../IconButton/IconButton.module.css";
-import { VisuallyHidden } from "../VisuallyHidden";
+import buttonStyles from '../Button/Button.module.css';
+import { Icon } from '../Icon/Icon';
+import { BaseIconButtonProps } from '../IconButton/IconButton';
+import iconButtonStyles from '../IconButton/IconButton.module.css';
+import { VisuallyHidden } from '../VisuallyHidden';
 
-import { useSoundController } from "@common-context";
-import { useMouseEnterWithSound } from "@common-hooks";
-import { CommonSoundKeys, WithChildren } from "@common-types";
+import { useSoundController } from '@common-context';
+import { useMouseEnterWithSound } from '@common-hooks';
+import { CommonSoundKeys, WithChildren } from '@common-types';
 
-type Props = LinkProps &
-  WithChildren<Omit<BaseIconButtonProps, "isDisabled" | "isLoading">>;
+type Props = Omit<LinkProps, 'color'> &
+  WithChildren<Omit<BaseIconButtonProps, 'isDisabled' | 'isLoading'>>;
 
 export const IconButtonLink = forwardRef<HTMLAnchorElement, Props>(
   function IconButtonLink(
     {
       icon,
       label,
-      level = "primary",
+      level = 'primary',
       onClick,
       onMouseEnter,
-      size = "md",
+      size = 'md',
       statusMessage,
-      theme = "light",
+      theme = 'light',
       to,
-      variant = "solid",
+      variant = 'solid',
       ...htmlAttributes
     },
-    externalRef
+    externalRef,
   ) {
     const classList = classNames(
       buttonStyles.button,
@@ -38,21 +38,21 @@ export const IconButtonLink = forwardRef<HTMLAnchorElement, Props>(
       buttonStyles[size],
       buttonStyles[variant],
       buttonStyles[level],
-      buttonStyles[theme]
+      buttonStyles[theme],
     );
     const handleMouseEnterWithSound = useMouseEnterWithSound(onMouseEnter);
 
     // Using soundController instead of usePlaySound because component, usePlaySound hook and the sound
     // may be destroyed on navigate and then sound does not have no time to play so there would not be sound
     const soundController = useSoundController();
-    const isExternalLink = String(to).startsWith("http");
+    const isExternalLink = String(to).startsWith('http');
 
     const handleOnClickWithSound = useCallback(
       (event: MouseEvent<HTMLAnchorElement>) => {
         soundController.playSound(CommonSoundKeys.ButtonClickConfirm);
         onClick?.(event);
       },
-      [onClick, soundController]
+      [onClick, soundController],
     );
 
     return isExternalLink ? (
@@ -64,7 +64,7 @@ export const IconButtonLink = forwardRef<HTMLAnchorElement, Props>(
         href={String(to)}
         ref={externalRef}
         rel="noopener noreferrer"
-        target={htmlAttributes.reloadDocument ? undefined : "_blank"}
+        target={htmlAttributes.reloadDocument ? undefined : '_blank'}
         onClick={handleOnClickWithSound}
         onMouseEnter={handleMouseEnterWithSound}
       >
@@ -85,17 +85,20 @@ export const IconButtonLink = forwardRef<HTMLAnchorElement, Props>(
         onClick={handleOnClickWithSound}
         onMouseEnter={handleMouseEnterWithSound}
       >
-        <IconButtonLinkContent icon={icon} statusMessage={statusMessage} />
+        <IconButtonLinkContent
+          icon={icon}
+          statusMessage={statusMessage}
+        />
       </Link>
     );
-  }
+  },
 );
 
 const IconButtonLinkContent = ({
   children,
   icon,
   statusMessage,
-}: WithChildren<Pick<Props, "icon" | "statusMessage">>) => {
+}: WithChildren<Pick<Props, 'icon' | 'statusMessage'>>) => {
   return (
     <div className={iconButtonStyles.iconContentWrapper}>
       <Icon

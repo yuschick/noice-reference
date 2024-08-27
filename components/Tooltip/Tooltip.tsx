@@ -77,6 +77,11 @@ export function Tooltip({
         }
       >
         <div className={styles.tooltipContent}>{content}</div>
+        <div
+          aria-hidden="true"
+          className={styles.tooltipArrow}
+          id="tooltip-arrow"
+        />
       </div>
     </MountTransition>
   );
