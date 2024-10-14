@@ -1,0 +1,104 @@
+.match-results-dialog-rewards-container {
+  inline-size: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  @media (max-width: getRem(600)) {
+    flex-direction: column;
+  }
+}
+
+.reward-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0;
+  padding: var(--noi-spacing-4x) 0;
+  background-color: var(--noi-color-gray-950);
+  border-radius: var(--noi-border-radius-sm);
+}
+
+.reward-box-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  padding: 0 var(--noi-spacing-4x);
+  border-inline-start: 1px solid var(--noi-color-gray-800);
+}
+
+.reward {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+}
+
+.reward-type-text {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+}
+
+.reward-text {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-xl);
+  line-height: var(--noi-line-height-tight);
+}
+
+.bonus-types-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-1x);
+  padding-inline-end: var(--noi-spacing-2x);
+}
+
+.bonus-type-text {
+  color: var(--noi-color-green-main);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+}
+
+.reward-box-season-progression {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  padding: var(--noi-spacing-4x);
+  background-color: var(--noi-color-blue-900);
+}
+
+.reward-box-season-progression-details {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--noi-spacing-2x);
+}
+
+.reward-box-season-progression-game-text {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  text-transform: capitalize;
+}
+
+.reward-box-season-progression-season-text {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  text-transform: capitalize;
+}
+
+.progressbar {
+  margin-block-start: var(--noi-spacing-half);
+  --horizontal-progress-bar-progress-color: var(--noi-color-teal-main);
+  --horizontal-progress-bar-background-color: var(--noi-color-blue-700);
+}

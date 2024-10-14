@@ -1,0 +1,36 @@
+.game-state-label-subtitle-root {
+  position: absolute;
+  color: var(--noi-color-light-main-transparent-50);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  text-align: center;
+  text-transform: uppercase;
+  transform: translateY(-35%);
+  opacity: 0;
+  transition: transform var(--_game-state-label-subtitle-transition-duration),
+    opacity var(--_game-state-label-subtitle-transition-duration);
+  inset-block-start: calc(100% + getRem(8));
+
+  @container (inline-size > getRem(460)) {
+    font-size: var(--noi-font-size-lg);
+  }
+
+  @container (inline-size > getRem(600)) {
+    font-size: var(--noi-font-size-xl);
+  }
+
+  @container (inline-size > getRem(800)) {
+    font-size: var(--noi-font-size-2xl);
+  }
+
+  &.enter {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &.leave {
+    transform: translateY(35%);
+    opacity: 0;
+  }
+}

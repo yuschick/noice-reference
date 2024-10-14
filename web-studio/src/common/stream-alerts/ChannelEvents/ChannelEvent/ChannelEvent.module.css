@@ -1,0 +1,183 @@
+@keyframes channel-event-animation {
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  3%,
+  97% {
+    opacity: 1;
+  }
+}
+
+.channel-event-container {
+  position: relative;
+  overflow: hidden;
+  min-inline-size: getRem(320);
+  min-block-size: getRem(140);
+  max-inline-size: getRem(320);
+  max-block-size: getRem(140);
+  animation: channel-event-animation 5000ms forwards;
+}
+
+.event-content-container {
+  position: absolute;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-3x);
+  align-items: center;
+  padding: var(--noi-spacing-4x);
+  padding-inline-end: 0;
+  min-inline-size: getRem(320);
+  max-inline-size: getRem(320);
+  min-block-size: getRem(96);
+  max-block-size: getRem(96);
+  inset-block-end: 0;
+}
+
+.avatar-placeholder-icon {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-end: 0;
+}
+
+.avatar-wrapper {
+  position: absolute;
+  flex-shrink: 0;
+  margin: 0;
+  min-inline-size: getRem(140);
+  min-block-size: getRem(140);
+  max-inline-size: getRem(140);
+  max-block-size: getRem(140);
+  inset-block-end: 0;
+  inset-inline-end: 0;
+  overflow: hidden;
+}
+
+.avatar-image-container {
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 150%;
+  inline-size: getRem(140);
+  block-size: getRem(180);
+  transform: translateY(getRem(-40));
+  mask-image: linear-gradient(180deg, var(--noi-color-black-main) 85%, transparent 98%);
+}
+
+.noice-logo {
+  inline-size: getRem(40);
+  block-size: getRem(32);
+}
+
+.text-container {
+  z-index: var(--noi-z-index-level-1);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.text-base {
+  padding: var(--noi-spacing-1x) var(--noi-spacing-3x);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* We cannot use some of our CSS variables with OBS because color-mix doesn't work in OBS browser */
+  /* stylelint-disable-next-line declaration-property-value-disallowed-list */
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: var(--noi-border-radius-pill);
+  max-inline-size: getRem(252);
+}
+
+@keyframes name-text-animation {
+  0% {
+    transform: translateX(getRem(100));
+    opacity: 0;
+  }
+
+  20% {
+    transform: translateX(getRem(40));
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.name-text {
+  color: var(--noi-color-yellow-green-main);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-medium);
+  opacity: 0;
+  animation: name-text-animation 500ms forwards ease-out;
+
+  &.anonymous {
+    color: var(--noi-color-white-main);
+  }
+}
+
+@keyframes action-text-animation {
+  0% {
+    transform: translateX(getRem(20));
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.action-text {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+  opacity: 0;
+  animation: action-text-animation 1500ms 400ms forwards ease-out;
+
+  &.small {
+    font-size: var(--noi-font-size-sm);
+  }
+
+  &.indented {
+    margin-inline-start: getRem(36);
+    max-inline-size: getRem(212);
+  }
+}
+
+@keyframes action-target-text-animation {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+
+  40% {
+    transform: scale(1.14);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.action-target-text {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+  white-space: nowrap;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: action-target-text-animation 800ms 1000ms forwards ease-out;
+  margin-inline-start: var(--noi-spacing-5x);
+  max-inline-size: getRem(224);
+}

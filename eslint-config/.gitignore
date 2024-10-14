@@ -1,0 +1,27 @@
+# Web
+node_modules
+dist
+coverage/
+.pnp
+.pnp.js
+yarn-error.log
+server_pack.js
+.types/
+
+# Storybooks
+storybook-static
+
+# Misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+
+## Generated
+dep-graph.svg
+DISCLAIMER.md
+LICENSES.md

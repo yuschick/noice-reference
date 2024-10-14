@@ -1,0 +1,22 @@
+.report {
+  display: none;
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  border: 0;
+  block-size: 100%;
+  inline-size: 100%;
+
+  &.visible {
+    display: initial;
+  }
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  block-size: 100%;
+  inline-size: 100%;
+}

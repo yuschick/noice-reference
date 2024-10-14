@@ -1,0 +1,43 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "include": ["src/**/*"],
+  "exclude": ["node_modules/*", "dist/*"],
+  "references": [
+    {
+      "path": "../platform-client"
+    },
+    {
+      "path": "../utils"
+    }
+  ],
+  "compilerOptions": {
+    "rootDir": "src",
+    "baseUrl": "./src",
+    "outDir": "./dist",
+    "declarationDir": "./dist",
+    "paths": {
+      "@legacy/api": ["legacy/api"],
+      "@legacy/entities": ["legacy/entities"],
+      "@legacy/entities/*": ["legacy/entities/*"],
+      "@legacy/graphics": ["legacy/graphics"],
+      "@legacy/helpers/*": ["legacy/helpers/*"],
+      "@legacy/hierarchy": ["legacy/hierarchy"],
+      "@legacy/sandbox": ["legacy/sandbox"],
+      "@legacy/sandboxes/*": ["legacy/sandboxes/*"],
+      "@legacy/utilities": ["legacy/utilities"],
+      "@assets/*": ["../assets/*"]
+    },
+    "module": "commonjs",
+    "target": "ES6",
+    "lib": ["DOM", "ES6"],
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": false,
+    "strict": true,
+    "typeRoots": ["types", "node_modules/@types", "../../../node_modules/@types"],
+    "tsBuildInfoFile": ".tscache/tsconfig.tsbuildinfo"
+  }
+}

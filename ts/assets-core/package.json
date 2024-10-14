@@ -1,0 +1,21 @@
+{
+  "name": "@noice-com/assets-core",
+  "packageManager": "yarn@4.1.0",
+  "version": "1.0.0",
+  "main": "./index.ts",
+  "description": "Library for assets",
+  "engines": {
+    "node": ">=20.4.0"
+  },
+  "scripts": {
+    "check-types": "tsc --build tsconfig.types.json",
+    "lint": "yarn check-types && eslint ./src"
+  },
+  "prettier": "@noice-com/eslint-config/prettier.config.js",
+  "devDependencies": {
+    "@noice-com/eslint-config": "workspace:*",
+    "eslint": "^8.48.0",
+    "prettier": "^2.8.8",
+    "typescript": "^5.2.2"
+  }
+}

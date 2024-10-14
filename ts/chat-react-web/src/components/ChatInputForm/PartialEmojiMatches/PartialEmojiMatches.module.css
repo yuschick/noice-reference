@@ -1,0 +1,23 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  inline-size: 100%;
+  padding: var(--noi-spacing-1x);
+  background: none;
+  border-radius: var(--noi-border-radius-md);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.selected {
+    background-color: var(--noi-color-gray-700);
+  }
+}
+
+.label {
+  color: var(--noi-color-text-light);
+  font-size: var(--noi-font-size-sm);
+  margin-inline-start: var(--noi-spacing-3x);
+}

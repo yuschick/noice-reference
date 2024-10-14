@@ -1,0 +1,25 @@
+.creator-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-8x);
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+  align-items: start;
+}
+
+.draft-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+}
+
+.draft-list-title {
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}

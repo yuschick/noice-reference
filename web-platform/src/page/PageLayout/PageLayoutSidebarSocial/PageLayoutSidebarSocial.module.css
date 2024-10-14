@@ -1,0 +1,27 @@
+.wrapper {
+  position: sticky;
+  z-index: var(--noi-z-index-level-1);
+  grid-area: social;
+  overflow: hidden;
+  background-color: var(--noi-color-light-main-transparent-5);
+  inset-block-start: var(--platform-header-size);
+  block-size: calc(100dvh - var(--platform-header-size));
+  min-inline-size: var(--platform-collapsed-sidebar-size);
+
+  @media (max-width: getRem(792)) {
+    display: none;
+  }
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  gap: getRem(24);
+  padding-block-start: getRem(24);
+  block-size: calc(100dvh - var(--platform-header-size));
+}
+
+.friends-content {
+  @mixin no-scroll-bar;
+  overflow: auto;
+}

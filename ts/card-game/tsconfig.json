@@ -1,0 +1,55 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "include": ["./src/**/*.ts", "./src/**/*.tsx", "./gen/*"],
+  "exclude": ["./dist"],
+  "references": [
+    {
+      "path": "../platform-client"
+    },
+    {
+      "path": "../utils"
+    },
+    {
+      "path": "../common-ui"
+    },
+    {
+      "path": "../social"
+    }
+  ],
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": ".",
+    "module": "commonjs",
+    "target": "ES6",
+    "lib": ["DOM", "ES6"],
+    "paths": {
+      "@game-gen": ["gen"],
+      "@game-card": ["src/GameCard"],
+      "@game-types": ["src/types"],
+      "@game-transform": ["src/transform"],
+      "@game-assets/*": ["src/assets/*"],
+      "@game-utils": ["src/utils"],
+      "@game-classes": ["src/classes"],
+      "@game-constants": ["src/constants"],
+      "@game-events": ["src/events"],
+      "@game-context": ["src/context"],
+      "@game-hooks": ["src/hooks"],
+      "@game-legacy/*": ["src/legacy/*"],
+      "@game-components/*": ["src/components/*"],
+      "@game-logic/*": ["src/game-logic/*"],
+      "@game-common/*": ["src/common/*"],
+      "@game-common/booster": ["src/common/booster"],
+      "@game-story-helpers": ["src/story-helpers"]
+    },
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": false,
+    "strict": true,
+    "resolveJsonModule": true,
+    "typeRoots": ["types", "node_modules/@types", "../../../node_modules/@types"],
+    "tsBuildInfoFile": ".tscache/tsconfig.tsbuildinfo"
+  }
+}

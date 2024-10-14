@@ -1,0 +1,24 @@
+.chat-container {
+  --chat-messages-button-size: getRem(200);
+
+  position: relative;
+  flex-grow: 1;
+  block-size: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.new-messages-btn-wrapper {
+  position: sticky;
+  z-index: var(--noi-z-index-level-1);
+  opacity: 0;
+  transition: inset-block-end var(--noi-duration-quick), opacity var(--noi-duration-quick);
+  inset-block-end: -100%;
+  inline-size: var(--chat-messages-button-size);
+  inset-inline-start: calc(50% - var(--chat-messages-button-size) / 2);
+
+  &.into-view {
+    opacity: 1;
+    inset-block-end: var(--noi-spacing-2x);
+  }
+}

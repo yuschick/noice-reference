@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+}
+
+.title-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.disabled-content-container {
+  padding: getRem(24) getRem(32);
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  background-color: var(--noi-color-gray-850);
+  border-radius: var(--noi-border-radius-xs);
+}

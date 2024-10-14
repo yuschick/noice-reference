@@ -1,0 +1,44 @@
+.match-view-root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.card-container-wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.match-view-animated-container {
+  inline-size: 0;
+  transform: translateY(getRem(120));
+  opacity: 0;
+  transition: transform var(--match-view-transition-time),
+    opacity var(--match-view-transition-time);
+  pointer-events: none;
+
+  .cards-hidden & {
+    display: none;
+  }
+
+  &.appear {
+    z-index: var(--noi-z-index-level-2);
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &.appear,
+  &.leaving {
+    inline-size: 100%;
+  }
+}
+
+.match-view-high-scoring-cards-container {
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  pointer-events: all;
+}

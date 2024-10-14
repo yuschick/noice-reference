@@ -1,0 +1,54 @@
+.callout-wrapper {
+  --_callout-background-color: var(--neutral-600);
+  --_callout-border-radius: var(--noi-border-radius-sm);
+  --_callout-padding-inline: getRem(16);
+
+  display: grid;
+  grid-auto-columns: min-content;
+  grid-auto-flow: column;
+  grid-template-columns: min-content minmax(0, 1fr);
+  gap: var(--noi-spacing-2x);
+  align-content: center;
+  align-items: center;
+  padding: var(--noi-spacing-2x) var(--_callout-padding-inline);
+  color: var(--white);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--font-size-s);
+  line-height: var(--noi-line-height-medium);
+  text-wrap: pretty;
+  background: var(--_callout-background-color);
+  border-radius: var(--_callout-border-radius);
+  max-inline-size: 100%;
+}
+
+.error {
+  color: var(--noice-red-400);
+
+  .callout-icon {
+    color: var(--noice-red-400);
+  }
+}
+
+.info {
+  color: var(--primary-400);
+
+  .callout-icon {
+    color: var(--primary-400);
+  }
+}
+
+.positive {
+  color: var(--success-400);
+
+  .callout-icon {
+    color: var(--success-400);
+  }
+}
+
+.alert {
+  color: var(--warning-400);
+
+  .callout-icon {
+    color: var(--warning-400);
+  }
+}

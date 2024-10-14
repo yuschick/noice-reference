@@ -1,0 +1,19 @@
+.popover-header-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.popover-title {
+  font-weight: var(--noi-font-weight-bold);
+  line-height: var(--noi-line-height-tight);
+}
+
+.popover-toggle-wrapper {
+  justify-content: stretch;
+  padding: var(--noi-spacing-3x) var(--noi-spacing-4x);
+  border: 1px solid var(--noi-color-gray-850);
+  border-radius: var(--noi-border-radius-sm);
+}

@@ -1,0 +1,94 @@
+.game-card-bottom-label-root {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(
+    var(--noi-color-black-main-transparent-30),
+    var(--noi-color-black-main-transparent-10)
+  );
+  border-start-start-radius: var(--noi-border-radius-pill);
+  border-start-end-radius: var(--noi-border-radius-pill);
+  margin-block-end: pixelsToCardCqi(1.5);
+  min-block-size: getRem(5);
+  /* Full card width minus border radius */
+  inline-size: calc(pixelsToCardCqi(200) - (2 * pixelsToCardCqi(16)));
+
+  @mixin game-card-breakpoint-small {
+    min-block-size: getRem(6);
+  }
+
+  @mixin game-card-breakpoint-medium {
+    min-block-size: getRem(3);
+    margin-block-start: getRem(0);
+    margin-block-end: pixelsToCardCqi(1);
+  }
+}
+
+.game-card-bottom-label-text {
+  display: none;
+  padding: pixelsToCardCqi(3) 0 pixelsToCardCqi(1.5);
+  color: var(--noi-color-light-main-transparent-60);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: max(getRem(9), pixelsToCardCqi(11));
+  text-transform: uppercase;
+
+  @mixin game-card-breakpoint-medium {
+    display: inline;
+  }
+}
+
+.game-card-bottom-label-progress-bar-wrapper {
+  position: absolute;
+  overflow: hidden;
+  border-start-start-radius: var(--noi-border-radius-pill);
+  border-start-end-radius: var(--noi-border-radius-pill);
+  inset: pixelsToCardCqi(2);
+
+  @mixin game-card-breakpoint-medium {
+    inset: pixelsToCardCqi(1) pixelsToCardCqi(2) pixelsToCardCqi(1);
+  }
+
+  @mixin game-card-breakpoint-large {
+    inset: pixelsToCardCqi(2) pixelsToCardCqi(2) pixelsToCardCqi(1);
+  }
+}
+
+.game-card-bottom-label-progress-bar {
+  position: absolute;
+  background: var(--game-card-bottomlabel-pointsloader-gradient);
+  background-position: 0% 100%;
+  background-size: 100% 100%;
+  box-shadow: 0 3px 9px var(----noi-color-light-main-transparent-40) inset;
+  opacity: 1;
+  animation: points-loading-movement 0ms, points-loading-opacity 0ms;
+  animation-delay: 0ms;
+  animation-iteration-count: 2;
+  animation-fill-mode: forwards;
+  inset: pixelsToCardCqi(0) pixelsToCardCqi(0) pixelsToCardCqi(0);
+  block-size: 100%;
+  inline-size: 110%;
+
+  @mixin game-card-breakpoint-medium {
+    background: var(--game-card-bottomlabel-pointsloader-gradient-medium);
+  }
+}
+
+@keyframes points-loading-movement {
+  0% {
+    transform: translateX(-102%);
+    animation-timing-function: linear;
+  }
+
+  100% {
+    transform: translateX(-5%);
+  }
+}
+
+@keyframes points-loading-opacity {
+  100% {
+    opacity: 1;
+  }
+}

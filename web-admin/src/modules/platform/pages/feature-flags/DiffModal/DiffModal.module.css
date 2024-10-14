@@ -1,0 +1,29 @@
+.modal {
+  inline-size: 80vw;
+  max-block-size: 80vh;
+  overflow: auto;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+  align-items: flex-start;
+}
+
+.buttons {
+  position: sticky;
+  inset-block-end: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+}
+
+.warning {
+  @mixin label m, medium;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  color: var(--danger-400);
+}

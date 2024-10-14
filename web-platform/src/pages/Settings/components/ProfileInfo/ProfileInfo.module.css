@@ -1,0 +1,15 @@
+.username-edit-form {
+  display: grid;
+  gap: var(--noi-spacing-4x);
+}
+
+.current-username-wrapper {
+  display: grid;
+  gap: var(--noi-spacing-1x);
+}
+
+.current-username {
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+}

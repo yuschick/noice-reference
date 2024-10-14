@@ -1,0 +1,110 @@
+/* stylelint-disable declaration-property-value-allowed-list */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: getRem(24);
+}
+
+.top {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-weight: var(--noi-font-weight-extra-bold);
+  font-size: getRem(24);
+  line-height: getRem(24);
+  text-transform: uppercase;
+}
+
+.date {
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+}
+
+.users {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+}
+
+.name-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+  font-size: getRem(20);
+
+  .label {
+    font-weight: var(--noi-font-weight-medium);
+    line-height: getRem(24);
+  }
+
+  .value {
+    color: var(--noi-color-text-light-secondary);
+    line-height: getRem(20);
+  }
+}
+
+.ban-detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+  line-height: getRem(24);
+
+  .label {
+    font-weight: var(--noi-font-weight-bold);
+    font-size: getRem(20);
+  }
+
+  .value {
+    color: var(--noi-color-text-light-secondary);
+    font-weight: var(--noi-font-weight-medium);
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+
+  .rejected-appeal & {
+    gap: var(--noi-spacing-4x);
+  }
+}
+
+.appeal-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: getRem(24);
+  margin-block-start: getRem(40);
+}
+
+.appeal-title {
+  font-weight: var(--noi-font-weight-extra-bold);
+  font-size: getRem(20);
+  line-height: getRem(24);
+}
+
+.rejected-label {
+  color: var(--noi-color-status-error-main);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+}
+
+.profile-image-wrapper {
+  border-radius: var(--noi-border-radius-circle);
+  outline: getRem(4) solid var(--noi-color-light-main-transparent-10);
+}

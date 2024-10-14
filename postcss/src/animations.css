@@ -1,0 +1,15 @@
+@keyframes background-position-move {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  80%, 100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes spinny {
+  100% {
+    transform: rotate(360deg);
+  }
+}

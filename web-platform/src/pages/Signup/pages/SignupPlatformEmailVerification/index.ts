@@ -1,0 +1,1 @@
+export { SignupPlatformEmailVerification } from './SignupPlatformEmailVerification';

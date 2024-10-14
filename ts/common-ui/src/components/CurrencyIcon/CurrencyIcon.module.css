@@ -1,0 +1,23 @@
+@layer noice.ui {
+  .currency-icon {
+    &.sm {
+      inline-size: getRem(24);
+      block-size: getRem(24);
+    }
+
+    &.md {
+      inline-size: getRem(32);
+      block-size: getRem(32);
+    }
+
+    &.lg {
+      inline-size: getRem(48);
+      block-size: getRem(48);
+    }
+
+    &.xl {
+      inline-size: getRem(80);
+      block-size: getRem(80);
+    }
+  }
+}

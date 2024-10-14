@@ -1,0 +1,24 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["src/**/*"],
+  "exclude": ["node_modules/*", "types/*", "dist/*"],
+  "references": [
+    {
+      "path": "../utils"
+    },
+    {
+      "path": "../renderer"
+    }
+  ],
+  "compilerOptions": {
+    "rootDir": "src",
+    "baseUrl": "./src",
+    "outDir": "./dist/types",
+    "paths": {
+      "@noice-com/utils": ["../utils"],
+      "@noice-com/web-renderer": ["../renderer"]
+    },
+    "listEmittedFiles": true,
+    "emitDeclarationOnly": true
+  }
+}

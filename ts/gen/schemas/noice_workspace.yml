@@ -1,0 +1,4 @@
+name: ts-schemas
+
+artifact_directories:
+  - node_modules

@@ -1,0 +1,15 @@
+.message-title-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-1x);
+  align-items: center;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--_chat-message-font-size, var(--noi-font-size-sm));
+  line-height: var(--noi-line-height-tight);
+}
+
+.creator-card-name {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+}

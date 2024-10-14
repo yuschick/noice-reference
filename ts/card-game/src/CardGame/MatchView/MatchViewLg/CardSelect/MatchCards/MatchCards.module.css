@@ -1,0 +1,120 @@
+.wrapper {
+  position: relative;
+  z-index: var(--noi-z-index-level-2);
+  display: flex;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.content {
+  position: relative;
+  container-type: inline-size;
+  container-name: card-select-match-cards-container;
+  z-index: var(--noi-z-index-level-1);
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.card-row {
+  --_match-cards-gap: var(--noi-spacing-4x);
+  --_match-cards-hover-just-in-case-buffer: getRem(2);
+
+  position: relative;
+  display: flex;
+  gap: var(--_match-cards-gap);
+  inline-size: calc(100% + var(--_match-cards-gap));
+  block-size: auto;
+
+  .hover-cards & {
+    position: absolute;
+    inset-block-end: 0;
+    inline-size: calc(
+      var(--game-card-width-breakpoint-medium) + var(--_match-cards-gap) +
+        var(--_match-cards-hover-just-in-case-buffer)
+    );
+  }
+
+  @mixin game-card-breakpoint-medium {
+    .hover-cards & {
+      position: relative;
+      inset: auto;
+    }
+  }
+}
+
+.first-match-card {
+  position: relative;
+  z-index: var(--noi-z-index-level-1);
+  inline-size: calc(100% - var(--_match-cards-gap));
+  @mixin game-card-idle-shadow;
+
+  .hover-cards & {
+    @mixin game-card-raised-shadow;
+  }
+
+  @mixin game-card-breakpoint-medium {
+    .hover-cards & {
+      @mixin game-card-idle-shadow;
+    }
+  }
+}
+
+.second-match-card {
+  position: absolute;
+  inset: 0;
+  z-index: var(--noi-z-index-base);
+  transform: translate(10%);
+  opacity: 0.5;
+  transition: transform var(--_card-select-match-card-transition-time),
+    opacity var(--_card-select-match-card-transition-time);
+  inline-size: calc(100% - var(--_match-cards-gap));
+
+  .hover-cards & {
+    transform: translate(calc(100% + var(--_match-cards-gap)));
+    opacity: 1;
+    @mixin game-card-raised-shadow;
+  }
+
+  @mixin game-card-breakpoint-medium {
+    .hover-cards & {
+      @mixin game-card-idle-shadow;
+    }
+  }
+}
+
+.label-wrapper {
+  inline-size: 100%;
+  color: var(--noi-color-text-light);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+
+  .bold {
+    color: var(--noi-color-light-main);
+    font-weight: var(--noi-font-weight-bold);
+  }
+}
+
+.separator-wrapper {
+  position: relative;
+  flex-shrink: 0;
+  inline-size: var(--_card-select-match-cards-separator-block-size);
+}
+
+.separator {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  display: block;
+  inline-size: getRem(1);
+  background: linear-gradient(
+    transparent,
+    var(--noi-color-light-main-transparent-20),
+    transparent
+  );
+
+  .hover-cards & {
+    opacity: 0;
+  }
+}

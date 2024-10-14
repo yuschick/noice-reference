@@ -1,0 +1,55 @@
+.profile-section-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--noi-spacing-6x);
+}
+
+.title-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  text-transform: uppercase;
+}
+
+.icon {
+  inline-size: getRem(24);
+  block-size: getRem(24);
+}
+
+.list {
+  @mixin list-style-none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-8x) var(--noi-spacing-4x);
+}
+
+.list-item {
+  position: relative;
+  inline-size: var(--game-card-width-breakpoint-small);
+
+  &.expanded {
+    z-index: var(--noi-z-index-level-1);
+  }
+}
+
+.card-wrapper {
+  inline-size: var(--game-card-width-breakpoint-small);
+  @mixin game-card-idle-shadow;
+
+  &.expanded {
+    position: absolute;
+    inline-size: var(--game-card-width-breakpoint-medium);
+    @mixin game-card-raised-shadow;
+    transform: translateX(
+        calc(
+          -1 / 2 * (var(--game-card-width-breakpoint-medium) -
+                var(--game-card-width-breakpoint-small))
+        )
+      )
+      translateY(getRem(-30));
+  }
+}

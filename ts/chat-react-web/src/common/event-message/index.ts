@@ -1,0 +1,1 @@
+export { ChatEventMessageWrapper } from './ChatEventMessageWrapper';

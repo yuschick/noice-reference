@@ -1,0 +1,23 @@
+.settings-title {
+  font-weight: var(--noi-font-weight-bold);
+}
+
+.group-wrapper {
+  display: grid;
+  gap: var(--noi-spacing-2x);
+}
+
+.settings-group-title {
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+}
+
+.settings-group {
+  display: grid;
+  gap: var(--noi-spacing-2x);
+  padding: var(--noi-spacing-2x);
+  border: 1px solid var(--noi-color-gray-850);
+  border-radius: var(--noi-border-radius-sm);
+  inline-size: 100%;
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Conditional Token",
+  "description": "Struct defining conditional token variables",
+  "type": "object",
+  "patternProperties": {
+    "^.*$": {
+      "type": "object",
+      "patternProperties": {
+        "^.*$": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                }
+              ]
+            }
+          },
+          "statement": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "value",
+          "statement"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.destination-cta-wrapper {
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+}
+
+.destination-cta-description {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-medium);
+}

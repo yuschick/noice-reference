@@ -1,0 +1,76 @@
+.team-score-wrapper {
+  --team-score-label-height: getRem(52);
+  --team-score-icon-size: getRem(12);
+  --team-score-icon-rotation: 180deg;
+  display: flex;
+
+  .team-score-labels {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    block-size: 100%;
+  }
+}
+
+.team-label {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-xs);
+  text-transform: uppercase;
+}
+
+.name-label {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  text-transform: capitalize;
+}
+
+.team-score-button {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: var(--noi-spacing-1x) getRem(16);
+  background-color: transparent;
+  border-radius: var(--noi-border-radius-sm);
+  cursor: pointer;
+  user-select: none;
+  block-size: getRem(64);
+  margin-block-end: getRem(-4);
+
+  .open-status-icon {
+    color: var(--noi-color-text-light-secondary);
+    transform: rotate(var(--team-score-icon-rotation));
+    transition: transform ease-in-out 150ms;
+    inline-size: var(--team-score-icon-size);
+    block-size: var(--team-score-icon-size);
+    margin-inline-start: var(--team-score-icon-size);
+  }
+
+  &.dialog-open {
+    --team-score-icon-rotation: 0deg;
+  }
+
+  &:hover {
+    .open-status-icon {
+      color: var(--noi-color-light-main);
+      transform: translateY(-10%) rotate(var(--team-score-icon-rotation));
+    }
+
+    .name-label {
+      color: var(--noi-color-light-main);
+    }
+  }
+}
+
+.team-button-wrapper {
+  position: relative;
+}
+
+.score-label {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+}

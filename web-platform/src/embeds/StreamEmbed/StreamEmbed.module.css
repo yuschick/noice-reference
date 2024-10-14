@@ -1,0 +1,13 @@
+.stream-player {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+.player-root {
+  position: absolute;
+  overflow: hidden;
+  inset: 0;
+}

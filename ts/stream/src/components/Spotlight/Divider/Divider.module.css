@@ -1,0 +1,12 @@
+.divider {
+  inline-size: 100%;
+  max-inline-size: getRem(900);
+  block-size: getRem(1);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--noi-color-light-main-transparent-10) 50%,
+    transparent 100%
+  );
+  border: none;
+}

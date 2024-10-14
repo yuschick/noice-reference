@@ -1,0 +1,190 @@
+@keyframes highlight-move {
+  0% {
+    transform: translateY(120%);
+  }
+
+  66% {
+    transform: translateY(-120%);
+  }
+
+  100% {
+    transform: translateY(-120%);
+  }
+}
+
+.container {
+  position: relative;
+  z-index: var(--noi-z-index-level-1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+  color: var(--noi-color-text-light);
+  letter-spacing: getRem(0);
+  text-align: start;
+  text-decoration: none;
+  border-radius: var(--noi-border-radius-md);
+  box-shadow: 0px 24px 32px -24px var(--noi-color-black-main-transparent-25);
+  cursor: pointer;
+  transition: box-shadow var(--noi-duration-quick), transform var(--noi-duration-quick);
+  inline-size: getRem(200);
+  block-size: getRem(200);
+
+  @container (max-width: getRem(459)) or (max-height: getRem(459)) {
+    block-size: unset;
+    inline-size: getRem(256);
+    border-radius: var(--noi-border-radius-sm);
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &.teal {
+    background: linear-gradient(
+      135deg,
+      var(--noi-color-teal-700) 0%,
+      var(--noi-color-teal-800) 100%
+    );
+  }
+
+  &.purple {
+    background: linear-gradient(
+      135deg,
+      var(--noi-color-violet-600) 0%,
+      var(--noi-color-violet-800) 100%
+    );
+  }
+
+  &.magenta {
+    background: linear-gradient(
+      135deg,
+      var(--noi-color-magenta-700) 0%,
+      var(--noi-color-magenta-900) 100%
+    );
+  }
+}
+
+.highlight-animation {
+  position: absolute;
+  clip-path: inset(0 round getRem(16));
+  inset: 0;
+
+  &::after {
+    position: absolute;
+    z-index: var(--noi-z-index-level-8);
+    background-position: center;
+    opacity: 0.75;
+    animation: highlight-move 3000ms ease-in-out 2 normal forwards;
+    content: '';
+    pointer-events: none;
+    inset: 0;
+  }
+
+  .teal &::after {
+    background-image: linear-gradient(
+      0deg,
+      transparent 0%,
+      var(--noi-color-teal-main) 100%
+    );
+  }
+
+  .purple &::after {
+    background-image: linear-gradient(
+      0deg,
+      transparent 0%,
+      var(--noi-color-purple-main) 100%
+    );
+  }
+
+  .magenta &::after {
+    background-image: linear-gradient(
+      0deg,
+      transparent 0%,
+      var(--noi-color-magenta-main) 100%
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .highlight-animation {
+    display: none;
+  }
+}
+
+.bg-asset {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  z-index: var(--noi-z-index-behind);
+  inline-size: getRem(120);
+  overflow: hidden;
+
+  &:after {
+    position: absolute;
+    inset-block-start: getRem(16);
+    inset-inline-end: getRem(-16);
+    inset-inline-start: getRem(36);
+    block-size: getRem(168);
+    background: var(--guide-to-metagame-bg-asset);
+    background-size: cover;
+    opacity: 0.5;
+    filter: drop-shadow(0 4px 8px var(--noi-color-black-main-transparent-25));
+    content: '';
+  }
+}
+
+.title {
+  margin: getRem(16);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+  max-inline-size: getRem(116);
+}
+
+.footer {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-1x);
+  align-items: center;
+  margin: var(--noi-spacing-2x);
+  padding: var(--noi-spacing-3x) var(--noi-spacing-3x) var(--noi-spacing-3x) getRem(16);
+  background-color: var(--noi-color-black-main-transparent-60);
+  border-radius: var(--noi-border-radius-sm);
+
+  @container (max-width: getRem(459)) or (max-height: getRem(459)) {
+    display: none;
+  }
+}
+
+.subtitle {
+  flex-grow: 1;
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+}
+
+.icon {
+  flex-shrink: 0;
+  color: var(--noi-color-light-main-transparent-90);
+  opacity: 0.6;
+  transition: opacity var(--noi-duration-quick);
+  inline-size: getRem(16);
+
+  @media (hover: hover) {
+    .container:hover & {
+      opacity: 1;
+    }
+  }
+}
+
+.badge {
+  position: absolute;
+  inset-block-start: getRem(8);
+  inset-inline-end: getRem(8);
+}

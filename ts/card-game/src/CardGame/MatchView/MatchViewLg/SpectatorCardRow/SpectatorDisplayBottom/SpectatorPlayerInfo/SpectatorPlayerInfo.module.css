@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  gap: var(--noi-spacing-2x);
+  inline-size: 100%;
+}
+
+.labels {
+  inline-size: calc(100% - getRem(8) - getRem(40));
+}
+
+.score-label {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  font-style: italic;
+  line-height: var(--noi-line-height-tight);
+  text-align: center;
+
+  .card-success & {
+    color: var(--noi-color-green-main);
+  }
+
+  .best-play & {
+    color: var(--noi-color-violet-main);
+  }
+}
+
+.name-label {
+  @mixin truncate-text;
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  text-align: center;
+}
+
+.loading-container {
+  display: flex;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  inline-size: 100%;
+}
+
+.loading-labels {
+  @mixin loading-shine var(--noi-color-gray-600);
+  inline-size: 100%;
+  block-size: getRem(32);
+}

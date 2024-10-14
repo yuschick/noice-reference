@@ -1,0 +1,10 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+}
+
+.help-text {
+  @mixin paragraph s, regular;
+  color: var(--neutral-300);
+}

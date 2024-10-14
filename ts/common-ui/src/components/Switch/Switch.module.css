@@ -1,0 +1,151 @@
+@layer noice.ui {
+  .switch-root {
+    --_switch-inline-size: getRem(40);
+    --_switch-gap: var(--noi-spacing-2x);
+    --_indicator-size: getRem(16);
+    --_track-padding: var(--noi-spacing-half);
+  }
+
+  .label-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: var(--_switch-gap);
+    align-items: center;
+    justify-content: start;
+
+    .rtl & {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+
+  .switch-wrapper {
+    position: relative;
+    inline-size: var(--_switch-inline-size);
+    block-size: getRem(24);
+    padding-block: var(--noi-spacing-half);
+    flex-shrink: 0;
+  }
+
+  .switch-track {
+    position: relative;
+    background: var(--noi-color-text-light-secondary);
+    border-radius: var(--noi-border-radius-pill);
+    pointer-events: none;
+    inline-size: 100%;
+    block-size: 100%;
+
+    .switch-track-handle {
+      position: absolute;
+      background-color: var(--noi-color-light-main);
+      border-radius: var(--noi-border-radius-circle);
+      transition: inset-inline-start var(--noi-duration-quick) ease;
+      block-size: var(--_indicator-size);
+      inline-size: var(--_indicator-size);
+      inset-block-start: 50%;
+      inset-inline-start: var(--_track-padding);
+      translate: 0 -50%;
+
+      @supports not (translate: 50%) {
+        transform: translate(0, -50%);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
+    }
+
+    .switch-track-handle-loading-wrapper {
+      display: none;
+      padding: var(--noi-spacing-half);
+      background-color: var(--noi-color-dark-main);
+      border-radius: var(--noi-border-radius-circle);
+    }
+
+    .switch-track-handle-loading {
+      --loading-spinner-size: getRem(12);
+
+      border: 2px solid var(--noi-color-light-main);
+      border-radius: var(--noi-border-radius-circle);
+      animation: rotate 1000ms linear infinite;
+      inline-size: var(--loading-spinner-size);
+      block-size: var(--loading-spinner-size);
+      border-block-start-color: var(--noi-color-gray-650);
+
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+      }
+    }
+  }
+
+  .switch {
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    inset: 0;
+
+    &:focus-visible + .switch-track {
+      /* Match the reset.css global outline styles */
+      /* stylelint-disable-next-line unit-allowed-list */
+      outline: max(2px, 0.08em) solid currentColor;
+    }
+
+    &[aria-busy='true'] {
+      cursor: wait;
+      pointer-events: none;
+
+      + .switch-track .switch-track-handle-loading-wrapper {
+        display: block;
+      }
+    }
+
+    &:checked + .switch-track {
+      background: var(--noi-gradient-green-teal);
+
+      & > .switch-track-handle {
+        inset-inline-start: calc(100% - var(--_indicator-size) - var(--_track-padding));
+      }
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    &:disabled:not(:checked) + .switch-track {
+      background: var(--noi-color-gray-550);
+
+      & .switch-track-handle {
+        background: var(--noi-color-gray-750);
+      }
+    }
+
+    &:disabled:checked + .switch-track {
+      background: var(--noi-color-green-600);
+
+      & .switch-track-handle {
+        background: var(--noi-color-green-700);
+      }
+    }
+  }
+
+  .description-wrapper {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    margin-inline-start: calc(var(--_switch-inline-size) + var(--_switch-gap));
+
+    .rtl & {
+      margin-inline-start: 0;
+      margin-inline-end: calc(var(--_switch-inline-size) + var(--_switch-gap));
+    }
+  }
+
+  @keyframes rotate {
+    to {
+      rotate: 360deg;
+
+      @supports not (rotate: 360deg) {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}

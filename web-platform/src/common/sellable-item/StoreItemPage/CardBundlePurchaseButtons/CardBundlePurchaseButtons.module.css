@@ -1,0 +1,22 @@
+.error-container {
+  font-weight: var(--noi-font-weight-regular);
+  max-inline-size: getRem(300);
+}
+
+.error-heading {
+  font-size: var(--noi-font-size-lg);
+}
+
+.error-button {
+  text-align: start;
+  text-decoration: underline;
+  background-color: transparent;
+  cursor: pointer;
+  min-inline-size: max-content;
+
+  @media (hover: hover) {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

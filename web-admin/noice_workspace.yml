@@ -1,0 +1,251 @@
+name: web-admin
+
+labels:
+  - client
+
+build_dependencies:
+  - yarn-config
+  - ts-schemas
+  - ts-lib
+  - ts-utils
+  - ts-server
+  - ts-common-ui
+  - graphql-schema
+  - eslint-config
+  - postcss
+  - esbuild
+  - esbuild-plugins
+  - vite-plugins
+  - eslint-config-react
+  - ftue-config
+  - ts-apollo-client-utils
+  - design-tokens
+  - ts-assets-core
+  - ts-common-react-core
+
+artifact_directories:
+  - node_modules
+  - ../../.yarn/cache
+
+lint:
+  - type: yarn_run
+    run_on_host: ${{ env.CI == "true" }}
+    cmd: '${{ parseBoolean(inputs.fix) ? "lint:fix" : "lint" }}'
+
+test:
+  - type: yarn_run
+    run_on_host: ${{ env.CI == "true" }}
+    cmd: test
+
+generate:
+  - type: yarn_run
+    run_on_host: ${{ env.CI == "true" }}
+    cmd: graphql:codegen:build
+
+build:
+  - type: parallel
+    runners:
+      - type: image_build
+        id: build_docker_container
+        image_name: web-admin
+        pull_first: true
+        dockerfile: Dockerfile
+        registry: ${{ vars.DOCKER_REGISTRY }}
+        target: web-admin
+        build_args:
+          build_time: ${{ new Date().toISOString() }}
+          build_hash: ${{ git.commit }}
+        secrets:
+          yarnrc: ${{ read_file(path_join(root_dir, '/.yarnrc.yml')) }}
+
+      - type: sequential
+        runners:
+          - type: yarn_run
+            id: create_static_super_admin_pr
+            condition: ${{ env.FAST_BUILD != "true" && env.CI == "true" }}
+            # also builds storybooks
+            cmd: build-stg
+            run_on_host: ${{ env.CI == "true" }}
+            env:
+              - 'HASH_ROUTING=true'
+              - 'BASE_PATH=/${{ workspace.name }}/${{ github?.event?.number ? "pr/" + github?.event?.number + "/" : "" }}admin/'
+              - 'BUNDLE_BASE_PATH=${{ vars.DEV_PAGES_URL }}/${{ workspace.name }}/${{ github?.event?.number ? "pr/" + github?.event?.number + "/" : "" }}admin/'
+              - 'DIST_PATH=dist-pr'
+              - 'WORKSPACE_HASH=${{ workspace_hash }}'
+
+          - type: parallel
+            runners:
+              - type: noice_pages
+                id: super_admin_noice_pages
+                condition: ${{ env.FAST_BUILD != "true" && env.CI == "true" && github?.event?.number }}
+                source: ./dist-pr
+                sub_path: 'admin/'
+                comment_prefix: 'Noice admin client available: '
+
+              - type: noice_pages
+                condition: ${{ env.FAST_BUILD != "true" }}
+                id: pr_storybook_upload
+                source: ./storybook-static
+                sub_path: 'admin-storybook/'
+                comment_prefix: 'Storybook for admin available: '
+
+deploy:
+  envs:
+    dev:
+      - &push
+        condition: ${{ env.CI == "true" }}
+        type: image_push
+        image: web-admin:${{ workspace_hash }}
+        id: push
+
+      - type: helm_apply
+        condition: ${{ env.CI == "true" }}
+        variables: &helm_variables
+          env: &helm_variables_env
+            IS_LOCAL: false
+            VERBOSE_LOGGING: false
+            CDN_URL: ${{ vars.DEV_GCP_ASSETS_CDN_URL }}
+            SERVICES_LIB_HOST: https://platform.int.dev.noice.com
+            SERVICES_LIB_WEBSOCKET: wss://platform.int.dev.noice.com
+            PORT: 8081
+            HCAPTCHA_SITE_KEY: ${{ vars.DEV_HCAPTCHA_KEY }}
+            DISCORD_CLIENT_ID: ${{ vars.DISCORD_CLIENT_ID }}
+            PLATFORM_URL: ${{ vars.DEV_PLATFORM_URL }}
+            APPLE_REDIRECT_URI: ${{ vars.DEV_ADMIN_APPLE_REDIRECT_URI }}
+            STUDIO_URL: ${{ vars.DEV_STUDIO_URL }}
+          secrets: &helm_variables_secrets
+            ADMIN_SERVICE_AUTH_KEY: admin-service-auth-key
+
+          image: ${{ steps.push.image }}
+
+          resources:
+            requests:
+              cpu: 50m
+              memory: 128Mi
+
+          mesh:
+            enabled: true
+
+          ingressInternal:
+            enabled: true
+            subdomain: admin
+
+          healthCheck:
+            livenessProbe:
+              httpGet:
+                path: /login
+            readinessProbe:
+              httpGet:
+                path: /login
+
+          monitoringEndpoints: []
+
+    stg:
+      - <<: *push
+
+      - type: helm_apply
+        condition: ${{ env.CI == "true" }}
+        variables:
+          <<: *helm_variables
+          env:
+            <<: *helm_variables_env
+            CDN_URL: ${{ vars.STG_GCP_ASSETS_CDN_URL }}
+            SERVICES_LIB_HOST: https://platform.int.stg.noice.com
+            SERVICES_LIB_WEBSOCKET: wss://platform.int.stg.noice.com
+            PORT: 8081
+            HCAPTCHA_SITE_KEY: ${{ vars.STG_HCAPTCHA_KEY }}
+            DISCORD_CLIENT_ID: ${{ vars.DISCORD_CLIENT_ID }}
+            PLATFORM_URL: ${{ vars.STG_PLATFORM_URL }}
+            APPLE_REDIRECT_URI: ${{ vars.STG_ADMIN_APPLE_REDIRECT_URI }}
+            STUDIO_URL: ${{ vars.STG_STUDIO_URL }}
+          secrets:
+            <<: *helm_variables_secrets
+
+          ingress:
+            enabled: false
+            subdomain: ''
+            additionalAnnotations:
+              nginx.ingress.kubernetes.io/whitelist-source-range: ''
+
+          ingressInternal:
+            enabled: true
+            subdomain: admin
+
+          autoscaling:
+            enabled: true
+            minReplicas: 2
+            maxReplicas: 5
+
+    prd:
+      - <<: *push
+
+      - type: helm_apply
+        condition: ${{ env.CI == "true" }}
+        variables:
+          <<: *helm_variables
+          env:
+            <<: *helm_variables_env
+            CDN_URL: ${{ vars.PRD_GCP_ASSETS_CDN_URL }}
+            SERVICES_LIB_HOST: https://platform.prd.noice.com
+            SERVICES_LIB_WEBSOCKET: wss://platform.prd.noice.com
+            PORT: 8081
+            HCAPTCHA_SITE_KEY: ${{ vars.PRD_HCAPTCHA_KEY }}
+            DISCORD_CLIENT_ID: ${{ vars.DISCORD_CLIENT_ID }}
+            PLATFORM_URL: ${{ vars.PRD_PLATFORM_URL }}
+            APPLE_REDIRECT_URI: ${{ vars.PRD_ADMIN_APPLE_REDIRECT_URI }}
+            STUDIO_URL: ${{ vars.PRD_STUDIO_URL }}
+          secrets:
+            <<: *helm_variables_secrets
+
+          ingress:
+            enabled: true
+            subdomain: external-admin
+            additionalAnnotations:
+              # Whitelist 5CA and KWS IPs for access to admin
+              nginx.ingress.kubernetes.io/whitelist-source-range: 20.224.106.72/32,20.164.213.49/32,172.202.20.78/32,20.226.23.31/32,52.163.85.168/32,13.76.36.217/32,204.16.184.0/24,204.16.188.14/32,38.104.248.80/29,111.125.86.208/28,180.232.67.120/29,89.25.237.178/32,201.163.48.144/29
+          ingressInternal:
+            enabled: true
+            subdomain: admin
+
+          autoscaling:
+            enabled: true
+            minReplicas: 2
+            maxReplicas: 5
+
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+
+    local:
+      - type: helm_apply
+        name: web-admin
+        variables:
+          image: ${{ vars.docker_registry }}/web-admin:${{ workspace_hash }}
+          env: &local_deploy_env
+            IS_LOCAL: true
+            VERBOSE_LOGGING: true
+            SERVICES_LIB_HOST: http://platform.localhost:8080
+            SERVICES_LIB_WEBSOCKET: ws://platform.localhost:8080
+            CDN_URL: ${{ vars.DEV_GCP_ASSETS_CDN_URL }}
+            PORT: 8081
+            HCAPTCHA_SITE_KEY: ${{ vars.DEV_HCAPTCHA_KEY }}
+            DISCORD_CLIENT_ID: ${{ vars.DISCORD_CLIENT_ID }}
+            PLATFORM_URL: ${{ vars.DEV_PLATFORM_URL }}
+            APPLE_REDIRECT_URI: ${{ vars.DEV_ADMIN_APPLE_REDIRECT_URI }}
+            STUDIO_URL: ${{ vars.DEV_STUDIO_URL }}
+
+          ingress:
+            enabled: true
+            k3d: true
+            path: /
+            subdomain: admin
+
+    local-dev:
+      - type: yarn_run
+        cmd: watch-serve-local
+        name: web-admin-watch-serve
+        detached: true
+        ports:
+          - port: 8180
+            host_port: 8081

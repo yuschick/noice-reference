@@ -1,0 +1,13 @@
+.channel-link {
+  --channel-logo-size: getRem(32);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  color: var(--neutral-200);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

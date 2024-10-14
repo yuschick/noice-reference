@@ -1,0 +1,1 @@
+{"version":3,"file":"chat-message.js","sourceRoot":"","sources":["../../../src/utils/chat-message.ts"],"names":[],"mappings":";;;AAEA,yCAA4D;AAErD,MAAM,oBAAoB,GAAG,CAClC,WAAc,EACd,EAAE;;IACF,OAAA,CAAA,MAAA,MAAA,WAAW,CAAC,OAAO,0CAAE,OAAO,0CAAE,UAAU,MAAK,eAAe;QAC5D,WAAW,CAAC,KAAK,KAAK,0BAAc,CAAC,kBAAkB,CAAA;CAAA,CAAC;AAJ7C,QAAA,oBAAoB,wBAIyB"}

@@ -1,0 +1,18 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+}
+
+.title {
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}
+
+.description-text {
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-loose);
+}

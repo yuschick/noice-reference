@@ -1,0 +1,9 @@
+.background-asset {
+  opacity: 0.5;
+
+  &:after {
+    inset-block-start: getRem(24);
+    inset-inline-start: getRem(0);
+    block-size: getRem(160);
+  }
+}

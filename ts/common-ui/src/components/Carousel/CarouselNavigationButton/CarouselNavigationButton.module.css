@@ -1,0 +1,39 @@
+.button {
+  position: absolute;
+  z-index: var(--noi-z-index-level-1);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--noi-color-gray-800);
+  border-radius: var(--noi-border-radius-sm);
+  box-shadow: 8px 0px 32px 6px var(--noi-color-black-main-transparent-30);
+  transform: translateY(50%);
+  cursor: pointer;
+  animation: fade-in 200ms;
+  inline-size: getRem(40);
+  block-size: getRem(40);
+  inset-block-end: 50%;
+
+  &:disabled {
+    display: none;
+  }
+}
+
+.prev {
+  inset-inline-start: getRem(-12);
+}
+
+.next {
+  inset-inline-end: getRem(-12);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

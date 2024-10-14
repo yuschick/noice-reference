@@ -1,0 +1,5 @@
+{
+  "extends": [
+    "@noice-com/postcss/stylelint"
+  ]
+}

@@ -1,0 +1,32 @@
+.mini-profile-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  background-color: var(--noi-color-gray-950);
+  border-radius: var(--noi-border-radius-lg);
+  box-shadow: 0 getRem(24) getRem(32) getRem(-24) var(--noi-color-black-main);
+  animation: slide-in var(--noi-duration-quick) forwards;
+  inline-size: min(getRem(484), 100vi);
+  min-block-size: getRem(112);
+}
+
+.mini-profile-content {
+  display: grid;
+  gap: var(--noi-spacing-2x);
+  align-items: start;
+  padding: var(--noi-spacing-3x);
+  inline-size: 100%;
+  container-type: inline-size;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateY(getRem(16));
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,1 @@
+export { SignupChannel } from './SignupChannel';

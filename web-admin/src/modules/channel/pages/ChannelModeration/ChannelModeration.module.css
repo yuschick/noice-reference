@@ -1,0 +1,22 @@
+.title {
+  @mixin label m, semi-bold;
+  margin: 0;
+  color: var(--white);
+}
+
+.subtitle {
+  @mixin label s;
+  color: var(--neutral-100);
+  margin-block-start: var(--noi-spacing-2x);
+}
+
+.action {
+  display: flex;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.expiration-info {
+  margin-inline-start: var(--noi-spacing-2x);
+}

@@ -1,0 +1,145 @@
+@layer noice.ui {
+  .dialog {
+    --dialog-inline-padding: var(--noi-spacing-4x);
+    --dialog-block-padding: var(--noi-spacing-6x);
+    --dialog-block-margin: var(--noi-spacing-6x);
+    --dialog-inline-margin: min(5vi, var(--noi-spacing-12x));
+    --dialog-close-size: getRem(40);
+    --dialog-max-block: min(getRem(850), calc(100dvh - var(--dialog-block-margin) * 2));
+    --dialog-max-inline: getRem(800);
+
+    &.overlay {
+      @media (max-width: getRem(592)) {
+        --dialog-max-block: 100dvh;
+        --dialog-inline-margin: 0;
+        /* reset the dialog paddings from browser */
+        --dialog-overlay-padding-reset: getRem(19);
+      }
+    }
+
+    &.narrow {
+      --dialog-max-inline: getRem(600);
+    }
+
+    @media (min-width: getRem(792)) {
+      --dialog-block-margin: var(--noi-spacing-12x);
+    }
+
+    &[open] {
+      container: dialog / inline-size;
+      padding: 0;
+      overflow: hidden;
+      color: var(--noi-color-text-dark);
+      background-color: var(--noi-color-light-main);
+      border: none;
+      border-radius: var(--noi-border-radius-xl);
+      inline-size: clamp(
+        getRem(320),
+        calc(100vi - var(--dialog-inline-margin) * 2),
+        var(--dialog-max-inline)
+      );
+      block-size: fit-content;
+      max-block-size: var(--dialog-max-block);
+    }
+
+    &.overlay[open] {
+      @media (max-width: getRem(592)) {
+        padding: var(--dialog-overlay-padding-reset);
+        border-radius: 0;
+        block-size: calc(100% - 2 * var(--dialog-overlay-padding-reset));
+        inline-size: 100%;
+      }
+    }
+  }
+
+  .dialog-wrapper {
+    position: relative;
+    display: grid;
+    grid-auto-rows: max-content 1fr max-content;
+    grid-template-areas: 'header' 'content' 'actions';
+    grid-template-columns: 1fr;
+    max-block-size: var(--dialog-max-block);
+
+    .overlay & {
+      @media (max-width: getRem(592)) {
+        margin: calc(-1 * var(--dialog-overlay-padding-reset));
+        block-size: calc(100% + 2 * var(--dialog-overlay-padding-reset));
+      }
+    }
+  }
+
+  .dialog-header {
+    display: flex;
+    flex-wrap: nowrap;
+    grid-area: header;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--noi-color-gray-100);
+    padding-block: var(--noi-spacing-2x);
+    padding-inline: calc(
+      var(--noi-spacing-4x) + var(--dialog-close-size) +
+        calc(var(--dialog-close-size) / 2)
+    );
+    min-block-size: getRem(56);
+  }
+
+  .dialog-title {
+    --outline-color: transparent;
+
+    color: var(--noi-color-text-dark);
+    font-weight: var(--noi-font-weight-bold);
+    font-size: var(--noi-font-size-lg);
+    line-height: var(--noi-line-height-tight);
+    text-transform: uppercase;
+
+    @container (min-width: getRem(600)) {
+      font-size: var(--noi-font-size-xl);
+    }
+  }
+
+  .dialog-content {
+    grid-area: content;
+    padding: var(--dialog-block-padding) var(--dialog-inline-padding);
+    overflow: auto;
+    max-block-size: 100%;
+    overscroll-behavior: contain;
+
+    @container (min-width: getRem(600)) {
+      --dialog-inline-padding: var(--noi-spacing-8x);
+      --dialog-block-padding: var(--noi-spacing-8x);
+    }
+  }
+
+  .dialog-actions {
+    border-block-start: 1px solid var(--noi-color-gray-100);
+    display: grid;
+    grid-area: actions;
+    grid-template-columns: repeat(auto-fit, minmax(getRem(230), 1fr));
+    gap: var(--noi-spacing-2x);
+    align-items: center;
+    margin-inline: var(--dialog-inline-padding);
+    padding-block: var(--noi-spacing-6x);
+    min-block-size: getRem(48);
+
+    > :first-child:last-child {
+      justify-self: center;
+    }
+
+    @container (min-width: getRem(600)) {
+      &:has(> :first-child:last-child) {
+        justify-items: end;
+      }
+
+      > :first-child:last-child {
+        inline-size: fit-content;
+      }
+    }
+  }
+
+  .dialog-close-wrapper {
+    position: absolute;
+    inset-inline-end: var(--noi-spacing-4x);
+    inset-block-start: var(--noi-spacing-2x);
+  }
+}

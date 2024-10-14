@@ -1,0 +1,8 @@
+.channel-details {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-bold);
+}

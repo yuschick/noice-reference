@@ -1,0 +1,1 @@
+export { InventoryAvatarParts } from './AvatarParts';

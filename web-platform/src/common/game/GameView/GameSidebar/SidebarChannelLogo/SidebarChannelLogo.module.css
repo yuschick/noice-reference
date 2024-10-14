@@ -1,0 +1,29 @@
+.logo-wrapper {
+  position: relative;
+  inline-size: getRem(54);
+  block-size: getRem(54);
+  transition: inline-size var(--noi-duration-quick), block-size var(--noi-duration-quick);
+
+  &.mini {
+    inline-size: getRem(40);
+    block-size: getRem(40);
+  }
+}
+
+.loading {
+  @mixin loading-shine var(--noi-color-gray-750);
+  inline-size: 100%;
+  block-size: 100%;
+  background-color: var(--noi-color-gray-800);
+  border-radius: var(--noi-border-radius-circle);
+}
+
+.live-badge {
+  position: absolute;
+  display: block;
+  transform: translateX(-50%);
+  transition: inset-block-end var(--noi-duration-quick),
+    inset-inline-start var(--noi-duration-quick), inline-size var(--noi-duration-quick);
+  inset-block-end: getRem(-16);
+  inset-inline-start: 50%;
+}

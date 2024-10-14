@@ -1,0 +1,1 @@
+export { MiniProfileHeader } from './MiniProfileHeader';

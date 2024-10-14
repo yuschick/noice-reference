@@ -1,0 +1,17 @@
+.icon-container {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear-icon {
+  color: var(--noi-color-text-light);
+  inline-size: 40cqi;
+  block-size: 40cqi;
+
+  &.selected {
+    color: var(--noi-color-teal-main);
+  }
+}

@@ -1,0 +1,7 @@
+.scheduled-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  justify-content: space-between;
+}

@@ -1,0 +1,9 @@
+/* stylelint-disable unit-allowed-list */
+.animated-collected-check {
+  position: absolute;
+  inset-block-start: -10px;
+  overflow: hidden;
+  inline-size: 78px;
+  block-size: 50px;
+  background: var(--animated-check) no-repeat;
+}

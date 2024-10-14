@@ -1,0 +1,123 @@
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.player-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  .avatar {
+    max-inline-size: getRem(210);
+    block-size: 100%;
+    background-image: var(--avatar-url);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    pointer-events: none;
+  }
+
+  .group {
+    color: var(--noi-color-gray-500);
+    font-weight: var(--noi-font-weight-medium);
+    font-size: var(--noi-font-size-lg);
+    font-family: var(--noi-font-family-body);
+    margin-block-end: var(--noi-spacing-1x);
+  }
+
+  .name {
+    color: var(--noi-color-light-main);
+    font-weight: var(--noi-font-weight-bold);
+    font-size: var(--noi-font-size-xl);
+    font-family: var(--noi-font-family-body);
+    margin-block-end: var(--noi-spacing-1x);
+  }
+
+  .points {
+    color: var(--noi-color-yellow-green-main);
+    font-weight: var(--noi-font-weight-medium);
+    font-size: var(--noi-font-size-2xl);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.expanded-event-container {
+  --expanded-view-padding: var(--noi-spacing-4x);
+  --expanded-view-border-size: 2px;
+
+  display: grid;
+  grid-template-columns: min-content minmax(0, 1fr) min-content;
+  gap: var(--noi-spacing-4x);
+  align-items: start;
+  padding: var(--expanded-view-padding);
+  /* Disabling to allow the color to be more dynamic */
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  color: var(--event-color);
+  background-color: var(--noi-color-gray-850);
+  border: var(--expanded-view-border-size) solid transparent;
+
+  &.streamer-card {
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    border-color: var(--event-color);
+  }
+}
+
+.event-icon {
+  inline-size: getRem(16);
+  block-size: auto;
+}
+
+.event-details-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.event-heading {
+  margin: 0;
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  color: var(--event-color);
+  font-weight: var(--noi-font-weight-extra-bold);
+  font-size: var(--noi-font-size-md);
+  text-transform: uppercase;
+}
+
+.event-username {
+  padding: 0;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-extra-bold);
+  font-size: var(--noi-font-size-2xl);
+  text-align: start;
+  background: transparent;
+}
+
+.event-points {
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  color: var(--event-color);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-2xl);
+}
+
+.event-user-avatar {
+  inline-size: getRem(128);
+  block-size: auto;
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-end: calc(
+    var(--expanded-view-padding) * -1 - var(--expanded-view-border-size)
+  );
+  display: block;
+
+  .expanded-event-container.streamer-card & {
+    inset-block-end: calc(var(--expanded-view-padding) * -1);
+  }
+}
+
+.event-vfx-card {
+  /* Need to use !important to overwrite lower-level styles */
+  margin: 0 !important;
+}

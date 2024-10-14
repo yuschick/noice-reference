@@ -1,0 +1,17 @@
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+}
+
+.field-wrapper {
+  display: flex;
+  flex-direction: column;
+  font-weight: var(--noi-font-weight-medium);
+}
+
+.field-wrapper-label {
+  color: var(--noi-color-text-dark-secondary);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-sm);
+}

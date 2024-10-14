@@ -1,0 +1,53 @@
+.game-card-points-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: pixelsToCardCqi(4);
+  align-items: center;
+}
+
+.game-card-points-number {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: max(getRem(18), pixelsToCardCqi(32));
+  line-height: var(--noi-line-height-tight);
+  white-space: nowrap;
+  text-shadow: 0 getRem(1) getRem(2) var(--noi-color-black-main-transparent-10);
+  font-variant-numeric: tabular-nums;
+
+  @mixin game-card-breakpoint-medium {
+    line-height: var(--noi-line-height-loose);
+  }
+}
+
+.game-card-points-max-wrapper {
+  display: none;
+  flex-direction: column;
+  color: var(--noi-color-light-main-transparent-70);
+  font-weight: var(--noi-font-weight-bold);
+  text-shadow: 0 getRem(1) getRem(2) var(--noi-color-black-main-transparent-10);
+
+  @mixin game-card-breakpoint-small {
+    display: flex;
+  }
+
+  .hide-max & {
+    display: none;
+  }
+}
+
+.game-card-points-max-label {
+  font-size: max(getRem(6), pixelsToCardCqi(9));
+  line-height: var(--noi-line-height-tight);
+}
+
+.game-card-points-max-value {
+  display: none;
+  font-size: max(getRem(11), pixelsToCardCqi(15));
+  line-height: var(--noi-line-height-tight);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+
+  @mixin game-card-breakpoint-small {
+    display: inline;
+  }
+}

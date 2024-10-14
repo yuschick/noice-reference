@@ -1,0 +1,36 @@
+.card {
+  --card-background-color: var(--noi-color-violet-800);
+  --card-background-gradient: linear-gradient(
+    to right,
+    var(--noi-color-violet-800),
+    transparent
+  );
+  --card-border-radius: var(--noi-border-radius-md);
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  gap: getRem(24);
+  justify-content: space-between;
+  padding: var(--noi-spacing-8x);
+  overflow: clip;
+  color: var(--noi-color-text-light);
+  border-radius: var(--card-border-radius);
+  min-block-size: getRem(280);
+}
+
+.button {
+  inline-size: fit-content;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+  justify-content: space-between;
+
+  @media (min-width: getRem(480)) {
+    gap: 0;
+  }
+}

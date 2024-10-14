@@ -1,0 +1,22 @@
+{
+  "files.exclude": {
+    "**/dist": true,
+  },
+  "editor.tabSize": 2,
+  "eslint.format.enable": true,
+  "eslint.packageManager": "yarn",
+  "javascript.format.enable": true,
+  "editor.codeLens": true,
+  "javascript.referencesCodeLens.enabled": true,
+  "typescript.referencesCodeLens.enabled": true,
+  "editor.formatOnSave": false,
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "npm.packageManager": "yarn",
+  "eslint.workingDirectories": [
+    ".",
+  ],
+  }
+  

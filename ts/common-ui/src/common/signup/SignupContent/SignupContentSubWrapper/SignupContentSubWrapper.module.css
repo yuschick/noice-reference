@@ -1,0 +1,5 @@
+.sub-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+}

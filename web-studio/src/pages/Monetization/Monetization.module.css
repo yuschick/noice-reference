@@ -1,0 +1,20 @@
+.deprecated-wrapper {
+  padding: getRem(10) getRem(64);
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--noi-spacing-8x);
+  padding: getRem(40) getRem(124);
+
+  &.not-eligible {
+    grid-template-rows: min-content;
+    block-size: 100%;
+  }
+}
+
+.title {
+  font-size: var(--noi-font-size-xl);
+  text-transform: uppercase;
+}

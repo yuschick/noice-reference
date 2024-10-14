@@ -1,0 +1,7 @@
+.card-bundle-section {
+  container-type: inline-size;
+  container-name: card-bundle-section;
+  display: flex;
+  flex-direction: column;
+  gap: getRem(24);
+}

@@ -1,0 +1,19 @@
+.rtmp-setup-wrapper {
+  display: grid;
+  gap: var(--noi-spacing-4x);
+}
+
+.title {
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}
+
+.input-wrapper {
+  display: grid;
+  grid-template-columns: auto min-content;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  inline-size: 100%;
+}

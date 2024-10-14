@@ -1,0 +1,1 @@
+export { SettingsBanForm } from './SettingsBanForm';

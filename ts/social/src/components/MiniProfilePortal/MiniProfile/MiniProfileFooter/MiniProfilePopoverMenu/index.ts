@@ -1,0 +1,1 @@
+export { MiniProfilePopoverMenu } from './MiniProfilePopoverMenu';

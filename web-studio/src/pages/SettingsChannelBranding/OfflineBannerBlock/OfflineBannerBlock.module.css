@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+}
+
+.banner {
+  inline-size: getRem(330);
+}
+
+.drag-and-drop {
+  flex-shrink: 0;
+  block-size: 100%;
+}
+
+.description {
+  color: var(--noi-color-gray-400);
+  font-size: var(--noi-font-size-sm);
+  margin-block-start: var(--noi-spacing-2x);
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+}

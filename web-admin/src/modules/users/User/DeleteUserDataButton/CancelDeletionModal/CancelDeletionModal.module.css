@@ -1,0 +1,9 @@
+.confirmation-message {
+  margin-block-end: getRem(16);
+}
+
+.actions {
+  margin-block-start: getRem(16);
+  display: flex;
+  gap: var(--noi-spacing-2x);
+}

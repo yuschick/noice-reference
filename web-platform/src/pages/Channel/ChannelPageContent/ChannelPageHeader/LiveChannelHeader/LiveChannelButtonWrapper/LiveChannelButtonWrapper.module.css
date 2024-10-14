@@ -1,0 +1,9 @@
+.button-loading-wrapper {
+  position: absolute;
+  z-index: var(--noi-z-index-level-2);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  inset: 0;
+}

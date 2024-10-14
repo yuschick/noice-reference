@@ -1,0 +1,9 @@
+.modal-actions {
+  @mixin list-style-none;
+
+  padding: getRem(15) 0;
+}
+
+.available-action {
+  margin: getRem(5) 0;
+}

@@ -1,0 +1,20 @@
+.dynamic-size {
+  inline-size: calc(100vi - 2rem);
+}
+
+.all-sizes-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.hover-container {
+  inline-size: var(--game-card-width-breakpoint-small);
+
+  &:hover {
+    inline-size: var(--game-card-width-breakpoint-large);
+  }
+}

@@ -1,0 +1,238 @@
+.top-predictions-wrapper,
+.top-challenges-wrapper {
+  @mixin narrow-scrollbar;
+
+  --_amount-font-size: var(--noi-font-size-lg);
+  --_title-font-size: var(--noi-font-size-md);
+  --_description-font-size: var(--noi-font-size-sm);
+  --_pick-rate-font-size: var(--noi-font-size-sm);
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--noi-spacing-2x);
+  align-content: start;
+  align-items: start;
+  padding: var(--noi-spacing-2x);
+
+  &.small {
+    --_amount-font-size: var(--noi-font-size-md);
+    --_title-font-size: var(--noi-font-size-sm);
+    --_description-font-size: var(--noi-font-size-xs);
+    --_pick-rate-font-size: var(--noi-font-size-xs);
+  }
+
+  &.large {
+    --_amount-font-size: var(--noi-font-size-xl);
+    --_title-font-size: var(--noi-font-size-lg);
+    --_description-font-size: var(--noi-font-size-md);
+    --_pick-rate-font-size: var(--noi-font-size-md);
+  }
+}
+
+.top-predictions-list {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: var(--noi-spacing-half);
+}
+
+.top-prediction-item {
+  --_card-amount-color: var(--noi-color-status-alert-main);
+
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  padding: var(--noi-spacing-1x) var(--noi-spacing-2x);
+  color: var(--noi-color-text-light);
+  line-height: var(--noi-line-height-tight);
+  background-color: var(--noi-color-gray-850);
+  border-radius: var(--noi-border-radius-xs);
+
+  &:nth-child(2) {
+    --_card-amount-color: var(--noi-color-status-gray-200);
+  }
+
+  &:nth-child(3) {
+    --_card-amount-color: var(--noi-color-violet-200);
+  }
+
+  .prediction-details-wrapper {
+    display: grid;
+    gap: var(--noi-spacing-half);
+  }
+
+  .prediction-amount {
+    color: var(--_card-amount-color);
+    font-weight: var(--noi-font-weight-bold);
+    font-size: var(--_amount-font-size);
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+    min-inline-size: min(max-content, getRem(32));
+  }
+
+  .prediction-title {
+    font-weight: var(--noi-font-weight-medium);
+    font-size: var(--_title-font-size);
+  }
+
+  .prediction-description {
+    font-size: var(--_description-font-size);
+  }
+}
+
+.top-challenges-list {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr) max-content;
+  gap: var(--noi-spacing-half);
+  container-type: inline-size;
+}
+
+.top-challenges-wrapper.large .top-challenges-list {
+  gap: var(--noi-spacing-1x);
+}
+
+.top-challenge-item {
+  --_pick-rate-color: var(--noi-color-teal-main);
+  --_pick-rate-background-color: var(--noi-color-teal-800);
+  --_pick-rate-progress: 0;
+
+  position: relative;
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  padding: var(--noi-spacing-2x);
+  overflow: hidden;
+  color: var(--noi-color-text-light);
+  line-height: var(--noi-line-height-tight);
+  background-color: var(--noi-color-gray-850);
+  border-radius: var(--noi-border-radius-xs);
+
+  @container (max-inline-size: getRem(280)) {
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+
+  &:nth-child(2) {
+    --_pick-rate-color: var(--noi-color-green-main);
+    --_pick-rate-background-color: var(--noi-color-green-800);
+  }
+
+  &:nth-child(3) {
+    --_pick-rate-color: var(--noi-color-magenta-main);
+    --_pick-rate-background-color: var(--noi-color-magenta-800);
+  }
+
+  &::before {
+    position: absolute;
+    z-index: var(--noi-z-index-base);
+    background-color: var(--_pick-rate-background-color);
+    transform: scaleX(var(--_pick-rate-progress));
+    transform-origin: left;
+    transition: transform var(--noi-duration-regular) ease;
+    content: '';
+    block-size: 100%;
+    inline-size: 100%;
+  }
+
+  .pick-rate-wrapper {
+    z-index: var(--noi-z-index-level-1);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--noi-spacing-half);
+    justify-content: center;
+    color: var(--_pick-rate-color);
+    font-weight: var(--noi-font-weight-bold);
+    font-size: var(--_amount-font-size);
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+    min-inline-size: min(max-content, getRem(32));
+
+    @container (max-inline-size: getRem(280)) {
+      grid-template-columns: 1fr max-content;
+      gap: var(--noi-spacing-2x);
+    }
+  }
+
+  .pick-rate-absolute-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    color: var(--noi-color-text-light);
+    font-weight: var(--noi-font-weight-bold);
+    font-size: var(--_pick-rate-font-size);
+    line-height: var(--noi-line-height-tight);
+
+    .icon {
+      inline-size: var(--_pick-rate-font-size);
+    }
+  }
+
+  .challenge-description {
+    z-index: var(--noi-z-index-level-1);
+    font-size: var(--_description-font-size);
+  }
+}
+
+.settings-title {
+  font-weight: var(--noi-font-weight-bold);
+}
+
+.settings-section-title {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  justify-content: space-between;
+  font-weight: var(--noi-font-weight-medium);
+  padding-inline: var(--noi-spacing-3x);
+}
+
+.settings-group {
+  display: grid;
+  gap: var(--noi-spacing-2x);
+  padding: var(--noi-spacing-2x);
+  border: 1px solid var(--noi-color-gray-850);
+  border-radius: var(--noi-border-radius-sm);
+}
+
+.empty-container {
+  display: grid;
+  gap: var(--noi-spacing-2x);
+  padding: 0 var(--noi-spacing-2x);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+  text-align: center;
+  text-transform: uppercase;
+  place-items: center;
+  place-content: center;
+  block-size: 100%;
+}
+
+.section-title {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}
+
+.challenge-state {
+  z-index: var(--noi-z-index-level-1);
+  align-self: start;
+  font-size: var(--_description-font-size);
+  line-height: var(--noi-line-height-tight);
+
+  .success {
+    color: var(--noi-color-green-300);
+  }
+
+  .fail {
+    color: var(--noi-color-status-error-300);
+  }
+}

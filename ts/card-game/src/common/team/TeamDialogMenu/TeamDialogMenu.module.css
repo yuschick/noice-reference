@@ -1,0 +1,49 @@
+@keyframes appear {
+  0% {
+    transform: translateY(10%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.heavy-label {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-md);
+  text-transform: capitalize;
+}
+
+.light-label {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  text-transform: uppercase;
+}
+
+.dialog-menu {
+  position: absolute;
+  inset-block-end: getRem(68);
+  inset-inline-start: getRem(0);
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+  padding: var(--noi-spacing-3x);
+  background-color: var(--noi-color-gray-900);
+  border-radius: var(--noi-border-radius-md);
+  animation: appear 150ms 1;
+
+  .dialog-header {
+    display: none;
+    padding: var(--noi-spacing-3x) getRem(16);
+    padding-block-start: var(--noi-spacing-3x);
+    background-color: var(--noi-color-black-main-transparent-40);
+  }
+}
+
+.dialog-item {
+  inline-size: getRem(200);
+  border-radius: var(--noi-border-radius-xs);
+}

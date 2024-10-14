@@ -1,0 +1,9 @@
+.search-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(getRem(216), 1fr));
+  gap: var(--noi-spacing-4x);
+
+  @media (min-width: getRem(792)) {
+    gap: var(--noi-spacing-6x);
+  }
+}

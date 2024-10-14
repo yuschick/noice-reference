@@ -1,0 +1,1 @@
+export { AvatarEmote } from './AvatarEmote';

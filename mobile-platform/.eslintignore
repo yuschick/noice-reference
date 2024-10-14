@@ -1,0 +1,11 @@
+index.js
+react-native.config.js
+babel.config.js
+metro.config.js
+universal-links.js
+.prettierrc.js
+.eslintrc.js
+package.json
+gen/**/*
+jest.config.js
+coverage/**/*

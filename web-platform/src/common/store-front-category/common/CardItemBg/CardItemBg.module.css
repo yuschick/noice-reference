@@ -1,0 +1,35 @@
+.wrapper {
+  position: absolute;
+  z-index: var(--noi-z-index-base);
+  background: var(--card-background-gradient), var(--_bg-image);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-clip: padding-box;
+  border-radius: var(--card-border-radius);
+  pointer-events: none;
+  inset: 0;
+
+  &.border {
+    border: 1px solid var(--noi-color-light-main-transparent-10);
+  }
+}
+
+.background-image {
+  mix-blend-mode: color;
+  inline-size: 100%;
+  block-size: 100%;
+
+  &.dark {
+    background: var(--noi-color-dark-main);
+  }
+}
+
+.darker-color {
+  position: absolute;
+  background: var(--card-background-color);
+  /* darker color needs to be top of the border */
+  /* stylelint-disable-next-line unit-allowed-list */
+  inset: -1px;
+  opacity: 0.7;
+}

@@ -1,0 +1,124 @@
+.game-card-bg-art-wrapper {
+  pointer-events: none;
+}
+
+.game-card-bg-art-transform-content {
+  --_game-card-bg-transform-multiplier: -0.2;
+
+  .game-card-bg-art-image {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.3;
+  }
+
+  .is-hovering & {
+    transform: rotateX(
+        calc(var(--_game-card-bg-transform-multiplier) * var(--game-card-rotate-x))
+      )
+      rotateY(calc(var(--_game-card-bg-transform-multiplier) * var(--game-card-rotate-y)))
+      translateX(
+        calc(var(--_game-card-bg-transform-multiplier) * var(--game-card-translate-x))
+      )
+      translateY(
+        calc(var(--_game-card-bg-transform-multiplier) * var(--game-card-translate-y))
+      );
+    transition: opacity var(--game-card-hover-art-transition),
+      transform var(--game-card-mouse-is-hovering-transition);
+
+    .game-card-bg-art-image {
+      opacity: 0.6;
+    }
+
+    /* Transition above is heavy for firefox, disable it for firefox */
+    @supports (-moz-appearance: none) {
+      transition: none;
+    }
+  }
+
+  @mixin game-card-breakpoint-small {
+    --_game-card-bg-transform-multiplier: -0.4;
+  }
+
+  .mouse-is-leaving & {
+    transition: opacity var(--game-card-hover-art-transition),
+      transform var(--game-card-mouse-is-hovering-transition);
+  }
+
+  &.is-streamer-card .game-card-bg-art-image {
+    opacity: 1;
+  }
+}
+
+.bg-art-hover-effect {
+  .level-group5 &,
+  .level-group6 & {
+    position: absolute;
+    inset: 0;
+
+    .sparkle-effect {
+      background-repeat: no-repeat;
+      background-size: cover;
+      mix-blend-mode: color-dodge;
+      inline-size: 100%;
+      block-size: 100%;
+    }
+  }
+
+  .level-group5 & {
+    .sparkle-effect {
+      background-image: var(--level-group-5-sparkle-effect-url);
+    }
+  }
+
+  .level-group6 & {
+    .sparkle-effect {
+      background-image: var(--level-group-5-sparkle-effect-url);
+    }
+  }
+}
+
+.game-card-bg-art-container {
+  --_game-card-level-group-0-art-bg: #241459;
+  --_game-card-level-group-1-art-bg: #0b2850;
+  --_game-card-level-group-2-art-bg: #003d3d;
+  --_game-card-level-group-3-art-bg: #06043f;
+  --_game-card-level-group-4-art-bg: #4f006a;
+  --_game-card-level-group-5-art-bg: #45025d;
+  --_game-card-level-group-6-art-bg: #a74000;
+
+  position: absolute;
+  inset-block-start: pixelsToCardCqi(-16);
+  inset-inline-start: pixelsToCardCqi(-16);
+  inline-size: calc(100% + pixelsToCardCqi(32));
+  block-size: calc(100% + pixelsToCardCqi(32));
+
+  &.level-group1 {
+    background-color: var(--_game-card-level-group-1-art-bg);
+  }
+
+  &.level-group2 {
+    background-color: var(--_game-card-level-group-2-art-bg);
+  }
+
+  &.level-group3 {
+    background-color: var(--_game-card-level-group-3-art-bg);
+  }
+
+  &.level-group4 {
+    background-color: var(--_game-card-level-group-4-art-bg);
+  }
+
+  &.level-group5 {
+    background-color: var(--_game-card-level-group-5-art-bg);
+  }
+
+  &.level-group6 {
+    background-color: var(--_game-card-level-group-6-art-bg);
+  }
+
+  &.is-streamer-card {
+    background-color: var(--noi-color-teal-700);
+  }
+}

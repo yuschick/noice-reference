@@ -1,0 +1,12 @@
+.active-page {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+}
+
+.active-page-name {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+}

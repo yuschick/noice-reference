@@ -1,0 +1,9 @@
+.wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--noi-color-text-light);
+  font-size: var(--noi-font-size-sm);
+  inline-size: getRem(88);
+}

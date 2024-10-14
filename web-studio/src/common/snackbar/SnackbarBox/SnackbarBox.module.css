@@ -1,0 +1,19 @@
+.snackbar {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 50%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  max-inline-size: 50%;
+  padding: var(--noi-spacing-4x);
+  color: var(--noi-color-text-light);
+  column-gap: var(--noi-spacing-4x);
+  background-color: var(--noi-color-gray-650);
+  transform: translateX(-50%);
+}
+
+.message {
+  font-size: var(--noi-font-size-md);
+}

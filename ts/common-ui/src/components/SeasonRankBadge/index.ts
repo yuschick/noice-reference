@@ -1,0 +1,1 @@
+export { SeasonRankBadge } from './SeasonRankBadge';

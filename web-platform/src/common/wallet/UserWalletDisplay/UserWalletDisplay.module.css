@@ -1,0 +1,10 @@
+.currency-group-wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+}

@@ -1,0 +1,77 @@
+.round-ended-label-container {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+}
+
+.round-ended-label {
+  font-size: var(--noi-font-size-lg);
+
+  @container (inline-size > getRem(460)) {
+    font-size: var(--noi-font-size-2xl);
+  }
+}
+
+.round-ended-leaderboard-placings {
+  position: absolute;
+  font-size: var(--noi-font-size-md);
+  text-transform: uppercase;
+  text-wrap: nowrap;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation: team-leaderboard-show 200ms 1800ms ease-out both,
+    opacity-fade-out 350ms 3500ms forwards;
+  inline-size: max-content;
+  inset-inline-start: 50%;
+  inset-block-start: 0;
+
+  @container (inline-size > getRem(460)) {
+    font-size: var(--noi-font-size-lg);
+  }
+}
+
+.round-ended-highlight {
+  color: var(--noi-color-teal-400);
+}
+
+.round-ended-text {
+  animation: opacity-fade-in 200ms
+    calc(
+      var(--bottom-bar-hide-show-animation-delay) -
+        var(--bottom-bar-hide-show-animation-duration) + 1700ms
+    )
+    both linear;
+}
+
+@keyframes team-leaderboard-show {
+  0% {
+    opacity: 0;
+    scale: 1.3;
+  }
+
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes opacity-fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes opacity-fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,7 @@
+.pagination {
+  margin-block-start: var(--noi-spacing-2x);
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-20x);
+  justify-content: space-between;
+}

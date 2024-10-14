@@ -1,0 +1,47 @@
+.dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-6x);
+
+  @media (min-width: getRem(792)) {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+}
+
+.card {
+  inline-size: var(--game-card-width-breakpoint-large);
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.panel {
+  padding: var(--noi-spacing-6x);
+  background: var(--noi-color-light-main);
+}
+
+.error {
+  position: absolute;
+  inset-block-end: 0;
+  color: var(--noi-color-status-error-main);
+}
+
+.bold {
+  font-weight: var(--noi-font-weight-medium);
+}
+
+.secondary-info {
+  color: var(--noi-color-text-dark-secondary);
+  font-size: var(--noi-font-size-sm);
+  margin-block-start: var(--noi-spacing-4x);
+}
+
+.purchase-card-button-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.purchase-card-button {
+  inline-size: min(100%, getRem(384));
+}

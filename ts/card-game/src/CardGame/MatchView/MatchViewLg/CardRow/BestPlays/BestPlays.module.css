@@ -1,0 +1,84 @@
+@keyframes enter-animation {
+  0% {
+    transform: translateY(getRem(100));
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.wrapper {
+  display: flex;
+  align-items: flex-end;
+  animation: enter-animation 200ms forwards;
+  pointer-events: all;
+}
+
+.info-sub-title {
+  margin: 0 getRem(16);
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  margin-block-end: var(--noi-spacing-half);
+  text-align: center;
+}
+
+.info-title {
+  margin: 0 getRem(16);
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  text-align: center;
+}
+
+.button-wrapper {
+  margin: getRem(16);
+}
+
+.data {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0 var(--noi-spacing-1x);
+}
+
+.data-row {
+  display: flex;
+}
+
+.data-left-column {
+  inline-size: getRem(140);
+}
+
+.card {
+  box-shadow: 0 getRem(12) getRem(24) 0 var(--noi-color-black-main-transparent-80);
+  inline-size: var(--game-card-width-breakpoint-medium);
+  pointer-events: none;
+}
+
+.data-bottom {
+  padding: var(--noi-spacing-3x) 0;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-md);
+  text-align: center;
+  inline-size: var(--game-card-width-breakpoint-medium);
+  @mixin truncate-text;
+}
+
+.data-avatar {
+  position: absolute;
+  z-index: var(--noi-z-index-behind);
+  background-repeat: no-repeat;
+  background-position: calc(-1 * getRem(50)) getRem(0);
+  background-size: cover;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  inline-size: 100%;
+  block-size: 100%;
+}

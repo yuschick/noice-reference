@@ -1,0 +1,20 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"title": "Calc Expression",
+	"description": "Defines a calc value",
+	"type": "object",
+	"properties": {
+		"type": {
+			"type": "string",
+			"const": "calc"
+		},
+		"calc": {
+			"type": "string",
+			"description": "The expression to be inserted into the calc. You must reference variables by their COMPILED names (ex. --noi-{group}-{var-name})!"
+		}
+	},
+	"required": [
+		"type",
+		"calc"
+	]
+}

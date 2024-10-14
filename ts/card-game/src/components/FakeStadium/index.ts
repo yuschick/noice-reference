@@ -1,0 +1,1 @@
+export { FakeStadium } from './FakeStadium';

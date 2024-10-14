@@ -1,0 +1,47 @@
+.buttons {
+  display: grid;
+  grid-template-areas: 'following subscribe' 'gift gift';
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+
+  @container (min-width: getRem(600)) {
+    grid-template-areas: 'following subscribe gift';
+
+    &:has(> :last-child:nth-child(2)) {
+      grid-template-areas: 'following subscribe';
+    }
+
+    .gift-button {
+      grid-column: 3;
+    }
+  }
+
+  &:has(> :first-child:last-child) {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+.gift-button {
+  grid-area: gift;
+  grid-column: span 2;
+}
+
+.notification-warning {
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-medium);
+}
+
+.notification-warning-link {
+  color: var(--noi-color-text-light-secondary);
+
+  @media (hover: hover) {
+    &:hover,
+    &:focus-within {
+      color: var(--noi-color-text-light);
+      outline: none;
+    }
+  }
+}

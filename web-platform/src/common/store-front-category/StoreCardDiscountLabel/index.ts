@@ -1,0 +1,1 @@
+export { StoreCardDiscountLabel } from './StoreCardDiscountLabel';

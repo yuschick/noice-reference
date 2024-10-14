@@ -1,0 +1,59 @@
+.game-card-hero-wrapper {
+  position: absolute;
+  z-index: var(--noi-z-index-level-1);
+  overflow: hidden;
+  pointer-events: none;
+  inset: pixelsToCardCqi(-20) pixelsToCardCqi(-20) pixelsToCardCqi(1) pixelsToCardCqi(-20);
+  --_game-card-hero-transform-multiplier: 0.2;
+
+  &.is-hovering {
+    transform: scale(1.05) translateY(-2%)
+      translateX(
+        calc(var(--_game-card-hero-transform-multiplier) * var(--game-card-translate-x))
+      );
+    transition: transform var(--game-card-mouse-is-hovering-transition);
+
+    /* Transition above is heavy for firefox, disable it for firefox */
+    @supports (-moz-appearance: none) {
+      transition: none;
+    }
+  }
+
+  &.mouse-is-leaving {
+    transition: transform var(--game-card-mouse-is-hovering-transition);
+  }
+}
+
+.game-card-hero {
+  inline-size: 100%;
+
+  .is-hovering & {
+    filter: drop-shadow(
+      0 pixelsToCardCqi(12) pixelsToCardCqi(8) var(--noi-color-black-main-transparent-60)
+    );
+  }
+}
+
+.hero-art-hover-effect {
+  .level-group6 & {
+    --spacing: 5%;
+    position: absolute;
+    background-image: repeating-linear-gradient(
+      75deg,
+      #ff880000 calc(var(--spacing)),
+      #ff880044 calc(var(--spacing) * 2),
+      #ff9100dd calc(var(--spacing) * 3),
+      #ff880044 calc(var(--spacing) * 4),
+      #ff880000 calc(var(--spacing) * 6)
+    );
+
+    background-position: var(--game-card-holo-bg-position);
+    background-size: 100% 500%;
+    opacity: 0.4;
+    filter: brightness(1.2);
+    mix-blend-mode: plus-lighter;
+    mask-image: var(--game-card-hero-mask);
+    mask-size: cover;
+    inset: 0;
+  }
+}

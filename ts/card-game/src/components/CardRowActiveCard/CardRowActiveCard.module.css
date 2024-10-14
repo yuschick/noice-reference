@@ -1,0 +1,109 @@
+.card-row-card-root {
+  --_card-row-card-requested-icon-size: getRem(32);
+
+  position: relative;
+  aspect-ratio: var(--game-card-aspect-ratio);
+  inline-size: 100%;
+}
+
+.card-row-card-booster-requested-wrapper {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  z-index: var(--noi-z-index-level-4);
+  gap: var(--noi-spacing-2x);
+  inline-size: 100%;
+  block-size: 100%;
+  pointer-events: none;
+}
+
+.card-row-card-booster-requested-icon-wrapper {
+  position: absolute;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  inline-size: var(--_card-row-card-requested-icon-size);
+  block-size: var(--_card-row-card-requested-icon-size);
+  color: var(--noi-color-text-dark);
+  font-size: var(--noi-font-size-lg);
+  background-color: var(--noi-color-green-main);
+  border-radius: var(--noi-border-radius-circle);
+  box-shadow: 0px 8px 16px -8px var(--noi-color-black-main-transparent-50);
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+  transform: translate(-50%, -50%);
+  transition: inset 200ms;
+
+  .is-hovered & {
+    z-index: var(--noi-z-index-level-5);
+    transform: none;
+    inset-inline-start: 0;
+    inset-block-start: getRem(-42);
+  }
+}
+
+.card-row-card-booster-requested-icon {
+  inline-size: getRem(18);
+  block-size: getRem(22);
+}
+
+.card-row-card-booster-requested-label {
+  position: absolute;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-md);
+  text-align: center;
+  text-transform: uppercase;
+  inset-block-end: 100%;
+  inset-inline-start: 0;
+  inline-size: 100%;
+  padding-block-end: var(--noi-spacing-2x);
+
+  .is-hovered & {
+    display: none;
+  }
+}
+
+.card-row-card-active-boosters-preview {
+  position: absolute;
+  z-index: var(--noi-z-index-level-2);
+  opacity: 1;
+  transition: inset-inline-end ease-out 250ms;
+  pointer-events: none;
+  inset-block-start: getRem(8);
+  inset-inline-end: calc(0rem - getRem(8));
+
+  .is-hovered & {
+    opacity: 0;
+    inset-inline-end: calc(0rem - getRem(32));
+  }
+}
+
+.card-row-card-active-boosters {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  inset-block-end: 0%;
+  inset-inline-start: 75%;
+
+  .is-hovered & {
+    display: flex;
+    opacity: 1;
+    transition: opacity 250ms, inset-inline-start ease-out 250ms;
+    pointer-events: all;
+    inset-block-end: 30%;
+    inset-inline-start: calc(100% - getRem(6));
+  }
+}
+
+.card-row-card-active-boosters-boosters {
+  .is-hovered & {
+    z-index: var(--noi-z-index-level-2);
+    transition: inset-inline-start ease-out 250ms;
+  }
+}
+
+.card-row-card-active-boosters-vfx {
+  z-index: var(--noi-z-index-level-1);
+}

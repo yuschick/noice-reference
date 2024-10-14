@@ -1,0 +1,1 @@
+export { SidebarChannels } from './SidebarChannels';

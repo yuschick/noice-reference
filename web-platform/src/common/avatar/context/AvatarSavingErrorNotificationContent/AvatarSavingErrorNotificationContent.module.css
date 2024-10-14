@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-3x);
+}
+
+.icon {
+  inline-size: getRem(40);
+  block-size: getRem(40);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--noi-spacing-4x);
+}
+
+.text-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+}
+
+.subtext {
+  color: var(--noi-color-text-dark-secondary);
+  font-size: var(--noi-font-size-sm);
+}

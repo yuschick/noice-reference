@@ -1,0 +1,30 @@
+.wrapper {
+  @mixin paragraph m, medium;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  padding: var(--noi-spacing-4x);
+  color: var(--white);
+  border-radius: getRem(5);
+  inline-size: getRem(498);
+
+  &.default {
+    background-color: var(--neutral-600);
+  }
+
+  &.info {
+    background-color: var(--primary-600);
+  }
+
+  &.positive {
+    background-color: var(--success-600);
+  }
+
+  &.warning {
+    background-color: var(--warning-600);
+  }
+
+  &.error {
+    background-color: var(--danger-600);
+  }
+}

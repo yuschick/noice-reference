@@ -1,0 +1,86 @@
+.aon-dialog-root {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-6x);
+  padding: var(--noi-spacing-4x);
+  background-color: var(--noi-color-gray-950);
+  border-radius: var(--noi-border-radius-xl);
+  box-shadow: 0 24px 32px 10px var(--noi-color-black-main-transparent-80),
+    0 0 8px var(--noi-color-black-main-transparent-25);
+  container-type: inline-size;
+  container-name: aon-container;
+}
+
+.aon-dialog-header {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-6x);
+  align-items: center;
+}
+
+.aon-dialog-card {
+  inline-size: 45%;
+}
+
+.aon-dialog-info {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  text-align: start;
+}
+
+.aon-dialog-title {
+  color: var(--noi-color-teal-main);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-xl);
+  text-transform: uppercase;
+}
+
+.aon-dialog-description {
+  margin: var(--noi-spacing-2x) 0;
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-medium);
+}
+
+.aon-dialog-actions {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.aon-dialog-progress-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--noi-border-radius-pill);
+}
+
+.aon-dialog-button-progress {
+  position: absolute;
+  z-index: var(--noi-z-index-level-1);
+  display: block;
+  background-color: var(--noi-color-light-main-transparent-10);
+  animation: aon-timer-progress var(--aon-button-progress-duration) linear;
+  inset: 0;
+  pointer-events: none;
+}
+
+@keyframes aon-timer-progress {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.aon-dialog-divider {
+  inline-size: 100%;
+  block-size: getRem(1);
+  margin: var(--noi-spacing-4x) 0;
+  background-color: var(--noi-color-gray-850);
+}

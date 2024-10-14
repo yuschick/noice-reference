@@ -1,0 +1,19 @@
+.vote-counts-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.vote-percentage-text {
+  color: var(--noi-color-teal-300);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-xl);
+  line-height: var(--noi-line-height-tight);
+}
+
+.vote-count-text {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+}

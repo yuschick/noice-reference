@@ -1,0 +1,25 @@
+.booster-request-message-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: var(--noi-spacing-1x) getRem(16);
+  padding: var(--noi-spacing-2x) var(--noi-spacing-3x);
+  color: var(--noi-color-green-300);
+  font-size: var(--_chat-message-font-size, var(--noi-font-size-sm));
+  line-height: var(--noi-line-height-tight);
+  background: var(--noi-color-green-800);
+  border-radius: var(--noi-border-radius-md);
+}
+
+.booster-request-message-name {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+}
+
+.text-container {
+  display: inline;
+  align-self: center;
+  word-break: break-word;
+}

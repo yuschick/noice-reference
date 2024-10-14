@@ -1,0 +1,111 @@
+.local-player-root {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+
+  &.card-success {
+    background: var(--active-card-success-gradient);
+  }
+
+  &.card-failure {
+    background: var(--active-card-failure-gradient);
+  }
+
+  &.best-play {
+    background: var(--active-card-best-play-gradient);
+  }
+
+  &.show-details,
+  &.is-all-or-nothing {
+    z-index: var(--noi-z-index-level-8);
+  }
+}
+
+.local-player-column {
+  z-index: var(--noi-z-index-level-1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  inline-size: 100%;
+
+  .apply-booster-mode & {
+    position: relative;
+  }
+}
+
+.local-player-aon {
+  position: absolute;
+  z-index: var(--noi-z-index-level-8);
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  margin: var(--noi-spacing-4x);
+}
+
+.local-player-card-wrapper {
+  z-index: var(--noi-z-index-level-2);
+  margin: var(--noi-spacing-3x) 0 0 0;
+  inline-size: 100%;
+  aspect-ratio: var(--game-card-aspect-ratio);
+
+  .show-details & {
+    position: absolute;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    justify-content: center;
+    inset-inline: 0;
+    inset-block-end: 0;
+    padding-block-end: var(--_card-row-sm-hover-bottom-space);
+    background: linear-gradient(
+      0deg,
+      var(--noi-color-black-main-transparent-90),
+      transparent
+    );
+  }
+}
+
+.local-player-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  inline-size: var(--_card-row-sm-local-player-inline-size);
+
+  .invalid-apply-booster-target & {
+    cursor: not-allowed;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .show-details & {
+    inline-size: var(--game-card-width-breakpoint-large);
+  }
+}
+
+.local-player-bonus {
+  margin: var(--noi-spacing-3x) 0 0 0;
+}
+
+.local-player-apply-wrapper {
+  align-self: flex-start;
+  min-inline-size: getRem(120);
+}
+
+.local-player-apply-title {
+  display: inline-block;
+  margin: 0;
+  color: var(--noi-color-text-light);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+  text-shadow: 0 0 getRem(6) var(--noi-color-black-main);
+}
+
+.local-player-apply-small-text {
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+  text-shadow: 0 0 getRem(6) var(--noi-color-black-main);
+}

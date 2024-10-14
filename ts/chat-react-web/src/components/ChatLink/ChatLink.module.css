@@ -1,0 +1,17 @@
+.chat-link-content {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  text-decoration: none;
+  border-block-end: 1px solid var(--noi-color-text-light);
+
+  @media (hover: hover) {
+    &:hover {
+      border-block-end: none;
+    }
+  }
+}
+
+.chat-link-logo {
+  aspect-ratio: 456.25 / 100;
+}

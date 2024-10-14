@@ -1,0 +1,45 @@
+.game-card-type-badge-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  inline-size: pixelsToCardCqi(24);
+  block-size: pixelsToCardCqi(24);
+}
+
+.card-type-icon-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--noi-color-black-main-transparent-10);
+  border-radius: var(--noi-border-radius-circle);
+  inline-size: pixelsToCardCqi(24);
+  block-size: pixelsToCardCqi(24);
+}
+
+.game-card-type-badge-icon {
+  inline-size: pixelsToCardCqi(24);
+  block-size: pixelsToCardCqi(24);
+  color: var(--noi-color-light-main-transparent-70);
+  margin-block-end: pixelsToCardCqi(4);
+
+  @mixin game-card-breakpoint-medium {
+    margin-block-end: pixelsToCardCqi(0);
+  }
+}
+
+.game-card-type-badge-logo {
+  inline-size: pixelsToCardCqi(20);
+  block-size: pixelsToCardCqi(20);
+  opacity: 0.5;
+}
+
+.game-card-type-badge-streamer-card {
+  background-image: var(--game-card-type-badge-streamer-card-image);
+  background-position: center;
+  background-size: cover;
+  inline-size: pixelsToCardCqi(24);
+  block-size: pixelsToCardCqi(24);
+  border-radius: var(--noi-border-radius-circle);
+}

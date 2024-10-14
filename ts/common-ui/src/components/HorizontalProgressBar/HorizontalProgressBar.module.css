@@ -1,0 +1,130 @@
+.highlight-wrapper {
+  --horizontal-progress-bar-highlight-color: var(--noi-color-white-main);
+  position: relative;
+  display: block;
+  inline-size: 100%;
+  block-size: getRem(8);
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  --horizontal-progress-bar-progress-color: var(--noi-color-light-main);
+  --horizontal-progress-bar-background-color: var(--noi-color-blue-700);
+  position: relative;
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: var(--horizontal-progress-bar-background-color);
+  border-radius: var(--noi-border-radius-pill);
+}
+
+@keyframes progressSlideIn {
+  0% {
+    transform: scaleX(var(--horizontal-progress-bar-start-percent));
+  }
+
+  100% {
+    transform: scaleX(var(--horizontal-progress-bar-final-percent));
+  }
+}
+
+.progress {
+  --horizontal-progress-bar-start-percent: 0;
+  --horizontal-progress-bar-final-percent: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  background-color: var(--horizontal-progress-bar-progress-color);
+  border-radius: var(--noi-border-radius-pill);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 225ms ease, background-color 225ms ease;
+}
+
+.start-animation {
+  & .progress {
+    animation: progressSlideIn 1000ms ease-out forwards 1;
+  }
+}
+
+.after-animation {
+  & .progress {
+    transform: scaleX(var(--horizontal-progress-bar-final-percent));
+  }
+
+  & .progress.highlight-bar {
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    background-color: var(--horizontal-progress-bar-highlight-color);
+  }
+
+  &.show-highlight.highlight-wrapper::after {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    inset-block-end: 0;
+    inset-inline-start: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    background-color: greenyellow;
+    border-radius: var(--noi-border-radius-pill);
+    opacity: 0;
+    animation: highlight 70ms ease-out;
+    animation-iteration-count: 4;
+    content: '';
+  }
+}
+
+@keyframes highlight {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes loadingSlide {
+  0% {
+    transform: translateX(-25%) scaleX(5%);
+    animation-timing-function: ease-in;
+  }
+
+  30% {
+    transform: translateX(0%) scaleX(50%);
+    animation-timing-function: linear;
+  }
+
+  70% {
+    transform: translateX(75%) scaleX(50%);
+    animation-timing-function: linear;
+  }
+
+  100% {
+    transform: translateX(100%) scaleX(5%);
+    animation-timing-function: ease-out;
+  }
+}
+
+.loading-bar {
+  inline-size: 100%;
+  block-size: 100%;
+  background: linear-gradient(
+    125deg,
+    var(--noi-color-light-main-transparent-10) 0%,
+    var(--noi-color-light-main-transparent-15) 40%,
+    var(--noi-color-light-main-transparent-10) 100%
+  );
+  border-radius: var(--noi-border-radius-pill);
+  transform-origin: left center;
+  animation: loadingSlide 2250ms forwards infinite;
+}

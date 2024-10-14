@@ -1,0 +1,124 @@
+.card-select-root {
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--noi-spacing-4x);
+  background-image: radial-gradient(
+    at left bottom,
+    var(--noi-color-black-main-transparent-80) 50%,
+    transparent 70%
+  );
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 100% getRem(480);
+  pointer-events: all;
+  container-type: inline-size;
+  container-name: card-select-container;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  block-size: 100vh;
+}
+
+.dismiss {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, var(--black-transparent-60) 70%);
+}
+
+.content {
+  --_card-select-match-cards-separator-block-size: getRem(24);
+  --_card-select-match-card-transition-time: 300ms;
+  --_card-select-grid-card-area-column-size: minmax(
+    var(--game-card-width-breakpoint-xsmall),
+    var(--game-card-width-breakpoint-medium)
+  );
+  --_card-select-grid-match-card-area-column-size: minmax(
+    calc(
+      var(--game-card-width-breakpoint-xsmall) +
+        var(--_card-select-match-cards-separator-block-size)
+    ),
+    calc(
+      var(--game-card-width-breakpoint-medium) +
+        var(--_card-select-match-cards-separator-block-size)
+    )
+  );
+  --_card-select-grid-gap: var(--noi-spacing-2x);
+  --_card-select-grid-empty-space: var(--noi-spacing-2x);
+
+  position: relative;
+  display: grid;
+  grid-template-areas:
+    '. space label label label label label'
+    'active-card space hand-card-1 hand-card-2 hand-card-3 hand-card-4 hand-card-5'
+    'cancel space reshuffle reshuffle reshuffle reshuffle reshuffle';
+  grid-template-rows: auto auto auto;
+  grid-template-columns:
+    var(--_card-select-grid-card-area-column-size)
+    var(--_card-select-grid-empty-space)
+    repeat(5, var(--_card-select-grid-card-area-column-size));
+  gap: var(--_card-select-grid-gap);
+  align-items: flex-end;
+
+  .match-cards-available & {
+    grid-template-areas:
+      '. space label label label label label label'
+      'active-card space match-cards hand-card-1 hand-card-2 hand-card-3 hand-card-4 hand-card-5'
+      'cancel space match-cards-label match-cards-label reshuffle reshuffle reshuffle reshuffle';
+    grid-template-columns:
+      var(--_card-select-grid-card-area-column-size)
+      var(--_card-select-grid-empty-space)
+      var(--_card-select-grid-match-card-area-column-size)
+      repeat(5, var(--_card-select-grid-card-area-column-size));
+  }
+
+  @container (min-inline-size: 900px) {
+    --_card-select-match-cards-separator-block-size: getRem(32);
+    --_card-select-grid-gap: var(--noi-spacing-4x);
+    --_card-select-grid-empty-space: getRem(24);
+  }
+}
+
+.title {
+  grid-area: label;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}
+
+.active-card {
+  grid-area: active-card;
+}
+
+.hand-card {
+  transition: opacity var(--_card-select-match-card-transition-time);
+
+  .highlight-match-cards & {
+    opacity: 0.2 !important;
+  }
+}
+
+.match-cards {
+  grid-area: match-cards;
+}
+
+.match-cards-label {
+  grid-area: match-cards-label;
+  text-align: start;
+}
+
+.reshuffle {
+  grid-area: reshuffle;
+  align-self: end;
+  transition: opacity var(--_card-select-match-card-transition-time);
+
+  .highlight-match-cards & {
+    opacity: 0.1;
+  }
+}
+
+.cancel-button {
+  grid-area: cancel;
+}

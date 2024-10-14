@@ -1,0 +1,80 @@
+.stream-mini-highlights-content-wrapper {
+  position: relative;
+  flex-grow: 1;
+  inline-size: 100%;
+}
+
+.noice-logo-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  min-block-size: getRem(44);
+  min-inline-size: getRem(44);
+  max-block-size: getRem(44);
+  max-inline-size: getRem(44);
+}
+
+.header-texts-container {
+  position: absolute;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  align-items: center;
+  block-size: getRem(50);
+  overflow: hidden;
+
+  &.header-texts-appear {
+    animation: header-texts-appear 800ms forwards;
+  }
+
+  &.header-texts-disappear {
+    animation: header-texts-disappear 400ms forwards;
+  }
+}
+
+.header-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: getRem(12);
+  align-items: center;
+  inline-size: 100%;
+  block-size: getRem(50);
+}
+
+.headers-wrapper {
+  position: relative;
+  inline-size: 100%;
+  block-size: getRem(50);
+}
+
+@keyframes header-texts-appear {
+  0% {
+    transform: translateX(getRem(70));
+    opacity: 0;
+    animation-timing-function: ease-in;
+  }
+
+  10% {
+    transform: translateX(getRem(30));
+    opacity: 0.6;
+    animation-timing-function: ease-in;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    animation-timing-function: ease-in;
+  }
+}
+
+@keyframes header-texts-disappear {
+  0% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: translateY(getRem(-30));
+    opacity: 0;
+  }
+}

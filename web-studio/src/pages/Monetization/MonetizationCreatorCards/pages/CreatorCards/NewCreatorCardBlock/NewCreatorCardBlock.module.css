@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-8x);
+  align-items: center;
+  justify-content: center;
+  padding: var(--noi-spacing-5x);
+  background-color: var(--noi-color-gray-900);
+  border-radius: var(--noi-border-radius-md);
+  block-size: getRem(276);
+}
+
+.text {
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-lg);
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  line-height: 140%;
+  text-align: center;
+}

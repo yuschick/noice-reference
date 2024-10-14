@@ -1,0 +1,11 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(11.25rem, 30%), 1fr));
+  gap: var(--noi-spacing-8x) var(--noi-spacing-12x);
+  padding: var(--noi-spacing-8x) var(--noi-spacing-4x);
+
+  @media (min-width: getRem(768)) {
+    gap: var(--noi-spacing-14x);
+    padding: getRem(0);
+  }
+}

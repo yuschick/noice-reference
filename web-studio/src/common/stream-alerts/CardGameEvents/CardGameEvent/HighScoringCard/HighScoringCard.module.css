@@ -1,0 +1,74 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  inline-size: 100%;
+}
+
+.card-wrapper {
+  position: relative;
+  pointer-events: none;
+  inline-size: 100%;
+}
+
+.boosters-wrapper {
+  position: absolute;
+  inset-block-start: getRem(8);
+  inset-inline-end: calc(0rem - getRem(8));
+}
+
+.booster {
+  inline-size: getRem(32);
+  opacity: 0;
+  animation: booster-appear 300ms forwards ease-in-out;
+  animation-delay: 700ms;
+
+  & + & {
+    margin-block-start: var(--noi-spacing-1x);
+  }
+
+  &:nth-child(2) {
+    animation-delay: 800ms;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 900ms;
+  }
+
+  &:nth-child(4) {
+    animation-delay: 700ms;
+  }
+
+  &:nth-child(5) {
+    animation-delay: 800ms;
+  }
+}
+
+@keyframes booster-appear {
+  0% {
+    scale: 0.8;
+    opacity: 0;
+
+    @supports not (scale: 0.8) {
+      transform: scale(0.8);
+    }
+  }
+
+  70% {
+    scale: 1.25;
+    opacity: 1;
+
+    @supports not (scale: 0.8) {
+      transform: scale(1.25);
+    }
+  }
+
+  100% {
+    scale: 1;
+    opacity: 1;
+
+    @supports not (scale: 0.8) {
+      transform: scale(1);
+    }
+  }
+}

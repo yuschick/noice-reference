@@ -1,0 +1,1 @@
+export { InventoryEmojis } from './InventoryEmojis';

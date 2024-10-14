@@ -1,0 +1,49 @@
+.list-item-container {
+  display: grid;
+  grid-template-areas: 'timestamp event user';
+  grid-template-columns: max-content min(getRem(170), 50%) minmax(0, 1fr);
+  gap: var(--noi-spacing-2x);
+  align-content: center;
+  align-items: center;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  padding: var(--noi-spacing-1x);
+
+  &.has-icon {
+    grid-template-areas: 'timestamp icon event user';
+    grid-template-columns: max-content min-content min(getRem(170), 50%) minmax(0, 1fr);
+  }
+}
+
+.event-timestamp {
+  color: var(--noi-color-gray-350);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+}
+
+.event-icon {
+  inline-size: getRem(16);
+  block-size: auto;
+
+  &.high-scoring-card {
+    color: var(--noi-color-gray-150);
+  }
+
+  &.streamer-card {
+    color: var(--noi-color-violet-main);
+  }
+}
+
+.event-title {
+  display: block;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-md);
+}
+
+.event-details {
+  color: var(--noi-color-gray-150);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+}

@@ -1,0 +1,112 @@
+.container {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  z-index: var(--noi-z-index-level-6);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  inline-size: 100%;
+  block-size: 100%;
+  background-color: var(--noi-color-black-main-transparent-60);
+  opacity: 0;
+  transition: opacity var(--noi-duration-quick);
+  container-type: inline-size;
+  container-name: pip-container;
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.bottom {
+  position: absolute;
+  inset-block-end: var(--noi-spacing-4x);
+  inset-inline-start: var(--noi-spacing-4x);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  inline-size: calc(100% - getRem(16));
+  min-block-size: getRem(40);
+  margin-block-start: var(--noi-spacing-4x);
+}
+
+.streamer-logo-wrapper {
+  flex-shrink: 0;
+}
+
+.stream-info {
+  display: flex;
+  flex-direction: column;
+  margin-inline-start: var(--noi-spacing-3x);
+  /* take account margin and logo and little bit buffer */
+  max-inline-size: calc(100% - getRem(12) - getRem(40) - getRem(16));
+}
+
+.game-info {
+  @mixin truncate-text;
+  margin: var(--noi-spacing-half) 0 0 0;
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-xs);
+  line-height: var(--noi-line-height-tight);
+
+  @container (min-width: getRem(400)) {
+    margin: var(--noi-spacing-1x) 0 0 0;
+    font-size: var(--noi-font-size-sm);
+  }
+}
+
+.stream-name {
+  @mixin truncate-text;
+  display: block;
+  color: var(--noi-color-text-light);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+
+  @container (min-width: getRem(400)) {
+    font-size: var(--noi-font-size-md);
+  }
+}
+
+.bg-overlay {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  z-index: var(--noi-z-index-level-6);
+  inline-size: 100%;
+  block-size: 100%;
+  border: 2px solid var(--noi-color-gray-850);
+  border-radius: var(--noi-border-radius-md);
+
+  .channel-page & {
+    border: none;
+    border-radius: 0;
+  }
+}
+
+.control-container {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  z-index: var(--noi-z-index-level-7);
+  display: flex;
+  flex-wrap: nowrap;
+  padding: var(--noi-spacing-4x);
+}
+
+.button {
+  background-color: var(--noi-color-light-main-transparent-20);
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--noi-color-light-main-transparent-30);
+    }
+  }
+}
+
+.expand-button {
+  z-index: var(--noi-z-index-level-7);
+}

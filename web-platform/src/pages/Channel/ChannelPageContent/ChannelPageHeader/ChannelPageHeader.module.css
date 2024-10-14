@@ -1,0 +1,18 @@
+.container {
+  position: relative;
+  display: grid;
+  gap: var(--noi-spacing-6x);
+}
+
+.offline-banner-wrapper {
+  block-size: getRem(128);
+  @media (--breakpoint-small) {
+    block-size: getRem(256);
+  }
+}
+
+.offline-banner {
+  inline-size: 100%;
+  block-size: 100%;
+  border-radius: var(--noi-border-radius-md);
+}

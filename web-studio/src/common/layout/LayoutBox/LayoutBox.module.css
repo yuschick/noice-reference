@@ -1,0 +1,12 @@
+.layout-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-8x);
+  padding: var(--noi-spacing-6x);
+  background-color: var(--noi-color-gray-850);
+  border-radius: var(--layout-box-radius-override, var(--noi-border-radius-xs));
+
+  &.dark {
+    background-color: var(--noi-color-gray-900);
+  }
+}

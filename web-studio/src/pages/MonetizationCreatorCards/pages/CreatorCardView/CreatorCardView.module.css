@@ -1,0 +1,72 @@
+.card-view-wrapper {
+  display: grid;
+  grid-template-areas: 'card info' 'publish publish' 'unpublish unpublish';
+  grid-template-columns: var(--game-card-width-breakpoint-large) auto;
+  gap: var(--noi-spacing-8x);
+  align-items: start;
+  justify-content: start;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  padding: var(--noi-spacing-10x);
+  background-color: var(--noi-color-gray-900);
+  border-radius: var(--noi-border-radius-md);
+}
+
+.title {
+  font-size: var(--noi-font-size-lg);
+  text-transform: uppercase;
+}
+
+.details-panel {
+  gap: var(--noi-spacing-8x);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+}
+
+.detail-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+  line-height: var(--noi-line-height-tight);
+}
+
+.detail-label {
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-sm);
+}
+
+.detail-value {
+  font-weight: var(--noi-font-weight-bold);
+}
+
+.detail-season {
+  color: var(--noi-color-teal-main);
+  font-size: var(--noi-font-size-sm);
+}
+
+.edit-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+}
+
+.button-wrapper {
+  min-inline-size: getRem(200);
+}
+
+.publish-panel {
+  grid-area: publish;
+  gap: var(--noi-spacing-4x);
+}
+
+.unpublish-button {
+  grid-area: unpublish;
+  justify-self: center;
+}

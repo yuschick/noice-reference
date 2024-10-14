@@ -1,0 +1,60 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: var(--noi-spacing-8x);
+  background-color: var(--noi-color-light-main);
+  border-radius: var(--noi-border-radius-xl);
+  box-shadow: 0 24px 32px -24px var(--noi-color-black-main-transparent-80);
+}
+
+@keyframes progress-bar-stripes {
+  from {
+    background-position: getRem(-320) 0;
+  }
+
+  to {
+    background-position: 0 0;
+  }
+}
+
+.progress-base {
+  overflow: hidden;
+  background-color: var(--noi-color-gray-100);
+  border-radius: var(--noi-border-radius-pill);
+  inline-size: getRem(320);
+  block-size: getRem(12);
+  margin-block-start: var(--noi-spacing-3x);
+}
+
+.progress-fill {
+  background: linear-gradient(
+    90deg,
+    var(--noi-color-green-main),
+    var(--noi-color-teal-main),
+    var(--noi-color-violet-magenta-400),
+    var(--noi-color-teal-main),
+    var(--noi-color-green-main)
+  );
+  background-color: var(--noi-color-green-main);
+  background-size: getRem(320) getRem(12);
+  transform: inline-size ease-in-out var(--noi-duration-quick);
+  animation: progress-bar-stripes 3000ms linear infinite;
+  inline-size: calc(var(--avatar-editor-save-modal-progress) * 100%);
+  block-size: getRem(12);
+}
+
+.title-text {
+  color: var(--noi-color-text-dark);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  text-transform: uppercase;
+}
+
+.progress-text {
+  color: var(--noi-color-text-dark-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+}

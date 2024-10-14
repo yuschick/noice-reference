@@ -1,0 +1,116 @@
+.wrapper {
+  --_pop-notifications-block-start: calc(
+    var(--platform-header-size, 0) + var(--noi-spacing-4x)
+  );
+  --_pop-notifcations-inline-end: var(--noi-spacing-4x);
+
+  @mixin no-scroll-bar;
+  position: fixed;
+  overflow: auto;
+  inset-block-start: var(--_pop-notifications-block-start);
+  inset-inline-end: var(--_pop-notifcations-inline-end);
+  max-block-size: calc(
+    100vh - var(--page-wrapper-header-height) - var(--_pop-notifications-block-start) -
+      getRem(16)
+  );
+  inline-size: calc(100vw - 2 * var(--noi-spacing-4x));
+
+  @media (min-width: getRem(460)) {
+    --_pop-notifcations-inline-end: calc(
+      var(--platform-collapsed-sidebar-size, 0) + var(--noi-spacing-4x)
+    );
+    inline-size: getRem(400);
+
+    body[data-game-sidebar='hidden'] & {
+      --_pop-notifcations-inline-end: var(--noi-spacing-4x);
+    }
+
+    body[data-game-sidebar='expanded'] & {
+      --_pop-notifcations-inline-end: calc(getRem(340) + var(--noi-spacing-4x));
+    }
+
+    body[data-game-sidebar='collapsed'] & {
+      /* there is room for the expand button */
+      --_pop-notifcations-inline-end: calc(
+        var(--platform-collapsed-sidebar-size, 0) + getRem(64)
+      );
+    }
+  }
+}
+
+.list {
+  --notification-bg-color: var(--noi-color-light-main);
+  @mixin list-style-none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+}
+
+.notification {
+  position: relative;
+  overflow: hidden;
+  animation: slide-in var(--noi-duration-quick) ease-out forwards;
+
+  &.hidden {
+    animation: slide-out var(--noi-duration-quick) ease-out forwards;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.highlight-wrapper {
+  position: absolute;
+  z-index: var(--noi-z-index-level-1);
+  overflow: hidden;
+  border-radius: var(--notification-border-radius, var(--noi-border-radius-sm));
+  inset: 0;
+  pointer-events: none;
+
+  &::after {
+    position: absolute;
+    background: linear-gradient(
+      to right,
+      transparent 0 34%,
+      var(--noi-color-light-main-transparent-25) 65.9%,
+      transparent 66% 100%
+    );
+    background-size: 100% 100%;
+    animation: bg-highlight ease 4000ms;
+    content: '';
+    inset-block: 0;
+    inset-inline-start: 0;
+    inline-size: 300%;
+  }
+}
+
+@keyframes bg-highlight {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}

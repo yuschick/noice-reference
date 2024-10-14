@@ -1,0 +1,18 @@
+.local-player-available-booster-wrapper {
+  position: relative;
+}
+
+.local-player-request-previews {
+  position: absolute;
+  inset-block-end: 100%;
+  inset-inline-start: 0;
+  display: flex;
+  justify-content: center;
+  inline-size: 100%;
+}
+
+.local-player-solo-tooltip {
+  line-height: var(--noi-line-height-tight);
+  text-align: center;
+  max-inline-size: getRem(165);
+}

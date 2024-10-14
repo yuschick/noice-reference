@@ -1,0 +1,10 @@
+.details {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  gap: var(--noi-spacing-1x) getRem(16);
+  white-space: normal;
+}
+
+.details-label {
+  color: var(--neutral-200);
+}

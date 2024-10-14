@@ -1,0 +1,43 @@
+.wrapper {
+  display: grid;
+  flex-grow: 1;
+  grid-template-areas: 'top-bar top-bar' 'breadcrumbs breadcrumbs' 'sidebar content';
+  grid-template-rows: getRem(64) min-content auto;
+  grid-template-columns: 0 auto;
+  overflow: hidden;
+  transition: grid-template-columns var(--noi-duration-quick);
+
+  @media (--breakpoint-medium) {
+    grid-template-columns: var(--sidebar-width) auto;
+
+    &.sidebar-closed {
+      grid-template-columns: 0 auto;
+    }
+
+    &.no-sidebar {
+      grid-template-columns: 0 auto;
+    }
+  }
+}
+
+.top-bar {
+  z-index: var(--noi-z-index-level-3);
+  grid-area: top-bar;
+}
+
+.sidebar {
+  z-index: var(--noi-z-index-level-2);
+  grid-area: sidebar;
+}
+
+.content {
+  position: relative;
+  z-index: var(--noi-z-index-level-1);
+  grid-area: content;
+  overflow: hidden;
+
+  /* when there is no sidebar, make content to be full width */
+  &:nth-child(2) {
+    grid-area: sidebar-start / sidebar-start / content-end / content-end;
+  }
+}

@@ -1,0 +1,6 @@
+.container {
+  position: relative;
+  max-inline-size: 100vi;
+  min-block-size: 100vb;
+  inline-size: 100%;
+}

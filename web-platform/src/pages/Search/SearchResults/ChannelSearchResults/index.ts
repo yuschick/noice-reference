@@ -1,0 +1,1 @@
+export { ChannelSearchResults } from './ChannelSearchResults';

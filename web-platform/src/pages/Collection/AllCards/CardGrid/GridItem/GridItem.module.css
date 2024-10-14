@@ -1,0 +1,25 @@
+.grid-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  inline-size: 100%;
+  transition: opacity var(--noi-duration-quick);
+  max-inline-size: var(--game-card-width-breakpoint-xlarge);
+}
+
+/* Dim next siblings if user is hovering streamer cards */
+@media (hover: hover) {
+  .has-active-streamer-cards:hover ~ .grid-item {
+    opacity: 0.5;
+  }
+}
+
+/* Dim previous siblings if user is hovering streamer cards */
+@media (hover: hover) {
+  .grid-item:not(:hover):has(~ .has-active-streamer-cards:hover) {
+    opacity: 0.5;
+  }
+}

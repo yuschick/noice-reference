@@ -1,0 +1,40 @@
+:root {
+  --reward-chest-scale: 1;
+}
+
+@keyframes open-animation {
+  0% {
+    transform: scale(var(--reward-chest-scale));
+    transform-origin: center;
+    opacity: 1;
+  }
+
+  70% {
+    transform: scale(calc(var(--reward-chest-scale) * 1.625));
+    transform-origin: center;
+  }
+
+  75% {
+    transform: scale(calc(var(--reward-chest-scale) * 1.5));
+    transform-origin: center;
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.reward-chest {
+  inline-size: getRem(40);
+  block-size: getRem(40);
+  transform: scale(var(--reward-chest-scale));
+
+  &.opening {
+    animation: open-animation 2000ms normal forwards;
+  }
+
+  &.opened {
+    transform: scale(calc(var(--reward-chest-scale) * 1.5));
+  }
+}

@@ -1,0 +1,30 @@
+.complete-account-form {
+  display: flex;
+  flex-direction: column;
+  gap: getRem(24);
+}
+
+.complete-account-bday-wrapper {
+  padding-block: var(--noi-spacing-3x);
+}
+
+.accept-term-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+  margin-block-start: var(--noi-spacing-2x);
+  padding-inline: getRem(32);
+}
+
+.divider {
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  border: unset;
+  border-block-start: 1px var(--noi-color-dark-main-transparent-20) solid;
+}
+
+.complete-account-action-note {
+  color: var(--noi-color-text-dark-secondary);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-loose);
+  text-align: center;
+}

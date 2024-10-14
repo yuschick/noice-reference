@@ -1,0 +1,17 @@
+.wrapper {
+  overflow: auto;
+  color: var(--noi-color-text-dark);
+  background-color: var(--noi-color-blue-50);
+  /* Need to offset the padding of the SignupContentWrapper since this view removes the padding from every other view */
+  margin-inline: calc(-1 * var(--_signup-content-inline-padding));
+  padding-inline: var(--_signup-content-inline-padding);
+  padding-block: calc(var(--_signup-content-block-padding) - getRem(16));
+
+  @media (min-width: getRem(640)) {
+    max-block-size: 30vb;
+
+    &.no-max-block-size {
+      max-block-size: none;
+    }
+  }
+}

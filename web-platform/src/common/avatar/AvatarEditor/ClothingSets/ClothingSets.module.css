@@ -1,0 +1,25 @@
+.outfit-info {
+  display: none;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  margin-block-end: getRem(32);
+
+  .info-icon {
+    color: var(--noi-color-gray-700);
+  }
+
+  .info-label {
+    color: var(--noi-color-text-light-secondary);
+  }
+}
+
+.outfit-list {
+  position: relative;
+  overflow: hidden;
+}
+
+.set-items {
+  display: flex;
+  flex-wrap: wrap;
+  container-type: inline-size;
+}

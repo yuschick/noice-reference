@@ -1,0 +1,15 @@
+.edit-stream-title-root {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.button-container {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  align-items: center;
+  block-size: getRem(56);
+}

@@ -1,0 +1,39 @@
+.profile-section-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--noi-spacing-6x);
+  max-inline-size: getRem(635);
+}
+
+.title-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  text-transform: uppercase;
+}
+
+.icon {
+  inline-size: getRem(24);
+  block-size: getRem(24);
+}
+
+.loading {
+  inline-size: 100%;
+}
+
+.list {
+  @mixin list-style-none;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--noi-spacing-2x);
+  inline-size: 100%;
+}
+
+.list-item {
+  inline-size: 100%;
+}

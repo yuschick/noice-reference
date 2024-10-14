@@ -1,0 +1,34 @@
+.wrapper {
+  --_chat-message-time-font-size: var(--noi-font-size-xs);
+  --_chat-message-font-size: var(--noi-font-size-sm);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  justify-content: flex-end;
+  min-block-size: 100%;
+  padding-block-end: var(--noi-spacing-2x);
+
+  &.small {
+    --_chat-message-time-font-size: var(--noi-font-size-xs);
+    --_chat-message-font-size: var(--noi-font-size-sm);
+  }
+
+  &.medium {
+    --_chat-message-time-font-size: var(--noi-font-size-sm);
+    --_chat-message-font-size: var(--noi-font-size-md);
+  }
+
+  &.large {
+    --_chat-message-time-font-size: var(--noi-font-size-md);
+    --_chat-message-font-size: var(--noi-font-size-lg);
+  }
+}
+
+.loading-wrapper {
+  display: grid;
+  place-items: center;
+  inline-size: 100%;
+  block-size: 100%;
+}

@@ -1,0 +1,22 @@
+.card {
+  inline-size: var(--game-card-width-breakpoint-large);
+  flex-shrink: 0;
+}
+
+.card-placeholder {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+  background-color: var(--noi-color-gray-850);
+  border: 1px solid var(--noi-color-gray-700);
+  border-radius: var(--noi-border-radius-md);
+  inline-size: var(--game-card-width-breakpoint-large);
+  aspect-ratio: var(--game-card-aspect-ratio);
+}

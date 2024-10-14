@@ -1,0 +1,5 @@
+.data-point-text {
+  color: var(--noi-color-text-dark-secondary);
+  font-weight: var(--noi-font-weight-bold);
+  text-align: center;
+}

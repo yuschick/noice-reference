@@ -1,0 +1,1 @@
+export { SoloDialogMenu } from './SoloDialogMenu';

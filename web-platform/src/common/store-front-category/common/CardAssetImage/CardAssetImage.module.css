@@ -1,0 +1,34 @@
+.wrapper {
+  position: relative;
+  transition: transform var(--noi-duration-quick) cubic-bezier(0.64, 0.43, 0.72, 1.3);
+
+  @container bundle-item (min-width: getRem(500)) {
+    transform: perspective(getRem(600)) rotateY(-12deg) rotateX(4deg) rotateZ(3deg)
+      translateY(getRem(4));
+  }
+}
+
+.card-bundle-asset {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  position: absolute;
+  inset-block-start: getRem(8);
+  inset-inline-end: 0;
+  box-shadow: 0px 24px 32px -24px var(--noi-color-black-main-transparent-20);
+  transform: scale(1.03) translateY(getRem(-12)) translateX(getRem(-16));
+
+  &.size-m {
+    inline-size: getRem(160);
+  }
+
+  &.size-sm {
+    inline-size: getRem(123);
+  }
+
+  .card-bundle-asset & {
+    position: relative;
+  }
+}

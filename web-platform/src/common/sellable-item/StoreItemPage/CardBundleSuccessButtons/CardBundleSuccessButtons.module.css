@@ -1,0 +1,4 @@
+.wrapper {
+  /* We need to use a negative margin to offset the one-off gap on the parent grid */
+  margin-block-start: calc(var(--noi-spacing-6x) * -1);
+}

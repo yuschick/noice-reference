@@ -1,0 +1,56 @@
+@keyframes locks-first-phase {
+  0% {
+    transform: none;
+  }
+
+  100% {
+    transform: translateX(-12.5%);
+  }
+}
+
+@keyframes locks-second-phase {
+  0% {
+    transform: translateX(-25%);
+  }
+
+  100% {
+    transform: translateX(-37.5%);
+  }
+}
+
+@keyframes open-first-phase {
+  0% {
+    transform: translateX(-37.5%);
+  }
+
+  100% {
+    transform: translateX(-62.5%);
+  }
+}
+
+@keyframes open-second-phase {
+  0% {
+    transform: translateX(-75%);
+  }
+
+  100% {
+    transform: translateX(-87.5%);
+  }
+}
+
+.box-lid {
+  transform: translate(-75%, -50%);
+
+  &.locks-open {
+    animation: locks-first-phase 120ms steps(2, jump-none) forwards,
+      locks-second-phase 140ms 800ms steps(2, jump-none) forwards;
+  }
+
+  &.open-first-phase {
+    animation: open-first-phase 200ms steps(2, jump-end) forwards;
+  }
+
+  &.open-second-phase {
+    animation: open-second-phase 90ms steps(2, jump-none) forwards;
+  }
+}

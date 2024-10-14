@@ -1,0 +1,29 @@
+.status {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-1x);
+  align-items: center;
+  align-self: center;
+  justify-content: flex-end;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+
+  .allowed {
+    color: var(--noi-color-green-main);
+  }
+
+  .denied {
+    color: var(--noi-color-status-error-main);
+  }
+
+  .countdown {
+    display: inline-block;
+  }
+
+  .expires-in {
+    color: var(--noi-color-text-light-secondary);
+    font-weight: var(--noi-font-weight-medium);
+    white-space: nowrap;
+  }
+}

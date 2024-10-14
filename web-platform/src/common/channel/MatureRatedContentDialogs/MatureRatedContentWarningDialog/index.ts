@@ -1,0 +1,1 @@
+export { MatureRatedContentWarningDialog } from './MatureRatedContentWarningDialog';

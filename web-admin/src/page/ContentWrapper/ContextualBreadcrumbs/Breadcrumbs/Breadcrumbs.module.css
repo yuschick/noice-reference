@@ -1,0 +1,51 @@
+.breadcrumbs-wrapper {
+  --breadcrumbs-gap: getRem(14);
+
+  color: var(--neutral-300);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--font-size-s);
+  line-height: var(--line-height-small);
+}
+
+.breadcrumbs-list {
+  @mixin list-style-none;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--breadcrumbs-gap);
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumb-item {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--breadcrumbs-gap);
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.breadcrumb-item-link {
+  color: var(--white);
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    text-decoration: underline;
+  }
+}
+
+.breadcrumb-divider {
+  .breadcrumb-item:last-child & {
+    display: none;
+  }
+}
+
+.breadcrumb-item-loading {
+  @mixin loading-shine var(--neutral-300);
+  /* We want the loaders to be the same size as whatever font size is used, so em will capture that. */
+  /* stylelint-disable-next-line unit-allowed-list */
+  block-size: 1em;
+  inline-size: getRem(100);
+}

@@ -1,0 +1,88 @@
+@layer noice.ui {
+  .confirm-dialog {
+    --dialog-max-block: getRem(448);
+
+    &[open] {
+      container: dialog / inline-size;
+      padding: 0;
+      overflow: hidden;
+      background-color: var(--noi-color-light-main);
+      border: none;
+      border-radius: var(--noi-border-radius-xl);
+      box-shadow: 0px 24px 32px -24px var(--noi-color-black-main-transparent-50);
+      inline-size: clamp(getRem(320), 100vi, getRem(600));
+      max-block-size: var(--dialog-max-block);
+
+      &::before {
+        position: absolute;
+        background-image: var(--noi-gradient-spectrum-full);
+        content: '';
+        block-size: getRem(4);
+        inline-size: 100%;
+        inset-block-start: 0;
+        inset-inline-start: 0;
+      }
+    }
+  }
+
+  .confirm-form {
+    display: grid;
+    grid-auto-rows: 1fr min-content max-content;
+    gap: var(--noi-spacing-6x);
+    padding: var(--noi-spacing-4x) var(--noi-spacing-4x) var(--noi-spacing-6x);
+    text-align: center;
+    max-block-size: var(--dialog-max-block);
+
+    @container (min-width: getRem(599)) {
+      padding: var(--noi-spacing-8x) var(--noi-spacing-8x) var(--noi-spacing-6x);
+    }
+  }
+
+  .confirm-form-inner-wrapper {
+    position: relative;
+    display: grid;
+    grid-auto-rows: max-content;
+    gap: var(--noi-spacing-2x);
+    align-items: center;
+
+    &:has(.confirm-description) {
+      overflow: auto;
+    }
+  }
+
+  .confirm-heading {
+    --outline-color: transparent;
+
+    position: sticky;
+    color: var(--noi-color-text-dark);
+    font-weight: var(--noi-font-weight-bold);
+    font-size: var(--noi-font-size-lg);
+    line-height: var(--noi-line-height-tight);
+
+    @container (min-width: getRem(599)) {
+      font-size: var(--noi-font-size-xl);
+    }
+  }
+
+  .confirm-description {
+    color: var(--noi-color-text-dark);
+    line-height: var(--noi-line-height-loose);
+    max-block-size: 100%;
+    white-space: pre-line;
+  }
+
+  .confirm-divider {
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    border: unset;
+    border-block-start: 1px var(--noi-color-gray-100) solid;
+    margin-block-start: var(--noi-spacing-2x);
+  }
+
+  .confirm-actions-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(getRem(230), 1fr));
+    gap: var(--noi-spacing-2x);
+    align-items: center;
+    justify-content: end;
+  }
+}

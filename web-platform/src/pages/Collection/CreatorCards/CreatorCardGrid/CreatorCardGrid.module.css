@@ -1,0 +1,15 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(11.25rem, 30%), 1fr));
+  gap: var(--noi-spacing-14x);
+  inline-size: 100%;
+}
+
+.grid-item {
+  inline-size: 100%;
+
+  &.locked {
+    opacity: 0.5;
+    filter: grayscale(1);
+  }
+}

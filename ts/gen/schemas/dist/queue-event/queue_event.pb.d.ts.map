@@ -1,0 +1,1 @@
+{"version":3,"file":"queue_event.pb.d.ts","sourceRoot":"","sources":["../../queue-event/queue_event.pb.ts"],"names":[],"mappings":"AAMA,OAAO,KAAK,iBAAiB,MAAM,2BAA2B,CAAA;AAE9D,MAAM,MAAM,kBAAkB,GAAG;IAC/B,EAAE,CAAC,EAAE,MAAM,CAAA;IACX,IAAI,CAAC,EAAE,MAAM,CAAA;IACb,OAAO,CAAC,EAAE,MAAM,CAAA;IAChB,OAAO,CAAC,EAAE,iBAAiB,CAAC,GAAG,CAAA;CAChC,CAAA"}

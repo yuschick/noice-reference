@@ -1,0 +1,52 @@
+.navigation-item {
+  --icon-color: var(--noi-color-text-light-secondary);
+
+  position: relative;
+  display: grid;
+  background-color: transparent;
+  border-radius: var(--noi-border-radius-circle);
+  block-size: getRem(48);
+  inline-size: getRem(48);
+  place-items: center;
+
+  @media (hover: hover) {
+    &:not([aria-disabled='true'], [aria-current='page']):hover {
+      --icon-color: var(--noi-color-text-light);
+      background-color: var(--noi-color-light-main-transparent-10);
+    }
+  }
+
+  &[aria-current='page'] {
+    --icon-color: var(--noi-color-green-main);
+  }
+
+  &[aria-disabled='true'] {
+    opacity: 0.5;
+  }
+}
+
+.navigation-item-icon {
+  block-size: getRem(32);
+  inline-size: getRem(32);
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  color: var(--icon-color);
+
+  &.with-status-indicator {
+    --indicator-mask: radial-gradient(getRem(10) at 100% 0, #0000 98%, #000);
+    -webkit-mask: var(--indicator-mask);
+    mask: var(--indicator-mask);
+  }
+}
+
+.navigation-tooltip {
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  text-transform: uppercase;
+}
+
+.status-indicator-wrapper {
+  position: absolute;
+  /* Temprary positioning until correct clip path is defined */
+  inset-block-start: getRem(8);
+  inset-inline-end: getRem(5);
+}

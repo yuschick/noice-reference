@@ -1,0 +1,38 @@
+.button {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  inline-size: 100%;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.icon-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  inline-size: getRem(48);
+  block-size: getRem(48);
+  color: var(--noi-color-text-light);
+  background-color: var(--noi-color-gray-700);
+  border-radius: var(--noi-border-radius-md);
+  transition: background-color var(--noi-duration-quick);
+
+  @media (hover: hover) {
+    .button:hover & {
+      background-color: var(--noi-color-magenta-main);
+    }
+  }
+}
+
+.icon {
+  inline-size: getRem(32);
+  block-size: getRem(32);
+}

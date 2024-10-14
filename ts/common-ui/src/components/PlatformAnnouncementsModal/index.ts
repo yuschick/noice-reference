@@ -1,0 +1,1 @@
+export { PlatformAnnouncementsModal } from './PlatformAnnouncementsModal';

@@ -1,0 +1,7 @@
+.match-results-summary-players-container {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--noi-color-black-main-transparent-80);
+}

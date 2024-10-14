@@ -1,0 +1,14 @@
+.cosmetics-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(getRem(328), 1fr));
+  gap: var(--noi-spacing-4x);
+
+  @media (min-width: getRem(1200)) {
+    grid-template-columns: repeat(auto-fill, minmax(getRem(558), 1fr));
+  }
+}
+
+.skeleton {
+  border-radius: var(--noi-border-radius-lg);
+  aspect-ratio: 5 / 2;
+}

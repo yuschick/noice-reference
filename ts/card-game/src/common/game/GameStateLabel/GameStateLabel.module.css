@@ -1,0 +1,56 @@
+.game-state-label {
+  z-index: var(--noi-z-index-level-2);
+  flex-grow: 1;
+  overflow: hidden;
+  pointer-events: none;
+  container-type: inline-size;
+  container-name: game-state-label-content;
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+.game-state-label-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: var(--noi-z-index-level-1);
+  background: transparent;
+  transition: background-color var(--_game-state-label-enter-duration);
+
+  &.enter {
+    background-color: var(--noi-color-black-main-transparent-50);
+  }
+
+  &.leave {
+    background-color: transparent;
+    transition-duration: var(--_game-state-label-leave-duration);
+  }
+}
+
+.game-state-label-content-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  transform: translate(-50%, -50%);
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+}
+
+.game-state-label-title-container {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.game-state-label-animated-title {
+  font-size: var(--noi-font-size-2xl);
+
+  @container (inline-size > getRem(460)) {
+    font-size: var(--noi-font-size-3xl);
+  }
+
+  @container (inline-size > getRem(800)) {
+    font-size: var(--noi-font-size-4xl);
+  }
+}

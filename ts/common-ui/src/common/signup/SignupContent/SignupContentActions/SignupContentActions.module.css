@@ -1,0 +1,6 @@
+.signup-content-actions {
+  padding-block-end: var(--_signup-content-block-padding);
+  padding-inline: var(--_signup-content-inline-padding);
+  display: grid;
+  gap: var(--noi-spacing-4x);
+}

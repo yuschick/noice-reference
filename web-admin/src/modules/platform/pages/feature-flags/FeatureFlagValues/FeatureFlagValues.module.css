@@ -1,0 +1,25 @@
+.has-changes {
+  border-color: var(--warning-400);
+}
+
+.legend {
+  .has-changes & {
+    color: var(--warning-400);
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+}
+
+.empty {
+  @mixin label s, regular;
+  color: var(--danger-400);
+}
+
+.removed-wrapper {
+  @mixin label s, regular;
+  color: var(--warning-400);
+}

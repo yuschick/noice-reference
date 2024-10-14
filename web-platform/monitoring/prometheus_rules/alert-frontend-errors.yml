@@ -1,0 +1,55 @@
+groups:
+  - name: frontend:errors
+    rules:
+      - alert: IncreasedFrontendConsoleErrors
+        expr: |
+          sum by (client_type) (rate(noice_analytics_collector_client_console_errors[1m]))
+          >
+          1.5 * sum by (client_type) (avg_over_time(rate(noice_analytics_collector_client_console_errors[1m])[2h:]))
+        for: 10m
+        labels:
+          severity: critical
+          service: web-platform
+          namespace: monitoring # this needs to be here for the alert to get sent to slack
+        annotations:
+          summary: 'Increased frontend console errors for {{ $labels.client_type }}%'
+          description: 'The frontend console errors have increased by 50% in the last 10 minutes. Frontend dashboard: https://grafana.tools.noice.com/d/frontend-overview/frontend-overview'
+      - alert: IncreasedFrontendJavascriptErrors
+        expr: |
+          sum by (client_type) (rate(noice_analytics_collector_client_javascript_errors[1m]))
+          >
+          1.5 * sum by (client_type) (avg_over_time(rate(noice_analytics_collector_client_javascript_errors[1m])[2h:]))
+        for: 10m
+        labels:
+          severity: critical
+          service: web-platform
+          namespace: monitoring # this needs to be here for the alert to get sent to slack
+        annotations:
+          summary: 'Increased frontend javascript errors for {{ $labels.client_type }}%'
+          description: 'The frontend javascript errors have increased by 50% in the last 10 minutes. Frontend dashboard: https://grafana.tools.noice.com/d/frontend-overview/frontend-overview'
+      - alert: IncreasedFrontendReactErrors
+        expr: |
+          sum by (client_type) (rate(noice_analytics_collector_client_react_error[1m]))
+          >
+          1.5 * sum by (client_type) (avg_over_time(rate(noice_analytics_collector_client_react_error[1m])[2h:]))
+        for: 10m
+        labels:
+          severity: critical
+          service: web-platform
+          namespace: monitoring # this needs to be here for the alert to get sent to slack
+        annotations:
+          summary: 'Increased frontend react errors for {{ $labels.client_type }}%'
+          description: 'The frontend react errors have increased by 50% in the last 10 minutes. Frontend dashboard: https://grafana.tools.noice.com/d/frontend-overview/frontend-overview'
+      - alert: IncreasedFrontendUnhandledPromiseRejections
+        expr: |
+          sum by (client_type) (rate(noice_analytics_collector_client_unhandled_promise_rejections[1m]))
+          >
+          1.5 * sum by (client_type) (avg_over_time(rate(noice_analytics_collector_client_unhandled_promise_rejections[1m])[2h:]))
+        for: 10m
+        labels:
+          severity: critical
+          service: web-platform
+          namespace: monitoring # this needs to be here for the alert to get sent to slack
+        annotations:
+          summary: 'Increased unhandled promise rejections in frontend for {{ $labels.client_type }}%'
+          description: 'The unhandled promise rejections have increased by 50% in the last 10 minutes. Frontend dashboard: https://grafana.tools.noice.com/d/frontend-overview/frontend-overview'

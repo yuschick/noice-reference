@@ -1,0 +1,102 @@
+.card-highlight-root {
+  position: relative;
+}
+
+.card-highlight-sticky-highlight {
+  position: absolute;
+  z-index: var(--noi-z-index-level-10);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  background-blend-mode: color, saturation;
+  border-radius: pixelsToCardCqi(16);
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1000ms ease-out;
+
+  .success & {
+    /* This is very custom mix of design system colors so we cannot directly take from design system */
+    /* stylelint-disable-next-line declaration-property-value-disallowed-list */
+    background: color-mix(
+      in srgb,
+      var(--noi-color-green-main) 20%,
+      var(--noi-color-black-main-transparent-60)
+    );
+  }
+
+  .failure & {
+    /* This is very custom mix of design system colors so we cannot directly take from design system */
+    /* stylelint-disable-next-line declaration-property-value-disallowed-list */
+    background: color-mix(
+      in srgb,
+      var(--noi-color-status-error-500) 15%,
+      var(--noi-color-black-main-transparent-60)
+    );
+  }
+
+  .best-play & {
+    /* This is very custom mix of design system colors so we cannot directly take from design system */
+    /* stylelint-disable-next-line declaration-property-value-disallowed-list */
+    background: color-mix(
+      in srgb,
+      var(--noi-color-magenta-500) 15%,
+      var(--noi-color-black-main-transparent-60)
+    );
+  }
+
+  &.appear {
+    opacity: 1;
+  }
+}
+
+.card-highlight-sticky-highlight-text {
+  font-weight: var(--noi-font-weight-extra-bold);
+  font-size: pixelsToCardCqi(32);
+  font-style: italic;
+  transform: translateY(calc(-1 * pixelsToCardCqi(20)));
+
+  .success & {
+    color: var(--noi-color-green-main);
+  }
+
+  .failure & {
+    color: var(--noi-color-status-error-300);
+  }
+
+  .best-play & {
+    color: var(--noi-color-magenta-300);
+  }
+}
+
+.card-highlight-boosters-wrapper {
+  position: absolute;
+  z-index: var(--noi-z-index-level-2);
+  inset-block-start: getRem(8);
+  inset-inline-end: calc(0rem - getRem(8));
+  inline-size: getRem(24);
+
+  .card-highlight-root:hover & {
+    inline-size: getRem(36);
+  }
+}
+
+.card-highlight-booster {
+  position: relative;
+
+  & + & {
+    margin-block-start: var(--noi-spacing-1x);
+  }
+}
+
+.card-highlight-vfx-video-wrapper {
+  position: absolute;
+  z-index: var(--noi-z-index-level-1);
+  pointer-events: none;
+  inset: -50%;
+}
+
+.card-highlight-video {
+  inline-size: 100%;
+  aspect-ratio: var(--game-card-aspect-ratio);
+}

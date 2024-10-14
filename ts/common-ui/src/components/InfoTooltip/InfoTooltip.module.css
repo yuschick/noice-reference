@@ -1,0 +1,36 @@
+@layer noice.ui {
+  .info-tooltip-button {
+    display: grid;
+    color: var(--_button-color);
+    background-color: transparent;
+    border: 1px solid var(--_button-border-color);
+    border-radius: var(--noi-border-radius-circle);
+    block-size: getRem(40);
+    inline-size: getRem(40);
+    place-items: center;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--_button-color-hover);
+    }
+
+    &.light {
+      --_button-color: var(--noi-color-text-light-secondary);
+      --_button-color-hover: var(--noi-color-text-light);
+      --_button-border-color: var(--noi-color-light-main-transparent-10);
+    }
+
+    &.dark {
+      --_button-color: var(--noi-color-text-dark-secondary);
+      --_button-color-hover: var(--noi-color-text-dark);
+      --_button-border-color: var(--noi-color-dark-main-transparent-10);
+    }
+  }
+
+  .tooltip {
+    color: var(--noi-color-text-light);
+    font-size: var(--noi-font-size-sm);
+    line-height: var(--noi-line-height-loose);
+    max-inline-size: getRem(360);
+  }
+}

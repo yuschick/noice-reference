@@ -1,0 +1,52 @@
+.bottom-wrapper {
+  position: relative;
+  z-index: var(--noi-z-index-level-1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  inline-size: getRem(80);
+  block-size: getRem(52);
+  padding-block-start: var(--noi-spacing-3x);
+}
+
+.bottom-avatar {
+  display: none;
+
+  .show-avatar & {
+    display: block;
+  }
+}
+
+.bottom-player-score {
+  display: block;
+
+  .show-avatar & {
+    display: none;
+  }
+}
+
+.booster-score {
+  position: absolute;
+  inset-block-start: getRem(4);
+  z-index: var(--noi-z-index-level-2);
+}
+
+.score-update-animation {
+  scale: 1;
+  animation: scale-jump 300ms forwards;
+}
+
+@keyframes scale-jump {
+  0% {
+    scale: 1;
+  }
+
+  40% {
+    scale: 1.4;
+  }
+
+  100% {
+    scale: 1;
+  }
+}

@@ -1,0 +1,95 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-6x);
+  align-content: center;
+  align-items: center;
+}
+
+.secondary-content-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-6x);
+  align-content: center;
+  align-items: center;
+}
+
+.title {
+  font-weight: var(--noi-font-weight-extra-bold);
+  font-size: var(--noi-font-size-2xl);
+  font-style: italic;
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+
+  @media (min-width: getRem(1200)) {
+    font-size: var(--noi-font-size-3xl);
+  }
+}
+
+.resets-in-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  /* stylelint-disable-next-line unit-allowed-list */
+  gap: 0.25em;
+  align-items: center;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  border: 1px solid var(--noi-color-light-main-transparent-10);
+  border-radius: var(--noi-border-radius-pill);
+  block-size: getRem(40);
+  padding-inline: var(--noi-spacing-4x);
+}
+
+.resets-in-label {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-md);
+}
+
+.loading-label {
+  @mixin loading-shine var(--noi-color-gray-500);
+  inline-size: getRem(70);
+  block-size: getRem(24);
+}
+
+.countdown {
+  color: var(--noi-color-light-main);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-lg);
+  text-align: center;
+  margin-inline-start: var(--noi-spacing-1x);
+}
+
+.info-tooltip-title {
+  margin: 0 0 var(--noi-spacing-2x);
+  color: var(--noi-color-light-main);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-lg);
+}
+
+.info-tooltip-text {
+  margin: var(--noi-spacing-2x) 0;
+}
+
+.switchout-cost-text {
+  color: var(--noi-color-status-error-500);
+}
+
+.switchout-cost-amount {
+  margin: 0 var(--noi-spacing-2x);
+  color: var(--noi-color-light-main);
+  font-weight: var(--noi-font-weight-extra-bold);
+}
+
+.switchout-cost-container {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  margin: var(--noi-spacing-2x) 0 0;
+}
+
+.currency-icon {
+  inline-size: getRem(24);
+  block-size: getRem(24);
+}

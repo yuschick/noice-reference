@@ -1,0 +1,1 @@
+export { StorePlatformStoreCategory } from './StorePlatformStoreCategory';

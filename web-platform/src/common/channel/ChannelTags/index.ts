@@ -1,0 +1,1 @@
+export { ChannelTags } from './ChannelTags';

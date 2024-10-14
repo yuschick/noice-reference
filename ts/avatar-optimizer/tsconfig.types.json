@@ -1,0 +1,28 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["src/**/*"],
+  "exclude": ["node_modules/*", "types/*", "dist/*"],
+  "references": [
+    {
+      "path": "../utils"
+    },
+    {
+      "path": "../renderer"
+    },
+    {
+      "path": "../avatar-builder"
+    }
+  ],
+  "compilerOptions": {
+    "rootDir": "src",
+    "baseUrl": "./src",
+    "outDir": "./dist/types",
+    "paths": {
+      "@noice-com/utils": ["../utils"],
+      "@noice-com/web-renderer": ["../renderer"],
+      "@noice-com/avatar-builder": ["../avatar-builder"]
+    },
+    "listEmittedFiles": true,
+    "emitDeclarationOnly": true
+  }
+}

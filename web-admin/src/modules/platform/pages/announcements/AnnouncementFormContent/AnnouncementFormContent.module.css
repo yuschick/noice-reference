@@ -1,0 +1,121 @@
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-8x);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+}
+
+.sub-title {
+  @mixin heading h5;
+  margin: 0;
+}
+
+.image {
+  display: block;
+  inline-size: 100%;
+}
+
+.date-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  justify-content: space-between;
+}
+
+.active-warning {
+  @mixin label s, medium;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  margin-block-start: var(--noi-spacing-2x);
+  color: var(--warning-400);
+}
+
+.bottom {
+  position: sticky;
+  inset-block-end: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+  padding-block-start: getRem(16);
+  background-color: var(--neutral-700);
+  inline-size: 100%;
+
+  &:after {
+    position: absolute;
+    inset-inline-end: 0;
+    inset-block-end: getRem(-16);
+    inset-inline-start: 0;
+    block-size: getRem(16);
+    background-color: var(--neutral-700);
+    content: '';
+  }
+}
+
+.button-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  justify-content: space-between;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+}
+
+.modal {
+  z-index: var(--noi-z-index-level-5);
+  font-family: var(--noi-font-family-body);
+}
+
+.archive-view {
+  position: absolute;
+  inset-block-start: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  display: none;
+  flex-direction: column;
+
+  &.show {
+    display: flex;
+  }
+
+  &::before {
+    flex: 1;
+    background-color: var(--neutral-900);
+    opacity: 0.75;
+    content: '';
+  }
+}
+
+.archive-content {
+  @mixin paragraph m, bold;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  justify-content: space-between;
+  padding: getRem(32) getRem(24);
+  background-color: var(--neutral-700);
+}
+
+.archive-buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+}
+
+.targets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+}

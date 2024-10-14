@@ -1,0 +1,66 @@
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.front-glow {
+  position: absolute;
+  transform: translate(-10%, -12.7%) rotateZ(-13deg);
+  opacity: 0;
+  mix-blend-mode: hard-light;
+  animation: fade-in 1500ms 1000ms forwards;
+  inline-size: 35%;
+  block-size: 35%;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+
+  &.common {
+    background: radial-gradient(
+      50% 23% ellipse at 50% 50%,
+      var(--_rarity-common) 0,
+      #e5e5e720 80%,
+      #e5e5e700 100%
+    );
+  }
+
+  &.uncommon {
+    background: radial-gradient(
+      50% 23% ellipse at 50% 50%,
+      var(--_rarity-uncommon) 0,
+      #2fecbf20 80%,
+      #2fecbf00 100%
+    );
+  }
+
+  &.rare {
+    background: radial-gradient(
+      50% 23% ellipse at 50% 50%,
+      var(--_rarity-rare) 0,
+      #5bdbf620 80%,
+      #5bdbf600 100%
+    );
+  }
+
+  &.epic {
+    background: radial-gradient(
+      50% 23% ellipse at 50% 50%,
+      var(--_rarity-epic) 0,
+      #db9afb20 80%,
+      #db9afb00 100%
+    );
+  }
+
+  &.legendary {
+    background: radial-gradient(
+      50% 23% ellipse at 50% 50%,
+      var(--_rarity-legendary) 0,
+      #f2ca6420 80%,
+      #f2ca6400 100%
+    );
+  }
+}

@@ -1,0 +1,1 @@
+export { ChatInputForm } from './ChatInputForm';

@@ -1,0 +1,111 @@
+.empty {
+  display: flex;
+  block-size: 100%;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  justify-content: center;
+  padding: var(--noi-spacing-2x);
+  color: var(--noi-color-gray-400);
+  text-transform: uppercase;
+}
+
+.list {
+  @mixin list-style-none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+  margin: 0;
+  padding: 0;
+}
+
+.announcement {
+  --_announcement-color: var(--noi-color-text-light-secondary);
+  --_accent-color: var(--noi-color-text-light-secondary);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-3x);
+  padding: var(--noi-spacing-3x) getRem(16) getRem(16);
+  text-align: start;
+  background: linear-gradient(
+    90deg,
+    var(--noi-color-gray-900) 0%,
+    var(--noi-color-gray-800) 100%
+  );
+  border-radius: var(--noi-border-radius-xs);
+  cursor: pointer;
+  inline-size: 100%;
+
+  &.system {
+    --_accent-color: var(--noi-color-status-alert-main);
+    --_announcement-color: var(--noi-color-status-alert-main);
+  }
+
+  &.game {
+    --_accent-color: var(--noi-color-teal-main);
+    --_announcement-color: var(--noi-color-teal-main);
+
+    background-image: linear-gradient(
+        90deg,
+        var(--noi-color-gray-900) 0%,
+        transparent 100%
+      ),
+      var(--announcement-bg-image);
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+.top-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  justify-content: space-between;
+  inline-size: 100%;
+}
+
+.title-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+}
+
+.time {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  color: var(--_accent-color);
+  font-size: var(--noi-font-size-sm);
+}
+
+.date {
+  font-weight: var(--noi-font-weight-bold);
+}
+
+.title {
+  font-weight: var(--noi-font-weight-bold);
+  text-transform: uppercase;
+}
+
+.icon {
+  flex-shrink: 0;
+  inline-size: getRem(40);
+  block-size: getRem(40);
+  color: var(--noi-color-light-main);
+}
+
+.text {
+  display: -webkit-box;
+  overflow: hidden;
+  line-height: var(--noi-line-height-loose);
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: block-axis;
+}
+
+.read-more {
+  color: var(--_accent-color);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  text-transform: uppercase;
+}

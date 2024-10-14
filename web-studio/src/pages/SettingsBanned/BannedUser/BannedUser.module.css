@@ -1,0 +1,88 @@
+.wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  inline-size: 100%;
+  padding: var(--noi-spacing-2x);
+  text-align: start;
+  background-color: var(--noi-color-gray-850);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color var(--noi-duration-quick);
+
+  &:hover {
+    background-color: var(--noi-color-gray-800);
+  }
+
+  &.active {
+    background-color: var(--noi-color-gray-800);
+    border-color: var(--noi-color-gray-600);
+  }
+}
+
+.user-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+}
+
+.avatar {
+  margin: var(--noi-spacing-half);
+}
+
+.name {
+  display: block;
+  margin-block-end: var(--noi-spacing-1x);
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+}
+
+.banned-at {
+  display: block;
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+}
+
+.icon {
+  inline-size: getRem(16);
+  block-size: getRem(16);
+}
+
+.right-side {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-5x);
+  align-items: center;
+  padding-inline-end: var(--noi-spacing-3x);
+}
+
+.open-appeal {
+  padding: var(--noi-spacing-1x) var(--noi-spacing-2x);
+  color: var(--noi-color-green-900);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-xs);
+  line-height: var(--noi-line-height-tight);
+  letter-spacing: 0.01em;
+  background-color: var(--noi-color-green-200);
+  border-radius: var(--noi-border-radius-xs);
+}
+
+.rejected-appeal {
+  color: var(--noi-color-status-error-main);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-xs);
+  line-height: var(--noi-line-height-tight);
+  letter-spacing: 0.01em;
+}
+
+.profile-image-wrapper {
+  display: grid;
+  border-radius: var(--noi-border-radius-circle);
+  outline: getRem(4) solid var(--noi-color-light-main-transparent-10);
+  inline-size: getRem(34);
+  place-content: center;
+}

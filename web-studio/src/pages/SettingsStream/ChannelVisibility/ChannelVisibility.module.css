@@ -1,0 +1,16 @@
+.channel-visibility-wrapper {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  gap: var(--noi-spacing-4x);
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-loose);
+}
+
+.title {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}

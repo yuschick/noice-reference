@@ -1,0 +1,21 @@
+name: web-renderer
+
+build_dependencies:
+  - ts-schemas
+  - ts-lib
+  - ts-utils
+  - eslint-config
+  - yarn-config
+  - .yarnrc.yml
+  - yarn.lock
+  - package.json
+  - tsconfig.json
+  - tsconfig.base.json
+
+artifact_directories:
+  - node_modules
+  - ../../.yarn/cache
+
+lint:
+  - type: yarn_run
+    cmd: '${{ parseBoolean(inputs.fix) ? "lint:fix" : "lint" }}'

@@ -1,0 +1,1 @@
+export { FriendRequestButton } from './FriendRequestButton';

@@ -1,0 +1,31 @@
+.menu-control {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 0;
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+  background-color: transparent;
+  cursor: pointer;
+  transition: color var(--noi-duration-quick);
+
+  &:hover {
+    color: var(--noi-color-text-light);
+  }
+}
+
+.active {
+  color: var(--noi-color-green-main);
+
+  &:hover {
+    color: var(--noi-color-green-100);
+  }
+}
+
+.icon {
+  inline-size: getRem(24);
+  block-size: getRem(24);
+  margin-inline-start: var(--noi-spacing-1x);
+}

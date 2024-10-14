@@ -1,0 +1,8 @@
+.popout {
+  position: fixed;
+  z-index: var(--noi-z-index-level-1);
+  padding: var(--noi-spacing-4x);
+  background-color: var(--neutral-500);
+  border: 1px solid var(--neutral-400);
+  border-radius: getRem(7);
+}

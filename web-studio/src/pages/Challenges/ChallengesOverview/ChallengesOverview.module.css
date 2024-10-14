@@ -1,0 +1,90 @@
+.challenges-layout-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-8x);
+  padding: var(--noi-spacing-6x);
+  background-color: var(--noi-color-gray-900);
+  border-radius: var(--layout-box-radius-override, var(--noi-border-radius-xs));
+}
+
+.challenges-section-title {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}
+
+.challenges-section-description {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-medium);
+  margin-block-end: var(--noi-spacing-4x);
+}
+
+.challenges-layout-box-title {
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  margin-block-end: var(--noi-spacing-1x);
+}
+
+.challenges-layout-box-description {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-medium);
+  margin-block-end: var(--noi-spacing-4x);
+}
+
+.challenges-layout-box-divider {
+  background-color: var(--noi-color-gray-800);
+  inline-size: 100%;
+  /* stylelint-disable-next-line unit-allowed-list */
+  block-size: 1px;
+}
+
+.challenges-list-loading {
+  inline-size: 100%;
+  block-size: getRem(40);
+  @mixin loading-shine var(--noi-color-gray-800);
+}
+
+.challenges-list-header-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.challenge-list-header-title-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.challenge-list-header-title {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+}
+
+.challenge-list-header-title-strong {
+  font-weight: var(--noi-font-weight-bold);
+}
+
+.challenges-list-header-description {
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-medium);
+}
+
+.challenges-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-half);
+}

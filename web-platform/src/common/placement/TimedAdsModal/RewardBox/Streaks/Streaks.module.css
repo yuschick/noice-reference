@@ -1,0 +1,89 @@
+@keyframes wrapper-scale-up {
+  0% {
+    transform: translate(-54%, -48%) scale(2.2);
+  }
+
+  100% {
+    transform: translate(-54%, -48%) scale(3.8);
+  }
+}
+
+@keyframes wrapper-disappear {
+  0% {
+    transform: translate(-54%, -48%) scale(3.8);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-54%, -48%) scale(0.6);
+    opacity: 0;
+  }
+}
+
+.wrapper {
+  position: absolute;
+  overflow: hidden;
+  transform: translate(-54%, -48%) scale(2.2);
+  inline-size: 100%;
+  block-size: 100%;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+
+  &.scale-up {
+    animation: wrapper-scale-up 500ms 200ms ease-in forwards;
+  }
+
+  &.disappear {
+    animation: wrapper-disappear 500ms ease-out forwards;
+  }
+}
+
+@keyframes streak-idle {
+  0% {
+    transform: scale(0.6) rotateZ(1.28deg);
+    opacity: 0.3;
+  }
+
+  25% {
+    transform: scale(0.62) rotateZ(1.35deg);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: scale(0.59) rotateZ(-0.43deg) rotateX(1.3deg);
+    opacity: 0.2;
+  }
+
+  75% {
+    transform: scale(0.61) rotateZ(1.5deg) rotateX(-0.3deg);
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: scale(0.59);
+    opacity: 0.2;
+  }
+}
+
+.streak-size {
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.streak-1 {
+  filter: blur(getRem(4));
+  mix-blend-mode: color-dodge;
+  animation: streak-idle 3000ms -1000ms infinite;
+}
+
+.streak-2 {
+  animation: streak-idle 4000ms -3000ms infinite;
+}
+
+.streak-3 {
+  animation: streak-idle 2500ms infinite;
+}
+
+.streak {
+  transform: none;
+}

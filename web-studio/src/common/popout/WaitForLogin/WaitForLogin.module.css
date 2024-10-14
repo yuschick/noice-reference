@@ -1,0 +1,12 @@
+.wait-for-authentication-container {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: var(--noi-spacing-4x);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-xl);
+  text-transform: uppercase;
+  inline-size: 100vw;
+  block-size: 100vh;
+}

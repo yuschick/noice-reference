@@ -1,0 +1,30 @@
+.match-results-summary-player-score-container {
+  display: flex;
+
+  flex-grow: 0.5;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  padding: var(--noi-spacing-3x) var(--noi-spacing-4x) var(--noi-spacing-3x)
+    var(--noi-spacing-4x);
+  background-color: var(--noi-color-gray-900);
+
+  @media (min-width: getRem(520)) {
+    flex-grow: 0;
+  }
+}
+
+.score-text {
+  color: var(--noi-color-light-main);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+}
+
+.description-text {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-base);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+  max-inline-size: getRem(48);
+}

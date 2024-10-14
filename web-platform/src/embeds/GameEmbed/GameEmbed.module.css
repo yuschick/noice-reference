@@ -1,0 +1,5 @@
+.game-embed-root {
+  position: absolute;
+  overflow: hidden;
+  inset: 0;
+}

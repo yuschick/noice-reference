@@ -1,0 +1,61 @@
+.loading-wrapper {
+  display: grid;
+  place-items: center;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.label {
+  display: block;
+  margin-block-end: getRem(16);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-xl);
+  line-height: var(--noi-line-height-tight);
+}
+
+.list {
+  @mixin list-style-none;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+  margin: 0;
+  padding: 0;
+}
+
+.option {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  padding: var(--noi-spacing-4x);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-lg);
+  background-color: var(--noi-color-gray-800);
+  border: 1px solid transparent;
+  border-radius: var(--noi-border-radius-sm);
+  cursor: pointer;
+  inline-size: 100%;
+
+  .icon {
+    color: transparent;
+  }
+
+  &:disabled {
+    color: var(--noi-color-text-light-secondary);
+    cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: var(--noi-color-gray-750);
+    border-color: var(--noi-color-light-main);
+  }
+
+  &.selected {
+    border-color: var(--noi-color-green-main);
+
+    .icon {
+      color: var(--noi-color-green-main);
+    }
+  }
+}

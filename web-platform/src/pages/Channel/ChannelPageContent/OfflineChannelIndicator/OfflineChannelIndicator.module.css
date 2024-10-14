@@ -1,0 +1,37 @@
+.container {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  padding: var(--noi-spacing-6x);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  background: var(--noi-color-gray-950);
+  border-radius: var(--noi-border-radius-md);
+
+  @media (--breakpoint-small) {
+    position: absolute;
+    z-index: var(--noi-z-index-level-10);
+    font-size: var(--noi-font-size-lg);
+    line-height: var(--noi-line-height-medium);
+    background: var(--noi-color-black-main-transparent-90);
+    inset-block-start: var(--noi-spacing-6x);
+    inset-inline-start: var(--noi-spacing-6x);
+    inset-block-end: var(--noi-spacing-6x);
+    inline-size: getRem(350);
+  }
+}
+
+.button {
+  align-self: end;
+}
+
+.pill {
+  margin-block-end: var(--noi-spacing-2x);
+}
+
+.message {
+  margin-block-end: var(--noi-spacing-4x);
+}
+
+.channel-name {
+  font-weight: var(--noi-font-weight-bold);
+}

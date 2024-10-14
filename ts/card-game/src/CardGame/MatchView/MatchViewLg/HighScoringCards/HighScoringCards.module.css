@@ -1,0 +1,21 @@
+.card-wrapper {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+}
+
+.wrapper {
+  position: relative;
+  inline-size: calc(var(--game-card-width-medium) + getRem(148));
+  block-size: calc(var(--game-card-height-medium) + getRem(16));
+
+  &.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &.hidden {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}

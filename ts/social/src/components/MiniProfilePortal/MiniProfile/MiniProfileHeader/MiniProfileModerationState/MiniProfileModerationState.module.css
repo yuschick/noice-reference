@@ -1,0 +1,22 @@
+.moderation-state-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-base);
+  align-items: center;
+  font-size: var(--noi-font-size-sm);
+}
+
+.moderation-state-type {
+  .muted & {
+    color: var(--noi-color-status-alert-main);
+  }
+
+  .banned & {
+    color: var(--noi-color-status-error-main);
+  }
+}
+
+.moderation-state-status {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-base);
+}

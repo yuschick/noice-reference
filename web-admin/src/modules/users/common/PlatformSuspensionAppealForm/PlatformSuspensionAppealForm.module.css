@@ -1,0 +1,63 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: getRem(24);
+}
+
+.profile {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-3x);
+  align-items: center;
+}
+
+.user-data {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-tag {
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--font-size-l);
+}
+
+.label {
+  color: var(--neutral-200);
+  font-size: var(--font-size-s);
+  margin-block-start: var(--noi-spacing-2x);
+}
+
+.title {
+  margin: getRem(16) 0 var(--noi-spacing-2x);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--font-size-l);
+}
+
+.description {
+  color: var(--neutral-200);
+  font-size: var(--font-size-s);
+  line-height: var(--line-height-medium);
+  margin-block-start: 0;
+}
+
+.separator {
+  inline-size: 100%;
+  margin: 0;
+  border-color: var(--neutral-400);
+  border-style: solid;
+  border-width: getRem(1) 0 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+}
+
+.decision {
+  color: var(--success-400);
+
+  &.rejected {
+    color: var(--danger-400);
+  }
+}

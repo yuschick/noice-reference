@@ -1,0 +1,10 @@
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: flex-end;
+}
+
+.select {
+  flex-grow: 1;
+}

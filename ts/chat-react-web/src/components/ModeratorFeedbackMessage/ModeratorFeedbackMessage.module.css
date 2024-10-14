@@ -1,0 +1,34 @@
+.message {
+  --_message-border-color: var(--noi-color-magenta-main);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-half);
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--_chat-message-font-size, var(--noi-font-size-sm));
+  line-height: var(--noi-line-height-medium);
+  margin-inline: var(--chat-message-margin-inline, 0);
+}
+
+.header-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: getRem(6);
+  align-items: stretch;
+  color: var(--noi-color-gray-650);
+  font-size: var(--_chat-message-time-font-size, var(--noi-font-size-xs));
+}
+
+.moderation {
+  color: var(--noi-color-magenta-main);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--_chat-message-font-size, var(--noi-font-size-sm));
+  line-height: var(--noi-line-height-tight);
+}
+
+.username {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+}

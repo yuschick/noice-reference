@@ -1,0 +1,23 @@
+.all-or-nothing-pending-root {
+  position: relative;
+}
+
+.all-or-nothing-pending-boosters-wrapper {
+  position: absolute;
+  z-index: var(--noi-z-index-level-2);
+  inset-block-start: getRem(8);
+  inset-inline-end: calc(0rem - getRem(8));
+  inline-size: getRem(24);
+
+  .all-or-nothing-pending-root:hover & {
+    inline-size: getRem(36);
+  }
+}
+
+.all-or-nothing-pending-booster {
+  position: relative;
+
+  & + & {
+    margin-block-start: var(--noi-spacing-1x);
+  }
+}

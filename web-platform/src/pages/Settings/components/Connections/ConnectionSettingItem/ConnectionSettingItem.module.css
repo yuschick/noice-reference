@@ -1,0 +1,13 @@
+.connection-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  grid-column: -1/1;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  margin-block-end: var(--noi-spacing-1x);
+
+  @media (min-width: getRem(729)) {
+    grid-column: 1;
+    margin-block-end: unset;
+  }
+}

@@ -1,0 +1,18 @@
+.signup-content-wrapper {
+  --_signup-content-inline-padding: var(--noi-spacing-4x);
+  --_signup-content-block-padding: var(--noi-spacing-8x);
+  flex-grow: 1;
+  color: var(--noi-color-dark-main);
+  background-color: var(--noi-color-light-main);
+  border-radius: var(--noi-border-radius-xl);
+  inline-size: 100%;
+  border-end-start-radius: 0;
+  border-end-end-radius: 0;
+
+  @media (min-width: getRem(640)) {
+    --_signup-content-inline-padding: var(--noi-spacing-20x);
+    border-end-start-radius: var(--noi-border-radius-xl);
+    border-end-end-radius: var(--noi-border-radius-xl);
+    max-inline-size: min(getRem(600), 100%);
+  }
+}

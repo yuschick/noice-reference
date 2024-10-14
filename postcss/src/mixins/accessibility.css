@@ -1,0 +1,15 @@
+/* stylelint-disable unit-allowed-list */
+@define-mixin list-style-none {
+  list-style: none;
+
+  li::before {
+    position: absolute;
+    overflow: hidden;
+    white-space: nowrap;
+    content: "\\200B";
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    inline-size: 1px;
+    block-size: 1px;
+  }
+}

@@ -1,0 +1,189 @@
+.wrapper {
+  /* Since backside colors are very tailored, using custom colors instead of brand.css */
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  --_card-backside-base-color: #9935bd;
+  --space: 5%;
+  --_card-backside-glow-gradient: conic-gradient(
+    from 90deg at 50% 50%,
+    #ed20f5 14%,
+    #9ee91b 27%,
+    #9ee91b 39%,
+    #00ffffff 47%,
+    #00ffffff 63%,
+    #732afc 95%,
+    #ed20f5 100%
+  );
+  --_card-backside-shine-background: var(--card-back-shine-mask),
+    repeating-linear-gradient(
+      45deg,
+      #ff7a75 calc(var(--space) * 1),
+      #f8e763 calc(var(--space) * 2),
+      #a8ff61 calc(var(--space) * 3),
+      #85fff7 calc(var(--space) * 4),
+      #7a95ff calc(var(--space) * 5),
+      #d875ff calc(var(--space) * 6),
+      #ff7a75 calc(var(--space) * 7)
+    ),
+    repeating-linear-gradient(
+      135deg,
+      #0e152e 0%,
+      #8fa3a355 3.8%,
+      #8fc1c155 4.5%,
+      #8fa3a355 5.2%,
+      #0e152e 10%,
+      #0e152e 12%
+    );
+  --_card-backside-shine-background-2: var(--card-back-shine-mask),
+    repeating-linear-gradient(
+      45deg,
+      #ff7a75 calc(var(--space) * 2),
+      #f8e763 calc(var(--space) * 4),
+      #a8ff61 calc(var(--space) * 6),
+      #85fff7 calc(var(--space) * 8),
+      #7a95ff calc(var(--space) * 10),
+      #d875ff calc(var(--space) * 12),
+      #ff7a75 calc(var(--space) * 14)
+    ),
+    repeating-linear-gradient(
+      135deg,
+      #0e152e 0%,
+      #8fa3a355 3.8%,
+      #8fc1c155 4.5%,
+      #8fa3a355 5.2%,
+      #0e152e 10%,
+      #0e152e 12%
+    );
+  --_card-backside-shine-hover-circle: radial-gradient(
+    farthest-corner circle at var(--game-card-translate-x) var(--game-card-translate-y),
+    #7a92ff88 0%,
+    #00000000 40%
+  );
+
+  &.is-hovering {
+    perspective: calc(2.5 * var(--game-card-width-breakpoint-large));
+  }
+
+  &:is(button) {
+    cursor: pointer;
+  }
+
+  &:before {
+    position: absolute;
+    background-image: var(--_card-backside-glow-gradient);
+    background-size: 100% 100%;
+    border-radius: getRem(20);
+    filter: blur(15px) brightness(0.65);
+    transition: inset 500ms, filter 700ms;
+    content: ' ';
+    inset: getRem(12);
+  }
+
+  &.is-hovering:before {
+    filter: blur(20px) brightness(0.7);
+    transition: inset 500ms, filter 700ms;
+    inset: getRem(10);
+  }
+
+  &.no-glow:before,
+  &.no-glow.is-hovering:before {
+    display: none;
+  }
+}
+
+.moving-wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  padding: var(--noi-spacing-half);
+  overflow: hidden;
+  background-color: var(--_card-backside-base-color);
+  border-radius: getRem(12);
+
+  aspect-ratio: var(--game-card-aspect-ratio);
+  inline-size: 100%;
+
+  .is-hovering & {
+    transform: rotateX(var(--game-card-rotate-x)) rotateY(calc(var(--game-card-rotate-y)));
+    transform-style: preserve-3d;
+    transition: transform var(--game-card-mouse-is-hovering-transition);
+  }
+}
+
+.inner-border {
+  display: flex;
+  flex: 1;
+  flex-wrap: nowrap;
+  background: var(--card-back-background);
+  background-position: center;
+  background-size: cover;
+  border-radius: getRem(10);
+  box-shadow: inset 0 0 0 2px var(--noi-color-dark-main-transparent-40);
+}
+
+.shine {
+  position: absolute;
+  z-index: var(--noi-z-index-level-0);
+  background-image: var(--_card-backside-shine-background);
+  background-position: center, var(--game-card-holo-bg-position),
+    var(--game-card-holo-bg-position);
+  background-size: 100%, 800%, 800%;
+  background-blend-mode: screen, hue, hard-light;
+  border-radius: getRem(12);
+  filter: brightness(0.5) contrast(1) saturate(1);
+  mix-blend-mode: color-dodge;
+  transition: background-position 100ms, filter 300ms;
+  mask-size: cover;
+  inset: 0;
+
+  .is-hovering & {
+    z-index: var(--noi-z-index-level-3);
+    filter: brightness(0.55) contrast(1) saturate(1);
+    transition: filter 500ms;
+  }
+}
+
+.is-hovering .shine-circle {
+  position: absolute;
+  z-index: var(--noi-z-index-level-4);
+  background-image: var(--_card-backside-shine-hover-circle);
+  background-position: var(--game-card-translate-x) var(--game-card-translate-y);
+  background-size: 200%;
+  border-radius: getRem(12);
+  mask-image: var(--card-back-pattern-mask);
+  mask-size: cover;
+  mask-position: center;
+  mix-blend-mode: plus-lighter;
+  inset: 0;
+}
+
+.shine:after {
+  position: absolute;
+  background-image: var(--_card-backside-shine-background-2);
+  background-position: center, var(--game-card-holo-bg-position-2),
+    var(--game-card-holo-bg-position-2);
+  background-size: 100%, 700%, 600%;
+  background-blend-mode: screen, hue, hard-light;
+  border-radius: getRem(12);
+  filter: brightness(1) contrast(1) saturate(0.65);
+  mix-blend-mode: soft-light;
+  content: ' ';
+  mask-size: cover;
+  inset: 0;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  margin: getRem(3);
+  border-radius: var(--noi-border-radius-sm);
+}
+
+.logo {
+  inline-size: getRem(110);
+  max-inline-size: 65%;
+  z-index: var(--noi-z-index-level-1);
+}

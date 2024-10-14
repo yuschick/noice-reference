@@ -1,0 +1,16 @@
+.ban-search-wrapper {
+  display: grid;
+  gap: var(--noi-spacing-4x);
+}
+
+.ban-search-title {
+  font-size: var(--noi-font-size-md);
+  text-transform: uppercase;
+}
+
+.ban-search-form {
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  gap: var(--noi-spacing-2x);
+  align-items: start;
+}

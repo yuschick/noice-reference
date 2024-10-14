@@ -1,0 +1,1 @@
+export { AnimatedLabel } from './AnimatedLabel';

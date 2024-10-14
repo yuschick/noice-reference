@@ -1,0 +1,55 @@
+.moderation-item {
+  padding: var(--noi-spacing-3x) var(--noi-spacing-2x);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+  border-block-end: 1px solid var(--noi-color-gray-750);
+
+  .header {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-block-end: var(--noi-spacing-3x);
+  }
+
+  .body {
+    display: grid;
+    grid-template-columns: 1fr getRem(120);
+    column-gap: var(--noi-spacing-4x);
+  }
+}
+
+.highlight {
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  color: var(--highlight-color);
+}
+
+.mention {
+  color: var(--noi-color-green-main);
+  font-weight: var(--noi-font-weight-medium);
+}
+
+.content {
+  display: flex;
+  flex-wrap: nowrap;
+  grid-row: 1;
+  grid-column: 1;
+
+  .message-text {
+    margin-inline-start: var(--noi-spacing-2x);
+  }
+
+  .message-created-at {
+    color: var(--noi-color-text-light-secondary);
+    font-weight: var(--noi-font-weight-medium);
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: nowrap;
+  grid-row: 1;
+  grid-column: 2;
+  justify-content: space-between;
+}

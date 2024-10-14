@@ -1,0 +1,13 @@
+.tooltip-content {
+  color: var(--noi-color-text-light);
+  font-size: var(--noi-font-size-sm);
+  white-space: nowrap;
+  text-align: center;
+}
+
+.timer {
+  color: var(--noi-color-light-main);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+}

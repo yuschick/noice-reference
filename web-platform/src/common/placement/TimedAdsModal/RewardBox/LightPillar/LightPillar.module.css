@@ -1,0 +1,63 @@
+@keyframes light-pillar-animation {
+  0% {
+    transform: translate(40.5%, 30%) scale(0.5);
+  }
+
+  100% {
+    transform: translate(40.5%, 30%) scale(2);
+  }
+}
+
+.light-pillar {
+  position: absolute;
+  inline-size: 50%;
+  block-size: 50%;
+  transform: translate(40.5%, 30%) scale(0.5);
+  opacity: 1;
+  animation: light-pillar-animation 400ms 50ms ease-out forwards;
+
+  &.common {
+    background: radial-gradient(
+      23% 50% ellipse at 50% 50%,
+      var(--_rarity-common) 0,
+      #e5e5e715 80%,
+      #e5e5e700 100%
+    );
+  }
+
+  &.uncommon {
+    background: radial-gradient(
+      23% 50% ellipse at 50% 50%,
+      var(--_rarity-uncommon) 0,
+      #2fecbf15 80%,
+      #2fecbf00 100%
+    );
+  }
+
+  &.rare {
+    background: radial-gradient(
+      23% 50% ellipse at 50% 50%,
+      var(--_rarity-rare) 0,
+      #5bdbf615 80%,
+      #5bdbf600 100%
+    );
+  }
+
+  &.epic {
+    background: radial-gradient(
+      23% 50% ellipse at 50% 50%,
+      var(--_rarity-epic) 0,
+      #db9afb15 80%,
+      #db9afb00 100%
+    );
+  }
+
+  &.legendary {
+    background: radial-gradient(
+      23% 50% ellipse at 50% 50%,
+      var(--_rarity-legendary) 0,
+      #f2ca6415 80%,
+      #f2ca6400 100%
+    );
+  }
+}

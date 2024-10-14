@@ -1,0 +1,16 @@
+.list-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &.expanded {
+    padding-inline: getRem(16);
+  }
+}
+
+.custom-tooltip {
+  padding: 0;
+  inline-size: getRem(320);
+  min-block-size: getRem(40);
+}

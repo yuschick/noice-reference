@@ -1,0 +1,16 @@
+.link {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+
+  @media (hover: hover) {
+    &:hover::before {
+      position: absolute;
+      display: block;
+      background-color: var(--noi-color-light-main-transparent-20);
+      border-radius: var(--noi-border-radius-circle);
+      content: '';
+      inset: getRem(-4);
+    }
+  }
+}

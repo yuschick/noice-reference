@@ -1,0 +1,18 @@
+.live-badge-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  background-image: var(--noi-gradient-violet-magenta);
+  border-radius: var(--noi-border-radius-sm);
+  padding-inline: var(--noi-spacing-3x);
+  block-size: getRem(24);
+}
+
+.live-badge-text {
+  color: var(--noi-color-white-main);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}

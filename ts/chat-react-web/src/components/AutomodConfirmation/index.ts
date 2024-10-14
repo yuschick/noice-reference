@@ -1,0 +1,1 @@
+export { AutomodConfirmation } from './AutomodConfirmation';

@@ -1,0 +1,6 @@
+.menu-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+}

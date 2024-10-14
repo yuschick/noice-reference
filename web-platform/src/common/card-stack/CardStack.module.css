@@ -1,0 +1,105 @@
+.card-grid-back-card-wrapper {
+  position: absolute;
+  transform-origin: center;
+  opacity: 1;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inline-size: 100%;
+}
+
+.card-grid-front-card-wrapper {
+  position: relative;
+  transform-origin: center;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inline-size: 100%;
+
+  &:before {
+    position: absolute;
+    background: var(--card-backshadow-image-url);
+    background-position: center;
+    background-size: contain;
+    opacity: 0.4;
+    content: '';
+    inset: getRem(-25);
+    pointer-events: none;
+  }
+
+  &.has-back-cards {
+    transform: rotateZ(2deg) translate(4%, -2%);
+  }
+
+  &.locked {
+    filter: sepia(100%) hue-rotate(208deg) brightness(0.5);
+  }
+}
+
+.card-stack {
+  position: relative;
+  inline-size: 100%;
+
+  .card-grid-back-card-wrapper,
+  .card-grid-front-card-wrapper {
+    transition: transform var(--noi-duration-quick);
+  }
+}
+
+@media (hover: hover) {
+  .card-stack:has(.card-grid-back-card-wrapper):has(
+      .card-grid-back-card-wrapper:hover,
+      .card-grid-front-card-wrapper:hover
+    ) {
+    z-index: var(--noi-z-index-level-2);
+
+    .card-grid-front-card-wrapper {
+      transform: rotate(0) translate(35%, 0);
+
+      :global(.card-grid-first-of-row) & {
+        transform: rotate(0) translate(70%, 0);
+      }
+
+      :global(.card-grid-last-of-row) & {
+        transform: rotate(0) translate(0%, 0);
+      }
+
+      &.force-to-left {
+        transform: rotate(0) translate(0%, 0);
+      }
+    }
+
+    .card-grid-back-card-wrapper:first-child {
+      /* !important for overruling the inline styles in CardStack.tsx */
+      transform: rotate(0) translate(-35%, 0) !important;
+
+      :global(.card-grid-first-of-row) & {
+        transform: rotate(0) translate(0%, 0) !important;
+      }
+
+      :global(.card-grid-last-of-row) & {
+        transform: rotate(0) translate(-70%, 0) !important;
+      }
+
+      &:has(~ .force-to-left) {
+        transform: rotate(0) translate(-70%, 0) !important;
+      }
+    }
+
+    /* stylelint-disable-next-line no-descending-specificity -- Order of definition is for readability */
+    .card-grid-back-card-wrapper:nth-child(2) {
+      /* !important for overruling the inline styles in CardStack.tsx */
+      transform: rotate(0) translate(0%, 0) !important;
+
+      :global(.card-grid-first-of-row) & {
+        transform: rotate(0) translate(35%, 0) !important;
+      }
+
+      :global(.card-grid-last-of-row) & {
+        transform: rotate(0) translate(-35%, 0) !important;
+      }
+
+      &:has(~ .force-to-left) {
+        transform: rotate(0) translate(-35%, 0) !important;
+      }
+    }
+  }
+}

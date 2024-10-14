@@ -1,0 +1,78 @@
+#skip-to-main-content-link {
+  position: absolute;
+  z-index: var(--noi-z-index-level-10);
+  padding: var(--noi-spacing-2x) var(--noi-spacing-4x);
+  color: var(--noi-color-text-dark);
+  text-decoration: underline;
+  background: var(--noi-color-green-main);
+  border-radius: var(--noi-border-radius-md);
+  inset-block-start: getRem(16);
+  inset-inline-start: getRem(16);
+}
+
+:root {
+  --platform-layout-columns: min-content minmax(0, 1fr) min-content;
+  --platform-header-size: getRem(56);
+  --platform-scroll-margin: calc(var(--platform-header-size) + var(--noi-spacing-1x));
+  --platform-collapsed-sidebar-size: getRem(56);
+  --platform-game-sidebar-size: getRem(340);
+}
+
+#platform-layout-container {
+  position: relative;
+  z-index: var(--noi-z-index-base);
+  display: grid;
+  grid-template-areas: 'header header header' 'navigation main social';
+  grid-template-rows: minmax(var(--platform-header-size), min-content) auto;
+  grid-template-columns: var(--platform-layout-columns);
+  background-repeat: no-repeat;
+  background-size: 80vw 80vw;
+  min-block-size: 100dvh;
+  inline-size: 100%;
+
+  &.full-screen-stream {
+    --platform-layout-columns: min-content minmax(0, 1fr) 0;
+    background-color: var(--noi-color-gray-950);
+  }
+
+  &.full-screen-page {
+    grid-template-rows: 0 max(100dvh, 100%);
+    --platform-layout-columns: 0 minmax(0, 1fr) 0;
+
+    &:has([data-path^='avatar']) {
+      overflow: hidden;
+    }
+  }
+
+  &.layout-disable-row-template {
+    grid-template-rows: 0 auto;
+  }
+}
+
+.unsupported-browser-warning {
+  position: fixed;
+  z-index: var(--noi-z-index-level-5);
+  inset-block-start: calc(var(--platform-header-size) + var(--noi-spacing-4x));
+  inset-inline: var(--noi-page-main-padding);
+  max-inline-size: var(--noi-layout-max-content-size);
+  margin: auto;
+
+  @media (min-width: getRem(793)) {
+    inset-inline: calc(
+      var(--noi-page-main-padding) + var(--platform-collapsed-sidebar-size)
+    );
+
+    [data-game-sidebar='expanded'] .full-screen-stream & {
+      inset-inline-end: calc(
+        var(--noi-page-main-padding) + var(--platform-game-sidebar-size)
+      );
+    }
+  }
+}
+
+.bottom-banner {
+  position: fixed;
+  inset-block-end: 0;
+  z-index: var(--noi-z-index-level-9);
+  inline-size: 100vi;
+}

@@ -1,0 +1,14 @@
+.username-edit-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: flex-end;
+}
+
+.username-field {
+  flex-grow: 1;
+}
+
+.username-edit-button {
+  margin-block-end: var(--noi-spacing-half);
+}

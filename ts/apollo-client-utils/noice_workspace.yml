@@ -1,0 +1,18 @@
+name: ts-apollo-client-utils
+
+build_dependencies:
+  - ts-lib
+  - ts-utils
+  - eslint-config
+
+artifact_directories:
+  - node_modules
+  - ../../.yarn/cache
+
+lint:
+  - type: yarn_run
+    cmd: lint
+
+generate:
+  - type: yarn_run
+    cmd: graphql:codegen:build

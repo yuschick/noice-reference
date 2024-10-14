@@ -1,0 +1,24 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "declarationDir": "./dist",
+    "strict": true,
+    "tsBuildInfoFile": ".tscache/tsconfig.tsbuildinfo"
+  },
+  "include": ["src/**/*.ts", "gen/*"],
+  "exclude": ["node_modules/*", "dist"],
+  "references": [
+    {
+      "path": "../gen/schemas"
+    },
+    {
+      "path": "../utils"
+    },
+    {
+      "path": "../platform-client"
+    }
+  ]
+}

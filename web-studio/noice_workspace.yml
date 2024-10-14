@@ -1,0 +1,343 @@
+name: web-studio
+
+labels:
+  - client
+
+build_dependencies:
+  - ts-apollo-client-utils
+  - ts-card-game
+  - ts-common-ui
+  - ts-lib
+  - ts-schemas
+  - ts-server
+  - ts-social
+  - ts-social-react-core
+  - ts-stream
+  - ts-utils
+  - ts-chat
+  - ts-chat-react-core
+  - yarn-config
+  - graphql-schema
+  - eslint-config
+  - postcss
+  - esbuild
+  - esbuild-plugins
+  - vite-plugins
+  - eslint-config-react
+  - design-tokens
+  - ts-assets-core
+  - ts-common-react-core
+
+artifact_directories:
+  - node_modules
+  - ../../.yarn/cache
+
+lint:
+  - type: yarn_run
+    cmd: '${{ parseBoolean(inputs.fix) ? "lint:fix" : "lint" }}'
+
+test:
+  - type: yarn_run
+    cmd: test
+
+generate:
+  - type: yarn_run
+    cmd: graphql:codegen:build
+
+build:
+  - type: parallel
+    runners:
+      - type: image_build
+        id: build_docker_container
+        image_name: web-studio
+        pull_first: true
+        dockerfile: Dockerfile
+        registry: ${{ vars.DOCKER_REGISTRY }}
+        target: web-studio
+        build_args:
+          build_time: ${{ new Date().toISOString() }}
+          build_hash: ${{ git.commit }}
+          workspace_hash: ${{ workspace_hash }}
+        secrets:
+          yarnrc: ${{ read_file(path_join(root_dir, '/.yarnrc.yml')) }}
+
+      - type: sequential
+        runners:
+          - type: yarn_run
+            id: create_static_studio_pr
+            condition: ${{ env.FAST_BUILD != "true" && env.CI == "true" }}
+            # also builds storybooks
+            cmd: build-stg-all
+            run_on_host: ${{ env.CI == "true" }}
+            env:
+              - 'HASH_ROUTING=true'
+              - 'BASE_PATH=/${{ workspace.name }}/${{ github?.event?.number ? "pr/" + github?.event?.number + "/" : "" }}studio/'
+              - 'BUNDLE_BASE_PATH=${{ vars.DEV_PAGES_URL }}/${{ workspace.name }}/${{ github?.event?.number ? "pr/" + github?.event?.number + "/" : "" }}studio/'
+              - 'DIST_PATH=dist-pr'
+              - 'WORKSPACE_HASH=${{ workspace_hash }}'
+
+          - type: parallel
+            runners:
+              - type: noice_pages
+                id: studio_noice_pages
+                condition: ${{ env.FAST_BUILD != "true" && env.CI == "true" && github?.event?.number }}
+                source: ./dist-pr
+                sub_path: 'studio/'
+                comment_prefix: 'Studio client available: '
+
+              - type: noice_pages
+                condition: ${{ env.FAST_BUILD != "true" }}
+                id: pr_storybook_upload
+                source: ./storybook-static
+                sub_path: 'studio-storybook/'
+                comment_prefix: 'Storybook for studio available: '
+
+deploy:
+  envs:
+    dev:
+      - type: yarn_run
+        id: create_static_studio_cdn
+        cmd: build-dev
+        run_on_host: ${{ env.CI == "true" }}
+        env:
+          - 'HASH_ROUTING=false'
+          - 'BASE_PATH=/'
+          - 'BUNDLE_BASE_PATH=${{ vars.DEV_GCP_STUDIO_CDN_URL }}/'
+          - 'DIST_PATH=dist-cdn'
+          - 'WORKSPACE_HASH=${{ workspace_hash }}'
+
+      - &build_cdn_rename_index
+        type: bash_exec
+        cmd: sudo mv ./dist-cdn/index.html ./dist-cdn/index-${{workspace_hash}}.html
+
+      - &cdn
+        type: s3_sync
+        condition: ${{ env.CI == "true" }}
+        source: ./dist-cdn
+        target: ${{ vars.DEV_GCP_STUDIO_CDN_BUCKET }}
+        aws_access_key_id: ${{ vault_secret("secret/data/dev/gcp/ci/client-buckets-hmac", "access_key_id") }}
+        aws_secret_access_key: ${{ vault_secret("secret/data/dev/gcp/ci/client-buckets-hmac", "secret_access_key") }}
+        assume_role: ${{ vars.DEV_CDN_ROLE }}
+        aws_region: ${{ vars.AWS_REGION }}
+        soft_delete: true
+        cache_control: max-age=43200
+        acl: 'bucket-owner-full-control'
+        content_types:
+          '.html': 'text/html'
+          '.js': 'application/javascript'
+          '.css': 'text/css'
+
+      - &push
+        condition: ${{ env.CI == "true" }}
+        type: image_push
+        image: web-studio:${{ workspace_hash }}
+        id: push
+
+      - type: helm_apply
+        condition: ${{ env.CI == "true" }}
+        variables: &helm_variables
+          env: &helm_variables_env
+            IS_LOCAL: false
+            VERBOSE_LOGGING: false
+            CDN_URL: ${{ vars.DEV_GCP_ASSETS_CDN_URL }}
+            SERVICES_LIB_HOST: https://platform.int.dev.noice.com
+            SERVICES_LIB_WEBSOCKET: wss://platform.int.dev.noice.com
+            PLATFORM_URL: ${{ vars.DEV_PLATFORM_URL }}
+            APPLE_REDIRECT_URI: ${{ vars.DEV_STUDIO_APPLE_REDIRECT_URI }}
+            ADMIN_URL: ${{ vars.DEV_ADMIN_URL }}
+            NOICE_OBS_PLUGIN_GITHUB_API_URL: ${{ vars.NOICE_OBS_PLUGIN_GITHUB_API_URL }}
+            PORT: 8081
+            HCAPTCHA_SITE_KEY: ${{ vars.DEV_HCAPTCHA_KEY }}
+            DISCORD_CLIENT_ID: ${{ vars.DISCORD_CLIENT_ID }}
+            BUNDLE_BASE_PATH: ${{ vars.DEV_GCP_STUDIO_CDN_URL }}
+            SENTRY_ENVIRONMENT: ${{ vars.DEV_SENTRY_ENVIRONMENT }}
+            SENTRY_AUTH_TOKEN: ${{ vault_secret("secret/data/ci/client_sentry", "token") }}
+            WORKSPACE_HASH: ${{ workspace_hash }}
+            GAME_CONNECT_URL: https://storage.googleapis.com/noice-overwolf-integrations-prd/overwolf-integrations/windows/latest.yml
+          secrets: &helm_variables_secrets
+            ADMIN_SERVICE_AUTH_KEY: admin-service-auth-key
+
+          image: ${{ steps.push.image }}
+
+          resources:
+            requests:
+              cpu: 50m
+              memory: 128Mi
+
+          mesh:
+            enabled: true
+
+          ingressInternal:
+            enabled: true
+            subdomain: studio
+
+          healthCheck:
+            livenessProbe:
+              httpGet:
+                path: /login
+            readinessProbe:
+              httpGet:
+                path: /login
+
+          monitoringEndpoints: []
+
+    stg:
+      - type: yarn_run
+        id: create_static_studio_cdn
+        cmd: build-stg
+        run_on_host: ${{ env.CI == "true" }}
+        env:
+          - 'HASH_ROUTING=false'
+          - 'BASE_PATH=/'
+          - 'BUNDLE_BASE_PATH=${{ vars.STG_GCP_STUDIO_CDN_URL }}/'
+          - 'DIST_PATH=dist-cdn'
+          - 'WORKSPACE_HASH=${{ workspace_hash }}'
+
+      - <<: *build_cdn_rename_index
+
+      - <<: *cdn
+        target: ${{ vars.STG_GCP_STUDIO_CDN_BUCKET }}
+        aws_access_key_id: ${{ vault_secret("secret/data/stg/gcp/ci/client-buckets-hmac", "access_key_id") }}
+        aws_secret_access_key: ${{ vault_secret("secret/data/stg/gcp/ci/client-buckets-hmac", "secret_access_key") }}
+
+      - <<: *push
+
+      - type: helm_apply
+        condition: ${{ env.CI == "true" }}
+        variables:
+          <<: *helm_variables
+          env:
+            <<: *helm_variables_env
+            CDN_URL: ${{ vars.STG_GCP_ASSETS_CDN_URL }}
+            SERVICES_LIB_HOST: https://platform.int.stg.noice.com
+            SERVICES_LIB_WEBSOCKET: wss://platform.int.stg.noice.com
+            PLATFORM_URL: ${{ vars.STG_PLATFORM_URL }}
+            APPLE_REDIRECT_URI: ${{ vars.STG_STUDIO_APPLE_REDIRECT_URI }}
+            NOICE_OBS_PLUGIN_GITHUB_API_URL: ${{ vars.NOICE_OBS_PLUGIN_GITHUB_API_URL }}
+            ADMIN_URL: ${{ vars.STG_ADMIN_URL }}
+            PORT: 8081
+            HCAPTCHA_SITE_KEY: ${{ vars.STG_HCAPTCHA_KEY }}
+            DISCORD_CLIENT_ID: ${{ vars.DISCORD_CLIENT_ID }}
+            BUNDLE_BASE_PATH: ${{ vars.STG_GCP_STUDIO_CDN_URL }}
+            SENTRY_ENVIRONMENT: ${{ vars.STG_SENTRY_ENVIRONMENT }}
+            SENTRY_AUTH_TOKEN: ${{ vault_secret("secret/data/ci/client_sentry", "token") }}
+            GAME_CONNECT_URL: https://storage.googleapis.com/noice-overwolf-integrations-prd/overwolf-integrations/windows/latest.yml
+            ZENDESK_SNIPPET_SRC: ${{ vars.ZENDESK_STUDIO_SNIPPET_SRC }}
+          secrets:
+            <<: *helm_variables_secrets
+
+          ingress:
+            enabled: false
+            subdomain: studio
+            createRootHostname: true
+
+          ingressInternal:
+            enabled: true
+            subdomain: studio
+
+          autoscaling:
+            enabled: true
+            minReplicas: 2
+            maxReplicas: 5
+
+    prd:
+      - type: yarn_run
+        id: create_static_studio_cdn
+        cmd: build-prd
+        run_on_host: ${{ env.CI == "true" }}
+        env:
+          - 'HASH_ROUTING=false'
+          - 'BASE_PATH=/'
+          - 'BUNDLE_BASE_PATH=${{ vars.PRD_GCP_STUDIO_CDN_URL }}/'
+          - 'DIST_PATH=dist-cdn'
+          - 'GAME_CONNECT_URL=https://storage.googleapis.com/noice-overwolf-integrations-prd/overwolf-integrations/windows/latest.yml'
+          - 'WORKSPACE_HASH=${{ workspace_hash }}'
+
+      - <<: *build_cdn_rename_index
+
+      - <<: *cdn
+        target: ${{ vars.PRD_GCP_STUDIO_CDN_BUCKET }}
+        aws_access_key_id: ${{ vault_secret("secret/data/prd/gcp/ci/client-buckets-hmac", "access_key_id") }}
+        aws_secret_access_key: ${{ vault_secret("secret/data/prd/gcp/ci/client-buckets-hmac", "secret_access_key") }}
+
+      - <<: *push
+
+      - type: helm_apply
+        condition: ${{ env.CI == "true" }}
+        variables:
+          <<: *helm_variables
+          env:
+            <<: *helm_variables_env
+            CDN_URL: ${{ vars.PRD_GCP_ASSETS_CDN_URL }}
+            SERVICES_LIB_HOST: https://platform.prd.noice.com
+            SERVICES_LIB_WEBSOCKET: wss://platform.prd.noice.com
+            PLATFORM_URL: ${{ vars.PRD_PLATFORM_URL }}
+            APPLE_REDIRECT_URI: ${{ vars.PRD_STUDIO_APPLE_REDIRECT_URI }}
+            NOICE_OBS_PLUGIN_GITHUB_API_URL: ${{ vars.NOICE_OBS_PLUGIN_GITHUB_API_URL }}
+            ADMIN_URL: ${{ vars.PRD_ADMIN_URL }}
+            PORT: 8081
+            HCAPTCHA_SITE_KEY: ${{ vars.PRD_HCAPTCHA_KEY }}
+            DISCORD_CLIENT_ID: ${{ vars.DISCORD_CLIENT_ID }}
+            BUNDLE_BASE_PATH: ${{ vars.PRD_GCP_STUDIO_CDN_URL }}
+            SENTRY_ENVIRONMENT: ${{ vars.PRD_SENTRY_ENVIRONMENT }}
+            SENTRY_AUTH_TOKEN: ${{ vault_secret("secret/data/ci/client_sentry", "token") }}
+            GAME_CONNECT_URL: https://storage.googleapis.com/noice-overwolf-integrations-prd/overwolf-integrations/windows/latest.yml
+            ZENDESK_SNIPPET_SRC: ${{ vars.ZENDESK_STUDIO_SNIPPET_SRC }}
+          secrets:
+            <<: *helm_variables_secrets
+
+          ingress:
+            enabled: true
+            subdomain: studio
+            createRootHostname: true
+
+          ingressInternal:
+            enabled: true
+            subdomain: studio
+
+          autoscaling:
+            enabled: true
+            minReplicas: 2
+            maxReplicas: 5
+
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+
+    local:
+      - type: helm_apply
+        name: web-studio
+        variables:
+          image: ${{ vars.docker_registry }}/web-studio:${{ workspace_hash }}
+          env: &local_deploy_env
+            IS_LOCAL: true
+            VERBOSE_LOGGING: true
+            SERVICES_LIB_HOST: http://platform.localhost:8080
+            SERVICES_LIB_WEBSOCKET: ws://platform.localhost:8080
+            PLATFORM_URL: ${{ vars.DEV_PLATFORM_URL }}
+            APPLE_REDIRECT_URI: ${{ vars.DEV_STUDIO_APPLE_REDIRECT_URI }}
+            NOICE_OBS_PLUGIN_GITHUB_API_URL: ${{ vars.NOICE_OBS_PLUGIN_GITHUB_API_URL }}
+            ADMIN_URL: ${{ vars.DEV_ADMIN_URL }}}
+            CDN_URL: ${{ vars.DEV_GCP_ASSETS_CDN_URL }}
+            PORT: 8081
+            HCAPTCHA_SITE_KEY: ${{ vars.DEV_HCAPTCHA_KEY }}
+            DISCORD_CLIENT_ID: ${{ vars.DISCORD_CLIENT_ID }}
+            SENTRY_ENVIRONMENT: ${{ vars.DEV_SENTRY_ENVIRONMENT }}
+            SENTRY_AUTH_TOKEN: ${{ vault_secret("secret/data/ci/client_sentry", "token") }}
+            GAME_CONNECT_URL: https://storage.googleapis.com/noice-overwolf-integrations-prd/overwolf-integrations/windows/latest.yml
+
+          ingress:
+            enabled: true
+            k3d: true
+            path: /
+            subdomain: studio
+
+    local-dev:
+      - type: yarn_run
+        cmd: watch-serve-local
+        name: web-studio-watch-serve
+        detached: true
+        ports:
+          - port: 8280
+            host_port: 8081

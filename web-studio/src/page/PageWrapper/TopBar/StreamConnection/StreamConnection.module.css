@@ -1,0 +1,14 @@
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: getRem(24);
+  inline-size: max-content;
+}
+
+.item-details {
+  display: inline-block;
+  color: var(--noi-color-status-alert-main);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-sm);
+  margin-block-start: var(--noi-spacing-1x);
+}

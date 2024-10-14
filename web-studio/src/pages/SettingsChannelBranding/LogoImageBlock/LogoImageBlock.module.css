@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+}
+
+.drag-and-drop {
+  flex-shrink: 0;
+  border-radius: var(--noi-border-radius-circle);
+}
+
+.description {
+  color: var(--noi-color-gray-400);
+  font-size: var(--noi-font-size-sm);
+  margin-block-start: var(--noi-spacing-2x);
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+}

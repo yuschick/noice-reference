@@ -1,0 +1,55 @@
+.buttons {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  padding: var(--noi-spacing-1x);
+  background-color: transparent;
+  border-radius: var(--noi-border-radius-sm);
+  cursor: pointer;
+  transition: background-color var(--noi-duration-quick);
+  inline-size: 100%;
+
+  &:hover {
+    background-color: var(--noi-color-gray-650);
+  }
+
+  /* When there are 2 buttons */
+  &:first-child:nth-last-child(2) {
+    inline-size: calc(100% - getRem(44));
+  }
+
+  /* When there are 3 buttons */
+  &:first-child:nth-last-child(3) {
+    inline-size: calc(100% - getRem(98));
+  }
+}
+
+.friend-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.display-name-wrapper {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-1x);
+  max-inline-size: 100%;
+  align-items: center;
+}
+
+.display-name {
+  @mixin truncate-text;
+  color: var(--noi-color-text-light);
+  font-size: var(--noi-font-size-lg);
+}

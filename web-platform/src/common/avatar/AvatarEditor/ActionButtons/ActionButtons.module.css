@@ -1,0 +1,15 @@
+.wrapper {
+  position: absolute;
+  z-index: var(--noi-z-index-level-1);
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-3x);
+  align-items: flex-end;
+  inset-block-start: var(--noi-spacing-4x);
+  inset-inline-end: var(--noi-spacing-4x);
+
+  @media (min-width: getRem(700)) {
+    inset-block-start: var(--noi-spacing-8x);
+    inset-inline-end: var(--noi-spacing-8x);
+  }
+}

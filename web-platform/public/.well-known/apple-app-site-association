@@ -1,0 +1,23 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": [
+          "76N7296QZ8.com.noice.platform",
+          "76N7296QZ8.com.noice.MobilePlatform"
+        ],
+        "components": [
+          {
+            "exclude": true,
+            "comment": "Don't handle current index page"
+          },
+          {
+            "/": "/**",
+            "comment": "Match any other url"
+          }
+        ]
+      }
+    ]
+  }
+}

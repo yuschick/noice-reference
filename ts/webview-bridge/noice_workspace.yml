@@ -1,0 +1,12 @@
+name: ts-webview-bridge
+
+build_dependencies:
+  - eslint-config
+  - ts-schemas
+
+artifact_directories:
+  - node_modules
+
+lint:
+  - type: yarn_run
+    cmd: '${{ parseBoolean(inputs.fix) ? "lint --fix" : "lint" }}'

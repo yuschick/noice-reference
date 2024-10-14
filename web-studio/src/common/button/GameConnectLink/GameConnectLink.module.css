@@ -1,0 +1,11 @@
+.buttons-version-wrapper {
+  display: grid;
+  gap: var(--noi-spacing-4x);
+}
+
+.buttons-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  justify-content: start;
+}

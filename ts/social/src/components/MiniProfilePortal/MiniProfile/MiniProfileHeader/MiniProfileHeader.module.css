@@ -1,0 +1,31 @@
+.mini-profile-header {
+  display: grid;
+  grid-template-columns: min-content 1fr min-content;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+}
+
+.mini-profile-header-content {
+  display: grid;
+  gap: var(--noi-spacing-half);
+  font-weight: var(--noi-font-weight-bold);
+  line-height: var(--noi-line-height-tight);
+}
+
+.mini-profile-name {
+  @mixin truncate-text;
+}
+
+.mini-profile-name-link {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.new-username-indicator {
+  color: var(--noi-color-status-alert-main);
+  font-weight: var(--noi-font-weight-base);
+  font-size: var(--noi-font-size-xs);
+}

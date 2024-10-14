@@ -1,0 +1,23 @@
+.gift-profile-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+  line-height: var(--noi-line-height-tight);
+}
+
+.gift-profile-title {
+  font-weight: var(--noi-font-weight-medium);
+  line-height: var(--noi-line-height-tight);
+}
+
+.gift-profile-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  padding: var(--noi-spacing-4x);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  background-color: var(--noi-color-gray-50);
+  border-radius: var(--noi-border-radius-md);
+}

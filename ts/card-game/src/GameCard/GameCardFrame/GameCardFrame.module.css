@@ -1,0 +1,268 @@
+.game-card-frame-root {
+  background-image: var(--game-card-frame-image-url);
+  background-size: cover;
+  background-blend-mode: lighten;
+  border-radius: pixelsToCardCqi(16);
+  box-shadow: #ffffff44 0px -1px 0px 1px inset;
+
+  &.level-group4 {
+    box-shadow: #ffe38988 0px -1px 0px 1px inset;
+  }
+
+  &.level-group5 {
+    box-shadow: #abffb299 0px -1px 0px 1px inset;
+  }
+
+  &.level-group6 {
+    box-shadow: none;
+  }
+
+  &.is-streamer-card {
+    background-color: var(--noi-color-teal-600);
+    background-image: none;
+    box-shadow: none;
+  }
+}
+
+.game-card-frame-pattern {
+  position: absolute;
+  background-image: var(--game-card-frame-shine-pattern-image-url);
+  background-size: cover;
+  opacity: 0.2;
+  mix-blend-mode: overlay;
+  inset: 0;
+
+  .is-streamer-card & {
+    background-image: var(--game-card-frame-creator-pattern-url);
+    opacity: 0.4 !important;
+  }
+
+  .level-group2 & {
+    opacity: 0.2;
+  }
+
+  .level-group3 & {
+    opacity: 0.4;
+    mix-blend-mode: plus-lighter;
+  }
+
+  .level-group4 & {
+    opacity: 0.55;
+    mix-blend-mode: plus-lighter;
+  }
+
+  .level-group5 & {
+    background-position: center;
+    background-size: 80%;
+    border-radius: pixelsToCardCqi(16);
+    opacity: 1;
+    mix-blend-mode: screen;
+    transition: background-size 500ms;
+  }
+
+  .level-group6 & {
+    background-position: center;
+    background-size: 100%;
+    border-radius: pixelsToCardCqi(16);
+    opacity: 1;
+    mix-blend-mode: color-dodge;
+    transition: background-size 500ms;
+  }
+
+  .is-hovering & {
+    --spacing: 20%;
+
+    position: absolute;
+    /* Using CSS gradient and png image here together as a multiple image background */
+    /* stylelint-disable-next-line declaration-property-value-disallowed-list */
+    background: linear-gradient(
+      45deg,
+      var(--noi-color-light-main-transparent-20),
+      #9246dabb,
+      var(--noi-color-light-main-transparent-20),
+      #54cbe0bb,
+      var(--noi-color-light-main-transparent-20),
+      var(--noi-color-light-main-transparent-20),
+      #9246dacc,
+      var(--noi-color-light-main-transparent-20),
+      rgb(84, 203, 224),
+      var(--noi-color-light-main-transparent-20)
+    );
+
+    background-position: var(--game-card-holo-bg-position);
+    background-size: 200% 200%;
+    opacity: 0.25;
+    mix-blend-mode: screen;
+    mask-image: var(--game-card-frame-shine-pattern-image-url);
+    mask-size: cover;
+    inset: 0;
+  }
+
+  .is-hovering.is-streamer-card & {
+    /* Using CSS gradient and png image here together as a multiple image background */
+    /* stylelint-disable-next-line declaration-property-value-disallowed-list */
+    background-image: linear-gradient(
+      45deg,
+      var(--noi-color-light-main-transparent-20),
+      #fffb,
+      var(--noi-color-light-main-transparent-10),
+      rgba(255, 252, 208, 0.733),
+      var(--noi-color-light-main-transparent-10),
+      var(--noi-color-light-main-transparent-10),
+      #fffb,
+      var(--noi-color-light-main-transparent-20),
+      #fffb,
+      var(--noi-color-light-main-transparent-20)
+    );
+    mix-blend-mode: plus-lighter;
+    mask-image: var(--game-card-frame-creator-pattern-url);
+  }
+
+  .is-hovering.level-group3 & {
+    /* Using CSS gradient and png image here together as a multiple image background */
+    /* stylelint-disable-next-line declaration-property-value-disallowed-list */
+    background: linear-gradient(
+        45deg,
+        rgb(247, 24, 255, 0.2),
+        rgb(247, 24, 255),
+        rgba(0, 247, 255, 0.2),
+        rgb(0, 247, 255),
+        rgb(247, 24, 255, 0.2),
+        rgb(247, 24, 255),
+        rgba(0, 247, 255, 0.2),
+        rgb(0, 247, 255)
+      ),
+      var(--game-card-frame-shine-pattern-image-url);
+    background-position: var(--game-card-holo-bg-position), center;
+    background-size: 200% 200%, 110% 100%;
+    background-blend-mode: color-dodge;
+    opacity: 0.7;
+    mix-blend-mode: plus-lighter;
+  }
+
+  .is-hovering.level-group4 & {
+    /* Using CSS gradient and png image here together as a multiple image background */
+    /* stylelint-disable-next-line declaration-property-value-disallowed-list */
+    background: linear-gradient(
+        45deg,
+        rgb(247, 24, 255, 0.2),
+        rgb(255, 109, 24),
+        rgba(255, 251, 0, 0.2),
+        rgb(204, 0, 255),
+        rgba(255, 230, 0, 0.1),
+        rgb(255, 238, 0),
+        rgb(247, 24, 255, 0.1),
+        rgb(247, 24, 255),
+        rgba(255, 230, 0, 0.1),
+        rgb(255, 238, 0)
+      ),
+      var(--game-card-frame-shine-pattern-image-url);
+    background-position: var(--game-card-holo-bg-position), center;
+    background-size: 250% 200%, 110% 100%;
+    background-blend-mode: overlay;
+    opacity: 0.8;
+    mix-blend-mode: plus-lighter;
+  }
+
+  .is-hovering.level-group5 & {
+    background-image: var(--game-card-frame-shine-pattern-image-url);
+    background-position: center;
+    background-size: 100%;
+    opacity: 1;
+    mix-blend-mode: screen;
+    transition: background-size 500ms;
+    mask: none;
+  }
+
+  .is-hovering.level-group6 & {
+    background-image: var(--game-card-frame-shine-pattern-image-url);
+    background-position: cover;
+    background-size: 120%;
+    opacity: 1;
+    mix-blend-mode: color-dodge;
+    transition: background-size 500ms;
+    mask: none;
+  }
+}
+
+/* Glow Animation */
+.level-group6 .game-card-frame-pattern:before {
+  position: absolute;
+  background-image: var(--game-card-frame-backglow);
+  background-position: top center;
+  background-size: cover;
+  opacity: 0.85;
+  content: '';
+  inset: pixelsToCardCqi(-64) pixelsToCardCqi(-42) pixelsToCardCqi(-46);
+}
+
+/* Border */
+@property --borderBgAngle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.level-group6 .game-card-frame-pattern:after {
+  position: absolute;
+  background-image: conic-gradient(
+    from var(--borderBgAngle) at 50% 50%,
+    #ff9c0700,
+    #ffae00,
+    #ff070722,
+    #ffe3a6,
+    #fffb0700,
+    #ffae00,
+    #ff9c0733,
+    #fff99e,
+    #fffb0700,
+    #ffe600,
+    #ff9c0700
+  );
+  background-size: 100%;
+  border-radius: pixelsToCardCqi(16);
+  mix-blend-mode: plus-lighter;
+  animation: rotate-border-angle 5000ms infinite linear;
+  content: '';
+  mask-size: cover;
+  inset: 0;
+  mask-image: var(--game-card-frame-border-mask-image-url);
+}
+
+.is-hovering.level-group6 .game-card-frame-pattern:after {
+  background-image: conic-gradient(
+    from var(--game-card-rotate-border-angle) at 50% 50%,
+    #ff9c0700,
+    #ffae00,
+    #ff070722,
+    #ffe3a6,
+    #fffb0700,
+    #ffae00,
+    #ff9c0733,
+    #fff99e,
+    #fffb0700,
+    #ffe600,
+    #ff070722,
+    #ffe3a6
+  );
+}
+
+@keyframes rotate-border-angle {
+  0% {
+    --borderBgAngle: 0deg;
+  }
+
+  100% {
+    --borderBgAngle: 360deg;
+  }
+}
+
+.streamer-blurred-frame {
+  position: absolute;
+  z-index: var(--noi-z-index-behind);
+  background-image: var(--game-card-frame-image-url);
+  background-size: cover;
+  transform: scale(1.2);
+  filter: blur(16px) brightness(0.9) saturate(1.6);
+  inset: 0;
+}

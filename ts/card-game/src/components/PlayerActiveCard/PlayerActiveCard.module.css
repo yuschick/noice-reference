@@ -1,0 +1,8 @@
+.player-active-card-wrapper {
+  position: relative;
+  z-index: var(--noi-z-index-level-1);
+  padding: 0;
+  background-color: inherit;
+  -webkit-appearance: auto;
+  inline-size: 100%;
+}

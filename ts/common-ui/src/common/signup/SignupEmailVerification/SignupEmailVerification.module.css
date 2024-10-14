@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-8x);
+  align-items: center;
+}
+
+.data-point-text {
+  color: var(--noi-color-text-dark-secondary);
+  font-weight: var(--noi-font-weight-bold);
+  text-align: center;
+}
+
+.verification-digits-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+}
+
+.expiration-text {
+  color: var(--noi-color-gray-600);
+  font-size: var(--noi-font-size-sm);
+}
+
+.error-text {
+  color: var(--noi-color-status-error-main);
+  font-size: var(--noi-font-size-sm);
+  text-align: center;
+}

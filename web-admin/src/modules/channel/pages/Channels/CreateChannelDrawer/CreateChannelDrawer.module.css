@@ -1,0 +1,47 @@
+.form {
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+}
+
+.error {
+  @mixin label s, medium;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  color: var(--danger-400);
+}
+
+.bottom {
+  position: sticky;
+  inset-block-end: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+  padding-block-start: getRem(16);
+  background-color: var(--neutral-700);
+  inline-size: 100%;
+
+  &:after {
+    position: absolute;
+    inset-inline-end: 0;
+    inset-block-end: getRem(-16);
+    inset-inline-start: 0;
+    block-size: getRem(16);
+    background-color: var(--neutral-700);
+    content: '';
+  }
+}
+
+.button-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  justify-content: space-between;
+}

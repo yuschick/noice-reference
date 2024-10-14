@@ -1,0 +1,33 @@
+@layer noice.ui {
+  .picture-wrapper {
+    display: inline-block;
+    block-size: var(--image-block-size, 'auto');
+    inline-size: var(--image-inline-size, 'auto');
+    overflow: hidden;
+
+    &.state-loading {
+      @mixin loading-shine var(--noi-color-gray-700);
+    }
+
+    &.state-error {
+      background: var(--image-error-background-image), var(--background-gradient);
+      background-repeat: no-repeat, repeat;
+      background-position: center, 100% 100%;
+      background-size: 40%, 100%;
+    }
+  }
+
+  .image {
+    display: block;
+    block-size: 100%;
+    inline-size: 100%;
+    object-fit: var(--image-fit, 'none');
+    object-position: center;
+    opacity: 0;
+    transition: opacity var(--noi-duration-quick) ease-in;
+
+    .state-ready & {
+      opacity: 1;
+    }
+  }
+}

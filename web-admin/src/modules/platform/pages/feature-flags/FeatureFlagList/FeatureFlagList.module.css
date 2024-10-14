@@ -1,0 +1,13 @@
+.wrapper {
+  border: 1px solid var(--neutral-600);
+  border-block-end: none;
+  border-radius: getRem(7);
+}
+
+.flag {
+  border-block-end: 1px solid var(--neutral-600);
+}
+
+.empty {
+  @mixin label s, regular;
+}

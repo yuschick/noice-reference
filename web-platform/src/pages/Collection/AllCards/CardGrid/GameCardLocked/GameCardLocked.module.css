@@ -1,0 +1,26 @@
+.card-locked-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-1x);
+  align-items: center;
+  justify-content: center;
+  padding: getRem(0) var(--noi-spacing-3x);
+  inline-size: getRem(180);
+  block-size: getRem(24);
+}
+
+.lock-icon {
+  color: var(--noi-color-text-light);
+  inline-size: getRem(18);
+  block-size: getRem(18);
+  transform: translateY(-10%);
+}
+
+.label {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-xs);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}

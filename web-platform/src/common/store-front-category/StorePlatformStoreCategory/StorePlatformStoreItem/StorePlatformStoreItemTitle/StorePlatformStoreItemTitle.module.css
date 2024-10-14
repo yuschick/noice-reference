@@ -1,0 +1,11 @@
+.title {
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+  margin-block-end: getRem(16);
+}
+
+.secondary-title {
+  font-weight: var(--noi-font-weight-regular);
+}

@@ -1,0 +1,22 @@
+.status {
+  @mixin label s, medium;
+  display: inline-block;
+  padding: var(--noi-spacing-1x) var(--noi-spacing-3x);
+  border-radius: getRem(16);
+  margin-block-start: var(--noi-spacing-1x);
+}
+
+.pending {
+  color: var(--warning-900);
+  background-color: var(--warning-400);
+}
+
+.allowed {
+  color: var(--white);
+  background-color: var(--danger-400);
+}
+
+.removed {
+  color: var(--white);
+  background-color: var(--success-400);
+}

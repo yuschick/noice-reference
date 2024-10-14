@@ -1,0 +1,5 @@
+.partial-match {
+  display: inline-block;
+  color: var(--noi-color-text-dark);
+  background: var(--noi-color-magenta-main);
+}

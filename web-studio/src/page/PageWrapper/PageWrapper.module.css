@@ -1,0 +1,34 @@
+.container {
+  display: grid;
+  grid-template-areas: 'banner banner' 'sidebar header' 'sidebar content';
+  grid-template-rows: min-content var(--page-wrapper-header-height) auto;
+  grid-template-columns: min-content 1fr;
+  gap: getRem(3);
+  inline-size: 100%;
+  min-block-size: 100dvh;
+  background-color: var(--noi-color-gray-950);
+}
+
+.banner {
+  z-index: var(--noi-z-index-level-9);
+  grid-area: banner;
+}
+
+.sidebar {
+  z-index: var(--noi-z-index-level-3);
+  grid-area: sidebar;
+  block-size: 100%;
+  background-color: var(--noi-color-gray-850);
+}
+
+.header {
+  z-index: var(--noi-z-index-level-2);
+  grid-area: header;
+  background-color: var(--noi-color-gray-850);
+}
+
+.content {
+  z-index: var(--noi-z-index-level-1);
+  grid-area: content;
+  overflow: auto;
+}

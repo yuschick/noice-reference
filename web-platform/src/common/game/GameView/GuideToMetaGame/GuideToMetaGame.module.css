@@ -1,0 +1,48 @@
+.wrapper {
+  position: absolute;
+  z-index: var(--noi-z-index-level-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: var(--noi-spacing-6x);
+  animation: fade-in var(--noi-duration-regular) forwards;
+  pointer-events: none;
+  inset: 0;
+  container-type: size;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.cards {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  justify-content: space-between;
+  margin-block-end: getRem(24);
+  pointer-events: auto;
+  @container (max-width: getRem(459)) or (max-height: getRem(459)) {
+    flex-direction: column;
+    gap: var(--noi-spacing-2x);
+    margin-block-end: getRem(16);
+  }
+  @container (max-height: getRem(459)) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.button {
+  inline-size: getRem(256);
+  pointer-events: auto;
+}

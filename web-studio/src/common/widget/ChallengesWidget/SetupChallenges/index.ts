@@ -1,0 +1,1 @@
+export { SetupChallenges } from './SetupChallenges';

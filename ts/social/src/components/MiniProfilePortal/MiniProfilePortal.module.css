@@ -1,0 +1,6 @@
+.wrapper {
+  position: fixed;
+  z-index: var(--noi-z-index-level-4);
+  min-block-size: getRem(136);
+  inline-size: min(getRem(484), 100vi);
+}

@@ -1,0 +1,23 @@
+.label {
+  @mixin label s, regular;
+  display: block;
+  color: var(--neutral-200);
+}
+
+.user-profile {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.user-tag {
+  @mixin label m, regular;
+  display: inline-block;
+  color: var(--neutral-200);
+
+  &:hover {
+    text-decoration: none;
+  }
+}

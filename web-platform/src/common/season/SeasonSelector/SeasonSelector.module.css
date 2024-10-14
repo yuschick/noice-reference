@@ -1,0 +1,68 @@
+.season-selector-wrapper {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr) min-content;
+  gap: var(--noi-spacing-3x);
+  align-items: center;
+  text-align: start;
+  background: none;
+  border-radius: var(--noi-border-radius-pill);
+  cursor: pointer;
+  padding-inline-end: var(--noi-spacing-4x);
+  max-inline-size: 100%;
+
+  @media (min-width: getRem(720)) {
+    grid-template-columns: repeat(3, max-content);
+    max-inline-size: fit-content;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.season-badge {
+  background-color: var(--noi-color-light-main-transparent-10);
+  border-radius: var(--noi-border-radius-circle);
+  inline-size: getRem(40);
+  block-size: getRem(40);
+}
+
+.season-badge-small {
+  background-color: var(--noi-color-light-main-transparent-10);
+  border-radius: var(--noi-border-radius-circle);
+  inline-size: getRem(24);
+  block-size: getRem(24);
+  margin-inline-start: getRem(-8);
+}
+
+.season-text {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-loose);
+  text-transform: uppercase;
+}
+
+.season-end-timer {
+  display: block;
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+}
+
+.season-selector-button-content-wrapper {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  padding: var(--noi-spacing-2x) 0;
+  min-inline-size: getRem(240);
+}
+
+.season-selector-name {
+  flex-grow: 1;
+  text-transform: uppercase;
+}

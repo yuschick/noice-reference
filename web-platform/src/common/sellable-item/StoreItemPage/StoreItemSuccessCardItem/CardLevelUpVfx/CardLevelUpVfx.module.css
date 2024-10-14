@@ -1,0 +1,17 @@
+.card-level-up-vfx {
+  position: absolute;
+  z-index: var(--noi-z-index-level-5);
+  mix-blend-mode: plus-lighter;
+  pointer-events: none;
+  inline-size: var(--game-card-width-breakpoint-medium);
+  aspect-ratio: var(--game-card-aspect-ratio);
+  inset-block-end: 0;
+}
+
+.video-wrapper {
+  position: absolute;
+  transform: translate(-49.9%, -49.9%);
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  inline-size: 249%;
+}

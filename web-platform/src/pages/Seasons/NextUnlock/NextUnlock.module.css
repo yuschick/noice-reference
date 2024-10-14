@@ -1,0 +1,28 @@
+.next-unlock-wrapper {
+  display: none;
+  gap: var(--noi-spacing-4x);
+  align-items: end;
+  padding: 0 getRem(24) getRem(24) getRem(24);
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  text-align: center;
+  text-transform: uppercase;
+  background: linear-gradient(transparent, var(--noi-color-light-main-transparent-10));
+
+  border-radius: var(--noi-border-radius-lg);
+  block-size: 100%;
+
+  .unlock-rank-number {
+    color: var(--noi-color-teal-main);
+    font-weight: var(--noi-font-weight-bold);
+    font-size: var(--noi-font-size-lg);
+    line-height: var(--noi-line-height-tight);
+  }
+
+  .next-unlock-shadow-wrapper {
+    position: relative;
+    inline-size: getRem(200);
+    @mixin game-card-raised-shadow;
+  }
+}

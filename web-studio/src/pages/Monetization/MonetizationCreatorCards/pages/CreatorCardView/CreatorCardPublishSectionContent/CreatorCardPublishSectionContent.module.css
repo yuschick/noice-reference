@@ -1,0 +1,32 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+}
+
+.label-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-half);
+  font-weight: var(--noi-font-weight-medium);
+  line-height: var(--noi-line-height-tight);
+}
+
+.label-secondary {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-sm);
+}
+
+.drat-warning {
+  padding: var(--noi-spacing-4x);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  background-color: var(--noi-color-gray-850);
+  border-inline-start: getRem(4) solid var(--noi-color-status-error-main);
+}
+
+.button-wrapper {
+  min-inline-size: getRem(200);
+  align-self: flex-start;
+}

@@ -1,0 +1,75 @@
+.left-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-y: auto;
+  /* Custom hex values used due to needing to match with tonemapped 
+  preview background mesh texture */
+  background: linear-gradient(195deg, #18013d 20%, #370056 90%);
+  border-inline-end: 1px solid var(--noi-color-light-main-transparent-5);
+  inline-size: 50%;
+  max-inline-size: getRem(1080);
+  container-type: size;
+  scrollbar-color: var(--noi-color-gray-400) transparent;
+  scrollbar-width: auto;
+
+  /* Webkit */
+  &::-webkit-scrollbar {
+    inline-size: getRem(12);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--noi-color-light-main-transparent-30);
+    border: getRem(3) solid var(--noi-color-blue-900);
+    border-radius: var(--noi-border-radius-sm);
+  }
+
+  @media (hover: hover) {
+    &::-webkit-scrollbar-thumb:hover {
+      background: var(--noi-color-light-main-transparent-70);
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 0;
+  }
+}
+
+.left-content-scroller {
+  position: relative;
+  flex: 1;
+  block-size: 100vh;
+}
+
+.left-content-container {
+  position: relative;
+  padding: var(--noi-spacing-4x) var(--noi-spacing-3x);
+  overflow: hidden;
+  background-color: var(--noi-color-dark-main);
+  margin-block-start: var(--noi-spacing-6x);
+  margin-block-end: var(--noi-spacing-14x);
+  margin-inline-end: var(--noi-spacing-6x);
+  border-radius: var(--noi-border-radius-xl);
+
+  &:before {
+    position: absolute;
+    background-image: var(--noi-gradient-spectrum-full);
+    content: '';
+    block-size: getRem(4);
+    inline-size: 100%;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+  }
+}
+
+.nav-container {
+  position: sticky;
+  z-index: var(--noi-z-index-level-1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+  padding: var(--noi-spacing-6x);
+  min-block-size: 100%;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  block-size: getRem(640);
+}

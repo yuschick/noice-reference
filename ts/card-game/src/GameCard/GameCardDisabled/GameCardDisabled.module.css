@@ -1,0 +1,28 @@
+.game-card-disabled-wrapper {
+  position: absolute;
+  inset-block-start: getRem(-1);
+  inset-inline-start: getRem(-1);
+  z-index: var(--noi-z-index-level-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  inline-size: calc(100% + getRem(2));
+  block-size: calc(100% + getRem(2));
+  background: linear-gradient(
+    0deg,
+    var(--noi-color-black-main-transparent-60) 0%,
+    var(--noi-color-black-main-transparent-50) 100%
+  );
+  border-radius: pixelsToCardCqi(16);
+}
+
+.game-card-disabled-tooltip {
+  font-size: var(--noi-font-size-lg);
+}
+
+.game-card-disabled-icon {
+  inline-size: getRem(40);
+  block-size: getRem(40);
+  color: var(--noi-color-text-light);
+}

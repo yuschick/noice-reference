@@ -1,0 +1,8 @@
+.eslintrc.js
+package.json
+
+dist/*
+
+gen/*
+
+src/__mocks__/fileMock.js

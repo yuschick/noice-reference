@@ -1,0 +1,26 @@
+.date-of-birth-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+}
+
+.date-of-birth-text {
+  color: var(--noi-color-text-dark);
+  font-weight: var(--noi-font-weight-medium);
+  line-height: var(--noi-line-height-tight);
+  margin-block-end: var(--noi-spacing-2x);
+}
+
+.date-of-birth-error-text {
+  color: var(--noi-color-status-error-main);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-loose);
+  padding-inline: getRem(24);
+}
+
+.horizontal-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--noi-spacing-2x);
+  inline-size: 100%;
+}

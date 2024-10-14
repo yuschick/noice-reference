@@ -1,0 +1,35 @@
+.create-card-page-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-6x);
+  align-items: flex-start;
+  container-type: inline-size;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-8x) var(--noi-spacing-12x);
+  align-items: stretch;
+  align-self: stretch;
+  padding: var(--noi-spacing-10x);
+  background-color: var(--noi-color-gray-900);
+  border-radius: var(--noi-border-radius-md);
+}
+
+.subtitle {
+  font-size: var(--noi-font-size-lg);
+  text-transform: uppercase;
+  margin-block-end: getRem(24);
+}
+
+.button-wrapper {
+  min-inline-size: getRem(200);
+}

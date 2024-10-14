@@ -1,0 +1,8 @@
+.studio-chat {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  block-size: 100%;
+  gap: var(--noi-spacing-2x);
+  padding-block-end: var(--noi-spacing-2x);
+}

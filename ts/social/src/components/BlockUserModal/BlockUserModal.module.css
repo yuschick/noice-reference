@@ -1,0 +1,59 @@
+@keyframes success-animation {
+  0% {
+    background-color: var(--noi-color-green-700);
+  }
+
+  10% {
+    background-color: var(--noi-color-green-main);
+  }
+
+  70% {
+    background-color: var(--noi-color-green-main);
+  }
+
+  100% {
+    background-color: var(--noi-color-green-700);
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--noi-spacing-4x);
+}
+
+.user {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--noi-spacing-2x) getRem(16);
+  background-color: var(--noi-color-white-main);
+  border: getRem(1) solid var(--noi-color-gray-750);
+  border-radius: var(--noi-border-radius-sm);
+}
+
+.display-name {
+  display: block;
+  font-size: var(--noi-font-size-lg);
+}
+
+.description {
+  padding: 0 getRem(18) var(--noi-spacing-2x) getRem(18);
+}
+
+.consequences {
+  color: var(--noi-color-gray-600);
+}
+
+.error {
+  color: var(--noi-color-magenta-main);
+  margin-block-end: getRem(16);
+}
+
+.icon-error {
+  display: inline-block;
+  margin-inline-end: var(--noi-spacing-2x);
+  vertical-align: middle;
+}

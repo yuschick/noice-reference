@@ -1,0 +1,77 @@
+.team-mate-root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+
+  &.card-success {
+    background: var(--active-card-success-gradient);
+  }
+
+  &.card-failure {
+    background: var(--active-card-failure-gradient);
+  }
+
+  &.best-play {
+    background: var(--active-card-best-play-gradient);
+  }
+
+  &.is-hovered {
+    z-index: var(--noi-z-index-level-8);
+  }
+}
+
+.team-mate-booster-container {
+  display: flex;
+  justify-content: center;
+}
+
+.team-mate-card-wrapper {
+  position: relative;
+  z-index: var(--noi-z-index-level-2);
+  margin: var(--noi-spacing-3x) 0 0 0;
+  inline-size: var(--game-card-width-breakpoint-xsmall);
+
+  .apply-booster-mode & {
+    inline-size: var(--game-card-width-breakpoint-small);
+  }
+}
+
+.team-mate-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  .invalid-apply-booster-target & {
+    cursor: not-allowed;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  .apply-booster-mode & {
+    inline-size: var(--game-card-width-breakpoint-small);
+  }
+
+  .is-hovered & {
+    position: absolute;
+    @mixin game-card-raised-shadow;
+    inline-size: var(--game-card-width-breakpoint-large);
+  }
+
+  .is-leaving-hovered & {
+    pointer-events: none;
+  }
+
+  .is-hovered &,
+  .is-leaving-hovered & {
+    transform: translateX(-50%);
+    inset-block-end: 0;
+    inset-inline-start: 50%;
+  }
+}
+
+.team-mate-bonus {
+  margin: var(--noi-spacing-3x) 0 0 0;
+}

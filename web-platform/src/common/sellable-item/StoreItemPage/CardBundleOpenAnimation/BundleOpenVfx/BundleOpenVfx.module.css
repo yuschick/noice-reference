@@ -1,0 +1,14 @@
+.bundle-open-vfx {
+  position: relative;
+  pointer-events: none;
+  scale: 0.92;
+  margin-block-start: getRem(230);
+}
+
+.bundle-open-vfx-video {
+  position: absolute;
+  z-index: var(--noi-z-index-level-3);
+  transform: translate(-49.5%, -51%);
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+}

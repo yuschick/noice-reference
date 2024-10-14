@@ -1,0 +1,18 @@
+import React from 'react';
+import { ComponentMeta, Story } from '@storybook/react';
+
+import { $NAME$, Props } from './$NAME$';
+
+export default {
+	title: 'Web/Components/$NAME$',
+  component: $NAME$,
+  argTypes: {},
+} as ComponentMeta<typeof $NAME$>;
+
+
+const Template: Story<Props> = (args) => <$NAME$ {...args} />;
+
+export const Default = Template.bind({});
+Default.args = {};
+
+export const Loading: Story = (args) => <$NAME$.Loading />;

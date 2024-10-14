@@ -1,0 +1,16 @@
+.wrapper {
+  display: grid;
+  gap: var(--noi-spacing-4x);
+  color: var(--noi-color-text-light-main);
+  place-items: center;
+}
+
+.heading {
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-2xl);
+}
+
+.bug-icon {
+  color: var(--noi-color-status-error-main);
+  inline-size: getRem(36);
+}

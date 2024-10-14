@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+  background-color: var(--noi-color-violet-700);
+}
+
+.label {
+  align-self: stretch;
+  padding: getRem(8) getRem(16);
+  font-weight: var(--noi-font-weight-medium);
+  text-transform: uppercase;
+  background-color: var(--noi-color-violet-800);
+}
+
+.content {
+  padding: var(--noi-spacing-4x);
+}

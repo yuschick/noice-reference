@@ -1,0 +1,17 @@
+.username,
+.anonymous-username,
+.username-button {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  background-color: transparent;
+  border: none;
+}
+
+.username,
+.anonymous-username {
+  color: var(--noi-color-text-light);
+}
+
+.username-button:hover {
+  background-color: var(--noi-color-dark-main-transparent-10);
+}

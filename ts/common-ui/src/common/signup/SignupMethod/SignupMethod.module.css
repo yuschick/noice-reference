@@ -1,0 +1,25 @@
+.or-divider {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--noi-spacing-3x);
+  align-items: center;
+  color: var(--noi-color-text-dark);
+  font-weight: var(--noi-font-weight-medium);
+  line-height: var(--noi-line-height-tight);
+  text-align: center;
+  text-transform: uppercase;
+
+  &::after,
+  &::before {
+    display: block;
+    background-color: var(--noi-color-blue-300);
+    content: '';
+    block-size: getRem(1);
+  }
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--noi-spacing-3x);
+}

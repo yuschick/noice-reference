@@ -1,0 +1,375 @@
+.game-state-bottom-bar-root {
+  container-type: inline-size;
+  position: relative;
+  z-index: var(--noi-z-index-level-2);
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--noi-spacing-4x);
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  block-size: getRem(56);
+  padding-block-start: 0;
+  padding-block-end: 0;
+  background: linear-gradient(
+    90deg,
+    var(--noi-color-black-main-transparent-90) 69.25%,
+    transparent 100%
+  );
+  border-image: linear-gradient(
+      to right,
+      var(--noi-color-light-main-transparent-10),
+      transparent
+    )
+    1;
+
+  &.round-starting {
+    animation: bottom-bar-hide var(--bottom-bar-hide-show-animation-duration)
+      var(--bottom-bar-hide-show-animation-delay) ease-out forwards;
+  }
+
+  &.round-ended {
+    animation: bottom-bar-show var(--bottom-bar-hide-show-animation-duration) ease-out
+      forwards;
+  }
+
+  &.round-starting:before {
+    position: absolute;
+    background: linear-gradient(0deg, var(--noi-color-magenta-500), transparent);
+    opacity: 0.3;
+    animation: round-start-glow
+      calc(
+        var(--bottom-bar-hide-show-animation-duration) +
+          var(--bottom-bar-hide-show-animation-delay)
+      )
+      both;
+    content: ' ';
+    inline-size: 100%;
+    block-size: getRem(100);
+    inset-inline-start: 0;
+    inset-block-start: getRem(-100);
+    pointer-events: none;
+  }
+
+  &.round-starting:after,
+  &.round-ended:after {
+    position: absolute;
+    z-index: var(--noi-z-index-level-2);
+    background: linear-gradient(90deg, var(--noi-color-magenta-500), transparent);
+    animation: round-start-glow-line
+      calc(
+        var(--bottom-bar-hide-show-animation-duration) +
+          var(--bottom-bar-hide-show-animation-delay)
+      )
+      both;
+    content: ' ';
+    inline-size: 100%;
+    block-size: getRem(2);
+    inset-inline-start: 0;
+    inset-block-start: getRem(-2);
+  }
+
+  &.round-ended:after {
+    animation: none;
+  }
+}
+
+.round-ended-text {
+  animation: opacity-fade-in 200ms
+    calc(
+      var(--bottom-bar-hide-show-animation-delay) -
+        var(--bottom-bar-hide-show-animation-duration) + 1700ms
+    )
+    both linear;
+}
+
+.game-state-bottom-bar-icon {
+  color: var(--noi-color-light-main);
+  inline-size: getRem(24);
+  block-size: getRem(24);
+}
+
+.round-starting .count-down-text {
+  display: none;
+}
+
+.round-ended-bottom-bar-highlight-text {
+  position: relative;
+  color: var(--noi-color-teal-main);
+  background: none !important;
+
+  :not(.has-active-card).five-seconds-left & {
+    animation: countdown-number 1000ms linear 5 both;
+  }
+
+  :not(.has-active-card).four-seconds-left & {
+    animation: countdown-number 1000ms linear 5 both;
+  }
+
+  :not(.has-active-card).three-seconds-left & {
+    animation: countdown-number 1000ms linear 5 both;
+  }
+
+  :not(.has-active-card).two-seconds-left & {
+    animation: countdown-number 1000ms linear 5 both;
+  }
+
+  :not(.has-active-card).one-seconds-left & {
+    animation: countdown-number 1000ms linear 5 both;
+  }
+
+  :not(.has-active-card).five-seconds-left &:after,
+  :not(.has-active-card).four-seconds-left &:after,
+  :not(.has-active-card).three-seconds-left &:after,
+  :not(.has-active-card).two-seconds-left &:after,
+  :not(.has-active-card).one-seconds-left &:after {
+    position: absolute;
+    opacity: 0.7;
+    animation: number-scale 1000ms linear both 5;
+    content: var(--countdown-number);
+    inset-inline-start: 0;
+  }
+}
+
+.preparation-timebar {
+  position: absolute;
+  background-color: var(--noi-color-teal-400);
+  visibility: hidden;
+  transition: inset-inline-start 1000ms linear;
+  block-size: getRem(3);
+  inset-block-start: 0;
+  inset-inline-start: var(--preparation-timebar-value-percentage);
+  inline-size: 100%;
+
+  .timebar-visible & {
+    visibility: visible;
+  }
+
+  :not(.has-active-card).five-seconds-left & {
+    animation: countdown-number 1000ms linear 5 both;
+  }
+
+  :not(.has-active-card).four-seconds-left & {
+    animation: countdown-number 1000ms linear 5 both;
+  }
+
+  :not(.has-active-card).three-seconds-left & {
+    animation: countdown-number 1000ms linear 5 both;
+  }
+
+  :not(.has-active-card).two-seconds-left & {
+    animation: countdown-number 1000ms linear 5 both;
+  }
+
+  :not(.has-active-card).one-seconds-left & {
+    animation: countdown-number 1000ms linear 5 both;
+  }
+}
+
+.effect-wrapper {
+  position: absolute;
+  overflow: hidden;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.background-gradient-effect {
+  position: absolute;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--noi-color-status-alert-400),
+    transparent
+  );
+  transform: translateX(100%);
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  mix-blend-mode: plus-lighter;
+
+  .round-starting &,
+  .round-ended & {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--noi-color-magenta-500),
+      transparent
+    );
+    animation: round-started-blink 1500ms linear both;
+  }
+
+  :not(.has-active-card).five-seconds-left & {
+    opacity: 0.2;
+    animation: count-down-blink 1000ms linear 5 forwards;
+  }
+
+  :not(.has-active-card).four-seconds-left & {
+    opacity: 0.4;
+    animation: count-down-blink 1000ms linear 5 forwards;
+  }
+
+  :not(.has-active-card).three-seconds-left & {
+    opacity: 0.6;
+    animation: count-down-blink 1000ms linear 5 forwards;
+  }
+
+  :not(.has-active-card).two-seconds-left & {
+    opacity: 0.8;
+    animation: count-down-blink 1000ms linear 5 forwards;
+  }
+
+  :not(.has-active-card).one-seconds-left & {
+    opacity: 1;
+    animation: count-down-blink 1000ms linear 5 forwards;
+  }
+}
+
+.game-state-label-container {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+}
+
+.game-state-label {
+  font-size: var(--noi-font-size-lg);
+
+  @container (inline-size > getRem(460)) {
+    font-size: var(--noi-font-size-2xl);
+  }
+}
+
+@keyframes count-down-blink {
+  0% {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+
+  80%,
+  100% {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+}
+
+@keyframes round-started-blink {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes opacity-fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes opacity-fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes bottom-bar-show {
+  0% {
+    block-size: getRem(0);
+  }
+
+  100% {
+    block-size: getRem(56);
+  }
+}
+
+@keyframes bottom-bar-hide {
+  0% {
+    block-size: getRem(56);
+  }
+
+  100% {
+    block-size: getRem(0);
+  }
+}
+
+@keyframes round-start-glow {
+  0% {
+    opacity: 0;
+  }
+
+  15%,
+  92% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes round-start-glow-line {
+  0% {
+    opacity: 0;
+  }
+
+  15%,
+  92% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes number-scale {
+  0% {
+    opacity: 0.7;
+    scale: 1;
+  }
+
+  70%,
+  100% {
+    opacity: 0;
+    scale: 6;
+  }
+}
+
+@keyframes countdown-number {
+  0%,
+  19% {
+    color: var(--noi-color-teal-main);
+    background-color: var(--noi-color-teal-main);
+  }
+
+  20%,
+  40% {
+    color: var(--noi-color-status-alert-400);
+    background-color: var(--noi-color-status-alert-400);
+  }
+
+  80%,
+  100% {
+    color: var(--noi-color-teal-main);
+    background-color: var(--noi-color-teal-main);
+  }
+}

@@ -1,0 +1,13 @@
+.card-list-container {
+  display: grid;
+  gap: getRem(24);
+
+  @container (min-width: getRem(400)) {
+    grid-template-columns: repeat(auto-fill, minmax(getRem(400), 1fr));
+  }
+}
+
+.item-link {
+  container: bundle-item / inline-size;
+  text-decoration: none;
+}

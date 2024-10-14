@@ -1,0 +1,5 @@
+name: avatar-optimizer
+
+lint:
+  - type: yarn_run
+    cmd: '${{ parseBoolean(inputs.fix) ? "lint:fix" : "lint" }}'

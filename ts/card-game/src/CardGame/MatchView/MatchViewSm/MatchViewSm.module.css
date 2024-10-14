@@ -1,0 +1,34 @@
+.match-view-root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.card-container-wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.match-view-animated-container {
+  inline-size: 0;
+  transform: translateY(getRem(120));
+  opacity: 0;
+  transition: transform var(--match-view-transition-time),
+    opacity var(--match-view-transition-time);
+
+  .cards-hidden & {
+    display: none;
+  }
+
+  &.appear {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &.appear,
+  &.leaving {
+    inline-size: 100%;
+  }
+}

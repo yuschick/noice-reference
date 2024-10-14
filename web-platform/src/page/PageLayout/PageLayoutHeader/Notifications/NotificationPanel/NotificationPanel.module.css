@@ -1,0 +1,30 @@
+.panel {
+  inline-size: 100%;
+  block-size: clamp(getRem(320), 75vb, getRem(640));
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+
+  @media (min-width: getRem(500)) {
+    inline-size: min(getRem(480), 100vi);
+  }
+}
+
+.tab-label-wrapper {
+  display: grid;
+  grid-template-columns: min-content min-content;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+}
+
+.unread-pill {
+  display: grid;
+  color: var(--noi-color-text-dark);
+  font-weight: var(--noi-font-weight-extra-bold);
+  font-size: var(--noi-font-size-sm);
+  background-color: var(--noi-color-teal-main);
+  border-radius: var(--noi-border-radius-lg);
+  min-inline-size: clamp(getRem(20), 7vi, getRem(35));
+  block-size: getRem(20);
+  place-items: center;
+}

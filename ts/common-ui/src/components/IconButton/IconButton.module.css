@@ -1,0 +1,37 @@
+@layer noice.ui {
+  .icon-content-wrapper {
+    --icon-size: getRem(24);
+    --indicator-size: getRem(8);
+    --indicator-clip-path: path(
+      'M24 8.4722C22.9385 9.4223 21.5367 10 20 10C16.6863 10 14 7.3137 14 4C14 2.4633 14.5777 1.0615 15.5278 0H0V24H24V8.4722Z'
+    );
+
+    &.xs {
+      --icon-size: getRem(20);
+      --indicator-size: getRem(7);
+      --indicator-clip-path: path(
+        'M20 7.7C19 8.5 17.8 9 16.5 9a5.5 5.5 0 0 1-4.2-9H0v20h20V7.7Z'
+      );
+    }
+  }
+
+  .icon-button-icon {
+    block-size: var(--icon-size);
+    display: block;
+    inline-size: var(--icon-size);
+
+    &.indicator-clip {
+      clip-path: var(--indicator-clip-path);
+    }
+  }
+
+  .status-indicator {
+    position: absolute;
+    background-color: var(--noi-color-magenta-main);
+    border-radius: var(--noi-border-radius-circle);
+    block-size: var(--indicator-size);
+    inline-size: var(--indicator-size);
+    inset-block-start: calc((100% - var(--icon-size)) / 2);
+    inset-inline-end: calc((100% - var(--icon-size)) / 2);
+  }
+}

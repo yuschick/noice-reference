@@ -1,0 +1,26 @@
+.container {
+  @mixin narrow-scrollbar;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  overflow-x: hidden;
+  overflow-y: auto;
+  block-size: 100%;
+}
+
+.new-messages-btn {
+  position: sticky;
+  z-index: var(--noi-z-index-level-1);
+  margin: 0 auto;
+  opacity: 0;
+  transition: inset-block-end var(--noi-duration-quick), opacity var(--noi-duration-quick);
+  inset-block-end: -100%;
+  inline-size: var(--chat-messages-button-size);
+  inset-inline-start: calc(50% - var(--chat-messages-button-size) / 2);
+
+  &.into-view {
+    opacity: 1;
+    inset-block-end: getRem(8);
+  }
+}

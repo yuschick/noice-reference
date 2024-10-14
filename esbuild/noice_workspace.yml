@@ -1,0 +1,8 @@
+name: esbuild
+
+build_dependencies:
+  - postcss
+  - esbuild-plugins
+
+artifact_directories:
+  - node_modules

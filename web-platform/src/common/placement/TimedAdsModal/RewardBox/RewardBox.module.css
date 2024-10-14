@@ -1,0 +1,80 @@
+/* stylelint-disable unit-allowed-list */
+
+@keyframes container-scale-up {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.15);
+  }
+}
+
+@keyframes container-move-down {
+  0% {
+    transform: scale(1.15) translateY(0);
+  }
+
+  100% {
+    transform: scale(1.25) translateY(getRem(60));
+  }
+}
+
+@keyframes container-disappear {
+  0% {
+    transform: scale(1.25) translateY(getRem(60));
+    opacity: 1;
+  }
+
+  99% {
+    transform: scale(1.25) translateY(getRem(260));
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(0) translateY(getRem(260));
+  }
+}
+
+.container {
+  position: relative;
+  outline: none;
+  user-select: none;
+  pointer-events: none;
+
+  inline-size: 100%;
+  block-size: 100%;
+
+  &.open {
+    animation: container-scale-up 1000ms ease-in forwards;
+  }
+
+  &.move-down {
+    animation: container-move-down 1000ms cubic-bezier(0.04, 0.7, 0.43, 1) forwards,
+      container-disappear 550ms 500ms ease-out forwards;
+  }
+}
+
+.box-back {
+  transform: translate(-62.5%, -50%);
+}
+
+.box-front {
+  transform: translate(-50%, -50%);
+}
+
+.bottom-shadow {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  background: radial-gradient(
+    50% 23% ellipse at 50% 50%,
+    #000000 0,
+    #00000015 80%,
+    #00000000 100%
+  );
+  transform: translate(-50%, -22.7%);
+  opacity: 0.7;
+  inline-size: 153%;
+  block-size: 143%;
+}

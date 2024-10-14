@@ -1,0 +1,18 @@
+.section {
+  position: relative;
+}
+
+.carousel-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: getVarRem(var(--display-item-gap, 0));
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.slide-container {
+  inline-size: calc(100% / var(--display-item-count));
+  min-inline-size: min-content;
+  scroll-snap-align: start;
+}

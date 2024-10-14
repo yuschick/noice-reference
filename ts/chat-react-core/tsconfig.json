@@ -1,0 +1,34 @@
+{
+    "extends": "../../../tsconfig.base.json",
+    "compilerOptions": {
+      "rootDir": ".",
+      "baseUrl": ".",
+      "outDir": "./dist",
+      "declarationDir": "./dist",
+      "strict": true,
+      "tsBuildInfoFile": ".tscache/tsconfig.tsbuildinfo",
+      "jsx": "react-jsx",
+      "allowJs": true,
+      "moduleResolution": "node",
+      "composite": true,
+      "declaration": true,
+      "declarationMap": false,
+      "typeRoots": ["types", "node_modules/@types", "../../../node_modules/@types"],
+      "module": "commonjs",
+      "target": "ES6",
+      "lib": ["DOM", "DOM.Iterable", "ES6"]
+    },
+    "include": ["src/**/*.ts", "src/**/*.tsx", "gen/*"],
+    "exclude": ["node_modules/*", "dist"],
+    "references": [
+      {
+        "path": "../gen/schemas"
+      },
+      {
+        "path": "../utils"
+      },
+      {
+        "path": "../platform-client"
+      }
+    ]
+  }

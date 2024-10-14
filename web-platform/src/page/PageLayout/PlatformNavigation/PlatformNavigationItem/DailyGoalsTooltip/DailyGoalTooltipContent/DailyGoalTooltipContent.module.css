@@ -1,0 +1,55 @@
+.index {
+  flex-shrink: 0;
+  color: var(--noi-color-gray-600);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--noi-spacing-1x);
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-sm);
+
+  .completed & {
+    color: var(--noi-color-green-main);
+  }
+
+  .collected & {
+    color: var(--noi-color-green-500);
+    text-transform: uppercase;
+  }
+}
+
+.name {
+  color: var(--noi-color-text-light);
+
+  .not-picked-yet & {
+    color: var(--noi-color-magenta-main);
+  }
+
+  .collected & {
+    color: var(--noi-color-gray-600);
+    text-transform: none;
+  }
+}
+
+.completed-progress {
+  color: var(--noi-color-green-500);
+}
+
+.progress-bar {
+  block-size: getRem(8);
+  margin-block-start: var(--noi-spacing-1x);
+
+  .completed & {
+    --horizontal-progress-bar-progress-color: var(--noi-color-green-main);
+  }
+}
+
+.check-icon {
+  align-self: center;
+  color: var(--noi-color-green-500);
+}

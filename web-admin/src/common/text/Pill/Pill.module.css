@@ -1,0 +1,40 @@
+.pill {
+  display: inline-block;
+  padding: 0 var(--noi-spacing-2x);
+  border-radius: getRem(32);
+
+  &.small {
+    @mixin label xs, medium;
+    padding: 0 var(--noi-spacing-2x);
+  }
+
+  &.medium {
+    @mixin label s, medium;
+    padding: var(--noi-spacing-1x) var(--noi-spacing-3x);
+  }
+
+  &.default {
+    color: var(--white);
+    background-color: var(--neutral-400);
+  }
+
+  &.info {
+    color: var(--primary-900);
+    background-color: var(--primary-400);
+  }
+
+  &.positive {
+    color: var(--success-900);
+    background-color: var(--success-400);
+  }
+
+  &.warning {
+    color: var(--warning-900);
+    background-color: var(--warning-300);
+  }
+
+  &.error {
+    color: var(--white);
+    background-color: var(--danger-500);
+  }
+}

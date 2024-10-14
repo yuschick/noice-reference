@@ -1,0 +1,30 @@
+name: ts-social
+
+build_dependencies:
+  - ts-schemas
+  - ts-lib
+  - ts-utils
+  - eslint-config
+  - eslint-config-react
+  - postcss
+  - graphql-schema
+  - web-renderer
+  - ts-common-ui
+  - avatar-builder
+  - ts-assets-core
+  - ts-common-react-core
+
+artifact_directories:
+  - node_modules
+
+lint:
+  - type: yarn_run
+    cmd: '${{ parseBoolean(inputs.fix) ? "lint:fix" : "lint" }}'
+
+test:
+  - type: yarn_run
+    cmd: test
+
+build:
+  - type: yarn_run
+    cmd: build

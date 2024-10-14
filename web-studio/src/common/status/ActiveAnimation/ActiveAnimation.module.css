@@ -1,0 +1,60 @@
+@keyframes pulsate {
+  0% {
+    background-color: transparent;
+    opacity: 0;
+  }
+
+  1% {
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    background-color: var(--anim-color);
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 0.01;
+  }
+}
+
+.wrapper {
+  --loading-size: getRem(16);
+  --loading-dot-size: calc(var(--loading-size) / 2 - getRem(2));
+  --anim-color: var(--noi-color-yellow-green-main);
+  --anim-length: 1600ms;
+
+  display: inline-block;
+  inline-size: var(--loading-size);
+  block-size: var(--loading-size);
+  margin-block-start: getRem(-2);
+  vertical-align: middle;
+
+  &.active {
+    --anim-color: var(--noi-color-green-main);
+  }
+}
+
+.dot {
+  display: inline-block;
+  float: left;
+  inline-size: var(--loading-dot-size);
+  block-size: var(--loading-dot-size);
+  margin: getRem(1);
+  background-color: var(--noi-color-gray-850);
+  border-radius: calc(var(--loading-dot-size) / 2);
+  animation: pulsate var(--anim-length) ease-in infinite;
+
+  &.delay-1 {
+    animation-delay: calc(var(--anim-length) * 0.25);
+  }
+
+  &.delay-2 {
+    animation-delay: calc(var(--anim-length) * 0.5);
+  }
+
+  &.delay-3 {
+    animation-delay: calc(var(--anim-length) * 0.75);
+  }
+}

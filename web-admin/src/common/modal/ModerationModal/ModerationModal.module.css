@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  flex-wrap: nowrap;
+
+  .header-data {
+    margin-inline-start: var(--noi-spacing-2x);
+  }
+}
+
+.subtitle-data-field {
+  margin-block-start: var(--noi-spacing-2x);
+}
+
+.title {
+  @mixin heading h4;
+}
+
+.subtitle {
+  display: flex;
+  gap: var(--noi-spacing-4x);
+}
+
+.subtitle-data-label {
+  @mixin label xs, regular;
+  color: var(--neutral-200);
+}
+
+.subtitle-data-value {
+  @mixin label s, medium;
+  text-align: end;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  margin-block-start: getRem(48);
+}

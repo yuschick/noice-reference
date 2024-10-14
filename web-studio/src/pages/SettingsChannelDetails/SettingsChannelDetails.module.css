@@ -1,0 +1,38 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-10x);
+}
+
+.block-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+}
+
+.channel-urls {
+  display: grid;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+  gap: var(--noi-spacing-4x);
+}
+
+.channel-name-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+}
+
+.channel-name {
+  font-weight: var(--noi-font-weight-bold);
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+}
+
+.save-button {
+  inline-size: getRem(00);
+}

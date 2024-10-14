@@ -1,0 +1,25 @@
+.on-top-of-card-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  container-type: inline-size;
+}
+
+.cards-unlocked-count {
+  @container (inline-size < getRem(620)) {
+    display: none !important;
+  }
+}
+
+.loading-wrapper {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: var(--noi-spacing-8x);
+  background-color: var(--noi-color-black-main-transparent-20);
+  border-radius: var(--noi-border-radius-2xl);
+  block-size: getRem(200);
+}

@@ -1,0 +1,65 @@
+.card-progress-container {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--noi-color-light-main-transparent-10);
+  border-radius: var(--noi-border-radius-pill);
+  inline-size: min(100%, getRem(140));
+  min-inline-size: max-content;
+  block-size: getRem(24);
+}
+
+.card-progress-max-container {
+  block-size: getRem(24);
+  align-items: center;
+}
+
+.progress-fill {
+  position: absolute;
+  inset-inline-start: 0;
+  z-index: var(--noi-z-index-behind);
+  background: linear-gradient(
+    270deg,
+    var(--noi-color-teal-600) -4.27%,
+    var(--noi-color-teal-700) 99.99%
+  );
+
+  inline-size: var(--module-card-progress, 0%);
+  block-size: 100%;
+}
+
+.level-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-1x);
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--noi-spacing-3x);
+}
+
+.lvl-text {
+  color: var(--noi-color-light-main-transparent-60);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-xs);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}
+
+.lvl-number-text {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-xs);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}
+
+.max-text {
+  color: var(--noi-color-teal-main);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}

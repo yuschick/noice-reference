@@ -1,0 +1,29 @@
+/* stylelint-disable unit-allowed-list */
+.wrapper {
+  inline-size: 350px;
+  block-size: 350px;
+  overflow: hidden;
+}
+
+@keyframes sprite-sheet {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  100% {
+    transform: translate(-3150px, 0px);
+  }
+}
+
+.sprite {
+  animation: sprite-sheet 1000ms steps(10, jump-none) infinite;
+  inline-size: max-content;
+
+  &.red {
+    filter: hue-rotate(-50deg);
+  }
+
+  &.green {
+    filter: hue-rotate(100deg);
+  }
+}

@@ -1,0 +1,12 @@
+# folders
+dist
+coverage
+node_modules
+package.json
+
+.eslintrc.js
+package.json
+
+dist/*
+*.css
+*.html

@@ -1,0 +1,21 @@
+.widget-list {
+  padding: 0;
+}
+
+.widget-list-item {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  list-style-type: none;
+
+  .widget-name {
+    font-weight: var(--noi-font-weight-medium);
+    font-size: var(--noi-font-size-lg);
+  }
+
+  .action-button {
+    margin: var(--noi-spacing-2x);
+    min-inline-size: getRem(100);
+  }
+}

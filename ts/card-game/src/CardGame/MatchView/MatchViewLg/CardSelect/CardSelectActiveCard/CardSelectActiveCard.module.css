@@ -1,0 +1,36 @@
+.card-select-active-card-root {
+  position: relative;
+  container-type: inline-size;
+  container-name: card-select-active-card-container;
+  inline-size: 100%;
+
+  &:hover {
+    z-index: var(--noi-z-index-level-2);
+  }
+}
+
+.card-select-active-card-wrapper {
+  display: flex;
+  inline-size: 100%;
+  @mixin game-card-idle-shadow;
+
+  .card-select-active-card-root:hover > & {
+    position: absolute;
+    transform: translateX(-50%);
+    inset-block-end: 0;
+    inset-inline-start: 50%;
+    inline-size: var(--game-card-width-breakpoint-medium);
+    @mixin game-card-raised-shadow;
+  }
+
+  @mixin game-card-breakpoint-medium {
+    .card-select-active-card-root:hover > & {
+      position: static;
+      transform: none;
+      transition: none;
+      inset: auto;
+      inline-size: 100%;
+      @mixin game-card-idle-shadow;
+    }
+  }
+}

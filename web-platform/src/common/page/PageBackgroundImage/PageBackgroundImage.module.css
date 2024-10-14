@@ -1,0 +1,30 @@
+.page-background-image-wrapper {
+  display: none;
+
+  @media (min-width: getRem(792)) {
+    position: absolute;
+    z-index: var(--noi-z-index-behind);
+    display: block;
+    overflow: clip;
+    opacity: 0.2;
+    max-block-size: getRem(600);
+    block-size: 100%;
+    mask-image: linear-gradient(
+      to bottom,
+      var(--noi-color-dark-main) 0%,
+      transparent getRem(600)
+    );
+    inset-block-start: 0;
+    inset-inline-start: var(--platform-collapsed-sidebar-size);
+    inset-inline-end: var(--platform-collapsed-sidebar-size);
+
+    .page-background-image {
+      aspect-ratio: 5/2;
+      min-block-size: 100%;
+    }
+
+    [data-friends-sidebar-exists='false'] & {
+      inset-inline-end: 0;
+    }
+  }
+}

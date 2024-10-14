@@ -1,0 +1,137 @@
+.wrapper {
+  position: relative;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+
+  .small & {
+    gap: var(--noi-spacing-1x);
+  }
+
+  .medium & {
+    gap: var(--noi-spacing-2x);
+  }
+}
+
+.input-avatar-wrapper {
+  position: absolute;
+  inset-block-end: getRem(4);
+  inset-inline-start: getRem(8);
+}
+
+.empty-avatar {
+  background-color: var(--neutral-800);
+  border-radius: var(--noi-border-radius-circle);
+  block-size: var(--avatar-size);
+  inline-size: var(--avatar-size);
+}
+
+.input {
+  @mixin label m, regular;
+  color: var(--white);
+  background-color: var(--neutral-700);
+  border: getRem(1) solid var(--neutral-500);
+  border-radius: getRem(7);
+
+  .small & {
+    block-size: getRem(32);
+    padding: var(--noi-spacing-2x) var(--noi-spacing-2x) var(--noi-spacing-2x) getRem(40);
+  }
+
+  .medium & {
+    block-size: getRem(40);
+    padding: var(--noi-spacing-3x) var(--noi-spacing-2x) var(--noi-spacing-3x) getRem(48);
+  }
+
+  &::placeholder {
+    color: var(--neutral-300);
+  }
+
+  .expanded & {
+    border-radius: getRem(7) getRem(7) 0 0;
+  }
+
+  &[aria-invalid='true'] {
+    border-color: var(--danger-400);
+  }
+}
+
+.label {
+  [aria-invalid='true'] + & {
+    color: var(--danger-400);
+  }
+
+  .small & {
+    @mixin label s, medium;
+  }
+
+  .medium & {
+    @mixin label m, medium;
+  }
+}
+
+.list {
+  @mixin list-style-none;
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  gap: var(--noi-spacing-half);
+  padding: 0;
+  background-color: var(--neutral-800);
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  inset-block-start: calc(100% + getRem(1));
+  border-radius: 0 0 getRem(7) getRem(7);
+
+  .expanded & {
+    display: flex;
+  }
+}
+
+.list-option {
+  @mixin label m, medium;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  padding: var(--noi-spacing-2x);
+  color: var(--neutral-200);
+  text-decoration: none;
+  border-radius: getRem(7);
+  cursor: pointer;
+
+  &[aria-selected='true'] {
+    background-color: var(--neutral-500);
+  }
+}
+
+.user-details {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+}
+
+.match-row {
+  @mixin label xs, regular;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  justify-content: space-between;
+  color: var(--neutral-300);
+}
+
+.no-result {
+  @mixin label s, regular;
+  padding: var(--noi-spacing-2x);
+  color: var(--white);
+}
+
+.use-id-button {
+  position: absolute;
+  inset-block-start: getRem(20);
+  inset-inline-end: 0;
+}

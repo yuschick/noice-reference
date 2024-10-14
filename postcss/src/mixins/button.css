@@ -1,0 +1,5 @@
+@define-mixin button-sinks-on-pressed {
+  &:active {
+    transform: translateY(getRem(2));
+  }
+}

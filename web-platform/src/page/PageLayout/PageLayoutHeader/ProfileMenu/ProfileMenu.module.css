@@ -1,0 +1,16 @@
+.profile-image-button {
+  padding: 0;
+  background-color: transparent;
+  border-radius: var(--noi-border-radius-circle);
+
+  @media (hover: hover) {
+    &:hover {
+      outline: getRem(4) solid var(--noi-color-gray-700);
+      cursor: pointer;
+    }
+  }
+}
+
+.profile-info {
+  overflow: hidden;
+}

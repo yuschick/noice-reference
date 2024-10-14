@@ -1,0 +1,27 @@
+{
+  "name": "@noice-com/web-renderer",
+  "packageManager": "yarn@4.1.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "check-types": "tsc --build tsconfig.types.json",
+    "lint": "yarn check-types && eslint ./src --cache --cache-location ./node_modules/.cache/eslint-cache",
+    "lint:fix": "yarn check-types && eslint ./src --fix --cache --cache-location ./node_modules/.cache/eslint-cache"
+  },
+  "prettier": "@noice-com/eslint-config/prettier.config.js",
+  "dependencies": {
+    "@noice-com/platform-client": "workspace:*",
+    "@noice-com/schemas": "workspace:*",
+    "@noice-com/utils": "workspace:*",
+    "stats.js": "^0.17.0",
+    "three": "^0.168.0"
+  },
+  "devDependencies": {
+    "@noice-com/eslint-config": "workspace:*",
+    "@types/stats.js": "^0.17.0",
+    "@types/three": "^0.168.0",
+    "eslint": "^8.48.0",
+    "prettier": "^2.8.8",
+    "typescript": "^5.2.2"
+  },
+  "sideEffects": false
+}

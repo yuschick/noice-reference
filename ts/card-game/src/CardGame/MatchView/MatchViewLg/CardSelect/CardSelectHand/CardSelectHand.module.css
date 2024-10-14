@@ -1,0 +1,52 @@
+.game-card-button-wrapper {
+  position: relative;
+  display: flex;
+  container-type: inline-size;
+  container-name: card-select-hand-card-container;
+  transform: translateY(getRem(-20));
+  opacity: 0;
+  animation: slide-out 100ms ease-out 100ms reverse forwards;
+  animation-delay: var(--card-select-card-item-delay);
+  inline-size: 100%;
+
+  &:hover {
+    z-index: var(--noi-z-index-level-2);
+  }
+}
+
+.game-card-button {
+  inline-size: 100%;
+  @mixin game-card-idle-shadow;
+
+  .game-card-button-wrapper:hover & {
+    position: absolute;
+    transform: translateX(-50%);
+    inset-block-end: 0;
+    inset-inline-start: 50%;
+    inline-size: var(--game-card-width-breakpoint-medium);
+    @mixin game-card-raised-shadow;
+  }
+
+  @mixin game-card-breakpoint-medium {
+    .game-card-button-wrapper:hover & {
+      position: static;
+      transform: none;
+      transition: none;
+      inset: auto;
+      inline-size: 100%;
+      @mixin game-card-idle-shadow;
+    }
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(getRem(-20));
+    opacity: 0;
+  }
+}

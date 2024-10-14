@@ -1,0 +1,29 @@
+{
+  "Simulator Target Bundle": "com.noice.MobilePlatform.stg",
+  "aps": {
+    "alert": {
+      "title": "Replay_looper is live on Noice now!",
+      "body": "Replya looperryyy"
+    },
+    "content-available": 1,
+    "mutable-content": 1,
+    "sound": "default",
+    "badge": 1
+  },
+  "channelLive": {
+    "channelId": "19686063-a7b5-4efd-b8ef-8b488039d88a",
+    "channelName": "Replay_looper"
+  },
+  "id": "A61B03BA-03A5-4704-9BC9-2383383FEB10",
+  "ios": {
+    "categoryId": "",
+    "launchImageName": "",
+    "threadId": ""
+  },
+  "remote": {
+    "contentAvailable": 1,
+    "messageId": "1722920523112504",
+    "mutableContent": 1,
+    "senderId": "870513410166"
+  }
+}

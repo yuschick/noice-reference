@@ -1,0 +1,26 @@
+.signup-channel-wrapper {
+  display: grid;
+  grid-template-areas: 'logo join' 'logo name';
+  grid-template-columns: min-content auto;
+  gap: 0 var(--noi-spacing-3x);
+  align-items: center;
+  color: var(--noi-color-text-dark-secondary);
+  padding-block-start: getRem(24);
+}
+
+.signup-channel-logo {
+  grid-area: logo;
+}
+
+.signup-channel-join-text {
+  grid-area: join;
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-loose);
+}
+
+.signup-channel-name {
+  grid-area: name;
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+}

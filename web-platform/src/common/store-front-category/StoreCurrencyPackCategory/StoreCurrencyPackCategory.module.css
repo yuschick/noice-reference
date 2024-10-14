@@ -1,0 +1,18 @@
+.section {
+  container-type: inline-size;
+  container-name: currency-pack-section;
+  display: flex;
+  flex-direction: column;
+  gap: getRem(24);
+}
+
+.hard-currency-icon {
+  margin-inline-end: var(--noi-spacing-1x);
+  margin-inline-start: getRem(-4);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-12x);
+}

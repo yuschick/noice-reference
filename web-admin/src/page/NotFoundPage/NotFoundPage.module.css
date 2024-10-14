@@ -1,0 +1,11 @@
+.wrapper {
+  display: flex;
+  flex-flow: column;
+  gap: var(--noi-spacing-4x);
+  min-block-size: 100%;
+  padding: getRem(16) getRem(24);
+}
+
+.title {
+  @mixin heading h4;
+}

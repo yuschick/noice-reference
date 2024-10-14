@@ -1,0 +1,52 @@
+.friend-status-wrapper {
+  align-items: center;
+  padding: var(--noi-spacing-2x) var(--noi-spacing-3x);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+  border-radius: var(--noi-border-radius-sm);
+}
+
+.friend-status-friends {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  gap: var(--noi-spacing-2x);
+  color: var(--noi-color-text-light-secondary);
+  border: 1px solid var(--noi-color-gray-850);
+}
+
+.friend-status-friends-since {
+  font-weight: var(--noi-font-weight-bold);
+}
+
+.friend-status-pending {
+  gap: var(--noi-spacing-3x);
+  background-color: var(--noi-color-green-900);
+}
+
+.friend-status-sent {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.friend-status-received {
+  display: grid;
+  grid-template-areas: 'text' 'accept' 'decline';
+
+  @container (min-inline-size: getRem(224)) {
+    grid-template-areas: 'text text' 'accept decline';
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.friend-status-pending-text-content {
+  display: grid;
+  flex-grow: 1;
+  grid-area: text;
+  grid-template-columns: min-content 1fr;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+}
+
+.friend-username {
+  font-weight: var(--noi-font-weight-bold);
+}

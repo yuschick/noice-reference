@@ -1,0 +1,22 @@
+.button-content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+
+  &.with-indicator {
+    position: relative;
+
+    &:after {
+      position: absolute;
+      display: block;
+      background-color: var(--noi-color-magenta-main);
+      border-radius: var(--noi-border-radius-circle);
+      content: '';
+      inset-block-start: getRem(8);
+      inset-inline-end: getRem(-16);
+      inline-size: getRem(8);
+      block-size: getRem(8);
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "@noice-com/esbuild",
+  "version": "1.0.0",
+  "packageManager": "yarn@4.1.0",
+  "description": "Esbuild build helpers",
+  "main": "src/build.mjs",
+  "license": "NONE",
+  "devDependencies": {
+    "@noice-com/esbuild-plugins": "workspace:*",
+    "@noice-com/postcss": "workspace:*",
+    "esbuild": "^0.16.17",
+    "esbuild-plugin-svgr": "^2.1.0",
+    "esbuild-plugin-yaml": "^0.0.1",
+    "postcss-functions": "^4.0.2"
+  },
+  "engines": {
+    "node": ">=20.4.0"
+  }
+}

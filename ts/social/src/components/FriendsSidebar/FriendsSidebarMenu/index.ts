@@ -1,0 +1,1 @@
+export { FriendsSidebarMenu } from './FriendsSidebarMenu';

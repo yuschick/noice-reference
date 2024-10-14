@@ -1,0 +1,8 @@
+/* stylelint-disable declaration-property-value-allowed-list */
+@font-face {
+  font-weight: 200 1000;
+  font-family: "Rubik";
+  font-style: normal;
+  src: url("./fonts/Rubik-VariableFont_wght.woff2") format("woff2");
+  font-display: swap;
+}

@@ -1,0 +1,10 @@
+.hide-online-status-setting {
+  display: grid;
+  grid-template-columns: auto min-content;
+  gap: var(--noi-spacing-3x);
+  align-items: center;
+  padding: var(--noi-spacing-3x);
+  font-weight: var(--noi-font-weight-medium);
+  border: 1px solid var(--noi-color-gray-850);
+  border-radius: var(--noi-border-radius-xs);
+}

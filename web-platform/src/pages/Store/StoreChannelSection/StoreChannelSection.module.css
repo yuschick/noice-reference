@@ -1,0 +1,6 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: getRem(24);
+  container: channel-list-container / inline-size;
+}

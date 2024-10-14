@@ -1,0 +1,19 @@
+.tooltip-part {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--noi-spacing-3x);
+  border-block-end: var(--noi-color-gray-700) 1px solid;
+
+  &:last-of-type {
+    border-block-end: none;
+  }
+}
+
+.tooltip-title {
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  text-transform: uppercase;
+}

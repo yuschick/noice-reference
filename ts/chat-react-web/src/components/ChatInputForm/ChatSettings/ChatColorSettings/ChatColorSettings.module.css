@@ -1,0 +1,86 @@
+.chat-color-wrapper {
+  display: grid;
+  gap: var(--noi-spacing-2x);
+  padding-block: var(--noi-spacing-2x);
+}
+
+.chat-color-title {
+  padding-inline: var(--noi-spacing-3x);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+}
+
+.chat-colors-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding-inline: var(--noi-spacing-1x);
+}
+
+.color-button {
+  --_color-button-color: var(--noi-color-black-main);
+
+  display: grid;
+  padding: var(--noi-spacing-4x);
+  background: none;
+  block-size: getRem(40);
+  inline-size: getRem(40);
+  place-content: center;
+  cursor: pointer;
+
+  &::before {
+    grid-area: 1 / -1;
+    border: 2px solid transparent;
+    border-radius: var(--noi-border-radius-sm);
+    content: '';
+    block-size: getRem(32);
+    inline-size: getRem(32);
+  }
+
+  .color-button-color-block {
+    grid-area: 1 / -1;
+    background: var(--_color-button-color);
+    border-radius: var(--noi-border-radius-xs);
+    block-size: getRem(24);
+    inline-size: getRem(24);
+    place-self: center;
+  }
+
+  &:hover::before {
+    border-color: var(--noi-color-gray-700);
+  }
+
+  &[aria-current='true']::before {
+    border-color: var(--noi-color-white-main);
+  }
+
+  &[aria-current='true']:hover::before {
+    background: var(--noi-color-white-main);
+  }
+}
+
+.sub-title {
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-medium);
+  padding-inline: var(--noi-spacing-3x);
+}
+
+.message-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-1x);
+  align-items: center;
+  padding: var(--noi-spacing-1x) var(--noi-spacing-3x);
+  color: var(--_chat-preferred-color, var(--noi-color-text-light));
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-loose);
+}
+
+.badges-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-1x);
+  align-items: center;
+}

@@ -1,0 +1,12 @@
+.match-group-waiting-root {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  padding: var(--noi-spacing-3x);
+  pointer-events: all;
+}
+
+.match-group-waiting-team-info {
+  flex-grow: 1;
+}

@@ -1,0 +1,7 @@
+.challenge-vote-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  padding: var(--noi-spacing-2x);
+  background-color: var(--noi-color-gray-750);
+}

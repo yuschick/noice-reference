@@ -1,0 +1,8 @@
+.test-image {
+  block-size: getRem(360);
+  inline-size: 100%;
+}
+
+.mh {
+  min-block-size: getRem(300);
+}

@@ -1,0 +1,42 @@
+.mini-profile-details {
+  display: grid;
+  gap: var(--noi-spacing-3x);
+  padding: var(--noi-spacing-3x);
+  background-color: var(--noi-color-gray-900);
+  border-radius: var(--noi-border-radius-sm);
+}
+
+.channel-details-wrapper {
+  display: grid;
+  gap: var(--noi-spacing-base);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+}
+
+.time-highlight {
+  font-weight: var(--noi-font-weight-bold);
+}
+
+.divider {
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  border: unset;
+  border-block-start: 1px solid var(--noi-color-gray-850);
+}
+
+.badges-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-3x);
+  align-items: center;
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+}

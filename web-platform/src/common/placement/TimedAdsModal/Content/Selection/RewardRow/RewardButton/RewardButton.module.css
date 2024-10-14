@@ -1,0 +1,107 @@
+.button-wrapper {
+  --_button-size: clamp(getRem(72), 15vi, getRem(96));
+  position: relative;
+  min-inline-size: var(--_button-size);
+  min-block-size: var(--_button-size);
+  border-radius: var(--noi-border-radius-sm);
+}
+
+.button {
+  margin: 0;
+  overflow: hidden;
+  color: var(--noi-color-text-light);
+  background: transparent;
+  border-radius: var(--noi-border-radius-sm);
+  cursor: unset;
+  transition: opacity var(--noi-duration-quick);
+  user-select: none;
+  inline-size: 100%;
+  block-size: 100%;
+
+  .preview-label {
+    position: absolute;
+    font-weight: var(--noi-font-weight-medium);
+    font-size: var(--noi-font-size-sm);
+    text-transform: uppercase;
+    opacity: 0;
+  }
+
+  &.selected {
+    background: var(--noi-color-light-main-transparent-10);
+    cursor: pointer;
+    opacity: 1;
+
+    &:before {
+      position: absolute;
+      border-block-end: getRem(4) solid var(--noi-color-teal-main);
+      content: '';
+      inset: 0;
+      block-size: 100%;
+      inline-size: 100%;
+    }
+  }
+
+  .state-row {
+    transform: translate(-50%, getRem(18));
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+  }
+}
+
+.box-wrapper {
+  position: absolute;
+  overflow: hidden;
+  background: var(--reward-background) no-repeat;
+  background-size: 500% 100%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  /* The relation between the block-size and inline-size is block-size-percentage * 0.94 for the inline-size */
+  inline-size: calc(getRem(60) * 0.94);
+  block-size: getRem(60);
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+
+  &.disabled {
+    opacity: 0.6;
+  }
+
+  &.legendary {
+    background-position-x: 25%;
+  }
+
+  &.uncommon {
+    background-position-x: 50%;
+  }
+
+  &.epic {
+    background-position-x: 75%;
+  }
+
+  &.common {
+    background-position-x: 100%;
+  }
+}
+
+.lock-icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+}
+
+.countdown {
+  position: absolute;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+}
+
+.tooltip-content {
+  padding: var(--noi-spacing-2x);
+  text-align: center;
+}
+
+.tooltip-reward-name {
+  font-size: var(--noi-font-size-lg);
+  text-transform: capitalize;
+}

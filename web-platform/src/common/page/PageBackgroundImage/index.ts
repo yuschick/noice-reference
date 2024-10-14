@@ -1,0 +1,1 @@
+export { PageBackgroundImage } from './PageBackgroundImage';

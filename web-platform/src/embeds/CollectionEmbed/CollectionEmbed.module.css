@@ -1,0 +1,4 @@
+.container {
+  padding: 0 getRem(16);
+  overflow-x: hidden;
+}

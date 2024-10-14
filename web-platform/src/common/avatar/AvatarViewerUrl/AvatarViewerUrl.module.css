@@ -1,0 +1,15 @@
+.avatar-viewer-url-container {
+  inline-size: 100%;
+  block-size: 100%;
+  position: relative;
+}
+
+.loading-spinner-wrapper {
+  position: absolute;
+  inline-size: 100%;
+  block-size: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}

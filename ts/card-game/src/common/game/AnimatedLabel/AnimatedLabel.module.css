@@ -1,0 +1,175 @@
+@property --position-1 {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: -100%;
+}
+
+@property --position-2 {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+
+@property --gradient-rotation {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.animated-title {
+  --_animated-label-animation-color: var(--noi-color-magenta-500);
+
+  display: inline-block;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-extra-bold);
+  font-style: italic;
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+  filter: drop-shadow(1px 1px 4px var(--noi-color-black-main-transparent-70));
+
+  &:first-of-type {
+    transform: translateX(-300%) scale(1);
+    animation: animateFirstWordEnter forwards var(--_animated-label-enter-duration);
+  }
+
+  &:not(:first-of-type) {
+    background: linear-gradient(
+      90deg,
+      #fff var(--position-1),
+      var(--_animated-label-animation-color) var(--position-2)
+    );
+    background-color: var(--noi-color-white-main);
+    background-clip: text;
+    transform: translateX(500%) scale(1);
+    animation: animateOtherWordsEnter forwards var(--_animated-label-enter-duration),
+      animateOtherWordsColorEnter forwards var(--_animated-label-enter-duration) 500ms;
+    -webkit-text-fill-color: transparent;
+
+    &:after {
+      position: absolute;
+      z-index: var(--noi-z-index-behind);
+      background: conic-gradient(
+        from var(--gradient-rotation) at 10% 50%,
+        var(--noi-color-teal-400) 0%,
+        var(--_animated-label-animation-color) 50%,
+        var(--noi-color-teal-400) 100%
+      );
+      background-clip: text;
+      filter: blur(14px) brightness(1.1);
+      mix-blend-mode: color-dodge;
+      animation: animateOtherWordsBgRotate forwards 2000ms 3;
+      content: var(--_animated-label-word);
+      -webkit-text-fill-color: transparent;
+      inset-inline-start: 0;
+      inset-block-start: 0;
+    }
+  }
+
+  &.leave {
+    &:first-of-type {
+      animation: animateFirstWordLeave forwards var(--_animated-label-leave-duration);
+    }
+
+    &:not(:first-of-type) {
+      animation: animateOtherWordsLeave forwards var(--_animated-label-leave-duration),
+        animateOtherWordsColorLeave forwards var(--_animated-label-enter-duration);
+    }
+  }
+}
+
+@keyframes animateFirstWordEnter {
+  0% {
+    transform: translateX(-40%) scale(4) rotate(30deg);
+    opacity: 0;
+  }
+
+  25% {
+    transform: translateX(-40%) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animateOtherWordsEnter {
+  0%,
+  25% {
+    transform: translateX(80%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animateOtherWordsColorEnter {
+  0% {
+    --position-1: -100%;
+    --position-2: 0%;
+  }
+
+  100% {
+    --position-1: 100%;
+    --position-2: 200%;
+  }
+}
+
+@keyframes animateFirstWordLeave {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.47, 0.01, 0.45, 1);
+  }
+
+  100% {
+    transform: translateX(-150%);
+    opacity: 0;
+  }
+}
+
+@keyframes animateOtherWordsLeave {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.47, 0.01, 0.45, 1);
+  }
+
+  100% {
+    transform: translateX(250%);
+    opacity: 0;
+  }
+}
+
+@keyframes animateOtherWordsColorLeave {
+  0% {
+    --position-1: 100%;
+    --position-2: 200%;
+  }
+
+  30% {
+    --position-1: -100%;
+    --position-2: 0%;
+  }
+}
+
+@keyframes animateOtherWordsBgRotate {
+  0% {
+    --gradient-rotation: 0deg;
+    filter: blur(14px);
+  }
+
+  50% {
+    --gradient-rotation: 180deg;
+    filter: blur(20px);
+  }
+
+  100% {
+    --gradient-rotation: 360deg;
+    filter: blur(14px);
+  }
+}

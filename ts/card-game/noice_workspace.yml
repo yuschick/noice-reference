@@ -1,0 +1,23 @@
+name: ts-card-game
+
+build_dependencies:
+  - ts-lib
+  - ts-utils
+  - eslint-config
+  - eslint-config-react
+  - postcss
+  - graphql-schema
+  - ts-social
+  - ts-common-ui
+  - ts-common-react-core
+
+artifact_directories:
+  - node_modules
+
+test:
+  - type: yarn_run
+    cmd: test
+
+lint:
+  - type: yarn_run
+    cmd: '${{ parseBoolean(inputs.fix) ? "lint:fix" : "lint" }}'

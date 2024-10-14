@@ -1,0 +1,21 @@
+.asset-wrapper {
+  position: relative;
+  flex-shrink: 0;
+  inline-size: getRem(142);
+}
+
+.currency-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  inline-size: getRem(80);
+  block-size: getRem(80);
+  background-color: var(--noi-color-violet-800);
+  border-radius: var(--noi-border-radius-sm);
+
+  .currency-icon {
+    block-size: getRem(56);
+    inline-size: getRem(56);
+  }
+}

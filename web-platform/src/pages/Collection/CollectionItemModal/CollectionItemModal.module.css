@@ -1,0 +1,119 @@
+.collection-modal-wrapper {
+  display: grid;
+  grid-template-rows: getRem(48) auto getRem(48);
+  grid-template-columns: 1fr;
+  gap: var(--noi-spacing-8x);
+  justify-items: end;
+  padding: var(--noi-spacing-8x);
+  min-block-size: 100%;
+  inline-size: 100%;
+  container-type: size;
+  overflow: auto;
+
+  &::before {
+    position: absolute;
+    z-index: var(--noi-z-index-behind);
+    display: block;
+    background: var(--modal-background) no-repeat top center / cover;
+    opacity: 0.2;
+    content: '';
+    block-size: getRem(600);
+    inset: 0;
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      var(--noi-color-dark-main) 0%,
+      transparent getRem(600)
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      var(--noi-color-dark-main) 0%,
+      transparent getRem(600)
+    );
+  }
+}
+
+.collection-modal-content-wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--noi-spacing-6x);
+  place-self: center;
+}
+
+.item-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-8x);
+  padding: var(--noi-spacing-8x);
+  background: var(--noi-color-black-main-transparent-20);
+  border-radius: var(--noi-border-radius-2xl);
+  max-inline-size: getRem(872);
+
+  @container (inline-size < getRem(880)) {
+    flex-direction: column;
+    align-items: center;
+    background: none;
+  }
+
+  @container ((block-size < getRem(880)) and (inline-size < getRem(880))) {
+    padding: 0;
+  }
+}
+
+.card-wrapper {
+  position: relative;
+  inline-size: getRem(315);
+
+  &.locked {
+    opacity: 0.5;
+    filter: grayscale(1);
+  }
+  @container ((block-size < getRem(1080)) and (inline-size < getRem(880))) {
+    inline-size: var(--game-card-width-breakpoint-large);
+  }
+
+  @container ((block-size < getRem(880)) and (inline-size < getRem(880))) {
+    display: none;
+  }
+}
+
+.card-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-8x);
+}
+
+.header-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-weight: var(--noi-font-weight-extra-bold);
+  font-size: var(--noi-font-size-3xl);
+  font-style: italic;
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}
+
+.card-description {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-base);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+}
+
+.card-details-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--noi-spacing-3x);
+}
+
+.close-button-wrapper {
+  position: absolute;
+  inset-block-start: getRem(32);
+  inset-inline-end: getRem(32);
+}

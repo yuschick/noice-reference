@@ -1,0 +1,39 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  inline-size: getRem(340);
+  background: var(--noi-color-gray-950);
+}
+
+.always-visible-content {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  block-size: getRem(80);
+  padding: var(--noi-spacing-4x);
+}
+
+.recently-used {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-1x);
+}
+
+.content {
+  max-block-size: getRem(240);
+  overflow: hidden;
+  opacity: 1;
+  transition: max-block-size var(--noi-duration-quick) ease-in-out,
+    opacity var(--noi-duration-quick) ease-in-out;
+
+  .hidden > & {
+    max-block-size: 0;
+    opacity: 0;
+  }
+}
+
+.toggle-drawer-button {
+  @mixin button-sinks-on-pressed;
+}

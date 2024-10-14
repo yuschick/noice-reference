@@ -1,0 +1,1 @@
+export { PageLayoutSidebarSocial } from './PageLayoutSidebarSocial';

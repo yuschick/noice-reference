@@ -1,0 +1,1 @@
+export { RewardIcon } from './RewardIcon';

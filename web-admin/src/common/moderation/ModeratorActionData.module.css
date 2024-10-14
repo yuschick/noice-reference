@@ -1,0 +1,73 @@
+.title {
+  @mixin label m, semi-bold;
+  margin: 0;
+  color: var(--white);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+}
+
+.suspension-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.suspended-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+}
+
+.expire-date {
+  @mixin label s, medium;
+}
+
+.suspension-info {
+  @mixin label s, medium;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.suspension-info-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+}
+
+.suspension-info-title {
+  color: var(--white);
+}
+
+.moderator-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+}
+
+.date-wrapper {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  font-weight: var(--noi-font-weight-regular);
+}
+
+.violation {
+  @mixin paragraph s, medium;
+}
+
+.description {
+  @mixin paragraph s, regular;
+  margin: 0;
+}

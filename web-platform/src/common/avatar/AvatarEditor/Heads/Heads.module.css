@@ -1,0 +1,6 @@
+.head-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin-block-end: calc(var(--noi-spacing-6x) - 1cqi);
+}

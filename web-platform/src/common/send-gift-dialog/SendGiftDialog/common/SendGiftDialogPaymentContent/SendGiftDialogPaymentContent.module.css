@@ -1,0 +1,25 @@
+.purchase-summary-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+  line-height: var(--noi-line-height-tight);
+}
+
+.purchase-summary-title {
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-md);
+}
+
+.payment-result-content {
+  display: flex;
+  flex-direction: column;
+  gap: getRem(24);
+}
+
+.divider {
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  border: unset;
+  border-block-start: 1px solid var(--noi-color-gray-100);
+  margin-block-start: var(--noi-spacing-4x);
+  margin-block-end: var(--noi-spacing-4x);
+}

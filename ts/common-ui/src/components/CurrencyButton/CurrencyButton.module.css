@@ -1,0 +1,190 @@
+@layer noice.ui {
+  .currency-button-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--noi-spacing-2x);
+  }
+
+  .currency-button {
+    /* stylelint-disable declaration-property-value-allowed-list*/
+    --button-padding-outer-inline: var(--noi-spacing-6x);
+    --button-padding-inner-inline: var(--noi-spacing-4x);
+    --button-background: transparent;
+    --button-currency-background: transparent;
+    --button-color: var(--noi-color-text-dark);
+    --button-currency-color: var(--noi-color-text-light);
+    --button-size: getRem(48);
+    --button-font-size: var(--noi-font-size-md);
+    --button-icon-size: getRem(28);
+    --button-elements-gap: var(--noi-spacing-2x);
+
+    position: relative;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: stretch;
+    overflow: hidden;
+    color: var(--button-color);
+    font-weight: var(--noi-font-weight-medium);
+    font-size: var(--button-font-size);
+    line-height: var(--noi-line-height-tight);
+    letter-spacing: var(--noi-letter-spacing-loose);
+    white-space: nowrap;
+    text-transform: uppercase;
+    background-color: transparent;
+    border-radius: var(--noi-border-radius-pill);
+    cursor: pointer;
+    touch-action: none;
+    min-block-size: var(--button-size);
+    max-inline-size: 100%;
+    inline-size: 100%;
+    min-inline-size: max-content;
+
+    &[aria-disabled='true'],
+    &[aria-busy='true'] {
+      background: var(--noi-color-gray-400);
+      cursor: not-allowed;
+      opacity: 0.25;
+    }
+
+    &[aria-busy='true'] {
+      cursor: wait;
+    }
+
+    &:not([aria-disabled='true'], &[aria-busy='true']):active {
+      filter: brightness(0.97);
+      scale: 0.99;
+
+      @supports not (scale: 0.99) {
+        transform: scale(0.99);
+      }
+    }
+  }
+
+  /** Sizes **/
+  .xs {
+    --button-size: getRem(32);
+    --button-font-size: var(--noi-font-size-sm);
+    --button-icon-size: getRem(24);
+    --button-elements-gap: var(--noi-spacing-1x);
+  }
+
+  .sm {
+    --button-size: getRem(40);
+    --button-font-size: var(--noi-font-size-sm);
+    --button-icon-size: getRem(24);
+    --button-elements-gap: var(--noi-spacing-1x);
+  }
+
+  .lg {
+    --button-icon-size: getRem(32);
+    --button-padding-outer-inline: var(--noi-spacing-8x);
+    --button-padding-inner-inline: var(--noi-spacing-6x);
+    --button-size: getRem(56);
+    --button-elements-gap: var(--noi-spacing-3x);
+  }
+
+  /** Levels **/
+  .primary {
+    --button-background: var(--noi-gradient-green-teal);
+    --button-background-hover: var(--noi-gradient-green-teal);
+    --button-currency-background: var(--noi-color-teal-700);
+    --button-color: var(--noi-color-text-dark);
+
+    &:not([aria-disabled='true'], [aria-busy='true']):hover::after {
+      position: absolute;
+      background-color: var(--noi-color-dark-main-transparent-20);
+      content: '';
+      inset: 0;
+    }
+  }
+
+  .secondary {
+    &.light {
+      &:not([aria-disabled='true'], [aria-busy='true']):hover::after {
+        position: absolute;
+        background-color: var(--noi-color-light-main-transparent-10);
+        content: '';
+        inset: 0;
+      }
+      --button-background: var(--noi-color-light-main-transparent-10);
+      --button-background-hover: var(--noi-color-light-main-transparent-20);
+      --button-color: var(--noi-color-text-light);
+      --button-currency-background: var(--noi-color-light-main-transparent-20);
+    }
+
+    &.dark {
+      &:not([aria-disabled='true'], [aria-busy='true']):hover::after {
+        position: absolute;
+        background-color: var(--noi-color-dark-main-transparent-10);
+        content: '';
+        inset: 0;
+      }
+      --button-background: var(--noi-color-dark-main-transparent-10);
+      --button-background-hover: var(--noi-color-dark-main-transparent-20);
+      --button-color: var(--noi-color-text-dark);
+      --button-currency-color: var(--noi-color-text-dark);
+      --button-currency-background: var(--noi-color-dark-main-transparent-20);
+    }
+  }
+
+  .button-content {
+    position: relative;
+    display: inline-flex;
+    flex-grow: 1;
+    flex-wrap: nowrap;
+    gap: var(--button-elements-gap);
+    align-items: center;
+    justify-content: center;
+    background: var(--button-background);
+    padding-inline-start: var(--button-padding-outer-inline);
+    padding-inline-end: var(--button-padding-inner-inline);
+  }
+
+  .button-child-content-wrapper {
+    .currency-button:not([aria-disabled='true'])[aria-busy='true'] & {
+      background: var(--button-background-hover);
+      opacity: 0;
+    }
+  }
+
+  .currency-content {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    gap: var(--button-elements-gap);
+    align-items: center;
+    justify-content: center;
+    color: var(--button-currency-color);
+    background-color: var(--button-currency-background);
+    padding-inline-end: var(--button-padding-outer-inline);
+    padding-inline-start: var(--button-padding-inner-inline);
+
+    .currency-button[aria-disabled='true'] &,
+    .currency-button[aria-busy='true'] & {
+      background-color: var(--noi-color-gray-500);
+    }
+
+    .currency-icon {
+      inline-size: var(--button-icon-size);
+      block-size: var(--button-icon-size);
+      aspect-ratio: 1/1;
+    }
+  }
+
+  .button-loading-wrapper {
+    position: absolute;
+  }
+}
+
+.cannot-afford-error {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  padding: var(--noi-spacing-2x) var(--noi-spacing-4x);
+  color: var(--noi-color-text-dark);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  background-color: var(--noi-color-gray-100);
+  border-radius: var(--noi-border-radius-sm);
+}

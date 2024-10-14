@@ -1,0 +1,40 @@
+{
+  "extends": "./tsconfig.json",
+  "exclude": ["node_modules/*", "types/*", "dist/*"],
+  "references": [
+    {
+      "path": "../../lib/ts/apollo-client-utils"
+    },
+    {
+      "path": "../../lib/ts/assets-core"
+    },
+    {
+      "path": "../../lib/ts/chat-react-core"
+    },
+    {
+      "path": "../../lib/ts/common-react-core"
+    },
+    {
+      "path": "../../lib/ts/platform-client"
+    },
+    {
+      "path": "../../lib/ts/gen/schemas"
+    },
+    {
+      "path": "../../lib/ts/utils"
+    },
+    {
+      "path": "../../lib/ts/webview-bridge"
+    },
+  ],
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "isolatedModules": true,
+    "declarationDir": "./.types",
+    "noEmit": true,
+    "pretty": true,
+    "resolveJsonModule": true,
+    "tsBuildInfoFile": ".tscache/tsconfig.types.tsbuildinfo"
+  }
+}

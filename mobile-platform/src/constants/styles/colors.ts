@@ -1,0 +1,111 @@
+import * as BrandTokens from '@noice-com/design-tokens';
+export const colors = {
+  /* Depreceted colors */
+  red900: '#3a1719',
+  red800: '#5d2528',
+  red700: '#833338',
+  red600: '#ab4349',
+  red500: '#d4535b',
+  red400: '#ff646d',
+  red300: '#ff959b',
+  red200: '#ffbec2',
+  red100: '#ffe5e6',
+  red50: '#fff8f8',
+
+  purple900: '#2d1a35',
+  purple800: '#482b57',
+  purple700: '#663d7a',
+  purple600: '#854fa0',
+  purple500: '#a663c7',
+  purple400: '#c877ef',
+  purple300: '#db9afb',
+  purple200: '#e9c0fd',
+  purple100: '#f6e5fe',
+  purple50: '#fcf8ff',
+
+  yellow900: '#28210d',
+  yellow800: '#423516',
+  yellow700: '#5d4c1f',
+  yellow600: '#7a6328',
+  yellow500: '#977b32',
+  yellow400: '#b6943c',
+  yellow300: '#d6ae47',
+  yellow200: '#f2ca64',
+  yellow100: '#faeac1',
+  yellow50: '#fdf6e5',
+
+  gray950Transparent80: 'rgba(12, 12, 13, 0.8)',
+  gray900Transparent90: 'rgba(24, 24, 27, 0.9)',
+  gray900Transparent75: 'rgba(24, 24, 27, 0.75)',
+  gray100Transparent50: 'rgba(229, 229, 231, 0.5)',
+  gray50Transparent10: 'rgba(242, 242, 243, 0.1)',
+
+  redMainTransparent20: 'rgba(255, 100, 109, 0.2)',
+  redMainTransparent50: 'rgba(255, 100, 109, 0.5)',
+  redMain: '#ff646d',
+
+  greenMainTransparent10: 'rgba(47, 236, 191, 0.1)',
+  greenMainTransparent20: 'rgba(47, 236, 191, 0.2)',
+  greenMainTransparent40: 'rgba(47, 236, 191, 0.4)',
+  greenMainTransparent50: 'rgba(47, 236, 191, 0.5)',
+  greenMainTransparent90: 'rgba(47, 236, 191, 0.9)',
+
+  blueMainTransparent50: 'rgba(91, 219, 246, 0.5)',
+
+  purpleMain: '#db9afb',
+  purpleMainTransparent20: 'rgba(219, 154, 251, 0.2)',
+  purpleMainTransparent50: 'rgba(219, 154, 251, 0.5)',
+
+  yellowMain: '#f2ca64',
+  yellowMainTransparent50: 'rgba(242, 202, 100, 0.5)',
+
+  textSecondary: '#94949e',
+
+  white: '#fff',
+  whiteTransparent05: 'rgba(255, 255, 255, 0.05)',
+  whiteTransparent10: 'rgba(255, 255, 255, 0.1)',
+  whiteTransparent15: 'rgba(255, 255, 255, 0.15)',
+  whiteTransparent20: 'rgba(255, 255, 255, 0.2)',
+  whiteTransparent25: 'rgba(255, 255, 255, 0.25)',
+  whiteTransparent30: 'rgba(255, 255, 255, 0.3)',
+  whiteTransparent40: 'rgba(255, 255, 255, 0.4)',
+  whiteTransparent50: 'rgba(255, 255, 255, 0.5)',
+  whiteTransparent60: 'rgba(255, 255, 255, 0.6)',
+  whiteTransparent70: 'rgba(255, 255, 255, 0.7)',
+  whiteTransparent80: 'rgba(255, 255, 255, 0.8)',
+  whiteTransparent90: 'rgba(255, 255, 255, 0.9)',
+
+  black: '#000',
+  blackTransparent05: 'rgba(0, 0, 0, 0.05)',
+  blackTransparent10: 'rgba(0, 0, 0, 0.1)',
+  blackTransparent15: 'rgba(0, 0, 0, 0.15)',
+  blackTransparent20: 'rgba(0, 0, 0, 0.2)',
+  blackTransparent25: 'rgba(0, 0, 0, 0.25)',
+  blackTransparent30: 'rgba(0, 0, 0, 0.3)',
+  blackTransparent40: 'rgba(0, 0, 0, 0.4)',
+  blackTransparent50: 'rgba(0, 0, 0, 0.5)',
+  blackTransparent60: 'rgba(0, 0, 0, 0.6)',
+  blackTransparent70: 'rgba(0, 0, 0, 0.7)',
+  blackTransparent80: 'rgba(0, 0, 0, 0.8)',
+  blackTransparent90: 'rgba(0, 0, 0, 0.9)',
+
+  /* Custom project colors */
+  discordBlue: '#5865f2',
+  discordBlue100: '#4855e2',
+
+  /* Chat colors */
+  chatOrange: '#F69856',
+  chatOrangeYellow: '#F6CE56',
+  chatYellow: '#F6F656',
+  chatYellowGreen: '#C0F656',
+  chatGreen: '#63F655',
+  chatGreenBlue: '#56F6C0',
+  chatBlue: '#6EC9F7',
+  chatBlueViolet: '#8686F9',
+  chatViolet: '#B26AFB',
+  chatPink: '#F76EF7',
+
+  /* Imported brand tokens */
+  ...BrandTokens.color,
+  transparent: 'transparent',
+} as const;

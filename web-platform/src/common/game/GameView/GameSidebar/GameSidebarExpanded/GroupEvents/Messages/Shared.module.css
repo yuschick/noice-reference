@@ -1,0 +1,29 @@
+@keyframes pop-up {
+  0% {
+    transform: translateY(10%) scale(0.9);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card.show {
+    animation: none;
+  }
+}
+
+.card {
+  inline-size: var(--game-card-width-breakpoint-medium);
+  opacity: 0;
+
+  &.show {
+    display: block;
+    opacity: 1;
+    animation: pop-up 250ms 1;
+    pointer-events: none;
+  }
+}

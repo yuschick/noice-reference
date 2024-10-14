@@ -1,0 +1,94 @@
+.categories-list-wrapper {
+  display: grid;
+  gap: var(--noi-spacing-4x);
+  overflow: clip;
+  max-inline-size: calc(100% + var(--noi-page-main-padding) * 2);
+  margin-inline: calc(var(--noi-page-main-padding) * -1);
+
+  @media (min-width: getRem(792)) {
+    max-inline-size: none;
+    margin-inline: 0;
+    overflow: visible;
+  }
+
+  &:after {
+    background: var(--noi-color-light-main-transparent-10);
+    content: '';
+    block-size: getRem(1);
+    margin-inline: var(--noi-page-main-padding);
+    margin-block-start: var(--noi-spacing-4x);
+
+    @media (min-width: getRem(792)) {
+      margin-inline: 0;
+    }
+  }
+}
+
+.title-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--noi-spacing-1x);
+  padding-inline: var(--noi-page-main-padding);
+
+  @media (min-width: getRem(792)) {
+    padding-inline: 0;
+  }
+}
+
+.title-prefix {
+  background: var(--noi-gradient-green-teal);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+
+  @media (min-width: getRem(592)) {
+    font-size: var(--noi-font-size-lg);
+  }
+
+  @media (min-width: getRem(792)) {
+    font-size: var(--noi-font-size-xl);
+
+    .tighter-home-page & {
+      font-size: var(--noi-font-size-lg);
+    }
+  }
+}
+
+.categories-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  overflow: hidden;
+  overflow-x: auto;
+  touch-action: pan-x;
+  max-inline-size: 100%;
+  padding-inline: var(--noi-page-main-padding);
+
+  @media (min-width: getRem(792)) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(getRem(216), 1fr));
+    gap: var(--noi-spacing-6x);
+    margin: 0;
+    overflow: visible;
+    padding-inline: 0;
+  }
+}
+
+.category-list-item {
+  inline-size: getRem(216);
+  flex: 0 0 auto;
+
+  @media (min-width: getRem(792)) {
+    inline-size: auto;
+  }
+}

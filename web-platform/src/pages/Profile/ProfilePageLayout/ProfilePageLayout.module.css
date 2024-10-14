@@ -1,0 +1,29 @@
+.profile-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) min-content;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-12x);
+
+  @media (min-width: getRem(600)) {
+    gap: var(--noi-spacing-14x);
+  }
+
+  .private-page & {
+    gap: var(--noi-spacing-6x);
+  }
+}
+
+.avatar {
+  display: none;
+
+  @media (min-width: getRem(1200)) {
+    display: block;
+    max-inline-size: getRem(530);
+  }
+}

@@ -1,0 +1,13 @@
+.link-list {
+  @mixin list-style-none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-3x) var(--noi-spacing-4x);
+}
+
+.link-content {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-1x);
+  align-items: center;
+}

@@ -1,0 +1,4 @@
+.show-more-wrapper {
+  inline-size: getRem(200);
+  margin-inline: auto;
+}

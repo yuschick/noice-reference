@@ -1,0 +1,19 @@
+.form {
+  display: grid;
+  grid-template-rows: 1fr min-content;
+  grid-template-columns: 1fr;
+  gap: getRem(24);
+  min-block-size: 100%;
+}
+
+.loading-button {
+  cursor: wait;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  justify-content: space-between;
+}

@@ -1,0 +1,38 @@
+.wrapper {
+  position: relative;
+  user-select: none;
+  pointer-events: none;
+  container-type: inline-size;
+  container-name: offline-card-container;
+  inline-size: 100%;
+  aspect-ratio: var(--game-card-aspect-ratio);
+
+  &.no-card {
+    background-color: var(--noi-color-black-main);
+  }
+}
+
+.icon {
+  position: absolute;
+  z-index: var(--noi-z-index-level-3);
+  color: var(--noi-color-light-main-transparent-50);
+  transform: translate(-50%, -50%);
+  inset-inline-start: 50%;
+  inset-block-start: 35%;
+  inline-size: 32cqi;
+  block-size: 32cqi;
+}
+
+.card {
+  position: absolute;
+  inset: 0;
+}
+
+.background {
+  position: absolute;
+  z-index: var(--noi-z-index-level-2);
+  background-color: var(--noi-color-black-main-transparent-80);
+  border-radius: pixelsToCardCqi(16);
+  box-shadow: 0 0 0 pixelsToCardCqi(10) var(--noi-color-black-main-transparent-80);
+  inset: 0;
+}

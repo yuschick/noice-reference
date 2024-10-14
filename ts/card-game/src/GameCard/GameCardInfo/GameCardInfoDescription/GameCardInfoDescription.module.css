@@ -1,0 +1,74 @@
+.game-card-info-description-xsmall-small-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: pixelsToCardCqi(5);
+  align-items: center;
+}
+
+.game-card-info-description-wrapper {
+  font-size: max(getRem(16), pixelsToCardCqi(18));
+  line-height: max(getRem(18), pixelsToCardCqi(20));
+  text-wrap: balance;
+}
+
+.game-card-info-description-text {
+  display: none;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-regular);
+  text-shadow: 0 getRem(1) getRem(3) var(--noi-color-dark-main-transparent-80);
+  @mixin game-card-breakpoint-medium {
+    display: inline;
+  }
+}
+
+.game-card-info-description-number {
+  display: none;
+  color: var(--noi-color-teal-main);
+  font-weight: var(--noi-font-weight-bold);
+  background-color: var(--noi-color-black-main-transparent-70);
+  font-variant-numeric: tabular-nums;
+
+  @mixin game-card-breakpoint-xsmall {
+    display: block;
+    margin: pixelsToCardCqi(4);
+    padding: pixelsToCardCqi(4) pixelsToCardCqi(16);
+    border-radius: var(--noi-border-radius-pill);
+  }
+
+  @mixin game-card-breakpoint-medium {
+    /* Important is needed since the hide class below otherwise overrides :( */
+    display: inline !important;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .hide-numbers-on-small-card & {
+    @mixin game-card-breakpoint-small {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: getRem(459)) {
+  .game-card-info-description-number {
+    @mixin game-card-breakpoint-small {
+      /* Important is needed since the hide class below otherwise overrides :( */
+      display: inline !important;
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+    }
+  }
+
+  .game-card-info-description-wrapper {
+    font-size: max(getRem(14), pixelsToCardCqi(18));
+    line-height: max(getRem(16), pixelsToCardCqi(20));
+  }
+
+  .game-card-info-description-text {
+    @mixin game-card-breakpoint-small {
+      display: inline;
+    }
+  }
+}

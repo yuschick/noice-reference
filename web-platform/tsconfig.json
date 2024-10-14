@@ -1,0 +1,92 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": [
+    "src/assets/icons/index.d.ts",
+    "src/**/*",
+    "gen/*",
+    "config.ts",
+    "server.ts"
+  ],
+  "exclude": ["node_modules/*", "types/*", "dist/*"],
+  "references": [
+    {
+      "path": "../../lib/ts/gen/schemas"
+    },
+    {
+      "path": "../../lib/ts/platform-client"
+    },
+    {
+      "path": "../../lib/ts/webview-bridge"
+    },
+    {
+      "path": "../../lib/ts/utils"
+    },
+    {
+      "path": "../../lib/ts/common-ui"
+    },
+    {
+      "path": "../../lib/ts/chat-react-core"
+    },
+    {
+      "path": "../../lib/ts/chat-react-web"
+    },
+    {
+      "path": "../../lib/ts/avatar-builder"
+    },
+    {
+      "path": "../../lib/ts/renderer"
+    },
+    {
+      "path": "../../lib/ts/apollo-client-utils"
+    },
+    {
+      "path": "../../lib/ts/social-react-core"
+    },
+    {
+      "path": "../../lib/ts/social"
+    },
+    {
+      "path": "../../lib/ts/stream"
+    },
+    {
+      "path": "../../lib/ts/card-game"
+    }
+  ],
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "paths": {
+      "@assets/*": ["src/assets/*"],
+      "@common/*": ["src/common/*"],
+      "@game/*": ["src/game/*"],
+      "@pages/*": ["src/pages/*"],
+      "@layouts": ["src/layouts"],
+      "@page/*": ["src/page/*"],
+      "@styles": ["src/styles"],
+      "@types": ["src/types"],
+      "@story-helpers": ["src/story-helpers"],
+      "@story-helpers/*": ["src/story-helpers/*"],
+      "@globals/*": ["src/globals/*"],
+      "@gen": ["gen"],
+      "@hooks": ["src/hooks"],
+      "@context": ["src/context"],
+      "@analytics": ["src/analytics"],
+      "@utils": ["src/utils"],
+      "@components/*": ["src/components/*"]
+    },
+    "module": "commonjs",
+    "target": "ES2021",
+    "lib": ["DOM", "ES2021"],
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": false,
+    "strict": true,
+    "typeRoots": ["types", "node_modules/@types", "../../node_modules/@types"],
+    "tsBuildInfoFile": ".tscache/tsconfig.tsbuildinfo",
+    "isolatedModules": true
+  }
+}

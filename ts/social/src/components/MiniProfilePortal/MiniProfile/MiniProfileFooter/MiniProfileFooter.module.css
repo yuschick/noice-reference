@@ -1,0 +1,42 @@
+.mini-profile-footer {
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-areas: 'friend friend' 'gift menu';
+  grid-template-columns: 1fr min-content;
+  gap: var(--noi-spacing-2x);
+  margin-block-start: var(--noi-spacing-1x);
+
+  @container (min-inline-size: getRem(272)) {
+    grid-template-areas: 'friend gift menu';
+    grid-template-columns: 1fr 1fr min-content;
+  }
+
+  &:has(> *:nth-child(2):last-child) {
+    grid-template-areas: 'friend menu';
+    grid-template-columns: 1fr min-content;
+  }
+
+  &.with-moderation-buttons {
+    grid-template-areas: 'mute ban' '. menu';
+    grid-template-columns: 1fr 1fr;
+
+    @container (min-inline-size: getRem(272)) {
+      grid-template-areas: 'mute ban menu';
+      grid-template-columns: 1fr 1fr min-content;
+    }
+
+    &:has(> *:nth-child(2):last-child) {
+      grid-template-areas: 'ban menu';
+      grid-template-columns: 1fr min-content;
+    }
+  }
+}
+
+.friend-button-wrapper {
+  grid-area: friend;
+}
+
+.menu-button-wrapper {
+  grid-area: menu;
+  justify-self: end;
+}

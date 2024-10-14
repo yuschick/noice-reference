@@ -1,0 +1,138 @@
+@layer noice.ui {
+  .select-hint-wrapper {
+    --_select-background-disabled: var(--noi-color-blue-100);
+    --_select-background-hover: var(--noi-color-blue-50);
+    --_select-background-readonly: var(--noi-color-blue-100);
+    --_select-background: var(--noi-color-blue-50);
+    --_select-border-focus: var(--noi-color-teal-main);
+    --_select-border-hover: var(--noi-color-blue-400);
+    --_select-border: var(--noi-color-blue-200);
+    --_select-color: var(--noi-color-text-dark);
+    --_select-padding-base: var(--noi-spacing-4x);
+    --_select-padding-inline-start: var(--_select-padding-base);
+    --_select-padding-inline-end: var(--_select-padding-base);
+    --_select-size: getRem(48);
+    --_select-label-color-focus: var(--noi-color-teal-600);
+    --_select-label-color: var(--noi-color-text-dark-secondary);
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--noi-spacing-1x);
+    inline-size: 100%;
+
+    /* Sizes */
+    &.sm {
+      --_select-size: getRem(40);
+    }
+
+    &.lg {
+      --_select-size: getRem(56);
+    }
+
+    /* Colors */
+    &.blue {
+      --_select-background: var(--noi-color-blue-750);
+      --_select-background-disabled: var(--noi-color-blue-700);
+      --_select-background-hover: var(--noi-color-blue-750);
+      --_select-background-readonly: var(--noi-color-blue-700);
+      --_select-border: var(--noi-color-blue-650);
+      --_select-border-hover: var(--noi-color-blue-500);
+      --_select-color: var(--noi-color-text-light);
+      --_select-label-color: var(--noi-color-text-light-secondary);
+      --_select-label-color-focus: var(--noi-color-teal-main);
+    }
+
+    &.gray {
+      --_select-background: var(--noi-color-gray-750);
+      --_select-background-disabled: var(--noi-color-gray-700);
+      --_select-background-hover: var(--noi-color-gray-750);
+      --_select-background-readonly: var(--noi-color-gray-700);
+      --_select-border: var(--noi-color-gray-650);
+      --_select-border-hover: var(--noi-color-gray-500);
+      --_select-color: var(--noi-color-text-light);
+      --_select-label-color: var(--noi-color-text-light-secondary);
+      --_select-label-color-focus: var(--noi-color-teal-main);
+    }
+  }
+
+  .select-wrapper {
+    position: relative;
+  }
+
+  .select {
+    color: var(--_select-color);
+    font-weight: var(--noi-font-weight-medium);
+    font-size: var(--noi-font-size-md);
+    font-family: var(--noi-font-family-body);
+    background-color: var(--_select-background);
+    border: 1px solid var(--_select-border);
+    border-radius: var(--noi-border-radius-sm);
+    block-size: var(--_select-size);
+    inline-size: 100%;
+    max-inline-size: 100%;
+    padding-inline: var(--_select-padding-inline-start) var(--_select-padding-inline-end);
+
+    &.has-hidden-label {
+      padding-block-start: initial;
+    }
+
+    &:disabled {
+      background-color: var(--_select-background-disabled);
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    @media (hover: hover) {
+      &:not(:disabled, [aria-invalid='true']):hover {
+        background-color: var(--_select-background-hover);
+        border-color: var(--_select-border-hover);
+      }
+    }
+
+    &:not(:disabled):focus {
+      border-color: var(--_select-border-focus);
+      outline: none;
+    }
+
+    &:not(:disabled)[readonly] {
+      background-color: var(--_select-background-readonly);
+      cursor: default;
+    }
+
+    &:not(:disabled)[aria-invalid='true'] {
+      --_select-border: var(--noi-color-status-error-main);
+    }
+  }
+
+  .label-text {
+    color: var(--_select-label-color);
+    font-size: var(--noi-font-size-md);
+
+    .select[aria-invalid='true']:not(:disabled) + & {
+      color: var(--noi-color-status-error-main);
+    }
+
+    .select:not(:disabled):focus + & {
+      color: var(--_select-label-color-focus);
+    }
+  }
+
+  .fixed-label-wrapper {
+    margin-block-end: var(--noi-spacing-1x);
+    padding: 0;
+  }
+
+  .fixed-label-text {
+    color: var(--noi-color-light-main);
+    font-weight: var(--noi-font-weight-medium);
+    font-size: var(--noi-font-size-sm);
+    line-height: var(--noi-line-height-tight);
+  }
+
+  .select-hint {
+    color: var(--_select-label-color);
+    padding-inline: var(--_select-padding-inline-start) var(--_select-padding-inline-end);
+    font-size: var(--noi-font-size-sm);
+    max-inline-size: 100%;
+  }
+}

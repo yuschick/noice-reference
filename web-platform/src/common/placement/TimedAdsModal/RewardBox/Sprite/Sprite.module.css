@@ -1,0 +1,18 @@
+.wrapper {
+  position: absolute;
+  overflow: hidden;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+}
+
+.sprite-box {
+  inline-size: 800%;
+  block-size: 200%;
+}
+
+.sprite-fx {
+  inline-size: 200%;
+  block-size: 100%;
+}

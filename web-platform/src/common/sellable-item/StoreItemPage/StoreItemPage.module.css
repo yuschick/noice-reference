@@ -1,0 +1,201 @@
+.wrapper {
+  &::after {
+    position: fixed;
+    z-index: var(--noi-z-index-behind);
+    background-image: var(--_store-item-page-bg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    content: '';
+    inset: 0;
+
+    [data-friends-sidebar-exists='false'] & {
+      inset-inline-end: 0;
+    }
+
+    @media (min-width: getRem(793)) {
+      inset: 0 var(--platform-collapsed-sidebar-size);
+    }
+  }
+
+  @media (min-width: getRem(600)) {
+    padding: var(--noi-spacing-6x) var(--noi-spacing-8x);
+  }
+
+  @media (min-width: getRem(1200)) {
+    padding: var(--noi-spacing-6x) var(--noi-spacing-14x);
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--noi-spacing-8x);
+  margin: 0 auto;
+  inline-size: min(100%, var(--noi-layout-max-content-size));
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--noi-spacing-8x);
+  align-items: center;
+  justify-content: space-between;
+  min-block-size: var(--page-wrapper-header-height);
+}
+
+.content-wrapper {
+  display: grid;
+  align-content: center;
+  max-inline-size: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-6x);
+
+  @media (min-width: getRem(600)) {
+    gap: var(--noi-spacing-12x);
+  }
+
+  @media (min-width: getRem(1200)) {
+    gap: var(--noi-spacing-14x);
+  }
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--noi-spacing-4x);
+  align-self: center;
+  justify-items: center;
+  margin-block-start: var(--noi-spacing-2x);
+}
+
+.card-pack-image {
+  inline-size: 100%;
+  box-shadow: 0px 24px 32px -24px var(--noi-color-black-main-transparent-25);
+  opacity: 0;
+  animation: appear 150ms 0ms forwards ease-out;
+}
+
+@keyframes appear {
+  0% {
+    transform: translateY(getRem(175)) scale(0.9);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.card-wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--store-card-bundle-modal-bundle-gap);
+  align-content: flex-start;
+  align-items: flex-start;
+  align-self: stretch;
+  justify-content: center;
+  padding: var(--noi-spacing-8x) var(--noi-spacing-6x);
+  background: var(--noi-color-light-main-transparent-5);
+  border-radius: var(--noi-border-radius-lg);
+
+  @media (min-width: getRem(600)) {
+    padding: var(--noi-spacing-8x);
+  }
+
+  @media (min-width: getRem(792)) {
+    padding: var(--noi-spacing-8x) var(--noi-spacing-14x);
+  }
+
+  @media (min-width: getRem(1100)) {
+    justify-content: space-evenly;
+  }
+
+  .hidden & {
+    visibility: hidden;
+  }
+
+  .purchased & {
+    animation: fade-out 300ms;
+    padding-block-end: var(--noi-spacing-8x);
+  }
+
+  &.reveal-card-wrapper {
+    padding-block-end: var(--noi-spacing-20x);
+
+    @media (min-width: getRem(1400)) {
+      gap: getRem(55);
+      align-self: center;
+      justify-content: center;
+      padding-inline-start: getRem(90);
+      padding-inline-end: getRem(90);
+    }
+
+    @media (min-width: getRem(960)) {
+      justify-content: space-evenly;
+    }
+  }
+
+  .show-cards & {
+    visibility: visible;
+    animation: fade-in 300ms;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.cards-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-6x);
+  justify-content: center;
+
+  @media (min-width: getRem(1320)) {
+    padding-block-end: 2rem;
+    padding-block-start: 2rem;
+  }
+}
+
+.card-pack-wrapper {
+  display: none;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  transform: perspective(getRem(680)) rotateY(10deg) rotateX(1deg) rotateZ(359deg);
+  filter: drop-shadow(-16px 4px 16px #1113);
+  max-inline-size: 10rem;
+  min-inline-size: 10rem;
+
+  @media (min-width: getRem(960)) {
+    display: flex;
+  }
+
+  @media (min-width: getRem(1400)) {
+    max-inline-size: 14rem;
+  }
+}

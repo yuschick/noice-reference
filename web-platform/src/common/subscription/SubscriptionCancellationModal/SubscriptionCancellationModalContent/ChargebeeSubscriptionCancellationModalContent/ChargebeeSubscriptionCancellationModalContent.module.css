@@ -1,0 +1,47 @@
+.description-section {
+  padding: var(--noi-spacing-6x);
+  color: var(--noi-color-text-dark);
+  font-weight: var(--noi-font-weight-base);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-loose);
+  background-color: var(--noi-color-light-main);
+  border-radius: var(--noi-border-radius-md);
+}
+
+.perk-section {
+  display: flex;
+  flex-direction: column;
+  gap: getRem(24);
+}
+
+.perk-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: getRem(24);
+  align-items: flex-start;
+  align-self: stretch;
+  padding: var(--noi-spacing-6x);
+  background-color: var(--noi-color-light-main);
+  border-radius: var(--noi-border-radius-md);
+}
+
+.perk-list-title {
+  color: var(--noi-color-text-dark);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+}
+
+.perk-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-content: flex-start;
+  align-items: flex-start;
+  align-self: stretch;
+  margin-block-start: getRem(16);
+}
+
+.badge {
+  margin-block-start: getRem(16);
+}

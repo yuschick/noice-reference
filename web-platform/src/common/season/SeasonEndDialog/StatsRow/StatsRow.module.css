@@ -1,0 +1,35 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-1x);
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  inline-size: getRem(24);
+  block-size: getRem(24);
+  color: var(--noi-color-white-main);
+}
+
+.text-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-1x);
+  align-items: center;
+}
+
+.prefix {
+  color: var(--noi-color-white-main);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+}
+
+.suffix {
+  color: var(--noi-color-white-main);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+}

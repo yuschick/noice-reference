@@ -1,0 +1,28 @@
+.status-icon {
+  display: flex;
+  flex-wrap: nowrap;
+  color: var(--noi-color-gray-550);
+
+  &.live,
+  &.active {
+    color: var(--noi-color-green-main);
+  }
+
+  &.standby {
+    color: var(--noi-color-green-main);
+  }
+
+  &.error {
+    color: var(--noi-color-status-error-main);
+  }
+}
+
+.pause {
+  inline-size: var(--noi-line-height-tight);
+  block-size: var(--noi-line-height-tight);
+}
+
+.bullet {
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+}

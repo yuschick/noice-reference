@@ -1,0 +1,6 @@
+.universal-challenges-list-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+}

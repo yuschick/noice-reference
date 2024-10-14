@@ -1,0 +1,20 @@
+{
+  "extends": "./tsconfig.json",
+  "references": [
+    {
+      "path": "../platform-client"
+    },
+    {
+      "path": "../utils"
+    },
+    {
+      "path": "../common-ui"
+    },
+    {
+      "path": "../social"
+    }
+  ],
+  "compilerOptions": {
+    "emitDeclarationOnly": true
+  }
+}

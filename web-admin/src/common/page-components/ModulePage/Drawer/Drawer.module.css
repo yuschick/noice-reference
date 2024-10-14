@@ -1,0 +1,32 @@
+.wrapper {
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  gap: var(--noi-spacing-8x);
+  inline-size: min(getRem(440), 75vw);
+  block-size: 100%;
+  padding: getRem(16) getRem(24);
+  overflow: auto;
+  background-color: var(--neutral-700);
+  border-block-start: 1px solid var(--neutral-800);
+  transform: translateX(0);
+  transition: transform var(--noi-duration-quick);
+
+  &.open {
+    /* stylelint-disable-next-line declaration-property-value-disallowed-list */
+    box-shadow: -2px 0px 4px rgba(10, 12, 15, 0.5);
+    transform: translateX(-100%);
+  }
+}
+
+.top {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  @mixin heading h5;
+  margin: 0;
+}

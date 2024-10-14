@@ -1,0 +1,7 @@
+.automod-container {
+  --font-size-xxlarge: getRem(24);
+  --line-height-xxlarge: getRem(24);
+  @mixin narrow-scrollbar;
+  block-size: 100%;
+  overflow-x: hidden;
+}

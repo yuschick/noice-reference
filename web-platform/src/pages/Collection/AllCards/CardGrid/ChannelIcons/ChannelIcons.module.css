@@ -1,0 +1,30 @@
+.channel-icons {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  inline-size: getRem(60);
+  block-size: getRem(24);
+}
+
+.channel-logo-border {
+  display: block;
+  border-radius: var(--noi-border-radius-circle);
+  box-shadow: 0 0 0 getRem(2) var(--noi-color-dark-main);
+}
+
+.more-channels {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  color: var(--noi-color-dark-main);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-xs);
+  line-height: var(--noi-line-height-tight);
+  background-color: var(--noi-color-light-main);
+  border-radius: var(--noi-border-radius-circle);
+  inline-size: getRem(24);
+  block-size: getRem(24);
+}

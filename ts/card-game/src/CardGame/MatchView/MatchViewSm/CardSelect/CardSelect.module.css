@@ -1,0 +1,94 @@
+.container {
+  position: absolute;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  background-image: radial-gradient(
+    at left bottom,
+    var(--noi-color-black-main-transparent-80) 50%,
+    transparent 70%
+  );
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 100% getRem(480);
+  pointer-events: all;
+  container-type: inline-size;
+  container-name: card-select-container;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  block-size: 100vh;
+}
+
+.dismiss {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, var(--black-transparent-60) 70%);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 getRem(16);
+}
+
+.title {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}
+
+.label {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: getRem(6);
+  align-items: center;
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}
+
+.current-tokens {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  padding: var(--noi-spacing-4x);
+  overflow-x: scroll;
+  @mixin no-scroll-bar;
+}
+
+.card {
+  inline-size: 38cqi;
+  flex-shrink: 0;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  justify-content: space-between;
+  padding: 0 getRem(16) getRem(16) getRem(16);
+  transition: opacity var(--_card-select-match-card-transition-time);
+}
+
+.cancel {
+  flex-grow: 1;
+}

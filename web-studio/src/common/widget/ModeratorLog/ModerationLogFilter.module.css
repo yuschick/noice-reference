@@ -1,0 +1,18 @@
+.filter-title {
+  color: var(--noi-color-gray-450);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-xs);
+  text-transform: uppercase;
+  margin-block-start: getRem(1);
+}
+
+.event-type {
+  display: block;
+  margin: getRem(6);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+}
+
+.check {
+  margin-inline-end: var(--noi-spacing-2x);
+}

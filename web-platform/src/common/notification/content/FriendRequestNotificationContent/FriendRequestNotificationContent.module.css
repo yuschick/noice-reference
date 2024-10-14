@@ -1,0 +1,24 @@
+.wrapper {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-3x);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--noi-spacing-4x);
+}
+
+.actor-name {
+  font-weight: var(--noi-font-weight-bold);
+  overflow-wrap: anywhere;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--noi-spacing-2x);
+}

@@ -1,0 +1,50 @@
+.game-progression-wrapper {
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  padding: var(--noi-spacing-4x) var(--noi-spacing-6x) var(--noi-spacing-4x)
+    var(--noi-spacing-4x);
+  background-color: var(--noi-color-dark-main-transparent-70);
+  border-radius: var(--noi-border-radius-md);
+}
+
+.game-progression-details-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--noi-spacing-1x);
+}
+
+.game-progression-title {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-medium);
+}
+
+.season-name {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  margin-block-end: var(--noi-spacing-half);
+}
+
+.max-level {
+  color: var(--noi-color-teal-main);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}
+
+.game-progress-bar {
+  --horizontal-progress-bar-progress-color: var(--noi-color-teal-main);
+  block-size: getRem(8);
+}
+
+.loading-skeleton {
+  block-size: getRem(96);
+  inline-size: min(100%, getRem(350));
+  border-radius: var(--noi-border-radius-md);
+}

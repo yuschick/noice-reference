@@ -1,0 +1,33 @@
+:root {
+  --active-boosters-inline-size: calc(getRem(18) + getRem(12) + getRem(40));
+  --active-boosters-block-size: calc(4 * getRem(40) + 3 * getRem(8) + 2 * getRem(12));
+}
+
+.active-boosters-background {
+  background-color: var(--noi-color-black-main-transparent-80);
+  border-radius: var(--noi-border-radius-xl);
+  border-inline-start: 0;
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+  inline-size: var(--active-boosters-inline-size);
+  block-size: var(--active-boosters-block-size);
+}
+
+.active-boosters-boosters-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--noi-spacing-3x);
+  padding-inline-start: getRem(18);
+  inline-size: var(--active-boosters-inline-size);
+  block-size: var(--active-boosters-block-size);
+}
+
+.active-boosters-booster-placeholder {
+  background-color: var(--noi-color-light-main-transparent-10);
+  border-radius: var(--noi-border-radius-circle);
+  inline-size: getRem(40);
+  block-size: getRem(40);
+}

@@ -1,0 +1,75 @@
+.user-currency-wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: getRem(7);
+  align-items: center;
+  background-color: var(--noi-color-light-main-transparent-10);
+  border-radius: var(--noi-border-radius-md);
+  min-block-size: getRem(32);
+  padding-inline: var(--noi-spacing-1x) var(--noi-spacing-3x);
+
+  &.panel {
+    background-color: transparent;
+  }
+
+  &.is-animating:before {
+    position: absolute;
+    border-radius: var(--noi-border-radius-md);
+    box-shadow: inset 0px 0px 15px 0px #1a65a3aa, 0px 0px 22px 0px #26cfc177;
+    mix-blend-mode: color-dodge;
+    animation: background-blink 400ms infinite;
+    content: ' ';
+    inset: 0;
+  }
+}
+
+.user-currency-amount {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-single);
+  text-align: center;
+  text-transform: uppercase;
+  min-inline-size: getVarRem(var(--currency-wrapper-width));
+  font-variant-numeric: tabular-nums;
+
+  .panel & {
+    display: initial;
+  }
+}
+
+.currency-icon {
+  .is-animating & {
+    animation: icon-shaking 250ms infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation-iteration-count: 1;
+    }
+  }
+}
+
+@keyframes icon-shaking {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes background-blink {
+  0% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.4;
+  }
+}

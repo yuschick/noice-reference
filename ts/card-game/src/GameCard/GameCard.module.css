@@ -1,0 +1,174 @@
+.game-card-root {
+  container-type: inline-size;
+  container-name: game-card-container;
+  position: relative;
+  inline-size: 100%;
+}
+
+.game-card-wrapper {
+  border-radius: pixelsToCardCqi(16);
+  user-select: none;
+  inline-size: 100%;
+  min-inline-size: getRem(80);
+
+  &:is(button) {
+    display: block;
+    padding: 0;
+    line-height: inherit;
+    letter-spacing: inherit;
+    text-align: start;
+    background: none;
+    cursor: pointer;
+  }
+
+  .is-disabled & {
+    cursor: not-allowed;
+  }
+
+  .is-hovering &,
+  .mouse-is-leaving & {
+    perspective: calc(2.5 * var(--game-card-width-breakpoint-large));
+  }
+}
+
+.game-card-moving-wrapper {
+  position: relative;
+  z-index: var(--noi-z-index-level-1);
+  display: flex;
+  flex-direction: column;
+  inline-size: 100%;
+  max-inline-size: 100cqi;
+  aspect-ratio: var(--game-card-aspect-ratio);
+  border-radius: pixelsToCardCqi(16);
+
+  .is-streamer-card & {
+    overflow: hidden;
+  }
+
+  .is-hovering & {
+    transform: rotateX(var(--game-card-rotate-x)) rotateY(calc(var(--game-card-rotate-y)));
+    transform-style: preserve-3d;
+    transition: transform var(--game-card-mouse-is-hovering-transition);
+
+    /* Transition above is heavy for firefox, disable it for firefox */
+    @supports (-moz-appearance: none) {
+      transition: none;
+    }
+  }
+
+  .mouse-is-leaving & {
+    transition: transform var(--game-card-mouse-is-leaving-transition);
+  }
+
+  @media (hover: none) {
+    .is-hovering & {
+      transform: none;
+      transition: none;
+    }
+  }
+}
+
+.game-card-big-content-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin: pixelsToCardCqi(10);
+  border-radius: pixelsToCardCqi(6);
+  box-shadow: 0 0 0 1px var(--noi-color-light-main-transparent-10);
+  margin-block-end: 0;
+  block-size: pixelsToCardCqi(240);
+  aspect-ratio: 0.75;
+}
+
+.game-card-bg-art-and-video {
+  position: absolute;
+  overflow: hidden;
+  background-color: var(--noi-color-dark-main-transparent-70);
+  border-radius: pixelsToCardCqi(6);
+  inset: 0;
+}
+
+.game-card-hero-art {
+  .is-streamer-card & {
+    display: none;
+  }
+}
+
+.game-card-info-container {
+  z-index: var(--noi-z-index-level-1);
+  inline-size: 100%;
+
+  .is-playing-video & {
+    display: none;
+  }
+}
+
+.game-card-bottom-content {
+  display: grid;
+  flex-grow: 1;
+  grid-template-areas: 'points points' 'bottom-label bottom-label';
+  grid-template-rows: auto min-content;
+  align-items: center;
+  justify-content: center;
+  padding-inline: pixelsToCardCqi(16);
+
+  @mixin game-card-breakpoint-small {
+    grid-template-areas: 'points badge' 'bottom-label bottom-label';
+    grid-template-rows: auto min-content;
+    justify-content: space-between;
+  }
+}
+
+.game-card-bottom-content-points-container {
+  grid-area: points;
+  justify-self: center;
+
+  @mixin game-card-breakpoint-small {
+    justify-self: flex-start;
+  }
+}
+
+.game-card-bottom-content-badge {
+  display: none !important;
+  grid-area: badge;
+
+  @mixin game-card-breakpoint-small {
+    display: flex !important;
+    justify-self: flex-end;
+  }
+}
+
+.game-card-bottom-content-bottom-label-container {
+  grid-area: bottom-label;
+}
+
+.game-card-bg-video-expand-button-wrapper {
+  position: absolute;
+  display: none;
+  overflow: hidden;
+  transform: translate(-50%, -40%);
+  inset-block-start: 40%;
+  inset-inline-start: 50%;
+
+  .is-hovering & {
+    display: block;
+  }
+}
+
+.game-card-loading-wrapper {
+  border-radius: pixelsToCardCqi(16);
+}
+
+.game-card-loading-art-container {
+  position: relative;
+  flex-grow: 1;
+}
+
+.game-card-loading-art {
+  @mixin loading-shine var(--noi-color-light-main-transparent-10);
+  inset: 0;
+  position: absolute;
+  border-radius: pixelsToCardCqi(16);
+}

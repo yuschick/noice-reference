@@ -1,0 +1,1 @@
+export { SignupInProcessRoute } from './SignupInProcessRoute';

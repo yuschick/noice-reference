@@ -1,0 +1,110 @@
+.wrapper {
+  position: relative;
+}
+
+.input-wrapper {
+  position: relative;
+  display: block;
+}
+
+.search-icon {
+  position: absolute;
+  inset-block-start: getRem(8);
+  inset-inline-start: getRem(16);
+  inline-size: getRem(20);
+  block-size: getRem(20);
+  color: var(--white);
+
+  .input:placeholder-shown + & {
+    color: var(--neutral-300);
+  }
+}
+
+.input {
+  @mixin label s, medium;
+  inline-size: clamp(getRem(200), 100%, getRem(448));
+  padding: getRem(10) getRem(16) getRem(10) getRem(44);
+  color: var(--white);
+  background-color: var(--neutral-800);
+  border: none;
+  border-radius: getRem(7);
+
+  &::placeholder {
+    color: var(--neutral-300);
+  }
+
+  &:placeholder-shown {
+    background-color: var(--neutral-600);
+  }
+}
+
+.listbox-wrapper {
+  position: absolute;
+  inset-block-start: calc(100% + var(--noi-spacing-half));
+  inset-inline-end: 0;
+  inset-inline-start: 0;
+  display: none;
+  padding: getRem(16) var(--noi-spacing-2x);
+  overflow-inline: auto;
+  background-color: var(--neutral-600);
+  border-radius: getRem(7);
+  inline-size: clamp(getRem(320), 100%, getRem(500));
+
+  .expanded & {
+    display: block;
+  }
+}
+
+.list {
+  @mixin list-style-none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+  padding: 0;
+}
+
+.group-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+}
+
+.divider {
+  block-size: getRem(1);
+  background-color: var(--neutral-500);
+}
+
+.group-label {
+  @mixin label s, semibold;
+  display: block;
+  margin-block-end: var(--noi-spacing-2x);
+  margin-inline-start: var(--noi-spacing-2x);
+  color: var(--neutral-200);
+}
+
+.user {
+  @mixin label m, medium;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  padding: var(--noi-spacing-2x);
+  color: var(--neutral-200);
+  text-decoration: none;
+  border-radius: getRem(7);
+
+  .list-option[aria-selected='true'] & {
+    background-color: var(--neutral-500);
+  }
+}
+
+.button-wrapper {
+  margin-block-start: getRem(16);
+  text-align: center;
+}
+
+.no-result {
+  @mixin label m, regular;
+  padding: var(--noi-spacing-2x);
+  color: var(--white);
+}

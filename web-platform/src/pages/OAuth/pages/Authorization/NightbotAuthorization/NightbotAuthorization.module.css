@@ -1,0 +1,32 @@
+.wrapper {
+  padding-block: getRem(32);
+}
+
+.list-title {
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+  list-style: disc;
+  margin-block: getRem(16);
+  padding-inline-start: getRem(16);
+}
+
+.divider {
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  border: unset;
+  border-block-start: 1px var(--noi-color-blue-300) solid;
+  margin-block: getRem(16);
+}
+
+.bottom-title {
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+  margin-block-end: var(--noi-spacing-2x);
+}

@@ -1,0 +1,26 @@
+{
+  "extends": "./tsconfig.json",
+  "references": [
+    {
+      "path": "../gen/schemas"
+    },
+    {
+      "path": "../platform-client"
+    },
+    {
+      "path": "../utils"
+    },
+    {
+      "path": "../common-ui"
+    },
+    {
+      "path": "../renderer"
+    },
+    {
+      "path": "../card-game"
+    }
+  ],
+  "compilerOptions": {
+    "emitDeclarationOnly": true
+  }
+}

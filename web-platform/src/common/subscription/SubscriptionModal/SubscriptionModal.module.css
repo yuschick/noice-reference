@@ -1,0 +1,10 @@
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: getRem(24);
+}
+
+:global(#cb-container) {
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  color-scheme: normal;
+}

@@ -1,0 +1,20 @@
+.currency-pack-details-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+}
+
+.currency-pack-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+}
+
+.currency-pack-name {
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-xl);
+}

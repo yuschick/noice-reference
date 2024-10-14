@@ -1,0 +1,18 @@
+.avatar-editor-dialog-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+}
+
+.avatar-editor-dialog-header {
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+}
+
+.avatar-editor-dialog-description {
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-md);
+  text-align: center;
+}

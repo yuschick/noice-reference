@@ -1,0 +1,10 @@
+.carousel-slide {
+  inline-size: clamp(getRem(256), 20vi, getRem(384));
+  padding: var(--noi-spacing-1x);
+}
+
+.loading-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-6x);
+}

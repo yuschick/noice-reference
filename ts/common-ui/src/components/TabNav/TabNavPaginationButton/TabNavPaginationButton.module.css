@@ -1,0 +1,36 @@
+.button {
+  position: absolute;
+  z-index: var(--noi-z-index-level-9);
+  display: block;
+  background-color: var(--noi-color-gray-800);
+  border-radius: var(--noi-border-radius-sm);
+  box-shadow: 8px 0px 32px 6px var(--noi-color-gray-950);
+  cursor: pointer;
+  animation: fade-in 200ms;
+  block-size: getRem(40);
+  inline-size: getRem(40);
+  inset-block-start: 0;
+  inset-block-end: 0;
+
+  &:disabled {
+    display: none;
+  }
+}
+
+.prev {
+  inset-inline-start: getRem(-4);
+}
+
+.next {
+  inset-inline-end: getRem(-4);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

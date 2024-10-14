@@ -1,0 +1,22 @@
+.mini-profile-game-rank-section {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  gap: var(--noi-spacing-3x);
+  align-items: center;
+  padding: var(--noi-spacing-3x);
+  background-color: var(--noi-color-gray-900);
+  border-radius: var(--noi-border-radius-sm);
+}
+
+.rank-text-wrapper {
+  display: grid;
+  gap: var(--noi-spacing-half);
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+}
+
+.rank-game-name {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+}

@@ -1,0 +1,10 @@
+.unsupported-browser-warning {
+  padding: var(--noi-spacing-2x) var(--noi-spacing-4x);
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-medium);
+  background: var(--noi-color-status-error-main);
+  border-radius: var(--noi-border-radius-md);
+  inline-size: 100%;
+}

@@ -1,0 +1,79 @@
+.wrapper {
+  position: relative;
+}
+
+.combobox {
+  @mixin label m, medium;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--noi-spacing-3x) getRem(16);
+  background-color: var(--neutral-700);
+  border-radius: getRem(7);
+  cursor: pointer;
+  min-inline-size: getRem(200);
+}
+
+.listbox {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+  padding: var(--noi-spacing-4x);
+  background-color: var(--neutral-600);
+  border-radius: 0 0 getRem(7) getRem(7);
+  inline-size: 100%;
+
+  .expanded & {
+    display: flex;
+  }
+}
+
+.select-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  justify-content: flex-end;
+  color: var(--neutral-200);
+}
+
+.option {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  cursor: pointer;
+}
+
+.option-box {
+  position: relative;
+  color: var(--success-900);
+  background-color: var(--neutral-900);
+  border: 1px solid var(--neutral-500);
+  border-radius: getRem(3);
+  inline-size: getRem(20);
+  block-size: getRem(20);
+
+  .active-option &,
+  .option:hover & {
+    border-color: var(--neutral-400);
+  }
+
+  .option[aria-selected='true'] & {
+    background-color: var(--success-400);
+  }
+}
+
+.option-icon {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  opacity: 0;
+
+  .option[aria-selected='true'] & {
+    opacity: 1;
+  }
+}

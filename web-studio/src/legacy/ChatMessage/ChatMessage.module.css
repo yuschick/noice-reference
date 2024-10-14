@@ -1,0 +1,71 @@
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: getRem(6);
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--noi-spacing-1x);
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--_font-size-chat);
+  line-height: var(--_line-height-chat);
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  border-radius: var(--noi-border-radius-sm);
+
+  &:hover {
+    background-color: var(--noi-color-gray-750);
+  }
+
+  &.mentions-me {
+    background-color: var(--noi-color-gray-800);
+  }
+}
+
+.message {
+  display: inline-block;
+  overflow-wrap: break-word;
+
+  .small & {
+    padding-block-start: var(--noi-spacing-half);
+  }
+
+  .medium & {
+    padding-block-start: var(--noi-spacing-1x);
+  }
+
+  .large & {
+    padding-block-start: var(--noi-spacing-2x);
+  }
+}
+
+.hide-message-button {
+  flex-shrink: 0;
+}
+
+.own-name {
+  padding: var(--noi-spacing-half) 0;
+  font-weight: var(--noi-font-weight-bold);
+}
+
+.author-name {
+  padding: var(--noi-spacing-half) 0;
+  font-weight: var(--noi-font-weight-bold);
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    display: inline-block;
+    background-color: var(--noi-color-gray-600);
+    border-radius: var(--noi-border-radius-sm);
+  }
+}
+
+.mention {
+  color: var(--noi-color-green-main);
+  font-weight: var(--noi-font-weight-medium);
+}
+
+.deleted-message {
+  color: var(--noi-color-gray-650);
+}

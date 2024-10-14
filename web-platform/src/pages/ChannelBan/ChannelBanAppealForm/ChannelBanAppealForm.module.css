@@ -1,0 +1,28 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+}
+
+.status-text {
+  color: var(--noi-color-gray-400);
+  font-weight: var(--noi-font-weight-medium);
+  text-align: center;
+
+  .no-appeal,
+  .declined {
+    color: var(--noi-color-status-error-main);
+  }
+
+  & .form-submitted {
+    color: var(--noi-color-green-main);
+  }
+
+  .under-review {
+    color: var(--noi-color-status-alert-main);
+  }
+
+  & .sent-at {
+    display: block;
+  }
+}

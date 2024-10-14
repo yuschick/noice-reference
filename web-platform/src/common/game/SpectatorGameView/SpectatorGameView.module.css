@@ -1,0 +1,30 @@
+.container {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  z-index: var(--noi-z-index-level-4);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: center;
+  inline-size: 100%;
+  block-size: 100%;
+  overflow: hidden;
+  background: var(--noi-color-gray-900);
+  transition: inline-size var(--noi-duration-quick), block-size var(--noi-duration-quick),
+    inset-block-start var(--noi-duration-quick),
+    inset-inline-start var(--noi-duration-quick),
+    inset-block-end var(--noi-duration-quick), inset-inline-end var(--noi-duration-quick);
+}
+
+.bottom-gradient {
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  block-size: getRem(180);
+  background: linear-gradient(transparent, var(--noi-color-black-main-transparent-90));
+  pointer-events: none;
+}

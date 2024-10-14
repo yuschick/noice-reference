@@ -1,0 +1,79 @@
+.daily-goals-wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: min-content auto min-content;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  padding: var(--noi-spacing-2x) var(--noi-spacing-4x);
+  overflow: hidden;
+  color: var(--noi-color-light-main);
+  font-weight: var(--noi-font-weight-medium);
+  line-height: var(--noi-line-height-tight);
+  text-decoration: none;
+  background-color: var(--noi-color-violet-600);
+  border-radius: var(--noi-border-radius-pill);
+  min-block-size: getRem(56);
+  inline-size: min(getRem(360), 100%);
+
+  @media (hover: hover) {
+    &:hover::after {
+      position: absolute;
+      background-color: var(--noi-color-dark-main-transparent-20);
+      content: '';
+      pointer-events: none;
+      inset: 0;
+    }
+  }
+
+  &.tighter-home-page {
+    min-block-size: getRem(48);
+  }
+}
+
+.daily-goals-progress-count {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-md);
+
+  .daily-goals-completed-count {
+    font-weight: var(--noi-font-weight-bold);
+    font-size: var(--noi-font-size-2xl);
+  }
+}
+
+.active-goals-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+  font-size: var(--noi-font-size-md);
+}
+
+.resets-in-wrapper {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+
+  .resets-in-time {
+    color: var(--noi-color-teal-main);
+    font-weight: var(--noi-font-weight-bold);
+  }
+}
+
+.unclaimed-rewards {
+  color: var(--noi-color-teal-main);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-xs);
+  text-transform: uppercase;
+  /* Needed to offset height difference between .resets-in-wrapper to avoid UI shift when a reward becames available */
+  margin-block-start: var(--noi-spacing-half);
+}
+
+.loading-skeleton {
+  border-radius: var(--noi-border-radius-pill);
+  padding-inline: var(--noi-spacing-4x);
+  block-size: getRem(56);
+  inline-size: min(100%, getRem(335));
+}

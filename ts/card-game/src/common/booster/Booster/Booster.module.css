@@ -1,0 +1,53 @@
+@layer booster {
+  .container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--noi-color-text-dark);
+    background-color: var(--noi-color-light-main);
+    border-radius: var(--booster-border-radius);
+    box-shadow: 0 0 4px var(--noi-color-black-main-transparent-20),
+      0 0 8px var(--noi-color-black-main-transparent-20),
+      0 4px 8px -4px var(--noi-color-black-main-transparent-20);
+    aspect-ratio: 1/1;
+  }
+
+  .icon {
+    position: relative;
+    z-index: var(--noi-z-index-level-1);
+    inline-size: 70%;
+    block-size: 70%;
+  }
+}
+
+.progress {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  overflow: hidden;
+  border-radius: var(--booster-border-radius);
+
+  &:after {
+    position: absolute;
+    inline-size: 100%;
+    block-size: 100%;
+    background-color: var(--noi-color-gray-300);
+    transform: scaleY(0);
+    transform-origin: bottom center;
+    animation: booster-timer var(--booster-timer-duration) linear;
+    content: '';
+  }
+}
+
+@keyframes booster-timer {
+  0% {
+    transform: scaleY(0);
+  }
+
+  100% {
+    transform: scaleY(100%);
+  }
+}

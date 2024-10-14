@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "references": [
+    {
+      "path": "../platform-client"
+    },
+    {
+      "path": "../utils"
+    }
+  ],
+  "compilerOptions": {
+    "emitDeclarationOnly": true
+  }
+}

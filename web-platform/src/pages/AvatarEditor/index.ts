@@ -1,0 +1,1 @@
+export { AvatarEditorPage } from './AvatarEditorPage';

@@ -1,0 +1,128 @@
+:root {
+  --_card-row-sm-hover-duration: 50ms;
+  --_card-row-sm-hover-bottom-space: getRem(124);
+}
+
+.card-row-root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: var(--noi-spacing-3x);
+  background: radial-gradient(
+    at left bottom,
+    var(--noi-color-black-main-transparent-80) 50%,
+    transparent 70%
+  );
+  animation: slide-in 500ms forwards;
+  pointer-events: all;
+  inline-size: 100vw;
+  container-type: inline-size;
+  container-name: card-row-container;
+
+  &.hide-card-row {
+    display: none;
+    animation: none;
+  }
+}
+
+/* Played when the challengesDialog is closed */
+@keyframes slide-in {
+  0% {
+    /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
+    display: none;
+    transform: translateY(2rem);
+    opacity: 0;
+  }
+
+  100% {
+    /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
+    display: inline-flex;
+    flex-wrap: nowrap;
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.card-row-players-and-cards {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-3x);
+  justify-content: center;
+  inline-size: 100%;
+
+  /* Check how many cards there are
+  in the row and define the width */
+
+  /* We want to force this size if in apply mode */
+  /* Because of the complex has rules below we cannot rely on the order of this class */
+  .apply-booster-mode & {
+    --_card-row-sm-local-player-inline-size: 23cqi;
+    --_card-row-sm-team-mate-inline-size: 23cqi;
+  }
+
+  &:not(.apply-booster-mode &):has(> :last-child:nth-child(1)),
+  &:not(.apply-booster-mode &):has(> :last-child:nth-child(2)) {
+    --_card-row-sm-local-player-inline-size: 38cqi;
+    @media (max-width: getRem(389)) {
+      --_card-row-sm-local-player-inline-size: 32cqi;
+    }
+    @media (max-height: getRem(680)) {
+      --_card-row-sm-local-player-inline-size: 28cqi;
+    }
+  }
+
+  &:not(.apply-booster-mode &):has(> :last-child:nth-child(3)) {
+    --_card-row-sm-local-player-inline-size: 34cqi;
+    @media (max-height: getRem(680)) {
+      --_card-row-sm-local-player-inline-size: 28cqi;
+    }
+  }
+
+  &:not(.apply-booster-mode &):has(> :last-child:nth-child(4)) {
+    --_card-row-sm-local-player-inline-size: 28cqi;
+    justify-content: space-between;
+  }
+
+  /* Calculate team mate card width based
+  on local player card width */
+
+  --_card-row-sm-team-mate-inline-size: calc(
+    var(--_card-row-sm-local-player-inline-size) * 0.75
+  );
+}
+
+.card-row-item {
+  inline-size: var(--_card-row-sm-team-mate-inline-size);
+}
+
+.card-row-local-player {
+  z-index: var(--noi-z-index-level-4);
+  inline-size: var(--_card-row-sm-local-player-inline-size);
+}
+
+.card-row-team-mate-1 {
+  z-index: var(--noi-z-index-level-3);
+}
+
+.card-row-team-mate-2 {
+  z-index: var(--noi-z-index-level-2);
+}
+
+.card-row-team-mate-3 {
+  z-index: var(--noi-z-index-level-1);
+}
+
+.card-row-actions {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  inline-size: 100%;
+}
+
+.card-row-team-info {
+  flex-grow: 1;
+}

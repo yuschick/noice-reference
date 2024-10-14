@@ -1,0 +1,32 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+.no-report-wrapper {
+  padding: var(--noi-spacing-10x) var(--noi-spacing-20x) 0 var(--noi-spacing-20x);
+  color: var(--noi-color-text-light-secondary);
+
+  .content {
+    display: grid;
+    gap: var(--noi-spacing-6x);
+    max-inline-size: getRem(800);
+    margin: auto;
+  }
+}
+
+.message {
+  display: grid;
+  justify-items: center;
+
+  .main {
+    font-weight: var(--noi-font-weight-bold);
+    text-transform: uppercase;
+  }
+}

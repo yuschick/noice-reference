@@ -1,0 +1,37 @@
+.empty-state-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-8x);
+  padding: var(--noi-spacing-8x);
+  background-color: var(--noi-color-blue-950);
+  border-radius: var(--noi-border-radius-lg);
+}
+
+.empty-state-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+}
+
+.title {
+  font-size: var(--noi-font-size-lg);
+}
+
+.play-the-stream {
+  color: transparent;
+  font-weight: var(--noi-font-weight-bold);
+  background: var(--noi-gradient-green-teal);
+  background-clip: text;
+}
+
+.channel-name {
+  font-weight: var(--noi-font-weight-bold);
+}
+
+.description {
+  color: var(--noi-color-text-light-secondary);
+}
+
+.game-name {
+  font-weight: var(--noi-font-weight-bold);
+}

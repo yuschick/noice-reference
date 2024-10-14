@@ -1,0 +1,93 @@
+.link {
+  position: relative;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  padding: var(--noi-spacing-2x) var(--noi-spacing-3x);
+  color: var(--noi-color-gray-500);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: var(--noi-border-radius-md);
+  transition: color var(--noi-duration-quick), background-color var(--noi-duration-quick);
+  inline-size: 100%;
+  block-size: getRem(40);
+
+  &[aria-current='page'] {
+    color: var(--noi-color-text-light);
+    background-color: var(--noi-color-gray-700);
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: var(--noi-color-text-light);
+    background-color: var(--noi-color-gray-650);
+  }
+
+  &.minimized {
+    gap: 0;
+    animation-duration: 2000ms;
+  }
+
+  &.has-icon {
+    padding: var(--noi-spacing-2x);
+  }
+
+  &.disabled {
+    color: var(--noi-color-gray-600);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--noi-color-gray-500);
+      background-color: transparent;
+      box-shadow: inset 0 0 0 getRem(1) var(--noi-color-gray-500);
+    }
+  }
+}
+
+@keyframes link-bg-highlight {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.tooltip {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-md);
+  text-transform: uppercase;
+}
+
+.icon-wrapper {
+  position: relative;
+  inline-size: getRem(24);
+  block-size: getRem(24);
+}
+
+.icon {
+  inline-size: 100%;
+  block-size: 100%;
+
+  .highlight & {
+    clip-path: path(
+      'M 26 4 C 26 5.777 25.228 7.374 24 8.472 L 24 0 L 20 0 C 20 0 20 0 20 0 C 17.791 0 16 1.791 16 4 C 16 6.209 17.791 8 20 8 C 22.209 8 24 6.209 24 4 C 24 1.791 22.209 0 20 0 L 15.528 0 C 16.626 -1.228 18.223 -2 20 -2 C 23.314 -2 26 0.686 26 4 Z M 20 10 C 16.686 10 14 7.314 14 4 C 14 2.463 14.578 1.061 15.528 0 L 0 0 L 0 24 L 24 24 L 24 8.472 C 22.939 9.422 21.537 10 20 10 Z'
+    );
+  }
+}
+
+.highlight-dot {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  display: block;
+  inline-size: getRem(8);
+  block-size: getRem(8);
+  background-color: var(--noi-color-magenta-main);
+  border-radius: var(--noi-border-radius-circle);
+}

@@ -1,0 +1,16 @@
+.home-page-wrapper {
+  display: grid;
+  gap: var(--noi-spacing-8x);
+
+  &.tighter-home-page {
+    gap: var(--noi-spacing-6x);
+  }
+}
+
+.channels-list-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--noi-spacing-6x);
+  margin: 0 auto;
+  inline-size: 100%;
+}

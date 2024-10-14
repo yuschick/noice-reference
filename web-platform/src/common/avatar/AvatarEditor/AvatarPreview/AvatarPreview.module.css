@@ -1,0 +1,21 @@
+.renderer-wrapper {
+  position: relative;
+  block-size: 55vh;
+  /* stylelint-disable-next-line unit-no-unknown, unit-allowed-list */
+  inline-size: 100qi;
+
+  @media (min-width: getRem(700)) {
+    block-size: 100vh;
+  }
+}
+
+.avatar-builder-loading-wrapper {
+  position: absolute;
+  z-index: var(--noi-z-index-level-1);
+  inset-block-start: getRem(0);
+  inset-inline-end: getRem(0);
+  display: grid;
+  place-items: center;
+  inline-size: 100%;
+  block-size: 100%;
+}

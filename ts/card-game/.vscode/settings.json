@@ -1,0 +1,46 @@
+{
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.types": true,
+    "**/dist": true,
+    "**/coverage": true,
+  },
+  "editor.tabSize": 2,
+  "eslint.format.enable": true,
+  "eslint.packageManager": "yarn",
+  "javascript.format.enable": true,
+  "editor.codeLens": true,
+  "javascript.referencesCodeLens.enabled": true,
+  "typescript.referencesCodeLens.enabled": true,
+  "editor.formatOnSave": false,
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
+  },
+  "npm.packageManager": "yarn",
+  "stylelint.validate": [
+    "css",
+    "postcss",
+  ],
+  "cssModules.camelCase": true,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "cssvar.files": [
+    "../../tools/design-tokens/gen/brand.css",
+    "./src/assets/css/variables.css"
+  ],
+  "eslint.workingDirectories": [
+    ".",
+  ],
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+}

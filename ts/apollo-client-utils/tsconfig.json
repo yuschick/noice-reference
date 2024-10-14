@@ -1,0 +1,31 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "include": [
+    "src/**/*",
+    "gen/*"
+  ],
+  "references": [
+    {
+      "path": "../platform-client"
+    },
+    {
+      "path": "../utils"
+    },
+  ],
+  "exclude": ["node_modules/*", "./dist"],
+  "compilerOptions": {
+    "outDir": "./dist",
+    "module": "commonjs",
+    "target": "ES6",
+    "declarationDir": "./dist",
+    "lib": ["DOM", "DOM.Iterable", "ES6"],
+    "allowJs": true,
+    "moduleResolution": "node",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": false,
+    "strict": true,
+    "typeRoots": ["types", "node_modules/@types", "../../../node_modules/@types"],
+    "tsBuildInfoFile": ".tscache/tsconfig.tsbuildinfo"
+  }
+}

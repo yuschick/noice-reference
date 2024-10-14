@@ -1,0 +1,21 @@
+{
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "include": ["gen/*", "./src/**/*", "./__tests__/**/*","./jest.setup.ts"],
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "@gen/*": ["gen/*"],
+      "@components/*": ["src/components/*"],
+      "@utils/*": ["src/utils/*"],
+      "@views/*": ["src/views/*"],
+      "@assets/*": ["src/assets/*"],
+      "@providers/*": ["src/providers/*"],
+      "@navigators/*": ["src/navigators/*"],
+      "@constants/*": ["src/constants/*"],
+      "@native/*": ["src/native/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@lib/*": ["src/lib/*"]
+    }
+  }
+}

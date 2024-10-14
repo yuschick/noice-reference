@@ -1,0 +1,240 @@
+{
+  "folders": [
+    /* Projects */
+    {
+      "name": "Web Admin",
+      "path": "./clients/web-admin"
+    },
+    {
+      "name": "Mobile Platform App",
+      "path": "./clients/mobile-platform"
+    },
+    {
+      "name": "Web Platform",
+      "path": "./clients/web-platform"
+    },
+    {
+      "name": "Web Studio",
+      "path": "./clients/web-studio"
+    },
+    {
+      "name": "Headless Client Bot",
+      "path": "./tools/headless-client-bot"
+    },
+    /* Libraries */
+    {
+      "name": "Lib Apollo Client Utils",
+      "path": "./lib/ts/apollo-client-utils"
+    },
+    {
+      "name": "Lib Assets Core",
+      "path": "./lib/ts/assets-core"
+    },
+    {
+      "name": "Lib Card Game",
+      "path": "./lib/ts/card-game"
+    },
+    {
+      "name": "Lib Chat React Core",
+      "path": "./lib/ts/chat-react-core"
+    },
+    {
+      "name": "Lib Chat React Web",
+      "path": "./lib/ts/chat-react-web"
+    },
+    {
+      "name": "Lib Common UI",
+      "path": "./lib/ts/common-ui"
+    },
+    {
+      "name": "Lib Common React Core",
+      "path": "./lib/ts/common-react-core"
+    },
+    {
+      "name": "Lib Gen",
+      "path": "./lib/ts/gen"
+    },
+    {
+      "name": "Lib Platform Client",
+      "path": "./lib/ts/platform-client"
+    },
+    {
+      "name": "Lib Renderer",
+      "path": "./lib/ts/renderer"
+    },
+    {
+      "name": "Lib Server",
+      "path": "./lib/ts/server"
+    },
+    {
+      "name": "Lib Social React Core",
+      "path": "./lib/ts/social-react-core"
+    },
+    {
+      "name": "Lib Social React Web",
+      "path": "./lib/ts/social"
+    },
+    {
+      "name": "Lib Stream",
+      "path": "./lib/ts/stream"
+    },
+    {
+      "name": "Lib Universal Challenges",
+      "path": "./lib/ts/universal-challenges-react-core"
+    },
+    {
+      "name": "Lib Utils",
+      "path": "./lib/ts/utils"
+    },
+    {
+      "name": "Lib Webview Bridge",
+      "path": "./lib/ts/webview-bridge"
+    },
+
+    /* Tools */
+    {
+      "name": "ESBuild",
+      "path": "./tools/esbuild"
+    },
+    {
+      "name": "ESBuild Plugins",
+      "path": "./tools/esbuild-plugins"
+    },
+    {
+      "name": "Eslint Config",
+      "path": "./tools/eslint-config"
+    },
+    {
+      "name": "Eslint Config React",
+      "path": "./tools/eslint-config-react"
+    },
+    {
+      "name": "PostCSS",
+      "path": "./tools/postcss"
+    },
+    {
+      "name": "Design Tokens",
+      "path": "./tools/design-tokens"
+    },
+    {
+      "name": "Feature Flags Data",
+      "path": "./data/feature-flags"
+    },
+    {
+      "name": "FTUE config",
+      "path": "./tools/ftue-config"
+    },
+    {
+      "name": "Clients docs",
+      "path": "./clients/docs"
+    },
+    {
+      "name": "Proto",
+      "path": "./proto"
+    },
+    {
+      "name": "Integration tests",
+      "path": "./integration_tests"
+    }
+    /** Uncomment to add a new project / see files outside of the workspace
+        {
+            "name": "Workspace",
+            "path": "./"
+        },
+        */
+  ],
+  "settings": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit"
+    },
+    "stylelint.validate": ["css", "postcss"],
+    "cssvar.files": ["./tools/postcss/src/variables.css"],
+    "cssModules.camelCase": true,
+    "[postcss]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+    "[javascript]": {
+      "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.fixAll.eslint": "explicit"
+      },
+      "editor.codeLens": true,
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[typescript]": {
+      "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.fixAll.eslint": "explicit"
+      },
+      "editor.suggest.showReferences": true,
+      "editor.codeLens": true,
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[typescriptreact]": {
+      "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.fixAll.eslint": "explicit"
+      },
+      "editor.codeLens": true,
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "eslint.workingDirectories": [
+      "./clients/web-admin",
+      "./clients/web-platform/packages/app",
+      "./clients/web-studio",
+      "./tools/headless-client-bot",
+      "./lib/ts/apollo-client-utils",
+      "./lib/ts/card-game",
+      "./lib/ts/common-ui",
+      "./lib/ts/chat-react-core",
+      "./lib/ts/chat-react-web",
+      "./lib/ts/gen",
+      "./lib/ts/platform-client",
+      "./lib/ts/renderer",
+      "./lib/ts/server",
+      "./lib/ts/social",
+      "./lib/ts/utils",
+      "./tools/esbuild",
+      "./tools/esbuild-plugins",
+      "./tools/eslint-config",
+      "./tools/eslint-config-react",
+      "./tools/postcss"
+    ],
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/Thumbs.db": true,
+      "**/dist": true,
+      "**/coverage": true,
+      "**/build": true,
+      "**/.tscache": true,
+      "**/.cache": true,
+      "**/.temp": true,
+      "**/node_modules": true,
+      "**/*.dvc": true,
+      "**/*.meta": true
+    },
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+      "*.ts": "${capture}.js",
+      "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+      "*.jsx": "${capture}.js",
+      "*.tsx": "${capture}.ts",
+      "tsconfig.json": "tsconfig.*.json",
+      "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml"
+    },
+    "typescript.referencesCodeLens.enabled": true,
+    "typescript.tsdk": "Mobile Platform App/node_modules/typescript/lib",
+    "[javascript][typescript][typescriptreact]": {
+      "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.fixAll.eslint": "explicit"
+      }
+    }
+  }
+}

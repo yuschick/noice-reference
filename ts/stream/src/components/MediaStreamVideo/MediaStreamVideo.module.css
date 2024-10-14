@@ -1,0 +1,30 @@
+.video-wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  max-block-size: 100%;
+  max-inline-size: 100%;
+  min-inline-size: 100%;
+}
+
+.video {
+  block-size: 100%;
+  min-inline-size: unset;
+}
+
+.loading-wrapper {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.stream-action-button {
+  position: absolute;
+  z-index: var(--noi-z-index-level-10);
+  transform: translateX(-50%);
+  inset-inline-start: 50%;
+  inset-block-start: 30%;
+}

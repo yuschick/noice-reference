@@ -1,0 +1,9 @@
+.apng-player-root {
+  position: absolute;
+  z-index: var(--noi-z-index-level-2);
+  background-image: var(--_css-apng-src);
+  background-position: left center;
+  background-size: 100% 100%;
+  inline-size: 100%;
+  block-size: 100%;
+}

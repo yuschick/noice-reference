@@ -1,0 +1,12 @@
+.channel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--noi-spacing-2x) var(--noi-spacing-4x);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  background-color: var(--noi-color-gray-100);
+  border-radius: var(--noi-border-radius-md);
+}

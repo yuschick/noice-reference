@@ -1,0 +1,43 @@
+@define-mixin game-card-breakpoint-xsmall {
+  @container (min-inline-size: 80px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin game-card-breakpoint-small {
+  @container (min-inline-size: 120px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin game-card-breakpoint-medium {
+  @container (min-inline-size: 160px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin game-card-breakpoint-large {
+  @container (min-inline-size: 200px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin game-card-idle-shadow {
+  &:before {
+    position: absolute;
+    box-shadow: 0 getRem(4) getRem(10) getRem(6) var(--noi-color-black-main-transparent-40);
+    transition: box-shadow var(--game-card-hover-transition-duration);
+    content: "";
+    inset: getRem(10);
+  }
+}
+
+@define-mixin game-card-raised-shadow {
+  &:before {
+    position: absolute;
+    box-shadow: 0 getRem(12) getRem(24) getRem(12) var(--noi-color-black-main-transparent-60);
+    transition: box-shadow var(--game-card-hover-transition-duration);
+    content: "";
+    inset: getRem(10);
+  }
+}

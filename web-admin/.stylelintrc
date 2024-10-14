@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "@noice-com/postcss/stylelint"
+  ],
+  "rules": {
+    "declaration-property-value-allowed-list": {
+      "/color/": ["/var\\(--.*(?:white|black|noice|neutral|primary|success|warning|danger).*\\)/", "transparent", "inherit"],
+      "border": ["/var\\(--.*(?:white|black|noice|neutral|primary|success|warning|danger).*\\)/", "transparent", "inherit", "none"],
+      "font-size": ["/var\\(--font-size-(?:xs|s|m|l|xl|\\$\\(size\\))\\)/", "/var\\(--heading-size-(?:h1|h2|h3|h4|h5|\\$\\(tag\\))\\)/"],
+      "font-weight": ["/var\\(--noi-font-weight.*\\)/"]
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "@noice-com/esbuild-plugins",
+  "main": "index.js",
+  "version": "1.0.0",
+  "packageManager": "yarn@4.1.0",
+  "devDependencies": {
+    "postcss-modules": "^6.0.0"
+  },
+  "peerDependencies": {
+    "fs-extra": "^10.1.0",
+    "postcss": "^8.4.12"
+  },
+  "engines": {
+    "node": ">=20.4.0"
+  }
+}

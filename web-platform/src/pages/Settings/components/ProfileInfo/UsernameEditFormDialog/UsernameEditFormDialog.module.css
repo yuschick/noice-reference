@@ -1,0 +1,21 @@
+.username-edit-form {
+  display: grid;
+  gap: var(--noi-spacing-4x);
+  min-block-size: getRem(200);
+  align-content: start;
+}
+
+.current-username-wrapper {
+  display: grid;
+  gap: var(--noi-spacing-1x);
+}
+
+.guideline-text {
+  line-height: var(--noi-line-height-medium);
+}
+
+.current-username {
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+}

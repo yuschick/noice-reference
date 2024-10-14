@@ -1,0 +1,27 @@
+{
+  "hook": {
+    "prefix": "rh",
+    "body": [
+      "export function use${1:HookName}(): boolean {",
+      "  return true;",
+      "}",
+      ""
+    ],
+  },
+
+  "hook with HookResult": {
+    "prefix": "rhr",
+    "body": [
+      "interface HookResult {",
+      "",
+      "}",
+      "",
+      "export function use${1:HookName}(): HookResult {",
+      "  return {",
+      "  ",
+      "  };",
+      "}",
+      ""
+    ],
+  }
+}

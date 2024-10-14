@@ -1,0 +1,15 @@
+.seasons-header-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-6x);
+}
+
+.seasons-badge-wrapper {
+  display: grid;
+  place-items: center;
+
+  @media (min-width: getRem(720)) {
+    place-items: start;
+  }
+}

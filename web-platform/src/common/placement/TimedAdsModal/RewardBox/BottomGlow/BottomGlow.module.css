@@ -1,0 +1,71 @@
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -22.7%) scale(0.8);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translate(-50%, -22.7%) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.bottom-glow {
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  position: absolute;
+  transform: translate(-50%, -22.7%);
+  opacity: 1;
+  animation: pulse 400ms 60ms forwards;
+  inline-size: 153%;
+  block-size: 143%;
+
+  &.common {
+    background: radial-gradient(
+      50% 23% ellipse at 50% 50%,
+      var(--_rarity-common) 0,
+      #e5e5e715 80%,
+      #e5e5e700 100%
+    );
+  }
+
+  &.uncommon {
+    background: radial-gradient(
+      50% 23% ellipse at 50% 50%,
+      var(--_rarity-uncommon) 0,
+      #2fecbf15 80%,
+      #2fecbf00 100%
+    );
+  }
+
+  &.rare {
+    background: radial-gradient(
+      50% 23% ellipse at 50% 50%,
+      var(--_rarity-rare) 0,
+      #5bdbf615 80%,
+      #5bdbf600 100%
+    );
+  }
+
+  &.epic {
+    background: radial-gradient(
+      50% 23% ellipse at 50% 50%,
+      var(--_rarity-epic) 0,
+      #db9afb15 80%,
+      #db9afb00 100%
+    );
+  }
+
+  &.legendary {
+    background: radial-gradient(
+      50% 23% ellipse at 50% 50%,
+      var(--_rarity-legendary) 0,
+      #f2ca6415 80%,
+      #f2ca6400 100%
+    );
+  }
+}

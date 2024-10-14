@@ -1,0 +1,32 @@
+.overlay-wrapper {
+  position: absolute;
+  inset-block-start: calc(var(--game-card-height-medium) * 0.33);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  inline-size: calc(var(--game-card-width-medium) / 1.25);
+  text-align: center;
+}
+
+.countdown-wrapper {
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+}
+
+.bright-label {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+  margin-block-end: var(--noi-spacing-1x);
+}
+
+.current-progress-label {
+  color: var(--noi-color-light-main);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+}

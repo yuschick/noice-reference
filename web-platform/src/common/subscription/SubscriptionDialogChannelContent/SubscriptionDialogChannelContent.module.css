@@ -1,0 +1,35 @@
+.channel-info-section {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  padding: var(--noi-spacing-4x);
+  background: var(--noi-color-gray-50);
+  border-radius: var(--noi-border-radius-md);
+}
+
+.channel-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.channel-name {
+  color: var(--noi-color-text-dark);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+}
+
+.channel-followers {
+  color: var(--noi-color-text-dark-secondary);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+}
+
+.channel-follower-count {
+  color: var(--noi-color-text-dark);
+  font-weight: var(--noi-font-weight-bold);
+  text-transform: uppercase;
+}

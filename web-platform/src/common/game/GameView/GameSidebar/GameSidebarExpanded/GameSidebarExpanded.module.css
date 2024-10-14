@@ -1,0 +1,41 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  block-size: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.tab {
+  display: none;
+  flex-direction: column;
+  flex-grow: 1;
+  block-size: 100%;
+
+  &.active {
+    display: flex;
+  }
+}
+
+.leaderboard-wrapper {
+  @mixin narrow-scrollbar;
+  padding: var(--noi-spacing-4x);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.chat-tab {
+  --chat-message-margin-inline: var(--noi-spacing-3x);
+  --chat-input-container-padding-inline: var(--noi-spacing-4x);
+  gap: var(--noi-spacing-2x);
+  padding-block: var(--noi-spacing-4x);
+}
+
+.friends-content {
+  padding-block-end: var(--noi-spacing-4x);
+}

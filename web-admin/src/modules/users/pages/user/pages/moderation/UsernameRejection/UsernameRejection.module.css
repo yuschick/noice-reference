@@ -1,0 +1,59 @@
+.username-view-content {
+  @mixin paragraph s, regular;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.username-view-content-username {
+  font-weight: var(--noi-font-weight-bold);
+}
+
+.rejected-username-content {
+  display: grid;
+  gap: var(--noi-spacing-2x);
+}
+
+.reject-username-top-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-1x);
+}
+
+.username-rejection-modal-content {
+  display: grid;
+  gap: var(--noi-spacing-6x);
+}
+
+.username-rejection-modal-user {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+}
+
+.user-details {
+  display: grid;
+  gap: var(--noi-spacing-2x);
+}
+
+.username {
+  @mixin heading h4;
+  line-height: var(--noi-line-height-tight);
+}
+
+.user-created-at-wrapper {
+  @mixin label xs, regular;
+  display: grid;
+}
+
+.user-created-at {
+  @mixin label s, medium;
+}
+
+.username-rejection-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+}

@@ -1,0 +1,19 @@
+import {createElement} from 'react';
+import { Meta, Title, IconGallery, IconItem } from '@storybook/blocks';
+
+import { CoreAssets } from '@noice-com/assets-core';
+
+<Meta title="Icons (Core Assets)" />
+
+<IconGallery>
+  {Object.entries(CoreAssets.Icons).map(([name, icon], index) => (
+    <IconItem
+      key={index}
+      name={`${name} ${typeof icon === 'string' ? '(img)' : ''}`}
+    >
+      {typeof icon === 'string' 
+        ? <img src={icon} />
+        : createElement(icon, {style: {color: 'var(--noi-color-text-dark)'}})}
+    </IconItem>
+  ))}
+</IconGallery>

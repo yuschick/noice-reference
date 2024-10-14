@@ -1,0 +1,22 @@
+.settings-sidebar {
+  display: none;
+
+  @media (min-width: getRem(720)) {
+    display: grid;
+    grid-area: navigation;
+    gap: getRem(24);
+  }
+
+  @media print {
+    display: none;
+  }
+
+  .settings-title {
+    font-weight: var(--noi-font-weight-medium);
+    font-size: var(--noi-font-size-lg);
+    line-height: var(--noi-line-height-tight);
+    text-transform: uppercase;
+    /* Every gap in this column is 24 except this one which is 16, so we offset it here */
+    margin-block-end: getRem(-8);
+  }
+}

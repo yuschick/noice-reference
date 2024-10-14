@@ -1,0 +1,39 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"title": "Gradient Expression",
+	"description": "Defines a gradient (CSS only)",
+	"type": "object",
+	"properties": {
+		"type": {
+			"type": "string",
+			"const": "gradient"
+		},
+		"direction": {
+			"type": "string"
+		},
+		"stops": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"color": {
+						"type": "string"
+					},
+					"position": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"color",
+					"position"
+				]
+			},
+			"minItems": 2
+		}
+	},
+	"required": [
+		"type",
+		"direction",
+		"stops"
+	]
+}

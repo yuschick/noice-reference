@@ -1,0 +1,42 @@
+.emoji-list-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-headings {
+  padding: var(--noi-spacing-1x) var(--noi-spacing-2x);
+  color: var(--noi-color-text-light-secondary);
+  line-height: var(--noi-line-height-tight);
+}
+
+.emoji-list-row {
+  display: grid;
+  grid-template-columns: getRem(48) auto min-content;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+}
+
+.emoji-link {
+  padding: var(--noi-spacing-2x);
+  color: var(--noi-color-text-light);
+  line-height: var(--noi-line-height-tight);
+  text-decoration: none;
+
+  &:hover {
+    background-color: var(--noi-color-gray-800);
+  }
+
+  &.disabled-by-noice {
+    color: var(--noi-color-text-light-secondary);
+  }
+}
+
+.emoji-image {
+  .disabled-by-noice & {
+    opacity: 0.5;
+  }
+}
+
+.page-info {
+  color: var(--noi-color-text-light-secondary);
+}

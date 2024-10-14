@@ -1,0 +1,107 @@
+.wrapper {
+  position: relative;
+  z-index: var(--noi-z-index-level-1);
+  margin: 0 var(--noi-spacing-2x) var(--noi-spacing-2x) var(--noi-spacing-2x);
+}
+
+.select-button {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--noi-spacing-2x);
+  background-color: transparent;
+  border-radius: var(--noi-border-radius-sm);
+  cursor: pointer;
+  inline-size: 100%;
+  transition: background-color var(--noi-duration-quick);
+
+  &:hover {
+    background-color: var(--noi-color-gray-650);
+  }
+
+  &:focus-within {
+    background-color: var(--noi-color-gray-850);
+    outline: none;
+  }
+
+  .expanded & {
+    background-color: var(--noi-color-gray-900);
+    border-end-start-radius: 0;
+    border-end-end-radius: 0;
+  }
+}
+
+.channel-details {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+
+  .channel-name {
+    @mixin truncate-text;
+    max-inline-size: 100%;
+  }
+}
+
+.caret {
+  inline-size: getRem(16);
+  block-size: getRem(16);
+}
+
+.input {
+  padding: var(--noi-spacing-1x);
+  font-size: var(--noi-font-size-sm);
+  background-color: var(--noi-color-gray-850);
+  border: 1px solid var(--noi-color-gray-750);
+  border-radius: var(--noi-border-radius-xs);
+  inline-size: 100%;
+  margin-block-end: var(--noi-spacing-2x);
+}
+
+.list-wrapper {
+  position: absolute;
+  display: none;
+  padding: var(--noi-spacing-2x);
+  background-color: var(--noi-color-gray-900);
+  border-radius: 0 0 getRem(8) getRem(8);
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  inset-block-start: 100%;
+
+  .expanded & {
+    display: block;
+  }
+}
+
+.list-label {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-xs);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}
+
+.list {
+  @mixin list-style-none;
+  margin: 0;
+  padding: 0;
+}
+
+.default-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+}
+
+.no-results {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+}

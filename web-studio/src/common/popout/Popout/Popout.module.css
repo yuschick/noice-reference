@@ -1,0 +1,7 @@
+.popout {
+  position: fixed;
+  padding: var(--noi-spacing-4x);
+  background-color: var(--noi-color-gray-850);
+  border: 1px solid var(--noi-color-gray-800);
+  border-radius: var(--noi-border-radius-xs);
+}

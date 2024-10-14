@@ -1,0 +1,39 @@
+.wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-3x);
+  align-items: center;
+  padding: var(--noi-spacing-2x) getRem(16);
+  padding-inline-end: var(--noi-spacing-2x);
+  background-color: var(--noi-color-light-main-transparent-10);
+  border-radius: var(--noi-border-radius-pill);
+  block-size: getRem(56);
+}
+
+.check-mark {
+  block-size: getRem(32);
+  inline-size: getRem(32);
+  color: var(--noi-color-teal-main);
+}
+
+.text-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--noi-spacing-1x);
+}
+
+.in-play-text {
+  color: var(--noi-color-teal-main);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}
+
+.channel-text {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-base);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+}

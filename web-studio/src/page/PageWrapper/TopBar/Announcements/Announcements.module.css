@@ -1,0 +1,11 @@
+.wrapper {
+  position: relative;
+}
+
+.panel {
+  @mixin no-scroll-bar;
+  max-inline-size: getRem(480);
+  max-block-size: getRem(640);
+  display: grid;
+  place-content: center;
+}

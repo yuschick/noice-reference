@@ -1,0 +1,34 @@
+.button {
+  padding: var(--noi-spacing-4x) var(--noi-spacing-6x);
+  color: var(--noi-color-text-light-secondary);
+  background-color: transparent;
+  cursor: pointer;
+  transition: color 400ms;
+  -webkit-appearance: none;
+  min-inline-size: max-content;
+
+  &:hover {
+    color: var(--noi-color-text-light);
+  }
+
+  .title {
+    display: block;
+    margin: 0;
+    font-weight: var(--noi-font-weight-bold);
+    font-size: var(--noi-font-size-lg);
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+
+  .subtitle {
+    display: block;
+    margin: 0;
+    font-size: var(--noi-font-size-lg);
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+
+  &[aria-current='true'] {
+    color: var(--noi-color-text-light);
+  }
+}

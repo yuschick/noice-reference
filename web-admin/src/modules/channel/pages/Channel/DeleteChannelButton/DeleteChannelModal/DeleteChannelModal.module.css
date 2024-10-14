@@ -1,0 +1,16 @@
+.actions {
+  margin-block-start: getRem(16);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+}
+
+.text-wrapper {
+  font-size: var(--font-size-s);
+}
+
+.list {
+  margin-block: getRem(16);
+  list-style: disc;
+  margin-inline-start: getRem(16);
+}

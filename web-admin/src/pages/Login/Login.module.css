@@ -1,0 +1,14 @@
+.signup-login-background {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  padding: getRem(55);
+  inline-size: 100vi;
+  min-block-size: 100vb;
+  place-items: center;
+}
+
+.signup-logo {
+  inline-size: getRem(228);
+  align-self: start;
+}

@@ -1,0 +1,1 @@
+export { PaginatedQueryTableModulePage } from './PaginatedQueryTableModulePage';

@@ -1,0 +1,11 @@
+.gender-selection-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  margin-block-end: var(--noi-spacing-6x);
+  padding: 0 1cqi;
+
+  @container (inline-size < getRem(550)) {
+    flex-direction: column;
+  }
+}

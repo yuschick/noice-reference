@@ -1,0 +1,66 @@
+@layer noice.ui {
+  .channel-logo-wrapper {
+    --_shape-radius: var(--noi-border-radius-circle);
+
+    display: grid;
+    overflow: clip;
+    color: var(--noi-color-text-light);
+    background-color: var(--noi-color-teal-main);
+    border-radius: var(--_shape-radius);
+    contain: content;
+    content-visibility: auto;
+    place-items: center;
+    min-block-size: var(--channel-logo-size);
+    max-block-size: var(--channel-logo-size);
+    min-inline-size: var(--channel-logo-size);
+    max-inline-size: var(--channel-logo-size);
+
+    > picture {
+      aspect-ratio: 1/1;
+    }
+
+    &.xs {
+      --channel-logo-size: getRem(24);
+    }
+
+    &.sm {
+      --channel-logo-size: getRem(32);
+    }
+
+    &.md {
+      --channel-logo-size: getRem(40);
+    }
+
+    &.lg {
+      --channel-logo-size: getRem(56);
+    }
+
+    &.show-as-offline {
+      opacity: 0.5;
+      filter: grayscale(1);
+    }
+  }
+
+  .channel-logo-image {
+    border-radius: var(--_shape-radius);
+  }
+
+  .channel-initials {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    color: var(--noi-color-text-dark);
+    font-weight: var(--noi-font-weight-bold);
+    font-size: var(--noi-font-size-md);
+    text-transform: uppercase;
+    place-self: center;
+
+    .xs & {
+      font-size: var(--noi-font-size-xs);
+    }
+  }
+
+  .channel-loading-skeleton {
+    block-size: 100%;
+    inline-size: 100%;
+  }
+}

@@ -1,0 +1,109 @@
+.rarity-text {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-xl);
+  text-transform: uppercase;
+
+  &.common {
+    color: var(--_rarity-common);
+  }
+
+  &.uncommon {
+    color: var(--_rarity-uncommon);
+  }
+
+  &.rare {
+    color: var(--_rarity-rare);
+  }
+
+  &.epic {
+    color: var(--_rarity-epic);
+  }
+
+  &.legendary {
+    color: var(--_rarity-legendary);
+  }
+}
+
+.reward-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.reward {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--noi-spacing-6x);
+  align-items: center;
+  max-inline-size: 100%;
+
+  @media (max-height: getRem(768)) {
+    flex-direction: row-reverse;
+  }
+}
+
+.reward-content {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.reward-box-clipping {
+  position: relative;
+  inline-size: 40vb;
+  max-inline-size: 100vi;
+  block-size: 28vb;
+}
+
+.lock-icon {
+  position: absolute;
+  inline-size: getRem(80);
+  block-size: getRem(80);
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.reward-box-wrapper {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+  inline-size: 42vh;
+  block-size: 42vh;
+}
+
+.button-wrapper {
+  max-inline-size: getRem(400);
+  inline-size: 100%;
+  margin-inline: auto;
+}
+
+.no-rewards-text {
+  .maintext {
+    color: var(--noi-color-text-light);
+    font-weight: var(--noi-font-weight-bold);
+    font-size: var(--noi-font-size-xl);
+  }
+
+  .subtext {
+    color: var(--noi-color-text-light-secondary);
+    font-weight: var(--noi-font-weight-regular);
+    font-size: var(--noi-font-size-lg);
+    line-height: var(--noi-line-height-tight);
+    text-align: center;
+  }
+}
+
+.clickable-text {
+  font: inherit;
+  text-decoration: underline;
+  background: inherit;
+  cursor: pointer;
+}

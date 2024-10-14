@@ -1,0 +1,15 @@
+.fieldset {
+  border: none;
+}
+
+.font-size-content-wrapper {
+  display: grid;
+  gap: var(--noi-spacing-2x);
+}
+
+.legend {
+  padding-inline: var(--noi-spacing-3x);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+}

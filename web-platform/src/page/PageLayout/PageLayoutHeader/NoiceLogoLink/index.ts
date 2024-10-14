@@ -1,0 +1,1 @@
+export { NoiceLogoLink } from './NoiceLogoLink';

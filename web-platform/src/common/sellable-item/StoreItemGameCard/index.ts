@@ -1,0 +1,1 @@
+export { StoreItemGameCard } from './StoreItemGameCard';

@@ -1,0 +1,12 @@
+@layer noice.ui {
+  .icon-wrapper {
+    display: contents;
+    flex-wrap: nowrap;
+  }
+
+  .icon {
+    color: var(--_icon-color, currentColor);
+    block-size: var(--_icon-size, getRem(24));
+    inline-size: var(--_icon-size, getRem(24));
+  }
+}

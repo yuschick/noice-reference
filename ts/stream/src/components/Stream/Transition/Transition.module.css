@@ -1,0 +1,34 @@
+@keyframes fade-in-fade-out {
+  0%, 100% {
+    opacity: 0;
+  }
+
+  10%, 90% {
+    opacity: 1;
+  }
+}
+
+.camera-drive-transition {
+  position: absolute;
+  overflow: hidden;
+  background-color: var(--noi-color-dark-main);
+  opacity: 0;
+  animation: fade-in-fade-out var(--camera-drive-transition-duration) ease-in-out;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.stinger-wrapper {
+  position: absolute;
+  aspect-ratio: 16 / 9;
+  inset-block-start: 0;
+  inset-block-end: 0;
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+
+  .stinger-video {
+    block-size: 100%;
+  }
+}

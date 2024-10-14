@@ -1,0 +1,75 @@
+.up-selling-image {
+  /* The image is full width, so we need to have negative margins */
+  margin-inline: calc(var(--dialog-inline-padding) * -1);
+  margin-block-start: calc(-1 * var(--dialog-block-padding));
+}
+
+.up-selling-dialog-content {
+  display: grid;
+  gap: var(--noi-spacing-4x);
+  overflow-x: clip;
+  text-align: center;
+  padding-block-start: var(--dialog-block-padding);
+  container-type: inline-size;
+}
+
+.dialog-title {
+  font-weight: var(--noi-font-weight-extra-bold);
+  font-size: var(--noi-font-size-xl);
+  font-style: italic;
+  text-transform: uppercase;
+
+  @container (min-width: getRem(480)) {
+    font-size: var(--noi-font-size-2xl);
+  }
+}
+
+.dialog-description {
+  color: var(--noi-color-text-dark-secondary);
+  font-weight: var(--noi-font-weight-medium);
+
+  @container (min-width: getRem(480)) {
+    font-size: var(--noi-font-size-lg);
+  }
+}
+
+.dialog-up-sell-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--noi-spacing-4x) var(--noi-spacing-5x);
+  line-height: var(--noi-line-height-tight);
+  background-color: var(--noi-color-dark-main-transparent-5);
+  border-radius: var(--noi-border-radius-md);
+}
+
+.credit-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+}
+
+.price {
+  color: var(--noi-color-violet-main);
+  font-weight: var(--noi-font-weight-medium);
+}
+
+.footer-content {
+  display: grid;
+  gap: var(--noi-spacing-6x);
+  color: var(--noi-color-text-dark-secondary);
+  text-align: center;
+}
+
+.loading-image {
+  aspect-ratio: 16 / 3 auto;
+  max-inline-size: none;
+  inline-size: calc(100% + var(--dialog-inline-padding) * 2);
+}
+
+.loading-content {
+  block-size: auto;
+}

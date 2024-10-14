@@ -1,0 +1,37 @@
+/monitoring/ @propan @weeezes @Speissi
+
+/clients/mobile-platform/ @bengsfort @orktes @Tuuben
+/clients/web-platform/ @bengsfort @gomsu @hetajisto @vharvala @yuschick @Tuuben
+/clients/web-admin/ @bengsfort @gomsu @hetajisto @vharvala @yuschick @Tuuben
+/clients/web-studio/ @bengsfort @gomsu @hetajisto @vharvala @yuschick @Tuuben
+
+/services/content-renderer-v2/ @Kink3d @aet
+
+/services/hashistack/ @weeezes
+
+/services/metagame-config/metagame.yml @JenixS @SimNoice
+/services/metagame-config/gameconfigs/ @JenixS @SimNoice
+
+/tools/ @orktes @propan
+/tools/replay-dl/ @rgngl @Saku2 @aet
+/tools/docker/gstreamer/ @rgngl @Saku2 @aet
+/tools/charts/kubernetes-secret-to-vault @Speissi @weeezes
+/tools/kubernetes-secret-to-vault @Speissi @weeezes
+/tools/postcss @hetajisto @vharvala @bengsfort @gomsu @yuschick @Tuuben
+/tools/artist-tooling/ @Kink3d @paugit @orktes
+/tools/design-tokens @bengsfort @yuschick @Tuuben
+/tools/design-tokens/design-tokens.yml @bengsfort @yuschick @Tuuben @hetajisto @vharvala @gomsu @anttinie
+/infra/ @Speissi @weeezes @lauriku @koovee
+
+/lib/ts/common-ui @hetajisto @vharvala @bengsfort @gomsu @yuschick @Tuuben
+/lib/ts/platform-client @hetajisto @vharvala @bengsfort @gomsu @yuschick @Tuuben
+/lib/ts/social @hetajisto @vharvala @bengsfort @gomsu @yuschick @Tuuben
+/lib/ts/card-game @hetajisto @vharvala @bengsfort @gomsu @yuschick @Tuuben
+/lib/ts/chat-react-web @hetajisto @vharvala @bengsfort @gomsu @yuschick @Tuuben
+/lib/ts/stream @hetajisto @vharvala @bengsfort @gomsu @yuschick @Tuuben
+/lib/ts/utils @hetajisto @vharvala @bengsfort @gomsu @yuschick @Tuuben
+/lib/ts/renderer @hetajisto @Kink3d
+
+/pipelines/airflow @alexey-nikolaev 
+
+/services/stream-* @Saku2 @aet

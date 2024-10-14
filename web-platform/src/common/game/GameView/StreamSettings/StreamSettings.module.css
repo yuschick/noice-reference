@@ -1,0 +1,21 @@
+.control-overlay {
+  position: fixed;
+  inset-inline-end: getRem(340);
+  inset-block-end: 0;
+  block-size: getRem(72);
+  z-index: var(--noi-z-index-level-1);
+
+  &.theater-mode {
+    position: absolute;
+    inset-inline-end: getRem(0);
+  }
+}
+
+.control-row {
+  position: absolute;
+  inset-inline-end: getRem(16);
+  inset-block-end: getRem(16);
+  display: flex;
+  flex-wrap: nowrap;
+  gap: getRem(0);
+}

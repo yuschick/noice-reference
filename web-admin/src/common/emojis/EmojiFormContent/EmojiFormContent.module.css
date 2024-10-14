@@ -1,0 +1,78 @@
+.form-fields-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--noi-spacing-4x);
+}
+
+.form-description-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--noi-spacing-1x);
+  padding-block: var(--noi-spacing-1x);
+  color: var(--neutral-200);
+  font-size: var(--font-size-s);
+}
+
+.channel-prefix-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+}
+
+.channel-prefix-label {
+  display: block;
+  color: var(--neutral-200);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--font-size-m);
+  line-height: 1;
+}
+
+.form-channel-code-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+}
+
+.channel-prefix {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--font-size-m);
+  /* Hardcoding this block size to match input */
+  block-size: getRem(45.5);
+}
+
+.heading-preview {
+  margin: 0;
+  color: var(--white);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--font-size-xl);
+}
+
+.emoji-preview-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+  align-items: start;
+}
+
+.emoji-preview-placeholder {
+  background-color: var(--neutral-900);
+  inline-size: getRem(64);
+  block-size: getRem(64);
+}
+
+.emoji-preview-code-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+  color: var(--neutral-200);
+  font-weight: var(--noi-font-weight-regular);
+}
+
+.emoji-preview-code {
+  color: var(--white);
+  font-weight: var(--noi-font-weight-medium);
+}

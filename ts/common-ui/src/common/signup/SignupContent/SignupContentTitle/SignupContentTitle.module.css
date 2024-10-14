@@ -1,0 +1,9 @@
+.title {
+  color: var(--noi-color-dark-main);
+  font-weight: var(--noi-font-weight-extra-bold);
+  font-size: var(--noi-font-size-2xl);
+  font-style: italic;
+  line-height: var(--noi-line-height-tight);
+  text-align: center;
+  text-transform: uppercase;
+}

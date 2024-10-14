@@ -1,0 +1,15 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+}
+
+.save-button {
+  inline-size: getRem(200);
+}

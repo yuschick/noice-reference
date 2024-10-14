@@ -1,0 +1,1 @@
+export { PermissionLink } from './PermissionLink';

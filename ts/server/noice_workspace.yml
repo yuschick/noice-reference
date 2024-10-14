@@ -1,0 +1,11 @@
+name: ts-server
+
+build_dependencies:
+  - eslint-config
+
+artifact_directories:
+  - node_modules
+
+lint:
+  - type: yarn_run
+    cmd: '${{ parseBoolean(inputs.fix) ? "lint --fix" : "lint" }}'

@@ -1,0 +1,46 @@
+.stream-info {
+  position: absolute;
+  z-index: var(--noi-z-index-level-1);
+  display: grid;
+  grid-template-areas: 'title' 'pills';
+  gap: var(--noi-spacing-2x);
+  align-items: end;
+  justify-content: start;
+  text-align: start;
+  background: linear-gradient(180deg, transparent 0%, var(--noi-color-gray-950) 100%);
+  inset-block-end: 0;
+  inset-inline: 0;
+  padding-inline: var(--noi-spacing-6x);
+  padding-block: var(--noi-spacing-14x) var(--noi-spacing-4x);
+
+  @container (min-width: getRem(552)) {
+    grid-template-areas: 'logo title' 'logo pills';
+  }
+}
+
+.logo-wrapper {
+  display: none;
+  grid-area: logo;
+
+  @container (min-width: getRem(552)) {
+    display: block;
+  }
+}
+
+.stream-title {
+  grid-area: title;
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+
+  @container (min-width: getRem(552)) {
+    font-size: var(--noi-font-size-lg);
+  }
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  grid-area: pills;
+  gap: var(--noi-spacing-1x);
+}

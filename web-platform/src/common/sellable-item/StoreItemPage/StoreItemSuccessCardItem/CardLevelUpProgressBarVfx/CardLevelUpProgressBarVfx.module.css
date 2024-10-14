@@ -1,0 +1,16 @@
+.progress-bar-vfx {
+  position: absolute;
+  z-index: var(--noi-z-index-level-5);
+  mix-blend-mode: plus-lighter;
+  pointer-events: none;
+  inline-size: 100%;
+  block-size: getRem(10);
+}
+
+.video-wrapper {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  inline-size: 182%;
+}

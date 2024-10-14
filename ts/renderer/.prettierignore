@@ -1,0 +1,13 @@
+# folders
+dist
+coverage
+node_modules
+package.json
+
+.babelrc
+.eslintrc.json
+package.json
+webpack.*.js
+
+dist/*
+*.html

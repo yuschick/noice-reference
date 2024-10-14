@@ -1,0 +1,13 @@
+@keyframes open {
+  100% {
+    transform: translate(-37.5%, -50%);
+  }
+}
+
+.locks {
+  transform: translateY(-50%);
+
+  &.open {
+    animation: open 300ms steps(4, jump-none) forwards;
+  }
+}

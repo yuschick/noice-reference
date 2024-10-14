@@ -1,0 +1,1 @@
+export { SignupCompleteAccount } from './SignupCompleteAccount';

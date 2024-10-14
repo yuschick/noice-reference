@@ -1,0 +1,1 @@
+export { FriendRequestAcceptedNotificationContent } from './FriendRequestAcceptedNotificationContent';

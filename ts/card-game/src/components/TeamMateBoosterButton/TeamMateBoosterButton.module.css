@@ -1,0 +1,17 @@
+.team-mate-booster-root {
+  position: relative;
+}
+
+.team-mate-booster-requested-tick {
+  position: absolute;
+  inset-block-start: getRem(-6);
+  inset-inline-end: getRem(4);
+  z-index: var(--noi-z-index-level-2);
+  inline-size: getRem(12);
+  color: var(--noi-color-teal-main);
+  pointer-events: none;
+}
+
+.team-mate-booster-requested-tick-svg {
+  max-inline-size: 100%;
+}

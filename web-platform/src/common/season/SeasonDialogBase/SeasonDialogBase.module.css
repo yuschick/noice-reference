@@ -1,0 +1,87 @@
+.content-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-6x);
+  padding: var(--noi-spacing-8x);
+  overflow: hidden;
+  background-color: var(--noi-color-dark-main);
+  background-image: linear-gradient(
+    135deg,
+    var(--noi-color-violet-magenta-700) 0%,
+    var(--noi-color-violet-900) 50%
+  );
+  border-radius: var(--noi-border-radius-lg);
+
+  @container (inline-size < getRem(720)) {
+    gap: var(--noi-spacing-4x);
+    padding: var(--noi-spacing-6x) 0;
+  }
+}
+
+.season-info {
+  position: relative;
+  z-index: var(--noi-z-index-level-1);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-3x);
+  align-items: center;
+  justify-content: center;
+}
+
+.season-dialog-divider {
+  z-index: var(--noi-z-index-level-1);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--noi-color-light-main-transparent-10) 25%,
+    var(--noi-color-light-main-transparent-10) 75%,
+    transparent 100%
+  );
+  block-size: getRem(1);
+}
+
+.season-labels-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-1x);
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--noi-spacing-4x);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+
+  @container (inline-size < getRem(720)) {
+    font-size: var(--noi-font-size-md);
+  }
+}
+
+.season-name {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  text-align: center;
+}
+
+.game-name {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-regular);
+  text-align: center;
+}
+
+.season-badge-wrapper {
+  background: var(--noi-gradient-spectrum-full);
+  background-position: center;
+  background-size: 450%;
+  border-radius: var(--noi-border-radius-circle);
+  inline-size: getRem(32);
+  block-size: getRem(32);
+}
+
+.action-wrapper {
+  min-inline-size: 50%;
+  @container (min-width: getRem(600)) {
+    margin: 0 auto;
+  }
+}

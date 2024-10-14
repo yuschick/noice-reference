@@ -1,0 +1,16 @@
+.section-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-3x);
+  padding: var(--noi-spacing-3x) getRem(24);
+  overflow: hidden;
+  background-color: var(--noi-color-violet-700);
+  border: 1px solid var(--noi-color-violet-700);
+  border-radius: var(--noi-border-radius-md);
+  block-size: 100%;
+  min-inline-size: fit-content;
+}
+
+.email {
+  display: inline;
+}

@@ -1,0 +1,44 @@
+@keyframes appear-animation {
+  0% {
+    transform: translateY(getRem(200));
+    opacity: 0;
+  }
+
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes disappear-animation {
+  0% {
+    transform: none;
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(getRem(-200));
+    opacity: 0;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-8x);
+  align-items: center;
+  padding: getRem(48) 0;
+  @container (width < 500px) or (height < 500px) {
+    gap: var(--noi-spacing-4x);
+    padding: var(--noi-spacing-6x);
+  }
+
+  &.appear {
+    animation: appear-animation var(--spotlight-segment-wrapper-animation-length) forwards;
+  }
+
+  &.disappear {
+    animation: disappear-animation var(--spotlight-segment-wrapper-animation-length)
+      var(--spotlight-segment-wrapper-disappear-delay) forwards;
+  }
+}

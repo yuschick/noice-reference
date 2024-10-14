@@ -1,0 +1,15 @@
+.active-session-challenge-root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+  padding: var(--noi-spacing-2x);
+  background-color: var(--noi-color-gray-850);
+  border-radius: var(--noi-border-radius-xs);
+}
+
+.active-session-pick-rate {
+  color: var(--noi-color-teal-300);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-xl);
+  line-height: var(--noi-line-height-tight);
+}

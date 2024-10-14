@@ -1,0 +1,12 @@
+@define-mixin page-header {
+  display: flex;
+  flex-wrap: nowrap;
+  grid-area: header;
+  gap: var(--noi-spacing-14x);
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--noi-color-gray-850);
+  box-shadow: inset 0 -1px 0 var(--noi-color-light-main-transparent-10);
+  inset-block-start: 0;
+  block-size: var(--page-wrapper-header-height);
+}

@@ -1,0 +1,18 @@
+.heading-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+  justify-content: space-between;
+}
+
+.form-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+}

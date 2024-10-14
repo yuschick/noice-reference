@@ -1,0 +1,57 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  justify-content: center;
+  line-height: var(--noi-line-height-tight);
+  text-align: center;
+  text-transform: uppercase;
+  background-color: var(--noi-color-gray-950);
+  border-radius: var(--noi-border-radius-sm);
+  transform: translateY(75%);
+  opacity: 0;
+  animation: appear 250ms 250ms forwards;
+  aspect-ratio: var(--game-card-aspect-ratio);
+  inline-size: 100%;
+}
+
+.icon {
+  position: absolute;
+  inset-block-end: 100%;
+  inset-inline-start: 50%;
+  transform: translateX(-50%) translateY(getRem(12));
+  inline-size: getRem(48);
+  block-size: getRem(48);
+}
+
+.title {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+}
+
+.bonus {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+}
+
+.points {
+  color: var(--noi-color-teal-main);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-sm);
+}
+
+@keyframes appear {
+  0% {
+    transform: translateY(75%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}

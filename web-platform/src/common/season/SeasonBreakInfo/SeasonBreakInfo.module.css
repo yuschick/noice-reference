@@ -1,0 +1,18 @@
+.season-break-info-root {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  padding: getRem(16) getRem(20);
+  background: var(--noi-color-black-main-transparent-70);
+  border-radius: var(--noi-border-radius-md);
+}
+
+.season-break-info-icon {
+  color: var(--noi-color-status-alert-main);
+}
+
+.season-break-info-text {
+  font-weight: var(--noi-font-weight-medium);
+  line-height: var(--noi-line-height-tight);
+}

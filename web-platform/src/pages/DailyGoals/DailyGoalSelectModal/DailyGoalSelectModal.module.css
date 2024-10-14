@@ -1,0 +1,114 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--noi-spacing-6x);
+  align-content: start;
+  padding: var(--noi-spacing-6x) var(--noi-spacing-4x);
+  overflow: auto;
+  background-image: var(--_dgc-modal-bg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-block-size: 100%;
+  container-type: inline-size;
+
+  @media (min-width: getRem(600)) {
+    padding: var(--noi-spacing-6x) var(--noi-spacing-8x);
+  }
+
+  @media (min-width: getRem(1200)) {
+    padding: var(--noi-spacing-6x) var(--noi-spacing-14x);
+  }
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-8x);
+
+  @container (min-width: getRem(720)) {
+    gap: var(--noi-spacing-14x);
+    padding-block-start: calc(var(--noi-page-main-padding) + var(--noi-spacing-12x));
+  }
+}
+
+.title-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-6x) var(--noi-spacing-12x);
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-extra-bold);
+  font-size: var(--noi-font-size-2xl);
+  font-style: italic;
+  line-height: var(--noi-line-height-tight);
+  letter-spacing: var(--noi-letter-spacing-loose);
+  text-align: center;
+  text-transform: uppercase;
+
+  @container (min-width: getRem(720)) {
+    font-size: var(--noi-font-size-3xl);
+  }
+}
+
+.title-special-effect {
+  color: transparent;
+  background: var(--noi-gradient-green-teal);
+  background-clip: text;
+  padding-inline-end: var(--noi-spacing-1x);
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x) var(--noi-spacing-6x);
+  align-items: center;
+  justify-content: center;
+}
+
+.card-wrapper {
+  position: relative;
+  padding: var(--noi-spacing-2x);
+  overflow: hidden;
+  border-radius: var(--noi-border-radius-md);
+  transition: var(--noi-duration-quick) transform ease;
+  inline-size: calc(var(--daily-goal-card-width) + var(--noi-spacing-4x));
+  block-size: calc(var(--daily-goal-card-height) + var(--noi-spacing-4x));
+
+  @media (hover: hover) {
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &:active {
+    transform: scale(1.05) translateY(getRem(2));
+  }
+}
+
+.card-wrapper-background {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  background-color: var(--noi-color-light-main-transparent-10);
+  opacity: 0;
+  transition: var(--noi-duration-quick) opacity ease;
+  pointer-events: none;
+
+  @media (hover: hover) {
+    .card-wrapper:hover & {
+      opacity: 1;
+    }
+  }
+}

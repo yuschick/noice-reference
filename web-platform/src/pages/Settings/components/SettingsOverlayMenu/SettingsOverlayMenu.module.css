@@ -1,0 +1,27 @@
+.overlay-menu-container {
+  @mixin narrow-scrollbar;
+  position: absolute;
+  z-index: var(--noi-z-index-level-10);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: getRem(24);
+  align-content: start;
+  padding: getRem(24) getRem(16);
+  overflow-y: auto;
+  background-color: var(--noi-color-dark-main);
+  inset: 0;
+  max-block-size: 100vb;
+}
+
+.navigation-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+}
+
+.menu-title {
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+}

@@ -1,0 +1,50 @@
+.progress-bar-label {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  color: var(--noi-color-gray-400);
+  font-size: var(--noi-font-size-sm);
+
+  .value-wrapper {
+    position: relative;
+    margin-inline-end: var(--noi-spacing-1x);
+    inset-block-end: getRem(1);
+  }
+
+  .old-value,
+  .new-value {
+    font-weight: var(--noi-font-weight-bold);
+    font-size: var(--noi-font-size-lg);
+  }
+
+  .old-value.hide {
+    position: absolute;
+    animation: fadeIn 500ms 300ms linear reverse forwards;
+    inset-inline-end: 0;
+  }
+
+  .new-value {
+    opacity: 0;
+    animation: fadeIn 400ms 500ms linear forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.diff {
+  padding: var(--noi-spacing-half) getRem(6);
+  color: var(--noi-color-green-main);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-sm);
+  background-color: var(--noi-color-gray-900);
+  border-radius: var(--noi-border-radius-xs);
+  margin-inline-start: var(--noi-spacing-2x);
+}

@@ -1,0 +1,10 @@
+.challenges-widget-root {
+  padding: var(--noi-spacing-2x);
+}
+
+.challenges-loading-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}

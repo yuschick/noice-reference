@@ -1,0 +1,27 @@
+@define-mixin loading-shine $color {
+  position: relative;
+  overflow: hidden;
+
+  &:global {
+    &::after {
+      /* stylelint-disable-next-line no-unknown-animations */
+      animation: background-position-move ease 3000ms 2 alternate;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    inline-size: 250%;
+    block-size: 250%;
+    background-image: linear-gradient(
+      125deg,
+      transparent 0%,
+      $color 40%,
+      transparent 100%
+    );
+    background-size: 100% 100%;
+    content: "";
+  }
+}

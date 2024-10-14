@@ -1,0 +1,29 @@
+{
+  "name": "@noice-com/webview-bridge",
+  "version": "1.0.0",
+  "packageManager": "yarn@4.1.0",
+  "description": "Utilities",
+  "main": "src/index.ts",
+  "license": "NONE",
+  "scripts": {
+    "lint": "eslint ./src --ext .ts"
+  },
+  "prettier": "@noice-com/eslint-config/prettier.config.js",
+  "dependencies": {
+    "@noice-com/platform-client": "workspace:*",
+    "@noice-com/schemas": "workspace:*",
+    "lodash.merge": "^4.6.2",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@noice-com/eslint-config": "workspace:*",
+    "@types/jest": "^29.5.4",
+    "@types/lodash.merge": "^4.6.7",
+    "eslint": "^8.48.0",
+    "prettier": "^2.8.8"
+  },
+  "engines": {
+    "node": ">=20.4.0"
+  },
+  "sideEffects": false
+}

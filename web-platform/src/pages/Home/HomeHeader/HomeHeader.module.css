@@ -1,0 +1,48 @@
+.home-header {
+  display: grid;
+  grid-template-areas: 'profile';
+  gap: var(--noi-spacing-8x);
+
+  &.tighter-home-page {
+    gap: var(--noi-spacing-6x);
+
+    &:has(.highlighted) {
+      /* stylelint-disable-next-line max-nesting-depth */
+      @media (min-width: getRem(592)) {
+        grid-template-rows: getRem(320) auto;
+      }
+
+      /* stylelint-disable-next-line max-nesting-depth */
+      @media (min-width: getRem(1120)) {
+        grid-template-areas: 'highlighted profile';
+        grid-template-rows: getRem(320);
+      }
+    }
+  }
+
+  &:has(.highlighted) {
+    grid-template-areas: 'highlighted' 'profile';
+
+    @media (min-width: getRem(1120)) {
+      grid-template-areas: 'highlighted .' 'highlighted profile';
+      grid-template-rows: var(--noi-spacing-10x) 1fr;
+      grid-template-columns: 1fr 1fr;
+      row-gap: 0;
+    }
+  }
+
+  &:has(:not(.highlighted)) {
+    @media (min-width: getRem(1200)) {
+      min-block-size: getRem(278);
+
+      /* stylelint-disable-next-line max-nesting-depth */
+      &.tighter-home-page {
+        block-size: getRem(320);
+      }
+    }
+  }
+}
+
+.highlighted {
+  grid-area: highlighted;
+}

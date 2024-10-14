@@ -1,0 +1,35 @@
+.sellable-item-content {
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  padding: var(--noi-spacing-4x) var(--noi-spacing-6x);
+  color: var(--noi-color-black-main);
+  font-weight: var(--noi-font-weight-medium);
+  background-color: var(--noi-color-gray-50);
+  border: 2px solid var(--noi-color-gray-50);
+  border-radius: var(--noi-border-radius-sm);
+  block-size: getRem(72);
+}
+
+.sellable-item-price {
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  white-space: nowrap;
+}
+
+.sellable-item-original-price {
+  color: var(--noi-color-gray-500);
+  font-weight: var(--noi-font-weight-medium);
+  text-decoration: line-through;
+}
+
+.item-label {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-content: start;
+  align-items: center;
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-md);
+}

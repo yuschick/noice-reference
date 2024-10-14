@@ -1,0 +1,21 @@
+.channel-logo {
+  inline-size: getRem(24);
+  block-size: getRem(24);
+  border-radius: var(--noi-border-radius-circle);
+}
+
+.channel-content {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  inline-size: max-content;
+
+  @media (min-width: getRem(653)) {
+    margin-inline-start: getRem(-14);
+  }
+}
+
+.channel-name {
+  text-transform: none;
+}

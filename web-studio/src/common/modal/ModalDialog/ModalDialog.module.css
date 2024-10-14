@@ -1,0 +1,40 @@
+.dialog {
+  --dialog-block-margin: getRem(24);
+  --dialog-close-size: getRem(48);
+  --dialog-max-block: min(getRem(850), calc(100vb - var(--dialog-block-margin) * 2));
+
+  @media (min-width: getRem(792)) {
+    --dialog-block-margin: getRem(56);
+  }
+
+  &[open] {
+    padding: 0;
+    overflow: hidden;
+    border: none;
+    inline-size: min(calc(100vi - var(--dialog-block-margin) * 2), getRem(578));
+    block-size: fit-content;
+    max-block-size: var(--dialog-max-block);
+  }
+}
+
+.dialog-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-8x);
+  padding: var(--noi-spacing-8x);
+  block-size: 100%;
+  max-block-size: var(--dialog-max-block);
+}
+
+.dialog-title {
+  font-size: var(--noi-font-size-xl);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}
+
+.dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-8x);
+}

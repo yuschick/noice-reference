@@ -1,0 +1,1 @@
+export { StoreSectionHeader } from './StoreSectionHeader';

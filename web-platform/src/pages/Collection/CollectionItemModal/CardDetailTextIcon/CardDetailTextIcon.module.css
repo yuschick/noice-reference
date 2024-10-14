@@ -1,0 +1,7 @@
+.icon-text {
+  color: var(--noi-color-white-main);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-xs);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}

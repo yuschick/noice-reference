@@ -1,0 +1,40 @@
+.edit-page-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: getRem(24);
+  align-items: flex-start;
+  container-type: inline-size;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: getRem(32) getRem(48);
+  align-items: flex-start;
+  align-self: stretch;
+  padding: var(--noi-spacing-10x);
+  background-color: var(--noi-color-gray-900);
+  border-radius: var(--noi-border-radius-md);
+
+  @container (min-width: getRem(1136)) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.subtitle {
+  font-size: var(--noi-font-size-lg);
+  text-transform: uppercase;
+  margin-block-end: getRem(24);
+}
+
+.button-wrapper {
+  min-inline-size: getRem(200);
+}

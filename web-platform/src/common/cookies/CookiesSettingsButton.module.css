@@ -1,0 +1,6 @@
+.clickable-text {
+  font: inherit;
+  text-decoration: underline;
+  background: inherit;
+  cursor: pointer;
+}

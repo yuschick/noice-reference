@@ -1,0 +1,33 @@
+.container {
+  z-index: var(--noi-z-index-level-4);
+  overflow: hidden;
+  inline-size: 100%;
+  max-block-size: 0;
+
+  &.opened {
+    transition: max-block-size var(--chat-drawer-closing-time, 0ms);
+    max-block-size: getRem(280);
+  }
+}
+
+.drawer-popup {
+  padding: var(--noi-spacing-2x);
+  overflow: hidden;
+  background: var(--noi-color-gray-950);
+  border-radius: var(--noi-border-radius-lg);
+  transform: translateY(0);
+  transition: transform var(--chat-drawer-closing-time);
+
+  .closed & {
+    transform: translateY(100%);
+  }
+}
+
+.drawer-inner {
+  padding: var(--noi-spacing-2x);
+  max-block-size: getRem(264);
+  overflow: auto;
+  @mixin no-scroll-bar;
+  background: var(--noi-color-gray-900);
+  border-radius: var(--noi-border-radius-md);
+}

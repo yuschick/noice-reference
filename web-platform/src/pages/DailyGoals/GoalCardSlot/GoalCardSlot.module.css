@@ -1,0 +1,13 @@
+.loading-wrapper {
+  padding: var(--noi-spacing-2x);
+  @mixin loading-shine var(--noi-color-gray-700);
+  border-radius: var(--noi-border-radius-md);
+}
+
+.loading {
+  inline-size: var(--daily-goal-card-width);
+  block-size: var(--daily-goal-card-height);
+  border: getRem(2) solid var(--noi-color-gray-700);
+  border-radius: var(--daily-goal-card-border-radius);
+  @mixin loading-shine var(--noi-color-gray-600);
+}

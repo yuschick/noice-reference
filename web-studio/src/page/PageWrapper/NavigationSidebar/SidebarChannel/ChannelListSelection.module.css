@@ -1,0 +1,9 @@
+.divider {
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  color: var(--noi-color-gray-600);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  padding-inline-end: getRem(5);
+}

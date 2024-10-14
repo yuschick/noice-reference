@@ -1,0 +1,9 @@
+.wrapper {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  z-index: var(--noi-z-index-level-4);
+  pointer-events: none;
+}

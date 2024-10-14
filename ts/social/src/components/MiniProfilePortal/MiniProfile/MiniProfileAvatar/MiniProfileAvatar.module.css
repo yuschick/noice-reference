@@ -1,0 +1,11 @@
+.mini-profile-avatar-wrapper {
+  position: relative;
+  flex-shrink: 0;
+  background: var(--_mini-profile-avatar-background-image) no-repeat;
+  inline-size: getRem(160);
+  background-size: cover;
+}
+
+.mini-profile-avatar {
+  position: absolute;
+}

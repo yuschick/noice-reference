@@ -1,0 +1,76 @@
+.row-wrapper {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: 0;
+  align-items: flex-end;
+  justify-content: flex-start;
+  background: radial-gradient(
+    at left bottom,
+    var(--noi-color-black-main-transparent-80) 50%,
+    transparent 70%
+  );
+  padding-inline-start: var(--noi-spacing-1x);
+  animation: slide-in 500ms forwards;
+
+  &.hide-card-row {
+    display: none;
+    animation: none;
+  }
+}
+
+/* Played when the challengesDialog is closed */
+@keyframes slide-in {
+  0% {
+    /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
+    display: none;
+    transform: translateY(2rem);
+    opacity: 0;
+  }
+
+  100% {
+    /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
+    display: inline-flex;
+    flex-wrap: nowrap;
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.card-row-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-3x);
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: var(--noi-spacing-4x) var(--noi-spacing-3x);
+
+  .hide-actions & {
+    opacity: 0;
+  }
+}
+
+.row-item {
+  padding: var(--noi-spacing-4x) var(--noi-spacing-3x);
+}
+
+.local-player {
+  z-index: var(--noi-z-index-level-4);
+}
+
+.team-mate-1 {
+  z-index: var(--noi-z-index-level-3);
+}
+
+.team-mate-2 {
+  z-index: var(--noi-z-index-level-2);
+}
+
+.team-mate-3 {
+  z-index: var(--noi-z-index-level-1);
+}
+
+.hand-divider {
+  inline-size: getRem(1);
+  block-size: getRem(72);
+  background: linear-gradient(transparent, var(--noi-color-light-main-transparent-10));
+}

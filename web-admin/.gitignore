@@ -1,0 +1,42 @@
+# Web
+node_modules
+dist
+dist-pr
+dist-cdn
+coverage/
+.pnp
+.pnp.js
+yarn-error.log
+server_pack.js
+.types/
+.tscache/
+
+
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+!.yarn/cache
+
+
+# Storybooks
+storybook-static
+
+# Misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+
+## Generated
+dep-graph.svg
+DISCLAIMER.md
+LICENSES.md
+
+!.vscode

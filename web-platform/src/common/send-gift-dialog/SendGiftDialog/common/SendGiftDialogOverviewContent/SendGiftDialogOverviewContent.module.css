@@ -1,0 +1,10 @@
+.overview-state-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: getRem(24);
+}
+
+.price-disclaimer {
+  color: var(--noi-color-text-dark-secondary);
+  font-size: var(--noi-font-size-sm);
+}

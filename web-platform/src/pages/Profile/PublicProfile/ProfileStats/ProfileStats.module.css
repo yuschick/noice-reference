@@ -1,0 +1,28 @@
+.profile-section-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--noi-spacing-6x);
+}
+
+.title-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  text-transform: uppercase;
+}
+
+.icon {
+  inline-size: getRem(24);
+  block-size: getRem(24);
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-6x) var(--noi-spacing-4x);
+  padding-inline: var(--noi-spacing-4x);
+}

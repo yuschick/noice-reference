@@ -1,0 +1,73 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  justify-content: flex-end;
+  padding: getRem(6);
+  background-color: transparent;
+  border-radius: var(--noi-border-radius-xs);
+
+  &:hover {
+    background-color: var(--noi-color-gray-850);
+    cursor: pointer;
+  }
+
+  &.checked {
+    background-color: var(--noi-color-gray-850);
+  }
+}
+
+.input {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+}
+
+.checkmark {
+  inline-size: getRem(10);
+  block-size: getRem(10);
+  visibility: hidden;
+  pointer-events: none;
+
+  .input:checked ~ .checkmark-wrapper &{
+    visibility: visible;
+  }
+}
+
+.label {
+  color: var(--noi-color-gray-400);
+font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+
+  .container:hover &, .container:focus-within & {
+    color: var(--noi-color-text-light);
+  }
+}
+
+.checkmark-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  inline-size: getRem(20);
+  block-size: getRem(20);
+  border: 1px solid var(--noi-color-gray-800);
+  border-radius: var(--noi-border-radius-circle);
+  pointer-events: none;
+
+  .container:focus-within & {
+    border: 1px solid var(--noi-color-teal-main);
+  }
+
+  .input:checked ~ & {
+    background-color: var(--noi-color-gray-800);
+  }
+}

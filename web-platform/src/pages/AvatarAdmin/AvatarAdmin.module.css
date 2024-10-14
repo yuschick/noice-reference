@@ -1,0 +1,31 @@
+.title {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-xl);
+}
+
+.body {
+  color: var(--noi-color-text-light);
+  font-size: var(--noi-font-size-lg);
+}
+
+.content-wrapper {
+  padding: getRem(24) getRem(56);
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: getRem(24);
+  inline-size: getRem(764);
+  margin-block-end: getRem(32);
+}
+
+.avatar-wrapper {
+  inline-size: getRem(400);
+  block-size: getRem(400);
+}
+
+.button-wrapper {
+  inline-size: getRem(200);
+}

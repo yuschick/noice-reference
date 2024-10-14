@@ -1,0 +1,106 @@
+.no-access-wrapper {
+  display: grid;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-regular);
+  background: var(--noi-color-gray-950);
+  margin-inline: auto;
+  place-items: center;
+  place-content: center;
+  inline-size: 100vi;
+  block-size: 100dvh;
+}
+
+.no-access-content-wrapper {
+  display: grid;
+  place-items: center;
+  place-content: center;
+  inline-size: min(100vi, getRem(512));
+  block-size: 100dvh;
+  grid-template-columns: 1fr;
+  gap: var(--noi-spacing-10x);
+}
+
+.studio-logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+  align-content: center;
+  align-items: center;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-xl);
+  line-height: var(--noi-line-height-tight);
+  text-align: center;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  justify-content: center;
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-loose);
+  text-align: center;
+}
+
+.title {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-xl);
+  line-height: var(--noi-line-height-tight);
+}
+
+.profile-wrapper {
+  display: grid;
+  grid-template-columns: min-content minmax(0, 1fr) min-content;
+  gap: var(--noi-spacing-8x);
+  inline-size: fit-content;
+  align-content: center;
+  align-items: center;
+  place-content: center;
+  place-items: center;
+  padding-inline: var(--noi-spacing-4x);
+
+  .username {
+    flex-grow: 2;
+    font-weight: var(--noi-font-weight-bold);
+    line-height: var(--noi-line-height-tight);
+  }
+}
+
+.actions-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  align-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-10x);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  inline-size: min(100vi, getRem(512));
+}
+
+.header {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  color: var(--noi-color-gray-600);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-2xl);
+
+  .logo {
+    color: var(--noi-color-status-error-main);
+    vertical-align: middle;
+    inline-size: auto;
+    block-size: getRem(40);
+  }
+}

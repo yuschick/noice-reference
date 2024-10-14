@@ -1,0 +1,95 @@
+.wrapper {
+  @media (min-width: getRem(800)) {
+    position: relative;
+  }
+}
+
+.input-wrapper {
+  position: relative;
+  display: block;
+}
+
+.search-icon {
+  display: grid;
+}
+
+.listbox-wrapper {
+  position: absolute;
+  display: none;
+  padding: var(--noi-spacing-4x) var(--noi-spacing-2x);
+  overflow: auto;
+  background-color: var(--noi-color-gray-950);
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  inset-block-start: var(--platform-header-size);
+  block-size: calc(100vh - var(--platform-header-size));
+
+  @media (min-width: getRem(800)) {
+    inset-block-start: calc(100% + var(--noi-spacing-half));
+    min-inline-size: getRem(350);
+    border-radius: var(--noi-border-radius-md);
+    inline-size: auto;
+    block-size: auto;
+  }
+
+  .expanded & {
+    display: block;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  list-style: none;
+}
+
+.button-wrapper {
+  padding: var(--noi-spacing-2x) 0;
+  border-block-start: getRem(1) solid var(--noi-color-gray-900);
+  block-size: getRem(56);
+}
+
+.no-result {
+  padding: var(--noi-spacing-2x);
+  color: var(--noi-color-text-light);
+}
+
+.item {
+  margin-block-end: var(--noi-spacing-2x);
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  padding: var(--noi-spacing-2x);
+  text-decoration: none;
+  border-radius: var(--noi-border-radius-sm);
+
+  .list-option[aria-selected='true'] & {
+    background-color: var(--noi-color-gray-900);
+  }
+}
+
+.category-name {
+  padding: 0 var(--noi-spacing-2x) var(--noi-spacing-2x) var(--noi-spacing-2x);
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-sm);
+
+  &:not(:first-of-type) {
+    padding: var(--noi-spacing-2x);
+  }
+}
+
+.separator {
+  margin: var(--noi-spacing-2x) 0;
+  border-color: var(--noi-color-light-main-transparent-10);
+}
+
+.search-input-wrapper {
+  inline-size: 100%;
+
+  @media (min-width: getRem(800)) {
+    min-inline-size: getRem(250);
+    max-inline-size: getRem(400);
+  }
+}

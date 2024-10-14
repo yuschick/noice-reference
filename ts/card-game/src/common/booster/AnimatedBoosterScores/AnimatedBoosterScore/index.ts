@@ -1,0 +1,1 @@
+export { AnimatedBoosterScore } from './AnimatedBoosterScore';

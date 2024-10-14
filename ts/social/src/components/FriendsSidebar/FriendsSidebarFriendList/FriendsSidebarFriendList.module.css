@@ -1,0 +1,20 @@
+.friends-wrapper {
+  display: grid;
+  gap: var(--noi-spacing-4x);
+}
+
+.list {
+  @mixin list-style-none;
+
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  max-inline-size: 100%;
+}
+
+.title {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+}

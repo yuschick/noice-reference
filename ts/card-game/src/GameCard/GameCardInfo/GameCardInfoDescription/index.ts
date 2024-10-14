@@ -1,0 +1,1 @@
+export { GameCardInfoDescription } from './GameCardInfoDescription';

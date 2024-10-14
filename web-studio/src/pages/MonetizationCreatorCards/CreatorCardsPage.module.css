@@ -1,0 +1,5 @@
+.page {
+  display: grid;
+  gap: var(--noi-spacing-8x);
+  padding: getRem(30) getRem(50);
+}

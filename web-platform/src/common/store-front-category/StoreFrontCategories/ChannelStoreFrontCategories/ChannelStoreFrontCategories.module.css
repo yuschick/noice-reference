@@ -1,0 +1,10 @@
+.section-container {
+  display: flex;
+  flex-direction: column;
+  gap: getRem(24);
+}
+
+.separator {
+  margin: getRem(56) 0;
+  border-color: var(--noi-color-light-main-transparent-10);
+}

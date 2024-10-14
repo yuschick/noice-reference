@@ -1,0 +1,4 @@
+.badge {
+  max-inline-size: getVarRem(var(--badge-size, 20));
+  max-block-size: getVarRem(var(--badge-size, 20));
+}

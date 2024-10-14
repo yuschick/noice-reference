@@ -1,0 +1,48 @@
+.payments-history-wrapper {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: var(--noi-spacing-4x);
+}
+
+.empty-payments-text {
+  font-size: var(--noi-font-size-sm);
+}
+
+.payments-wrapper {
+  padding: getRem(16) 0;
+  border-radius: var(--noi-border-radius-md);
+
+  @media (min-width: getRem(960)) {
+    padding: var(--noi-spacing-4x);
+    background-color: var(--noi-color-violet-700);
+  }
+}
+
+.pagination-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  justify-content: space-between;
+
+  > [class*='button'] {
+    flex: 0;
+  }
+}
+
+.receipt-link {
+  display: block;
+  padding: var(--noi-spacing-3x) getRem(24);
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: var(--noi-color-gray-750);
+  border-radius: var(--noi-border-radius-sm);
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--noi-color-gray-700);
+    }
+  }
+}

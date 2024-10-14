@@ -1,0 +1,234 @@
+.wrapper {
+  position: relative;
+  perspective: getRem(500);
+  perspective-origin: 0 getRem(100);
+}
+
+.content {
+  position: relative;
+  backface-visibility: hidden;
+  animation: card-pop 2000ms forwards, card-rotate 3000ms forwards;
+
+  .failure & {
+    opacity: 0.5;
+  }
+}
+
+@keyframes card-pop {
+  0% {
+    translate: 0 200%;
+    animation-timing-function: cubic-bezier(0.08, 0.8, 0.39, 1.02);
+    scale: 0.95;
+  }
+
+  30% {
+    translate: 0 -2%;
+    animation-timing-function: cubic-bezier(0.69, 0.01, 0.46, 1);
+    scale: 1.03;
+  }
+
+  42% {
+    translate: 0 0;
+    scale: 1;
+  }
+}
+
+@keyframes card-rotate {
+  0% {
+    transform: rotateX(0) rotateY(180deg) rotateZ(0) translateX(-3%);
+    animation-timing-function: ease-in-out;
+  }
+
+  3% {
+    transform: rotateX(-6deg) rotateY(180deg) rotateZ(0) translateX(-3%);
+    animation-timing-function: ease-in-out;
+  }
+
+  23% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(-2.5deg) translateX(-3%);
+    animation-timing-function: ease-out;
+  }
+
+  80% {
+    transform: rotateZ(-2.5deg);
+  }
+
+  100% {
+    transform: rotateZ(0deg) translateX(0%);
+  }
+}
+
+@keyframes card-rotate-backside {
+  0% {
+    transform: rotateX(0) rotateY(180deg) rotateZ(0) translateX(-3%);
+    animation-timing-function: ease-in-out;
+  }
+
+  3% {
+    transform: rotateX(-6deg) rotateY(0deg) rotateZ(0) translateX(-3%);
+    animation-timing-function: ease-in-out;
+  }
+
+  23% {
+    transform: rotateX(0deg) rotateY(-180deg) rotateZ(-2.5deg) translateX(-3%);
+    animation-timing-function: ease-out;
+  }
+
+  80% {
+    transform: rotateZ(-2.5deg) rotateY(-180deg);
+  }
+
+  100% {
+    transform: rotateZ(0deg) translateX(0%) rotateY(-180deg);
+  }
+}
+
+.backside {
+  position: absolute;
+  background: var(--game-card-back-side-image-url);
+  background-size: cover;
+  transform: rotateZ(-180deg);
+  backface-visibility: hidden;
+  animation: card-pop 2000ms forwards, card-rotate-backside 3000ms forwards;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.video-wrapper {
+  position: relative;
+  pointer-events: none;
+  scale: 0.86;
+}
+
+.video {
+  position: absolute;
+  z-index: var(--noi-z-index-level-3);
+  transform: translate(-49%, -29.5%);
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+}
+
+.sprite-container {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  inline-size: getRem(224);
+  block-size: getRem(288);
+  overflow: hidden;
+  transform: translate(-50%, -50%) scale(var(--game-card-with-vfx-sprite-scale, 1));
+  transition: transform 100ms linear;
+  pointer-events: none;
+
+  .success & {
+    animation: success-sprite-opacity var(--game-card-with-vfx-duration) forwards;
+  }
+
+  .medium & {
+    --game-card-with-vfx-sprite-scale: 1.4;
+  }
+
+  .large & {
+    --game-card-with-vfx-sprite-scale: 1.75;
+  }
+}
+
+@keyframes success-sprite-opacity {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+    animation-timing-function: ease-in-out;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.sprite-image {
+  position: absolute;
+  inset-block-start: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  inline-size: getRem(5600);
+  background-image: var(--game-card-with-vfx-sprite-image);
+
+  .personal-best & {
+    filter: hue-rotate(97deg);
+    animation: sprite-movement 1000ms steps(24) infinite;
+  }
+}
+
+@keyframes sprite-movement {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-96%);
+  }
+}
+
+.highlight-container {
+  position: absolute;
+  z-index: var(--noi-z-index-level-1);
+  border-radius: var(--noi-border-radius-sm);
+  opacity: 0;
+  mix-blend-mode: plus-lighter;
+  animation: highlight-movement var(--game-card-with-vfx-duration) ease-in-out;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  mask-image: linear-gradient(-30deg, transparent 0 35%, white 50%, transparent 65% 100%);
+  mask-size: 100% 300%;
+}
+
+@keyframes highlight-movement {
+  0% {
+    mask-position: top;
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  50% {
+    mask-position: bottom;
+  }
+
+  95% {
+    opacity: 1;
+  }
+
+  100% {
+    mask-position: top;
+    opacity: 0;
+  }
+}
+
+.highlight {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  border-radius: var(--noi-border-radius-sm);
+
+  .success & {
+    background-color: var(--noi-color-teal-300);
+  }
+
+  .personal-best & {
+    background-color: var(--noi-color-light-main-transparent-40);
+  }
+}

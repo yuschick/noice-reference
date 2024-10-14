@@ -1,0 +1,122 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: getRem(24);
+  container-type: inline-size;
+}
+
+.back-button-wrapper {
+  display: none;
+  flex-direction: column;
+  gap: var(--noi-spacing-5x);
+
+  @container (min-width: getRem(240)) {
+    display: flex;
+  }
+}
+
+.form {
+  display: none;
+  flex-direction: column;
+  gap: var(--noi-spacing-3x);
+  align-items: flex-start;
+
+  @container (min-width: getRem(240)) {
+    display: flex;
+  }
+}
+
+.divider {
+  flex-shrink: 0;
+  align-self: stretch;
+  border-color: var(--noi-color-light-main-transparent-10);
+  block-size: getRem(1);
+}
+
+.title {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+}
+
+.description {
+  color: var(--noi-color-text-light);
+  font-size: var(--noi-font-size-sm);
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  inline-size: 100%;
+}
+
+.error-label {
+  position: absolute;
+  color: var(--noi-color-magenta-main);
+  font-size: var(--noi-font-size-xs);
+  inset-block-start: getRem(4);
+  inset-inline-end: getRem(8);
+}
+
+.input {
+  padding: var(--noi-spacing-4x);
+  color: var(--noi-color-text-light);
+  font-size: var(--noi-font-size-lg);
+  font-style: normal;
+  border: 1px solid var(--noi-color-gray-600);
+  border-radius: var(--noi-border-radius-md);
+  outline: none;
+  transition: border-color var(--noi-duration-quick) ease;
+  inline-size: 100%;
+  block-size: getRem(50);
+
+  &::placeholder {
+    color: var(--noi-color-text-light-secondary);
+  }
+
+  &:focus {
+    border-color: var(--noi-color-white-main);
+  }
+
+  &[aria-invalid='true'] {
+    border-color: var(--noi-color-magenta-main);
+  }
+
+  &.success {
+    border-color: var(--noi-color-green-main);
+  }
+}
+
+.button {
+  inline-size: 100%;
+}
+
+.complete-icon {
+  position: absolute;
+  inset-inline-end: getRem(8);
+  inline-size: getRem(28);
+  block-size: getRem(28);
+  animation: pop-in var(--add-friend-complete-animation-time) linear forwards;
+  fill: var(--noi-color-green-main);
+}
+
+@keyframes pop-in {
+  0% {
+    transform: scale(0);
+    animation-timing-function: cubic-bezier(0.64, 0.36, 0.5, 1.4);
+  }
+
+  25% {
+    transform: scale(1);
+  }
+
+  85% {
+    transform: scale(1);
+    animation-timing-function: cubic-bezier(0.7, 0.2, 0.93, 0.43);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}

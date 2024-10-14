@@ -1,0 +1,9 @@
+name: ts-assets-core
+
+build_dependencies:
+  - eslint-config
+
+lint:
+  - type: yarn_run
+    cmd: lint
+

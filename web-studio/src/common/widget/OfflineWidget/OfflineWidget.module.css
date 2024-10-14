@@ -1,0 +1,63 @@
+.wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  block-size: 100%;
+  padding: getRem(20) 20%;
+  color: var(--noi-color-gray-600);
+  text-align: center;
+}
+
+.contained {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  z-index: var(--noi-z-index-behind);
+}
+
+.dimmed {
+  opacity: 0.25;
+}
+
+.texts {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: var(--noi-spacing-2x);
+  padding: var(--noi-spacing-3x) getRem(24);
+  border-radius: var(--noi-border-radius-sm);
+}
+
+.title {
+  display: block;
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-md);
+  text-transform: uppercase;
+
+  .title-text {
+    display: inline-block;
+    margin-inline-start: getRem(6);
+  }
+}
+
+.close-button {
+  position: absolute;
+  inset-block-start: getRem(4);
+  inset-inline-end: getRem(4);
+}
+
+.icon {
+  margin-block-start: getRem(-1);
+  vertical-align: middle;
+}
+
+.description {
+  display: inline-block;
+  font-size: var(--noi-font-size-sm);
+  max-inline-size: getRem(338);
+}

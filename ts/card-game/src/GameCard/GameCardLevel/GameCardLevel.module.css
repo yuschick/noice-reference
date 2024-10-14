@@ -1,0 +1,152 @@
+.game-card-level-wrapper {
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+}
+
+.game-card-level-season-badge {
+  --_game-card-level-group-0-season-bg: #7e379b;
+  --_game-card-level-group-1-season-bg: #5544a3;
+  --_game-card-level-group-2-season-bg: #009492;
+  --_game-card-level-group-3-season-bg: #5620d3;
+  --_game-card-level-group-4-season-bg: #78199b;
+  --_game-card-level-group-5-season-bg: #3c199b;
+  --_game-card-level-group-6-season-bg: #a3680e;
+
+  display: none;
+  background-image: var(--game-card-level-season-badge-url);
+  background-position: center;
+  background-size: 80%;
+  inline-size: max(getRem(36), pixelsToCardCqi(40));
+  block-size: max(getRem(24), pixelsToCardCqi(26));
+  border-start-start-radius: pixelsToCardCqi(16);
+
+  .level-group-0 & {
+    background-color: var(--_game-card-level-group-0-season-bg);
+  }
+
+  .level-group-1 & {
+    background-color: var(--_game-card-level-group-1-season-bg);
+  }
+
+  .level-group-2 & {
+    background-color: var(--_game-card-level-group-2-season-bg);
+  }
+
+  .level-group-3 & {
+    background-color: var(--_game-card-level-group-3-season-bg);
+  }
+
+  .level-group-4 & {
+    background-color: var(--_game-card-level-group-4-season-bg);
+  }
+
+  .level-group-5 & {
+    background-color: var(--_game-card-level-group-5-season-bg);
+  }
+
+  .level-group-6 & {
+    background-color: var(--_game-card-level-group-6-season-bg);
+  }
+
+  @mixin game-card-breakpoint-medium {
+    display: block;
+  }
+}
+
+.game-card-level {
+  --_game-card-level-group-0-gradient-start: #855aad;
+  --_game-card-level-group-0-gradient-end: #c485ff;
+  --_game-card-level-group-1-gradient-start: #6877af;
+  --_game-card-level-group-1-gradient-end: #8dade3;
+  --_game-card-level-group-2-gradient-start: #00c3c2;
+  --_game-card-level-group-2-gradient-end: #10f8f6;
+  --_game-card-level-group-3-gradient-start: #5335fd;
+  --_game-card-level-group-3-gradient-end: #7cc0ff;
+  --_game-card-level-group-4-gradient-start: #b021e6;
+  --_game-card-level-group-4-gradient-end: #f283fc;
+  --_game-card-level-group-5-gradient-start: #7d21e6;
+  --_game-card-level-group-5-gradient-end: #d683fc;
+  --_game-card-level-group-6-gradient-start: #d09c49;
+  --_game-card-level-group-6-gradient-end: #f5cd6f;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: max(getRem(12), pixelsToCardCqi(14));
+  inline-size: max(getRem(36), pixelsToCardCqi(40));
+  block-size: max(getRem(24), pixelsToCardCqi(26));
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  background-position: var(--game-card-holo-bg-position);
+  background-size: 200% 200%;
+  box-shadow: 0 getRem(2) getRem(4) var(--noi-color-black-main-transparent-20);
+  border-start-start-radius: pixelsToCardCqi(16);
+  border-end-end-radius: pixelsToCardCqi(16);
+
+  .level-group-0 & {
+    background-image: linear-gradient(
+      151deg,
+      var(--_game-card-level-group-0-gradient-start) 35%,
+      var(--_game-card-level-group-0-gradient-end) 65%
+    );
+  }
+
+  .level-group-1 & {
+    background-image: linear-gradient(
+      151deg,
+      var(--_game-card-level-group-1-gradient-start) 35%,
+      var(--_game-card-level-group-1-gradient-end) 65%
+    );
+  }
+
+  .level-group-2 & {
+    background-image: linear-gradient(
+      151deg,
+      var(--_game-card-level-group-2-gradient-start) 35%,
+      var(--_game-card-level-group-2-gradient-end) 65%
+    );
+  }
+
+  .level-group-3 & {
+    background-image: linear-gradient(
+      151deg,
+      var(--_game-card-level-group-3-gradient-start) 35%,
+      var(--_game-card-level-group-3-gradient-end) 65%
+    );
+  }
+
+  .level-group-4 & {
+    background-image: linear-gradient(
+      151deg,
+      var(--_game-card-level-group-4-gradient-start) 35%,
+      var(--_game-card-level-group-4-gradient-end) 65%
+    );
+  }
+
+  .level-group-5 & {
+    background-image: linear-gradient(
+      151deg,
+      var(--_game-card-level-group-5-gradient-start) 35%,
+      var(--_game-card-level-group-5-gradient-end) 65%
+    );
+  }
+
+  .level-group-6 & {
+    background-image: linear-gradient(
+      151deg,
+      var(--_game-card-level-group-6-gradient-start) 35%,
+      var(--_game-card-level-group-6-gradient-end) 65%
+    );
+  }
+
+  @mixin game-card-breakpoint-small {
+    display: flex;
+  }
+
+  @mixin game-card-breakpoint-medium {
+    border-start-start-radius: 0;
+  }
+}

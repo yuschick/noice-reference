@@ -1,0 +1,49 @@
+.overview-title {
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-xl);
+  font-style: normal;
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}
+
+.overview-description {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-medium);
+}
+
+.overview-toggle-title {
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-lg);
+  /* Here we want to match the line heigh with toggle height to center the label */
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  line-height: getRem(24);
+}
+
+.overview-toggle-description {
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-loose);
+}
+
+.overview-toggle-label-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.overview-destination-title {
+  margin-block-end: getRem(16);
+}
+
+.overview-section-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: var(--noi-spacing-8x);
+  background: var(--noi-color-gray-850);
+  border-radius: var(--noi-border-radius-xs);
+
+  .disabled & {
+    background: var(--noi-color-gray-900);
+  }
+}

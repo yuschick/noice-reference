@@ -1,0 +1,43 @@
+.new-season-banner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-8x);
+  padding: var(--noi-spacing-8x);
+  background-color: var(--noi-color-blue-950);
+  border-radius: var(--noi-border-radius-lg);
+}
+
+.new-season-banner-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+}
+
+.game-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+}
+
+.season-name {
+  font-weight: var(--noi-font-weight-bold);
+  text-transform: uppercase;
+}
+
+.description {
+  color: var(--noi-color-text-light-secondary);
+  line-height: var(--noi-line-height-tight);
+}
+
+.play-the-stream {
+  color: transparent;
+  font-weight: var(--noi-font-weight-bold);
+  background: var(--noi-gradient-green-teal);
+  background-clip: text;
+}
+
+.channel-name {
+  font-weight: var(--noi-font-weight-bold);
+}

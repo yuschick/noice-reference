@@ -1,0 +1,35 @@
+.title-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  justify-content: space-between;
+  margin-inline-start: 1cqi;
+  margin-inline-end: 1cqi;
+  margin-block-end: var(--noi-spacing-2x);
+  margin-block-start: var(--noi-spacing-1x);
+  min-block-size: getRem(32);
+}
+
+.title-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.icon {
+  color: var(--noi-color-light-main);
+  inline-size: getRem(32);
+  block-size: getRem(32);
+}
+
+.title {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  white-space: nowrap;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+}

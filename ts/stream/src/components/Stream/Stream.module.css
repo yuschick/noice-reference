@@ -1,0 +1,51 @@
+@layer noice.ui {
+  .stream-root {
+    position: relative;
+    inline-size: 100%;
+    block-size: 100%;
+  }
+}
+
+.stream-video-wrapper {
+  position: absolute;
+  z-index: var(--noi-z-index-behind);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: var(--noi-color-black-main);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: auto 100%;
+  inset: 0;
+}
+
+.fallback-stream-video-wrapper {
+  position: absolute;
+  z-index: var(--noi-z-index-behind);
+  overflow: hidden;
+  inset: 0;
+  inline-size: var(--arena-screen-pos-width);
+  max-block-size: var(--arena-screen-pos-height);
+  max-inline-size: var(--arena-screen-pos-width);
+  min-inline-size: var(--arena-screen-pos-width);
+  inset-inline-start: var(--arena-screen-pos-x);
+  inset-block-start: var(--arena-screen-pos-y);
+
+}
+
+.image-container {
+  position: absolute;
+  z-index: var(--noi-z-index-behind);
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.background-image {
+  block-size: 100%;
+}

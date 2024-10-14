@@ -1,0 +1,1 @@
+export { HiddenCaptcha } from './HiddenCaptcha';

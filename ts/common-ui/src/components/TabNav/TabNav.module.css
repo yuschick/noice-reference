@@ -1,0 +1,35 @@
+.container {
+  position: relative;
+}
+
+.inner-container {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.underline {
+  position: absolute;
+  background-color: var(--noi-color-white-main);
+  transition: inset-inline-start 200ms, inline-size 200ms;
+  inset-inline-start: var(--underline-offset);
+  inline-size: var(--underline-width);
+  inset-block-end: getRem(0);
+  block-size: getRem(2);
+}
+
+.loading-container {
+  @mixin loading-shine var(--neutral-700);
+  inline-size: getRem(142);
+  block-size: getRem(64);
+  border-radius: var(--noi-border-radius-xs);
+  margin-inline-end: var(--noi-spacing-1x);
+}

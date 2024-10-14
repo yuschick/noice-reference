@@ -1,0 +1,75 @@
+.payments-list {
+  display: grid;
+  gap: var(--noi-spacing-1x);
+
+  .payment-item {
+    display: grid;
+    gap: var(--noi-spacing-4x);
+    padding: var(--noi-spacing-4x);
+    background-color: var(--noi-color-violet-700);
+    border-radius: var(--noi-border-radius-sm);
+  }
+
+  .details-container {
+    display: grid;
+    grid-template-areas: 'time refund' 'details details';
+    gap: var(--noi-spacing-2x);
+    font-weight: var(--noi-font-weight-base);
+    font-size: var(--noi-font-size-sm);
+    line-height: var(--noi-line-height-medium);
+  }
+
+  .detailts-content {
+    grid-area: details;
+  }
+
+  .refunded-pill {
+    grid-area: refund;
+    justify-self: end;
+  }
+
+  .item-title {
+    font-weight: var(--noi-font-weight-medium);
+  }
+}
+
+.payments-table-wrapper {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--noi-border-radius-md);
+}
+
+.payments-table {
+  overflow: hidden;
+  font-size: var(--noi-font-size-sm);
+  border: 1px solid var(--noi-color-gray-800);
+  border-radius: var(--noi-border-radius-md);
+  border-spacing: 0;
+  inline-size: 100%;
+}
+
+.payments-table-head {
+  padding: getRem(8) getRem(6);
+  color: var(--noi-color-text-light);
+  font-size: var(--noi-font-size-sm);
+  text-align: start;
+  background-color: var(--noi-color-violet-800);
+}
+
+.payments-table-cell {
+  padding: getRem(8) var(--noi-spacing-3x);
+  text-align: start;
+  border-block-end: 1px solid var(--noi-color-violet-900);
+  inline-size: fit-content;
+
+  &:last-child {
+    inline-size: 1%;
+    white-space: nowrap;
+  }
+}
+
+.description-cell-content {
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  gap: var(--noi-spacing-4x);
+}

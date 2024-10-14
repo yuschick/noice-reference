@@ -1,0 +1,7 @@
+body {
+  --platform-background: transparent;
+}
+
+[data-reach-dialog-overlay] {
+  z-index: var(--noi-z-index-level-5);
+}

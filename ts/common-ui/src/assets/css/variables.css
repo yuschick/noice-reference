@@ -1,0 +1,41 @@
+/* stylelint-disable declaration-property-value-disallowed-list */
+/* stylelint-disable declaration-property-value-allowed-list */
+:root {
+  /**
+   * Button speficic
+   */
+  --button-height-xsmall: getRem(24);
+  --button-height-small: getRem(40);
+  --button-height-medium: getRem(48);
+  --button-height-large: getRem(56);
+
+  /**
+   * Layout
+   */
+  --background-gradient: linear-gradient(
+    180deg,
+    var(--noi-color-gray-850),
+    var(--noi-color-gray-950)
+  );
+  --top-bar-height: getRem(56);
+
+  /**
+  * Tooltip
+  */
+  --tooltip-background-color: var(--noi-color-gray-900);
+  --tooltip-tick-size: getRem(8);
+
+  /**
+   * Rarity
+   */
+  --_rarity-common: var(--noi-color-gray-100);
+  --_rarity-common-transparent-50: var(--noi-color-gray-100-transparent-50);
+  --_rarity-uncommon: var(--noi-color-green-main);
+  --_rarity-uncommon-transparent-50: var(--noi-color-green-700);
+  --_rarity-rare: var(--noi-color-teal-main);
+  --_rarity-rare-transparent-50: var(--noi-color---noi-color-teal-700);
+  --_rarity-epic: var(--noi-color-violet-main);
+  --_rarity-epic-transparent-50: var(--noi-color-violet-main);
+  --_rarity-legendary: var(--noi-color-yellow-green-main);
+  --_rarity-legendary-transparent-50: var(--noi-color-yellow-green-main);
+}

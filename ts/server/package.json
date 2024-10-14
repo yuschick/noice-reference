@@ -1,0 +1,29 @@
+{
+  "name": "@noice-com/server",
+  "version": "1.0.0",
+  "packageManager": "yarn@4.1.0",
+  "description": "Server utilities",
+  "main": "src/index.ts",
+  "license": "NONE",
+  "scripts": {
+    "check-types": "tsc --build tsconfig.json",
+    "lint": "yarn run check-types && eslint ./src --ext .ts",
+    "lint:fix": "eslint ./src --fix"
+  },
+  "prettier": "@noice-com/eslint-config/prettier.config.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "http-proxy-middleware": "^2.0.6",
+    "node-fetch": "2",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@noice-com/eslint-config": "workspace:*",
+    "eslint": "^8.48.0",
+    "prettier": "^2.8.8",
+    "vite": "^4.4.9"
+  },
+  "engines": {
+    "node": ">=20.4.0"
+  }
+}

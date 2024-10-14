@@ -1,0 +1,128 @@
+.wrapper {
+  --toggle-click-area-gap: var(--noi-spacing-2x);
+
+  &.small {
+    --toggle-button-width: getRem(28);
+  }
+
+  &.medium {
+    --toggle-button-width: getRem(36);
+  }
+
+  &.large {
+    --toggle-button-width: getRem(44);
+  }
+}
+
+.click-area {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--toggle-click-area-gap);
+  align-items: center;
+}
+
+.button {
+  flex-shrink: 0;
+  inline-size: var(--toggle-button-width);
+  padding: getRem(1);
+  border: 1px solid var(--neutral-500);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color var(--noi-duration-quick);
+
+  .small & {
+    block-size: getRem(16);
+  }
+
+  .medium & {
+    block-size: getRem(20);
+  }
+
+  .large & {
+    block-size: getRem(24);
+  }
+
+  .on & {
+    background-color: var(--success-400);
+  }
+
+  .off & {
+    background-color: var(--neutral-900);
+  }
+
+  .changes & {
+    border-color: var(--warning-400);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+
+    .off & {
+      background-color: var(--neutral-700);
+      border-color: var(--neutral-600);
+    }
+  }
+}
+
+.dot {
+  display: block;
+  background-color: var(--white);
+  border-radius: var(--noi-border-radius-circle);
+  transition: transform var(--noi-duration-quick);
+
+  .on & {
+    transform: translateX(100%);
+  }
+
+  .small & {
+    inline-size: getRem(12);
+    block-size: getRem(12);
+  }
+
+  .medium & {
+    inline-size: getRem(16);
+    block-size: getRem(16);
+  }
+
+  .large & {
+    inline-size: getRem(20);
+    block-size: getRem(20);
+  }
+
+  .on .button:disabled & {
+    background-color: var(--success-600);
+  }
+
+  .off .button:disabled & {
+    background-color: var(--neutral-400);
+  }
+}
+
+.label {
+  @mixin label s, medium;
+  color: var(--white);
+  cursor: pointer;
+  user-select: none;
+
+  .changes & {
+    color: var(--warning-400);
+  }
+
+  .button:disabled + & {
+    cursor: not-allowed;
+
+    .on & {
+      color: var(--neutral-300);
+    }
+
+    .off & {
+      color: var(--neutral-400);
+    }
+  }
+}
+
+.description {
+  @mixin paragraph s, regular;
+  margin-inline-start: calc(var(--toggle-button-width) + var(--toggle-click-area-gap));
+  color: var(--neutral-300);
+}

@@ -1,0 +1,30 @@
+.wrapper {
+  display: grid;
+  grid-template-rows: getRem(180) 1fr getRem(130);
+  align-items: center;
+  justify-content: center;
+  min-block-size: 100dvh;
+  inline-size: 100%;
+  justify-items: center;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: getRem(24);
+}
+
+.link {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  line-height: var(--noi-line-height-tight);
+  text-decoration: none;
+
+  @media (hover: hover) {
+    &:hover {
+      text-decoration: underline;
+      /* stylelint-disable-next-line unit-allowed-list */
+      text-underline-offset: 0.25em;
+    }
+  }
+}

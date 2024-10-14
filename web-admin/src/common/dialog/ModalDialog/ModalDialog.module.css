@@ -1,0 +1,23 @@
+.wrapper {
+  inline-size: min(80vw, getRem(540));
+  padding: var(--noi-spacing-6x);
+  background-color: var(--neutral-700);
+  border: none;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-end: getRem(16);
+}
+
+.title {
+  @mixin heading h5;
+  margin: 0;
+}
+
+.content {
+  margin: getRem(5) 0;
+}

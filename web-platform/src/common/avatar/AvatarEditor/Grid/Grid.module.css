@@ -1,0 +1,18 @@
+.grid-title {
+  display: none;
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  margin-block-end: var(--noi-spacing-3x);
+}
+
+.grid {
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-items {
+  display: flex;
+  flex-wrap: wrap;
+  container-type: inline-size;
+}

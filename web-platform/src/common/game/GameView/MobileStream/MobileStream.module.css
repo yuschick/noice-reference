@@ -1,0 +1,17 @@
+.mobile-stream-root {
+  position: absolute;
+  background-color: var(--noi-color-black-main);
+  inline-size: 100%;
+  inset-inline-start: 0;
+}
+
+.mobile-stream-video {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  block-size: calc(100dvh - var(--platform-header-size));
+
+  .minimized & {
+    block-size: 100%;
+  }
+}

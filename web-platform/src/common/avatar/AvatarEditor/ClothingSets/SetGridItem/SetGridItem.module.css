@@ -1,0 +1,111 @@
+.outfit-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 1cqi;
+  text-align: center;
+  background-color: var(--noi-color-blue-850);
+  border-radius: var(--noi-border-radius-md);
+  cursor: pointer;
+  container-type: inline-size;
+  inline-size: 31.33333cqi;
+  block-size: calc(1.23 * 31.33333cqi);
+
+  @media (min-width: getRem(700)) {
+    inline-size: 98cqi;
+    block-size: calc(1.23 * 98cqi);
+
+    @container (min-width: 300px) {
+      inline-size: 48cqi;
+      block-size: calc(1.23 * 48cqi);
+    }
+
+    @container (min-width: 480px) {
+      inline-size: 31.33333cqi;
+      block-size: calc(1.23 * 31.33333cqi);
+    }
+
+    @container (min-width: 800px) {
+      inline-size: 23cqi;
+      block-size: calc(1.23 * 23cqi);
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--noi-color-blue-750);
+    }
+
+    &.selected:hover {
+      background: linear-gradient(
+        to bottom,
+        var(--noi-color-teal-800),
+        var(--noi-color-teal-800)
+      );
+    }
+  }
+
+  &[aria-current='true'] {
+    background: linear-gradient(
+      to bottom,
+      var(--noi-color-teal-800),
+      var(--noi-color-teal-900)
+    );
+    box-shadow: inset 0 0 0 3px var(--noi-color-teal-main);
+  }
+
+  .image-container {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: getRem(700)) {
+      padding-block-start: var(--noi-spacing-2x);
+    }
+  }
+
+  .image-list {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    inline-size: 100%;
+    min-block-size: 80cqi;
+
+    .image {
+      margin: -4cqi;
+      inline-size: 34cqi;
+    }
+  }
+}
+
+.outfit-name {
+  justify-self: stretch;
+  margin: 0 var(--noi-spacing-2x) var(--noi-spacing-4x) var(--noi-spacing-2x);
+  overflow: hidden;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-xs);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  inline-size: 80cqi;
+}
+
+.check-icon {
+  position: absolute;
+  inset-block-start: var(--noi-spacing-2x);
+  inset-inline-start: var(--noi-spacing-2x);
+  inline-size: getRem(24);
+  block-size: getRem(24);
+
+  &.selected {
+    color: var(--noi-color-teal-main);
+    opacity: 1;
+  }
+}

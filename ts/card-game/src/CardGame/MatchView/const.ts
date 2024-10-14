@@ -1,0 +1,1 @@
+export const MATCH_VIEW_TRANSITION_TIME = 200;

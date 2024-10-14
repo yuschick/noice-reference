@@ -1,0 +1,15 @@
+.select-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-8x);
+  align-items: center;
+}
+
+.select-label {
+  @mixin label m, semi-bold;
+  inline-size: getRem(160);
+}
+
+.select {
+  inline-size: min(getRem(304), 100%);
+}

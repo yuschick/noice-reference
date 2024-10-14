@@ -1,0 +1,1 @@
+export { GameCardHero } from './GameCardHero';

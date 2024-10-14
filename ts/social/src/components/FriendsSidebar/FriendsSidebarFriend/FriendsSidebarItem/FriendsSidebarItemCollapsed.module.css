@@ -1,0 +1,19 @@
+.friends-sidebar-item-collapsed {
+  position: relative;
+  display: grid;
+  background-color: transparent;
+  border-radius: var(--noi-border-radius-circle);
+  block-size: getRem(48);
+  inline-size: getRem(48);
+  place-items: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--noi-color-light-main-transparent-20);
+  }
+}
+
+.friend-tooltip-name {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+}

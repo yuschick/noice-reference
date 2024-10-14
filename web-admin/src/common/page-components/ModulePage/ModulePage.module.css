@@ -1,0 +1,45 @@
+.drawer {
+  position: fixed;
+  inset-block-start: calc(getRem(64) + var(--environment-bar-height, 0rem));
+  inset-block-end: 0;
+  inset-inline-start: 100%;
+
+  &.open::before {
+    position: absolute;
+    background-color: var(--neutral-900);
+    opacity: 0.5;
+    content: '';
+    inset-block-start: 0;
+    inset-inline-end: 100%;
+    block-size: 100%;
+    inline-size: 100vw;
+  }
+}
+
+.error {
+  @mixin label m, medium;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+
+  .icon {
+    inline-size: getRem(24);
+    block-size: getRem(24);
+  }
+}
+
+.unsaved-changes-modal {
+  inline-size: min(80vw, getRem(320));
+}
+
+.modal-text {
+  @mixin paragraph m, regular;
+}
+
+.modal-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+  margin-block-start: getRem(24);
+}

@@ -1,0 +1,17 @@
+.clip-time-controller {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.time-input-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-1x);
+  align-items: center;
+}
+
+.time-input {
+  inline-size: getRem(64);
+}

@@ -1,0 +1,1 @@
+export { SpectatorGameView } from './SpectatorGameView';

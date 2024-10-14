@@ -1,0 +1,163 @@
+@layer noice.reset, noice.ui;
+@layer noice.reset {
+  /* Adapted from https://github.com/elad2412/the-new-css-reset */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    min-inline-size: 0;
+  }
+
+  html {
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    color-scheme: dark;
+    /* stylelint-disable-next-line declaration-property-value-allowed-list, unit-allowed-list */
+    font-size: 16px;
+    line-height: var(--noi-line-height-loose);
+    direction: ltr;
+    min-block-size: 100%;
+    writing-mode: horizontal-tb;
+    scroll-behavior: smooth;
+    text-size-adjust: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    @media (prefers-contrast: more) {
+      --noi-font-weight-base: 600;
+    }
+
+    @media (prefers-contrast: less) {
+      --noi-font-weight-base: 200;
+    }
+  }
+
+  body {
+    color: var(--noi-color-text-light);
+    font-family: var(--noi-font-family-body);
+    background-color: var(--noi-color-dark-main);
+  }
+
+  a,
+  button {
+    color: inherit;
+    cursor: revert;
+  }
+
+  ol,
+  ul,
+  menu {
+    list-style: none;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  img {
+    object-fit: cover;
+    font-style: italic;
+  }
+
+  input,
+  textarea {
+    -webkit-user-select: auto;
+  }
+
+  textarea {
+    white-space: revert;
+  }
+
+  :where(pre) {
+    all: revert;
+  }
+
+  ::placeholder {
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    color: unset;
+  }
+
+  ::marker {
+    content: initial;
+  }
+
+  :where([hidden]) {
+    display: none;
+  }
+
+  :where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+  }
+
+  :where([draggable="true"]) {
+    -webkit-user-drag: element;
+  }
+
+  :where(dialog:modal) {
+    all: revert;
+  }
+
+  :where(dd, span, p, h1, h2, h3, h4, h5, h6) {
+    overflow-wrap: break-word;
+  }
+
+  :where(h1, h2, h3, h4, h5, h6) {
+    line-height: var(--noi-line-height-tight);
+  }
+
+  :where(p + p) {
+    /* stylelint-disable-next-line unit-allowed-list */
+    margin-block-start: 0.5em;
+  }
+
+  :is(button, [role="tab"]) {
+    font-family: var(--noi-font-family-body);
+    letter-spacing: var(--noi-letter-spacing-loose);
+    border: none;
+  }
+
+  :is(a, button, input, textarea, summary, [tabindex]) {
+    /* stylelint-disable-next-line */
+    --outline-size: max(2px, 0.08em);
+    --outline-style: solid;
+    --outline-color: var(--noi-color-light-main);
+
+    outline-offset: 0;
+    transition: outline-offset 50ms ease-in-out;
+  }
+
+  :is(a, button, input, textarea, summary, [tabindex]):focus {
+    outline: var(--outline-size) var(--outline-style) var(--outline-color);
+    outline-offset: var(--outline-offset, var(--outline-size));
+    scroll-padding-block-end: 8vh;
+  }
+
+  :is(a, button, input, textarea, summary, [tabindex]):focus-visible {
+    outline: var(--outline-size) var(--outline-style) var(--outline-color);
+    outline-offset: var(--outline-offset, var(--outline-size));
+    scroll-padding-block-end: 8vh;
+  }
+
+  :is(a, button, input, textarea, summary, [tabindex]):focus:not(
+      :focus-visible
+    ) {
+    outline: none;
+  }
+
+  :is(abbr) {
+    text-decoration: none;
+  }
+
+  :target {
+    scroll-padding-block-start: 2rem;
+  }
+
+  ::backdrop {
+    background: var(--noi-color-black-main-transparent-60);
+  }
+}

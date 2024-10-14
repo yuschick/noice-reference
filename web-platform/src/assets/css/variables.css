@@ -1,0 +1,52 @@
+/* stylelint-disable declaration-property-value-allowed-list */
+:root {
+  /* stylelint-disable declaration-property-value-disallowed-list */
+  --platform-background: radial-gradient(
+    75% 75% at 0% 0%,
+    rgba(108, 44, 252, 0.4) 0%,
+    rgba(108, 44, 252, 0) 100%
+  );
+
+  /**
+   * Daily goal card
+   */
+  --daily-goal-card-width: getRem(192);
+  --daily-goal-card-height: getRem(288);
+  --daily-goal-card-border-radius: var(--noi-border-radius-sm);
+
+  /**
+  * Store
+  */
+  --store-card-bundle-modal-bundle-gap: getRem(24);
+
+  /**
+   * Page Wrapper
+   */
+  --page-wrapper-header-height: var(--top-bar-height, getRem(56));
+
+  /**
+   * Navigation sidebar
+   */
+  --navigation-sidebar-game-mode-width: getRem(56);
+  --navigation-sidebar-expanded-mode-width: getRem(320);
+  --navigation-sidebar-minimized-mode-width: getRem(104);
+
+  /**
+  * Game View
+  */
+  --theater-mode-bottom-margin: getRem(124);
+
+  /**
+  * Notifications
+  */
+  --notification-sidepanel-size: getRem(88);
+
+  /**
+   * Page Layout
+   */
+  --noi-page-main-padding: clamp(
+    var(--noi-spacing-4x),
+    min(4%, 3.5rem),
+    var(--noi-spacing-14x)
+  );
+}

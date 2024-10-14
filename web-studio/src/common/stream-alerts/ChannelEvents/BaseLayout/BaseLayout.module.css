@@ -1,0 +1,11 @@
+.channel-events-baselayout-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  overflow: hidden;
+  max-inline-size: getRem(320);
+  max-block-size: getRem(140);
+  min-inline-size: getRem(320);
+  min-block-size: getRem(140);
+}

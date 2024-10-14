@@ -1,0 +1,9 @@
+.input-root {
+  font-weight: var(--noi-font-weight-base);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-medium);
+}
+
+.disabled {
+  color: var(--noi-color-text-light-secondary);
+}

@@ -1,0 +1,33 @@
+.action-button {
+  padding: getRem(24) getRem(16);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  border-radius: var(--noi-border-radius-xs);
+  cursor: pointer;
+  transition: transform 100ms, background-color 250ms;
+
+  &:active {
+    transform: scale(0.975);
+  }
+
+  &.magenta {
+    color: var(--noi-color-magenta-900);
+    background-color: var(--noi-color-magenta-300);
+  }
+
+  &.teal {
+    color: var(--noi-color-teal-900);
+    background-color: var(--noi-color-teal-300);
+  }
+
+  &.violet {
+    color: var(--noi-color-violet-900);
+    background-color: var(--noi-color-violet-300);
+  }
+
+  &[disabled] {
+    color: var(--noi-color-gray-600);
+    background-color: var(--noi-color-gray-850);
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,104 @@
+.local-player-root {
+  z-index: var(--noi-z-index-level-1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+
+  &.apply-booster-mode {
+    position: relative;
+  }
+
+  &.card-success {
+    background: var(--active-card-success-gradient);
+  }
+
+  &.card-failure {
+    background: var(--active-card-failure-gradient);
+  }
+
+  &.best-play {
+    background: var(--active-card-best-play-gradient);
+  }
+
+  &.is-hovered,
+  &.is-all-or-nothing {
+    z-index: var(--noi-z-index-level-8);
+  }
+}
+
+.local-player-aon-wrapper {
+  position: relative;
+  z-index: var(--noi-z-index-level-2);
+  margin: var(--noi-spacing-3x) 0 0 0;
+}
+
+.local-player-aon {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-start: getRem(-96);
+}
+
+.local-player-card-wrapper {
+  position: relative;
+  z-index: var(--noi-z-index-level-2);
+  margin: var(--noi-spacing-3x) 0 0 0;
+  inline-size: var(--game-card-width-breakpoint-small);
+  aspect-ratio: var(--game-card-aspect-ratio);
+}
+
+.local-player-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  inline-size: var(--game-card-width-breakpoint-small);
+
+  .invalid-apply-booster-target & {
+    cursor: not-allowed;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  .is-hovered & {
+    position: absolute;
+    @mixin game-card-raised-shadow;
+    inline-size: var(--game-card-width-breakpoint-large);
+  }
+
+  .is-leaving-hovered & {
+    pointer-events: none;
+  }
+
+  .is-hovered &,
+  .is-leaving-hovered & {
+    transform: translateX(-50%);
+    inset-block-end: 0;
+    inset-inline-start: 50%;
+  }
+}
+
+.local-player-bonus {
+  margin: var(--noi-spacing-3x) 0 0 0;
+}
+
+.apply-helper-text-wrapper {
+  min-inline-size: getRem(120);
+}
+
+.apply-helper-title {
+  display: inline-block;
+  margin: 0;
+  color: var(--noi-color-text-light);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+  text-shadow: 0 0 getRem(6) var(--noi-color-black-main);
+}
+
+.apply-helper-small-text {
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+  text-shadow: 0 0 getRem(6) var(--noi-color-black-main);
+}

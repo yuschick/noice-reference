@@ -1,0 +1,16 @@
+.season-break-bottom-bar {
+  position: absolute;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 getRem(16);
+  color: var(--noi-color-text-light-secondary);
+  background: var(--noi-color-black-main);
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  block-size: getRem(40);
+  border-block-start: 1px solid var(--noi-color-light-main-transparent-10);
+}

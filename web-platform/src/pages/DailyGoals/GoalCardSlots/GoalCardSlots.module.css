@@ -1,0 +1,5 @@
+.slots-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+}

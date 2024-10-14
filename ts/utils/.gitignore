@@ -1,0 +1,29 @@
+# Web
+node_modules
+dist
+dist-pr
+dist-cdn
+coverage/
+.pnp
+.pnp.js
+yarn-error.log
+server_pack.js
+.types/
+.tscache/
+
+
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+!.yarn/cache
+
+# Logs
+npm-debug.log*
+
+## Generated
+dep-graph.svg
+DISCLAIMER.md
+LICENSES.md

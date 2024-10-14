@@ -1,0 +1,33 @@
+.wrapper {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-3x);
+}
+
+.text-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+  justify-content: center;
+}
+
+.icon {
+  flex-shrink: 0;
+  inline-size: getRem(40);
+  block-size: getRem(40);
+}
+
+.countdown-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.subtext {
+  color: var(--noi-color-text-dark-secondary);
+  font-size: var(--noi-font-size-sm);
+
+  .dark & {
+    color: var(--noi-color-text-light-secondary);
+  }
+}

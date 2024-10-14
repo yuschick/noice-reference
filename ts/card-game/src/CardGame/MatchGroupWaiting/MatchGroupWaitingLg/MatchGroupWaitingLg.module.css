@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  align-items: flex-end;
+  padding-block-end: var(--noi-spacing-4x);
+  padding-inline-start: var(--noi-spacing-4x);
+  pointer-events: all;
+}
+
+.player {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  inline-size: var(--game-card-width-small);
+}

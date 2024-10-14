@@ -1,0 +1,7 @@
+.below-card-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  inline-size: 100%;
+  justify-content: center;
+}

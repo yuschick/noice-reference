@@ -1,0 +1,7 @@
+.table-disabled-image {
+  opacity: 0.5;
+}
+
+.table-disabled-text {
+  color: var(--neutral-400);
+}

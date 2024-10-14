@@ -1,0 +1,23 @@
+{
+  "extends": "./tsconfig.json",
+  "references": [
+    {
+      "path": "../gen/schemas"
+    },
+    {
+      "path": "../platform-client"
+    },
+    {
+      "path": "../utils"
+    },
+    {
+      "path": "../renderer"
+    },
+    {
+      "path": "../assets-core"
+    }
+  ],
+  "compilerOptions": {
+    "emitDeclarationOnly": true
+  }
+}

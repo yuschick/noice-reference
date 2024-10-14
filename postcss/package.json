@@ -1,0 +1,33 @@
+{
+  "name": "@noice-com/postcss",
+  "packageManager": "yarn@4.1.0",
+  "version": "1.0.0",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./animations.css": "./src/animations.css",
+    "./fonts.css": "./src/fonts.css",
+    "./functions": "./src/functions.js",
+    "./reset.css": "./src/reset.css",
+    "./stylelint": "./src/stylelint.js"
+  },
+  "description": "Common Postcss tools / builds",
+  "devDependencies": {
+    "autoprefixer": "^10.4.15",
+    "postcss-custom-media": "^8.0.2",
+    "postcss-functions": "^4.0.2",
+    "postcss-mixins": "^9.0.4",
+    "postcss-nested": "^6.0.1",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-recommended": "^13.0.0",
+    "stylelint-high-performance-animation": "^1.9.0",
+    "stylelint-plugin-defensive-css": "^0.8.1",
+    "stylelint-plugin-logical-css": "^0.13.2"
+  },
+  "peerDependencies": {
+    "stylelint": "^14.9.1"
+  },
+  "engines": {
+    "node": ">=20.4.0"
+  }
+}

@@ -1,0 +1,42 @@
+.wrapper {
+  position: relative;
+  overflow: hidden;
+  border: 1px dashed transparent;
+
+  &.show-drag {
+    border-color: var(--noi-color-magenta-main);
+  }
+}
+
+.drag-area {
+  position: absolute;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+  background-color: var(--noi-color-gray-800);
+  opacity: 0;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+
+  .show-drag & {
+    opacity: 1;
+  }
+}
+
+.loading-wrapper {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--noi-color-gray-800);
+}

@@ -1,0 +1,14 @@
+.user-list {
+  @mixin list-style-none;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-half);
+  margin: 0;
+  padding: 0;
+}
+
+.empty-list {
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-md);
+}

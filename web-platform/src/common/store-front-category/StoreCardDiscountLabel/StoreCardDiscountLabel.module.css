@@ -1,0 +1,21 @@
+.discount-tag {
+  position: absolute;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-1x);
+  align-items: center;
+  color: var(--noi-color-text-dark);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+  background: var(--noi-gradient-green-teal);
+  border-radius: var(--noi-border-radius-md) 0;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  padding-inline: getRem(16);
+  block-size: getRem(40);
+}
+
+.discount-percent {
+  font-weight: var(--noi-font-weight-bold);
+}

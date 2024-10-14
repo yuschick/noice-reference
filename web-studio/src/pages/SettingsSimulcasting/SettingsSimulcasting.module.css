@@ -1,0 +1,21 @@
+.settings-simulcasting-root {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.settings-simulcasting-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-8x);
+  inline-size: 100%;
+  max-inline-size: getRem(800);
+}
+
+.loading-wrapper {
+  display: grid;
+  place-items: center;
+  inline-size: 100%;
+  block-size: 100%;
+}

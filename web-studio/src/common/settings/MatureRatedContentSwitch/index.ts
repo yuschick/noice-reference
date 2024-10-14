@@ -1,0 +1,1 @@
+export { MatureRatedContentSwitch } from './MatureRatedContentSwitch';

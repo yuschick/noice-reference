@@ -1,0 +1,22 @@
+.rewards-expanded-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  background: var(--noi-gradient-violet);
+  border-radius: var(--noi-border-radius-pill);
+  min-block-size: getRem(40);
+  padding-inline: getRem(16);
+  cursor: pointer;
+}
+
+.rewards-icon {
+  block-size: getRem(24);
+  inline-size: getRem(24);
+}
+
+.rewards-count {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+}

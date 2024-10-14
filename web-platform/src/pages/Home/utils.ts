@@ -1,0 +1,1 @@
+export const HOME_CHANNEL_POLL_INTERVAL = 1000 * 60 * 2;

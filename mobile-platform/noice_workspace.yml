@@ -1,0 +1,42 @@
+name: mobile-platform
+
+build_dependencies:
+  - ts-utils
+  - ts-schemas
+  - ts-lib
+  - eslint-config
+  - ts-apollo-client-utils
+  - ts-assets-core
+  - ts-common-react-core
+  - ts-chat-react-core
+  - ts-social-react-core
+  - ts-webview-bridge
+
+artifact_directories:
+  - node_modules
+  - ../../.yarn/cache
+
+generate:
+  - type: yarn_run
+    cmd: graphql:codegen:build
+
+build:
+  # We dont currently build mobile client as part of normal CI but this will ensure graphql
+  # generated code is up to date.
+  - type: yarn_run
+    run_on_host: ${{ env.CI == "true" }}
+    cmd: graphql:codegen:build
+
+lint:    
+  - type: yarn_run
+    run_on_host: ${{ env.CI == "true" }}
+    cmd: '${{ parseBoolean(inputs.fix) ? "lint --fix" : "lint" }}'
+    
+  #- type: yarn_run
+  #  run_on_host: ${{ env.CI == "true" }}
+  #  cmd: check-types
+
+test:
+  - type: yarn_run
+    run_on_host: ${{ env.CI == "true" }}
+    cmd: test

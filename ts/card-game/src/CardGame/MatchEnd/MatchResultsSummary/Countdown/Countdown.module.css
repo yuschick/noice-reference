@@ -1,0 +1,85 @@
+.countdown {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--noi-color-gray-900);
+  border-radius: var(--noi-border-radius-circle);
+  block-size: getRem(40);
+  inline-size: getRem(40);
+}
+
+.countdown-segments {
+  position: absolute;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.countdown-segment {
+  background-color: var(--noi-color-gray-750);
+}
+
+@keyframes countdown-segment-rotation {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  99.999999% {
+    background-color: var(--noi-color-gray-750);
+    transform: rotateZ(90deg);
+  }
+
+  100% {
+    background-color: var(--noi-color-gray-900);
+    transform: rotateZ(0deg);
+  }
+}
+
+.countdown-segment-top-right {
+  transform-origin: bottom left;
+
+  &.enabled {
+    animation: countdown-segment-rotation var(--countdown-segment-duration) forwards
+      linear;
+  }
+}
+
+.countdown-segment-bottom-right {
+  transform-origin: top left;
+
+  &.enabled {
+    animation: countdown-segment-rotation var(--countdown-segment-duration)
+      var(--countdown-segment-duration) forwards linear;
+  }
+}
+
+.countdown-segment-bottom-left {
+  transform-origin: top right;
+
+  &.enabled {
+    animation: countdown-segment-rotation var(--countdown-segment-duration)
+      calc(var(--countdown-segment-duration) * 2) forwards linear;
+  }
+}
+
+.countdown-segment-top-left {
+  transform-origin: bottom right;
+
+  &.enabled {
+    animation: countdown-segment-rotation var(--countdown-segment-duration)
+      calc(var(--countdown-segment-duration) * 3) forwards linear;
+  }
+}
+
+.countdown-text {
+  position: absolute;
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+}

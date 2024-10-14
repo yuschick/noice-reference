@@ -1,0 +1,30 @@
+.channel-info {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-3x);
+  margin-block-end: getRem(16);
+  align-items: center;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.channel-name {
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-xl);
+}
+
+.purchased-item-name {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+}
+
+.channel-name,
+.purchased-item-name {
+  font-style: italic;
+}

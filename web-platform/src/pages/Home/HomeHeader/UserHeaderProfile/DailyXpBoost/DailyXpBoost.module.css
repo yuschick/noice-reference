@@ -1,0 +1,65 @@
+.daily-boost-tooltip {
+  text-align: center;
+  inline-size: min(80vw, getRem(256));
+}
+
+.daily-boost-icon-wrapper {
+  position: relative;
+  background-color: transparent;
+  animation: appear 650ms forwards;
+  block-size: getRem(24);
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  30% {
+    transform: scale(0.3) rotate(-30deg);
+    opacity: 0;
+    animation-timing-function: ease-in-out;
+  }
+
+  65% {
+    transform: scale(1.15) rotate(4deg);
+    opacity: 1;
+    animation-timing-function: ease-in-out;
+  }
+
+  80% {
+    transform: scale(1.2) rotate(6deg);
+    opacity: 1;
+    animation-timing-function: ease-in;
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.daily-boost-vfx {
+  display: none;
+
+  @media (min-width: getRem(400)) {
+    position: absolute;
+    background-image: var(--home-daily-boost-vfx-image);
+    background-position: center;
+    background-size: cover;
+    inset: getRem(-24);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    background: none;
+  }
+}
+
+.daily-boost-icon {
+  position: relative;
+  z-index: var(--noi-z-index-level-2);
+}

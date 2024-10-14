@@ -1,0 +1,30 @@
+.user {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-1x);
+  align-items: center;
+}
+
+.avatar-wrapper {
+  border-radius: var(--noi-border-radius-md);
+  box-shadow: 0 0 0 1px;
+}
+
+.name {
+  padding: var(--noi-spacing-half);
+  color: var(--noi-color-status-error-main);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  border-radius: var(--noi-border-radius-sm);
+
+  .button &:hover {
+    background-color: var(--noi-color-gray-750);
+  }
+}
+
+.button {
+  padding: 0;
+  background-color: transparent;
+  border-radius: var(--noi-border-radius-circle);
+  cursor: pointer;
+}

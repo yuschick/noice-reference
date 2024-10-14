@@ -1,0 +1,32 @@
+.match-waiting-root {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+  padding-block-end: getRem(120);
+  inset: 0;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(getRem(-5));
+  }
+
+  100% {
+    transform: translateY(getRem(5));
+  }
+}
+
+.match-waiting-label {
+  color: var(--noi-color-light-main);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-xl);
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 getRem(2) getRem(8) var(--noi-color-black-main-transparent-50);
+  transform-origin: center;
+  animation: float 3000ms ease-in-out 0ms infinite alternate;
+}

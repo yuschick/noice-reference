@@ -1,0 +1,19 @@
+.chat-event-message-wrapper {
+  margin-inline: var(--chat-message-margin-inline, 0);
+  padding: var(--noi-spacing-2x);
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--_chat-message-font-size, var(--noi-font-size-sm));
+  line-height: var(--noi-line-height-medium);
+  background-color: var(--noi-color-gray-850);
+  border-radius: var(--noi-border-radius-sm);
+  margin-block-end: var(--noi-spacing-half);
+}
+
+.message-content-wrapper {
+  border-inline-start: 2px solid var(--_message-border-color, var(--noi-color-teal-main));
+  padding-inline-start: var(--noi-spacing-3x);
+  padding-block: var(--noi-spacing-1x);
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+}

@@ -1,0 +1,19 @@
+.wrapper {
+  @mixin no-scroll-bar;
+  position: sticky;
+  z-index: var(--noi-z-index-level-1);
+  display: grid;
+  grid-area: navigation;
+  grid-template-columns: min-content;
+  gap: var(--noi-spacing-6x);
+  align-content: start;
+  padding: var(--noi-spacing-6x) var(--noi-spacing-1x);
+  overflow-y: auto;
+  background-color: var(--noi-color-light-main-transparent-5);
+  inset-block-start: var(--platform-header-size);
+  block-size: calc(100dvh - var(--platform-header-size));
+
+  @media (max-width: getRem(792)) {
+    display: none;
+  }
+}

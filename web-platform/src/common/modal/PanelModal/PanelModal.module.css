@@ -1,0 +1,33 @@
+.panel-content-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  inline-size: 100%;
+  block-size: 100%;
+  padding: 0 getRem(160);
+}
+
+.panel-body {
+  position: relative;
+  inline-size: 100%;
+  block-size: 100%;
+  padding: 0;
+}
+
+.accessory {
+  position: absolute;
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+}
+
+.accessory-left {
+  inset-inline-start: getRem(56);
+}
+
+.accessory-right {
+  inset-inline-end: getRem(56);
+}
+
+.secondary-button {
+  position: relative;
+}

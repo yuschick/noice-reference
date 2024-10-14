@@ -1,0 +1,183 @@
+.challenges-button-root {
+  position: relative;
+}
+
+.challenges-button {
+  --_challenges-button-icon-color: var(--noi-color-light-main);
+  --_challenges-button-bg-color: var(--noi-color-light-main-transparent-10);
+  --_challenges-button-hover-color: var(--noi-color-light-main-transparent-20);
+
+  position: relative;
+  z-index: var(--noi-z-index-level-3);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  color: var(--_challenges-button-icon-color);
+  background-color: var(--_challenges-button-bg-color);
+  border-radius: var(--noi-border-radius-circle);
+  pointer-events: all;
+  inline-size: getRem(48);
+  block-size: getRem(48);
+
+  .success & {
+    --_challenges-button-icon-color: var(--noi-color-green-main);
+  }
+
+  .failure & {
+    --_challenges-button-icon-color: var(--noi-color-status-error-600);
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--_challenges-button-hover-color);
+      cursor: pointer;
+    }
+  }
+}
+
+.extension-animation {
+  position: absolute;
+  z-index: var(--noi-z-index-level-2);
+  display: none;
+  flex-wrap: 0;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: var(--noi-border-radius-pill);
+  opacity: 0;
+  animation: extension-appear-animation ease-out var(--_resolution-animation-duration) 1;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  block-size: getRem(48);
+
+  .vfx-full & {
+    display: inline-flex;
+  }
+
+  .success & {
+    background: linear-gradient(
+      90deg,
+      var(--noi-color-green-800) 0%,
+      var(--noi-color-green-700) 100%
+    );
+  }
+
+  .failure & {
+    background: linear-gradient(
+      90deg,
+      var(--noi-color-status-error-700) 0%,
+      var(--noi-color-status-error-600) 100%
+    );
+  }
+}
+
+.extension-animation-text {
+  font-weight: var(--noi-font-weight-bold);
+  line-height: var(--noi-line-height-tight);
+  white-space: nowrap;
+  text-align: end;
+  text-transform: uppercase;
+  opacity: 0;
+  inline-size: 100%;
+  animation: extension-appear-animation-text ease-out
+    var(--_resolution-animation-duration) 1;
+  padding-inline-end: var(--noi-spacing-6x);
+
+  .failure & {
+    padding-inline-end: var(--noi-spacing-12x);
+  }
+}
+
+.selected-icon-container {
+  position: absolute;
+  display: inherit;
+  inset-block-end: 0;
+  inset-inline-end: 0;
+}
+
+@keyframes button-animation {
+  from {
+    --_challenges-button-icon-color: var(--noi-color-light-main);
+  }
+
+  to {
+    --_challenges-button-icon-color: var(--noi-color-light-main);
+  }
+}
+
+@keyframes extension-appear-animation-text {
+  0% {
+    opacity: 0;
+  }
+
+  1% {
+    opacity: 0;
+  }
+
+  3% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  93% {
+    opacity: 0;
+  }
+}
+
+@keyframes extension-appear-animation {
+  0% {
+    inline-size: getRem(48);
+    opacity: 1;
+  }
+
+  3% {
+    inline-size: getRem(166);
+    opacity: 1;
+  }
+
+  90% {
+    inline-size: getRem(166);
+    opacity: 1;
+  }
+
+  100% {
+    inline-size: getRem(48);
+    opacity: 0;
+  }
+}
+
+.pulse {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  border-radius: var(--noi-border-radius-circle);
+  opacity: 0;
+  animation: pulse-animation ease-out var(--_pulse-animation-duration) 1;
+  pointer-events: none;
+
+  &.success {
+    background: var(--progress-button-highlight-radial-gradient);
+  }
+
+  &.failure {
+    background: var(--noi-color-status-error-600);
+  }
+
+  @keyframes pulse-animation {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+}

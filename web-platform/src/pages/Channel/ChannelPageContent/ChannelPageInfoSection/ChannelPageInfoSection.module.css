@@ -1,0 +1,150 @@
+.channel-info-section {
+  display: grid;
+  grid-template-rows: min-content;
+  gap: var(--noi-spacing-6x);
+
+  @container (min-width: getRem(552)) {
+    gap: var(--noi-spacing-10x);
+  }
+}
+
+.channel-info-top {
+  display: grid;
+  grid-template-areas: 'info report' 'actions actions';
+  grid-template-columns: 1fr min-content;
+  gap: var(--noi-spacing-6x) var(--noi-spacing-4x);
+  align-items: center;
+
+  @container (min-width: getRem(600)) {
+    grid-template-areas: 'info info' 'actions report';
+    grid-template-columns: auto;
+    gap: var(--noi-spacing-6x) var(--noi-spacing-2x);
+  }
+
+  @container (min-width: getRem(800)) {
+    grid-template-areas: 'info actions report';
+    grid-template-columns: 1fr auto min-content;
+    gap: var(--noi-spacing-2x);
+  }
+
+  &:has(.studio-button) {
+    grid-template-areas: 'info report' 'actions actions' 'studio studio';
+
+    @container (min-width: getRem(552)) {
+      grid-template-areas: 'info info info' 'actions studio report';
+      grid-template-columns: min-content min-content min-content;
+    }
+
+    @container (min-width: getRem(700)) {
+      grid-template-areas: 'info info info' 'actions studio report';
+      grid-template-columns: min-content min-content min-content;
+    }
+
+    @container (min-width: getRem(1000)) {
+      grid-template-areas: 'info actions studio report';
+      grid-template-columns: 1fr min-content min-content min-content;
+    }
+  }
+}
+
+.channel-info-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  grid-area: info;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+}
+
+.channel-info-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-base);
+  font-size: var(--noi-font-size-md);
+  font-style: italic;
+  line-height: var(--noi-line-height-tight);
+  letter-spacing: var(--noi-letter-spacing-loose);
+}
+
+.channel-name {
+  overflow: hidden;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-extra-bold);
+  font-size: var(--noi-font-size-xl);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  /* add end padding, so ellipsis does not cut italic font */
+  padding-inline-end: var(--noi-spacing-1x);
+
+  @container (min-width: getRem(552)) {
+    font-size: var(--noi-font-size-2xl);
+  }
+}
+
+.follower-count {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+}
+
+.report-button {
+  grid-area: report;
+}
+
+.actions {
+  grid-area: actions;
+}
+
+.studio-button {
+  grid-area: studio;
+
+  @container (min-width: getRem(700)) {
+    justify-self: end;
+  }
+}
+
+.channel-details {
+  display: grid;
+  gap: var(--noi-spacing-6x);
+  padding-block-end: var(--noi-spacing-4x);
+
+  @container (min-width: getRem(700)) {
+    gap: var(--noi-spacing-3x);
+  }
+}
+
+.channel-description-wrapper {
+  display: grid;
+  gap: var(--noi-spacing-1x);
+  justify-items: start;
+}
+
+.channel-description {
+  color: var(--noi-color-text-light-secondary);
+  white-space: pre-line;
+
+  &.truncated {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: block-axis;
+  }
+}
+
+.show-full-description-button {
+  padding: 0;
+  color: var(--noi-color-teal-main);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-xs);
+  line-height: var(--noi-line-height-tight);
+  text-decoration: underline;
+  background: none;
+  cursor: pointer;
+
+  @media (hover: hover) {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

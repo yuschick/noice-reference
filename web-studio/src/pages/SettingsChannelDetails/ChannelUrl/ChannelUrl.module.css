@@ -1,0 +1,19 @@
+.url-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.label {
+  font-weight: var(--noi-font-weight-medium);
+  text-transform: uppercase;
+}
+
+.url {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: default;
+}

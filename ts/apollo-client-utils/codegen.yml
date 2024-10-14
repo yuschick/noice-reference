@@ -1,0 +1,9 @@
+schema: '../../../graphql/**/*.graphqls'
+generates:
+  gen/graphql-types.ts:
+    config:
+      scalars:
+        Timestamp: 'string'
+        Duration: 'string'
+    plugins:
+      - typescript

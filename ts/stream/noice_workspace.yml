@@ -1,0 +1,29 @@
+name: ts-stream
+
+build_dependencies:
+  - ts-card-game
+  - ts-common-ui
+  - ts-lib
+  - ts-schemas
+  - ts-utils
+  - eslint-config
+  - eslint-config-react
+  - postcss
+  - graphql-schema
+  - web-renderer
+  - ts-common-core-react
+
+artifact_directories:
+  - node_modules
+
+lint:
+  - type: yarn_run
+    cmd: '${{ parseBoolean(inputs.fix) ? "lint:fix" : "lint" }}'
+
+test:
+  - type: yarn_run
+    cmd: test
+
+build:
+  - type: yarn_run
+    cmd: build

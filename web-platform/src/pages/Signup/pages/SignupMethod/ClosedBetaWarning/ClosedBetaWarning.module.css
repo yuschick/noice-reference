@@ -1,0 +1,10 @@
+.closed-beta-warning {
+  padding: var(--noi-spacing-2x) var(--noi-spacing-4x);
+  color: var(--noi-color-teal-900);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-medium);
+  background: var(--noi-color-teal-100);
+  border-radius: var(--noi-border-radius-md);
+  inline-size: 100%;
+}

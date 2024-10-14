@@ -1,0 +1,39 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "include": ["src/**/*"],
+  "exclude": ["node_modules/*", "types/*", "dist/*"],
+  "references": [
+    {
+      "path": "../utils"
+    },
+    {
+      "path": "../renderer"
+    },
+    {
+      "path": "../avatar-builder"
+    }
+  ],
+  "compilerOptions": {
+    "rootDir": "src",
+    "baseUrl": "./src",
+    "outDir": "./dist",
+    "declarationDir": "./dist",
+    "paths": {
+      "@noice-com/utils": ["../utils"],
+      "@noice-com/web-renderer": ["../renderer"],
+      "@noice-com/avatar-builder": ["../avatar-builder"]
+    },
+    "module": "commonjs",
+    "target": "ES6",
+    "lib": ["DOM", "ES6"],
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": false,
+    "strict": true,
+    "typeRoots": ["types", "node_modules/@types", "../../../node_modules/@types"],
+    "tsBuildInfoFile": ".tscache/tsconfig.tsbuildinfo"
+  }
+}

@@ -1,0 +1,24 @@
+.user-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-1x);
+  align-items: center;
+  padding: var(--noi-spacing-1x) var(--noi-spacing-4x);
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+  background-color: transparent;
+  cursor: pointer;
+  inline-size: 100%;
+
+  &:hover {
+    background-color: var(--noi-color-gray-850);
+  }
+}
+
+.display-name {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+}

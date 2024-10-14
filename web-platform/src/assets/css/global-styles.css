@@ -1,0 +1,15 @@
+body {
+  @media not (hover: hover) and (max-width: getRem(480)) {
+    -webkit-backface-visibility: hidden;
+  }
+}
+
+#usercentrics-root {
+  position: absolute;
+}
+
+#refiner-widget-wrapper {
+  /* Fixes undesired white background of iframe in refiner.io survey popups */
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  color-scheme: normal;
+}

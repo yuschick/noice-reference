@@ -1,0 +1,26 @@
+name: ts-chat-react-core
+
+build_dependencies:
+  - ts-schemas
+  - ts-lib
+  - ts-utils
+  - eslint-config
+  - eslint-config-react
+  - graphql-schema
+  - ts-social-react-core
+  - ts-common-react-core
+
+artifact_directories:
+  - node_modules
+
+lint:
+  - type: yarn_run
+    cmd: '${{ parseBoolean(inputs.fix) ? "lint:fix" : "lint" }}'
+
+test:
+  - type: yarn_run
+    cmd: test
+
+build:
+  - type: yarn_run
+    cmd: build

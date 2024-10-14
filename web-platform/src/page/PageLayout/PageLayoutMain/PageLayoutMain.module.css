@@ -1,0 +1,23 @@
+.layout-main {
+  --outline-size: 0;
+  grid-area: main;
+  padding: var(--noi-page-main-padding);
+
+  &.full-screen-page {
+    padding: 0;
+  }
+
+  &.has-browser-warning {
+    padding-block-start: calc(var(--noi-page-main-padding) + var(--noi-spacing-6x));
+  }
+}
+
+.main-content-wrapper {
+  inline-size: min(100%, var(--noi-layout-max-content-size));
+  margin: 0 auto;
+
+  .full-screen-page & {
+    inline-size: 100%;
+    block-size: 100dvh;
+  }
+}

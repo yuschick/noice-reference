@@ -1,0 +1,118 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  padding-inline: var(--noi-spacing-4x);
+}
+
+.top {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  justify-content: space-between;
+  min-block-size: getRem(50);
+}
+
+.top-channel-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+}
+
+.channel-viewers {
+  color: var(--noi-color-teal-main);
+}
+
+.channel-number-value {
+  font-weight: var(--noi-font-weight-medium);
+  font-variant-numeric: tabular-nums;
+}
+
+.channel-name {
+  overflow: hidden;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  white-space: nowrap;
+  text-align: start;
+  text-overflow: ellipsis;
+  inline-size: 100%;
+}
+
+.middle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-8x);
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--noi-spacing-2x) var(--noi-spacing-3x);
+}
+
+.channel-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-half);
+  align-items: flex-start;
+  justify-content: flex-start;
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+}
+
+.bottom {
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-sm);
+  padding-block-end: var(--noi-spacing-4x);
+}
+
+.channel-details-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-1x) var(--noi-spacing-2x);
+  align-items: center;
+  justify-content: flex-start;
+  white-space: nowrap;
+}
+
+.channel-title {
+  overflow: hidden;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  line-height: var(--noi-line-height-tight);
+  text-overflow: ellipsis;
+  margin-block-end: var(--noi-spacing-1x);
+}
+
+.stream-time {
+  font-variant-numeric: tabular-nums;
+}
+
+.game-name {
+  font-weight: var(--noi-font-weight-medium);
+}
+
+.divider-dot {
+  inline-size: getRem(4);
+  block-size: getRem(4);
+  background-color: var(--noi-color-text-light-secondary);
+  border-radius: var(--noi-border-radius-circle);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+
+  &:has(*) {
+    margin-block-start: var(--noi-spacing-2x);
+  }
+}
+
+.bottom-divider {
+  background-color: var(--noi-color-gray-850);
+  block-size: getRem(1);
+  border: none;
+  margin-block: getRem(16);
+}

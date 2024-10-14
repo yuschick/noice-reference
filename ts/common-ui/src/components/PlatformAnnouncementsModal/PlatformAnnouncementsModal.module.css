@@ -1,0 +1,200 @@
+.overlay {
+  z-index: var(--noi-z-index-level-5);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  background: var(--noi-color-black-main-transparent-80);
+  backdrop-filter: blur(4px);
+}
+
+.dialog-content[data-reach-dialog-content] {
+  inline-size: 100%;
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  block-size: min(getRem(720), 80vh);
+  overflow: hidden;
+}
+
+.slide-wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  inset-block-start: 0;
+  inset-inline-start: var(--_announcement-sliding-container-position, 0);
+  inline-size: var(--_announcement-sliding-container-size, 100%);
+  transition: inset-inline-start var(--noi-duration-quick) ease-out;
+  block-size: calc(100% - getRem(72));
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: auto min(getRem(800), 100%) auto;
+}
+
+.content-wrapper {
+  --_announcement-color: transparent;
+
+  background-color: var(--noi-color-gray-800);
+  inline-size: calc(100% / var(--_announcement-count, 1));
+  border-block-start: unset;
+  border: 4px solid var(--_announcement-color);
+  border-style: solid none none none;
+  border-image: var(--noi-gradient-spectrum-full);
+  border-image-slice: 1;
+
+  &.system {
+    --_announcement-color: var(--noi-color-status-alert-main);
+
+    border-image: unset;
+    border-image-slice: unset;
+  }
+
+  &.game {
+    --_announcement-color: var(--noi-color-teal-main);
+
+    border-image: unset;
+    border-image-slice: unset;
+  }
+}
+
+.bg-image {
+  position: relative;
+  overflow: hidden;
+  background-image: var(--announcement-bg-image);
+  background-position: center left;
+  background-size: cover;
+}
+
+.content {
+  @mixin narrow-scrollbar;
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-6x);
+  padding: var(--noi-spacing-5x) var(--noi-spacing-8x) var(--noi-spacing-6x)
+    var(--noi-spacing-8x);
+  overflow: auto;
+
+  @media (min-width: getRem(792)) {
+    padding: var(--noi-spacing-5x) var(--noi-spacing-14x) var(--noi-spacing-6x)
+      var(--noi-spacing-14x);
+  }
+}
+
+.time {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-sm);
+  margin-inline-start: calc(var(--noi-spacing-6x) * -1);
+}
+
+.date {
+  font-weight: var(--noi-font-weight-bold);
+}
+
+.title {
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  text-transform: uppercase;
+
+  @media (min-width: getRem(601)) {
+    font-size: var(--noi-font-size-xl);
+  }
+
+  @media (min-width: getRem(792)) {
+    font-size: var(--noi-font-size-2xl);
+  }
+}
+
+.image {
+  overflow: visible;
+  border-radius: var(--noi-border-radius-md);
+}
+
+.text {
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-loose);
+
+  @media (min-width: getRem(792)) {
+    font-size: var(--noi-font-size-lg);
+  }
+}
+
+.bottom-wrapper {
+  padding: var(--noi-spacing-4x) var(--noi-spacing-14x);
+  background-color: var(--noi-color-gray-850);
+}
+
+.bottom-content {
+  display: flex;
+  flex-wrap: wrap;
+  grid-area: 1 / 2 / 2 / 3;
+  justify-content: flex-end;
+
+  .has-multiple-announcements & {
+    justify-content: space-between;
+  }
+}
+
+.bottom-button-wrapper {
+  inline-size: getRem(128);
+}
+
+.footer {
+  padding: var(--noi-spacing-6x) var(--noi-spacing-4x);
+  color: var(--noi-color-gray-400);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+  text-align: center;
+
+  @media (min-width: getRem(1200)) {
+    font-size: var(--noi-font-size-md);
+  }
+
+  @media (min-width: getRem(792)) {
+    padding: var(--noi-spacing-6x);
+  }
+}
+
+.icon-wrapper {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: start;
+  justify-content: flex-end;
+  color: var(--noi-color-text-light-secondary);
+  inline-size: getRem(88);
+  block-size: getRem(88);
+  padding-block-start: var(--noi-spacing-2x);
+
+  &::after {
+    position: absolute;
+    inset-inline-end: 0;
+    inset-block-end: 0;
+    display: block;
+    background-color: var(--noi-color-gray-800);
+    transform: rotate(45deg);
+    transform-origin: bottom right;
+    content: '';
+    inline-size: 150%;
+    block-size: 100%;
+  }
+}
+
+.icon {
+  position: relative;
+  z-index: var(--noi-z-index-level-1);
+  color: var(--noi-color-light-main);
+  inline-size: getRem(40);
+  block-size: getRem(40);
+}

@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+  padding: var(--noi-spacing-2x);
+  background-color: var(--noi-color-gray-900);
+  block-size: 100%;
+}
+
+.leaderboard-container {
+  @mixin narrow-scrollbar;
+  overflow-x: hidden;
+  overflow-y: auto;
+  block-size: 100%;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: var(--noi-spacing-2x);
+  background-color: var(--noi-color-gray-850);
+  border-radius: var(--noi-border-radius-xs);
+}

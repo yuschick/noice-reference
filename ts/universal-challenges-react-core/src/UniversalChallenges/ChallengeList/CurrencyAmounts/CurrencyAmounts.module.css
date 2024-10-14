@@ -1,0 +1,29 @@
+.currency-amounts-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-1x);
+  border-inline-start: 1px solid var(--noi-color-gray-700);
+  padding-inline-start: var(--noi-spacing-2x);
+}
+
+.total-amount-text {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+}
+
+.highest-amount-text {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-base);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+}
+
+.total-vote-amount-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-base);
+  align-items: center;
+}

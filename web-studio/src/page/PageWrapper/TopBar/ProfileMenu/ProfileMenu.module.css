@@ -1,0 +1,31 @@
+.profile-image-button {
+  background-color: transparent;
+  border-radius: var(--noi-border-radius-circle);
+
+  &:hover {
+    outline: getRem(4) solid var(--noi-color-gray-700);
+    cursor: pointer;
+  }
+}
+
+.popover-menu-header-wrapper {
+  display: grid;
+  grid-template-columns: min-content auto;
+  gap: var(--noi-spacing-3x);
+  align-items: center;
+}
+
+.name {
+  @mixin truncate-text;
+  display: block;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+}
+
+.responsive-top-bar-menu-option {
+  display: block;
+
+  @media (min-width: getRem(1475)) {
+    display: none;
+  }
+}

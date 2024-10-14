@@ -1,0 +1,29 @@
+.game-state-bottom-bar-root {
+  z-index: var(--noi-z-index-level-2);
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--noi-spacing-4x);
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  background: linear-gradient(
+    90deg,
+    var(--noi-color-black-main-transparent-90) 69.25%,
+    transparent 100%
+  );
+  border-image: linear-gradient(
+      to right,
+      var(--noi-color-light-main-transparent-10),
+      transparent
+    )
+    1;
+  border-block-start: 1px solid;
+}
+
+.game-state-bottom-bar-icon {
+  color: var(--noi-color-light-main);
+  inline-size: getRem(24);
+  block-size: getRem(24);
+}

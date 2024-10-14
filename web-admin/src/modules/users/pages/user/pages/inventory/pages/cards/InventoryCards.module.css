@@ -1,0 +1,23 @@
+.inventory-card-edit-button {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: var(--noi-spacing-2x);
+  color: var(--neutral-200);
+  inline-size: getRem(32);
+  block-size: getRem(32);
+}
+
+.edit-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+}
+
+.buttons-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+}

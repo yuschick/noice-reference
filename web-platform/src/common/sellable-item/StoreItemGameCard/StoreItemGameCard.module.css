@@ -1,0 +1,68 @@
+.store-item-game-card-root {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  perspective: calc(2.5 * var(--game-card-width-breakpoint-medium));
+}
+
+.store-item-game-card-flipping-root {
+  position: relative;
+  background-color: transparent;
+  transform: rotateY(0deg);
+  transform-style: preserve-3d;
+  inline-size: var(--game-card-width-breakpoint-medium);
+  aspect-ratio: var(--game-card-aspect-ratio);
+
+  &.has-backside {
+    transition: transform var(--_game-card-flip-transition)
+      cubic-bezier(0.5, -0.2, 0.2, 1.5);
+  }
+
+  &.show-backside {
+    transform: rotateY(180deg);
+  }
+}
+
+.store-item-game-card-wrapper {
+  position: absolute;
+  backface-visibility: hidden;
+  inset: 0;
+
+  :not(.card-is-flipping).show-backside & {
+    overflow: hidden;
+  }
+}
+
+.store-item-game-card-backside {
+  position: absolute;
+  z-index: var(--noi-z-index-level-3);
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  background: none;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  inline-size: 100%;
+}
+
+.streamer-card-tooltip {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.streamer-card-tooltip-title {
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+}
+
+.streamer-card-tooltip-body {
+  color: transparent;
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-medium);
+  background: var(--noi-gradient-green-teal);
+  background-clip: text;
+}

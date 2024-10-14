@@ -1,0 +1,16 @@
+.wrapper {
+  display: grid;
+  justify-content: center;
+  padding: var(--noi-spacing-4x);
+}
+
+.content {
+  max-inline-size: getRem(512);
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+}

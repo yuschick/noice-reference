@@ -1,0 +1,29 @@
+.env-top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  color: var(--noi-color-black-main);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  background-color: var(--noi-color-status-alert-main);
+  block-size: var(--environment-bar-height);
+  padding-inline-start: var(--noi-spacing-6x);
+}
+
+.env-top-bar.local {
+  &:after {
+    content: 'Local environment';
+  }
+}
+
+.env-top-bar.dev {
+  &:after {
+    content: 'Development environment';
+  }
+}
+
+.env-top-bar.stg {
+  &:after {
+    content: 'Staging environment';
+  }
+}

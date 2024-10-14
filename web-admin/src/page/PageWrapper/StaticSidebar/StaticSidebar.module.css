@@ -1,0 +1,130 @@
+.wrapper {
+  position: relative;
+  inline-size: var(--sidebar-width);
+  background-color: var(--neutral-700);
+  border-block-start: 1px solid var(--neutral-800);
+  transition: transform var(--noi-duration-quick);
+
+  &.close {
+    transform: translateX(-100%);
+  }
+}
+
+.title-link {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: getRem(10);
+  margin: getRem(16) getRem(24);
+  padding: var(--noi-spacing-2x) 0;
+  color: var(--neutral-100);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--font-size-s);
+  line-height: var(--line-height-small);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.menu {
+  @mixin list-style-none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-link {
+  @mixin label s, medium;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: getRem(10) getRem(24);
+  color: var(--neutral-300);
+  text-decoration: none;
+  transition: background-color var(--noi-duration-quick);
+
+  &:hover {
+    background-color: var(--neutral-600);
+  }
+
+  .active & {
+    color: var(--white);
+    background-color: var(--neutral-800);
+  }
+
+  .title-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: getRem(10);
+    align-items: center;
+  }
+
+  .icon {
+    inline-size: getRem(20);
+    block-size: getRem(20);
+    color: var(--neutral-400);
+  }
+
+  .active & .icon {
+    color: var(--white);
+  }
+}
+
+.sub-menu {
+  @mixin list-style-none;
+  margin: 0;
+  padding: 0;
+
+  .active & {
+    background-color: var(--neutral-800);
+  }
+}
+
+.sub-menu-link {
+  @mixin label s, medium;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: getRem(10) getRem(24) getRem(10) getRem(56);
+  color: var(--neutral-300);
+  text-decoration: none;
+  transition: background-color var(--noi-duration-quick);
+
+  &:hover {
+    background-color: var(--neutral-600);
+  }
+
+  &.active-sub-page {
+    padding-inline-start: getRem(50);
+    color: var(--white);
+    border-inline-start: getRem(6) solid var(--primary-500);
+  }
+
+  .title-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: getRem(10);
+    align-items: center;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  .icon {
+    inline-size: getRem(20);
+    block-size: getRem(20);
+    color: var(--neutral-400);
+  }
+
+  &.active-sub-page .icon {
+    color: var(--white);
+  }
+}
+
+.close-button {
+  position: absolute;
+  inset-block-start: getRem(16);
+  inset-inline-end: getRem(24);
+
+  @media (--breakpoint-medium) {
+    display: none;
+  }
+}

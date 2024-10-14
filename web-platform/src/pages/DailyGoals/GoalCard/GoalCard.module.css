@@ -1,0 +1,136 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-end;
+  padding: 0;
+  overflow: hidden;
+  background-image: linear-gradient(0deg, var(--noi-color-blue-600) 0%, transparent 100%),
+    linear-gradient(0deg, var(--noi-color-black-main-transparent-50) 0%, transparent 100%),
+    var(--_card-image);
+  background-position: center left;
+  background-blend-mode: color, normal, normal;
+  border-radius: var(--noi-border-radius-md);
+  box-shadow: 0px 24px 32px -24px var(--noi-color-black-main-transparent-50);
+  inline-size: var(--daily-goal-card-width);
+  block-size: var(--daily-goal-card-height);
+
+  &.button {
+    cursor: pointer;
+  }
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  inline-size: 100%;
+  padding-block-start: var(--noi-spacing-3x);
+}
+
+.rarity-icon {
+  inline-size: getRem(96);
+  block-size: getRem(96);
+  color: var(--noi-color-light-main);
+}
+
+.group-indicator {
+  position: absolute;
+  inset-block-start: getRem(8);
+  inset-inline-end: getRem(16);
+  block-size: getRem(18);
+  inline-size: getRem(18);
+  color: var(--noi-color-text-light);
+}
+
+.group-indicator-tooltip {
+  max-inline-size: getRem(175);
+  text-align: center;
+}
+
+.rarity-label {
+  color: var(--noi-color-light-main-transparent-60);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-xs);
+  text-transform: uppercase;
+  text-shadow: 0 0 getRem(8) var(--noi-color-black-main-transparent-20);
+  pointer-events: none;
+
+  .common & {
+    color: var(--noi-color-blue-200);
+  }
+
+  .uncommon & {
+    color: var(--noi-color-green-200);
+  }
+
+  .rare & {
+    color: var(--noi-color-teal-200);
+  }
+
+  .epic & {
+    color: var(--noi-color-violet-200);
+  }
+
+  .legendary & {
+    color: var(--noi-color-magenta-200);
+  }
+}
+
+.content-wrapper {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr;
+  gap: getRem(1);
+  margin: var(--noi-spacing-2x);
+  margin-block-start: 0;
+  overflow: hidden;
+  border-radius: var(--noi-border-radius-md);
+}
+
+.description-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--noi-spacing-4x);
+  color: var(--noi-color-text-light);
+  font-size: var(--noi-font-size-md);
+  inline-size: 100%;
+  background: var(--noi-color-black-main-transparent-40);
+  min-block-size: getRem(80);
+}
+
+.reward-container {
+  display: flex;
+  flex-grow: 0;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  inline-size: 100%;
+  background: var(--noi-color-black-main-transparent-40);
+  block-size: getRem(48);
+}
+
+.reward-label {
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-md);
+}
+
+.currency-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+}
+
+.currency-amount {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-md);
+}

@@ -1,0 +1,88 @@
+.grid-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: stretch;
+  margin: 1cqi;
+  text-align: center;
+  background-color: var(--noi-color-blue-850);
+  border-radius: var(--noi-border-radius-md);
+  cursor: pointer;
+  container-type: inline-size;
+  inline-size: 31.33333cqi;
+  block-size: calc(1.23 * 31.33333cqi);
+
+  @media (min-width: getRem(700)) {
+    inline-size: 98cqi;
+    block-size: calc(1.23 * 98cqi);
+
+    @container (min-width: 300px) {
+      inline-size: 48cqi;
+      block-size: calc(1.23 * 48cqi);
+    }
+
+    @container (min-width: 480px) {
+      inline-size: 31.33333cqi;
+      block-size: calc(1.23 * 31.33333cqi);
+    }
+
+    @container (min-width: 800px) {
+      inline-size: 23cqi;
+      block-size: calc(1.23 * 23cqi);
+    }
+  }
+
+  &.purchaseable {
+    background-color: var(--noi-color-violet-700);
+  }
+
+  &.selected:not(.purchaseable) {
+    background: linear-gradient(
+      to bottom,
+      var(--noi-color-teal-800),
+      var(--noi-color-teal-900)
+    );
+    box-shadow: inset 0 0 0 3px var(--noi-color-teal-main);
+  }
+
+  &.selected.purchaseable {
+    background-color: var(--noi-color-violet-700);
+    box-shadow: inset 0 0 0 3px var(--noi-color-teal-main);
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--noi-color-blue-750);
+    }
+
+    &.purchaseable:hover {
+      background-color: var(--noi-color-violet-600);
+    }
+
+    &.selected:not(.purchaseable):hover {
+      background: linear-gradient(
+        to bottom,
+        var(--noi-color-teal-800),
+        var(--noi-color-teal-800)
+      );
+    }
+
+    &.selected.purchaseable:hover {
+      background-color: var(--noi-color-violet-600);
+    }
+  }
+}
+
+.premium-pattern {
+  position: absolute;
+  z-index: var(--noi-z-index-behind);
+  background-image: var(--shine-pattern-image-url);
+  background-position-y: 100%;
+  background-size: cover;
+  border-radius: var(--noi-border-radius-md);
+  opacity: 1;
+  mix-blend-mode: overlay;
+  inset: 0;
+}

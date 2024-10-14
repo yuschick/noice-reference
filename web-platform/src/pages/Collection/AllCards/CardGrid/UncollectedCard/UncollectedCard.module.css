@@ -1,0 +1,12 @@
+.unclaimed-text-container {
+  block-size: getRem(24);
+  align-items: center;
+}
+
+.unclaimed-text {
+  color: var(--noi-color-teal-main);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}

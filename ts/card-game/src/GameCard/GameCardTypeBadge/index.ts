@@ -1,0 +1,1 @@
+export { GameCardTypeBadge } from './GameCardTypeBadge';

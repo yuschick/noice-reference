@@ -1,0 +1,6 @@
+.eslintrc.js
+package.json
+
+dist/*
+
+gen/*

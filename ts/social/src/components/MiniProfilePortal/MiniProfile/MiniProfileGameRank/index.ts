@@ -1,0 +1,1 @@
+export { MiniProfileGameRank } from './MiniProfileGameRank';

@@ -1,0 +1,34 @@
+.game-card-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: pixelsToCardCqi(12);
+  color: var(--noi-color-text-light);
+  text-align: center;
+  border-radius: pixelsToCardCqi(6);
+  pointer-events: none;
+  @mixin game-card-breakpoint-small {
+    background-image: url('https://storage.googleapis.com/noice-client-assets-b9745b84/vfx-test/text-gradient-v2.png');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 150% 70%;
+  }
+}
+
+.game-card-info-title {
+  display: none;
+  color: var(--noi-color-light-main);
+  font-weight: var(--noi-font-weight-extra-bold);
+  font-size: pixelsToCardCqi(20);
+  font-style: italic;
+  line-height: pixelsToCardCqi(22);
+  text-transform: uppercase;
+  text-shadow: 0 getRem(1) getRem(4) var(--noi-color-dark-main-transparent-90);
+  background-repeat: repeat;
+  padding-inline: pixelsToCardCqi(4);
+  padding-block-start: pixelsToCardCqi(40);
+  @mixin game-card-breakpoint-small {
+    display: block;
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "extends": "./tsconfig.json",
+  "references": [
+    {
+      "path": "../gen/schemas"
+    },
+    {
+      "path": "../platform-client"
+    },
+    {
+      "path": "../utils"
+    },
+    {
+      "path": "../common-ui"
+    },
+    {
+      "path": "../social"
+    },
+    {
+      "path": "../chat-react-core"
+    }
+  ],
+  "compilerOptions": {
+    "emitDeclarationOnly": true
+  }
+}

@@ -1,0 +1,25 @@
+.slide-control-group {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-control-button {
+  padding: 0;
+  background-color: var(--noi-color-light-main-transparent-20);
+  border-radius: var(--noi-border-radius-circle);
+  cursor: pointer;
+  transition: background-color var(--noi-duration-quick) ease,
+    inline-size var(--noi-duration-quick) ease;
+  block-size: getRem(8);
+  inline-size: getRem(8);
+
+  &[aria-current='true'] {
+    background-color: var(--noi-color-text-light);
+    border-radius: var(--noi-border-radius-sm);
+    cursor: default;
+    inline-size: getRem(24);
+  }
+}

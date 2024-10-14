@@ -1,0 +1,13 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(getRem(292), 1fr));
+  gap: var(--noi-spacing-4x);
+
+  @media (min-width: getRem(1200)) {
+    grid-template-columns: repeat(auto-fit, minmax(getRem(976), 1fr));
+  }
+
+  @media (min-width: getRem(1439)) {
+    grid-template-columns: repeat(auto-fit, minmax(getRem(478), 1fr));
+  }
+}

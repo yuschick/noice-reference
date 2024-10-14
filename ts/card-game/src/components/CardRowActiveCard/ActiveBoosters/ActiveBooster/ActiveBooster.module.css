@@ -1,0 +1,60 @@
+@keyframes replace-booster-shaking {
+  0% {
+    transform: rotate(-5deg);
+  }
+
+  50% {
+    transform: rotate(5deg);
+  }
+
+  100% {
+    transform: rotate(-5deg);
+  }
+}
+
+.wrapper {
+  --_active-booster-size: getRem(40);
+
+  position: relative;
+}
+
+.button-wrapper {
+  background: transparent;
+}
+
+.booster {
+  inline-size: var(--_active-booster-size);
+
+  .wrapper.is-replacing & {
+    opacity: 0.5;
+  }
+
+  .wrapper:hover & {
+    z-index: var(--noi-z-index-level-1);
+    background: var(--noi-color-light-main);
+    transform: scale(1.15);
+    transition: transform ease-out 100ms;
+  }
+}
+
+.empty-booster {
+  inline-size: var(--_active-booster-size);
+  aspect-ratio: 1/1;
+  box-shadow: var(--game-card-booster-box-shadow);
+}
+
+.replace-booster {
+  position: absolute !important;
+  inset-block-start: calc(-1 * getRem(4));
+  inset-inline-start: calc(-1 * getRem(4));
+  z-index: var(--noi-z-index-level-1);
+  background-color: var(--noi-color-light-main);
+  animation: replace-booster-shaking 1500ms ease infinite;
+  inline-size: var(--_active-booster-size);
+
+  .is-replacing & {
+    inset-block-start: 0;
+    inset-inline-start: calc(100% + getRem(8));
+    transform: scale(1.25);
+  }
+}

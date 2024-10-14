@@ -1,0 +1,54 @@
+.match-end-season-xp-container {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  padding: var(--noi-spacing-3x) var(--noi-spacing-4x) var(--noi-spacing-3x)
+    var(--noi-spacing-4x);
+  background: linear-gradient(
+    90deg,
+    var(--noi-color-violet-800),
+    var(--noi-color-violet-700)
+  );
+  background-color: var(--noi-color-blue-900);
+  min-inline-size: getRem(180);
+}
+
+.rank {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-1x);
+}
+
+.rank-description {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.icon-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 0;
+  color: var(--noi-color-teal-main);
+  block-size: getRem(14);
+  inline-size: getRem(14);
+  scale: 1.7;
+}
+
+.description-text {
+  flex-grow: 1;
+  color: var(--noi-color-teal-main);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+}
+
+.progressbar {
+  --horizontal-progress-bar-progress-color: var(--noi-color-teal-main);
+  --horizontal-progress-bar-background-color: var(--noi-color-blue-700);
+  block-size: getRem(4);
+}

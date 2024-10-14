@@ -1,0 +1,1 @@
+export { SlideControl } from './SlideControl';

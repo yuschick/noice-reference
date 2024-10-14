@@ -1,0 +1,121 @@
+.offline-channel-card {
+  display: grid;
+  grid-auto-rows: getRem(128) auto;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+  color: var(--noi-color-text-light);
+  text-decoration: none;
+  background-color: var(--noi-color-gray-900);
+  border-radius: var(--noi-border-radius-md);
+  min-inline-size: getRem(256);
+
+  @media (hover: hover) {
+    &:hover {
+      box-shadow: 0px 0px 0px 2px var(--noi-color-text-light);
+    }
+  }
+}
+
+.header-wrapper {
+  position: relative;
+}
+
+.channel-offline-banner {
+  block-size: getRem(128);
+  inline-size: 100%;
+
+  .show-as-offline & {
+    z-index: var(--noi-z-index-base);
+
+    &::after {
+      position: absolute;
+      background: var(--noi-color-black-main-transparent-50);
+      content: '';
+      inset: 0;
+    }
+  }
+}
+
+.channel-banner-fallback-wrapper {
+  max-block-size: 100%;
+  block-size: 100%;
+  display: grid;
+  place-items: center;
+  background-color: var(--noi-color-gray-950);
+}
+
+.channel-banner-fallback {
+  block-size: 30%;
+
+  .show-as-offline & {
+    opacity: 0.4;
+  }
+}
+
+.channel-card-details {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-3x);
+  align-items: center;
+  justify-content: start;
+  padding: var(--noi-spacing-4x);
+}
+
+.channel-details-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+}
+
+.channel-name {
+  @mixin truncate-text;
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+}
+
+.channel-followers {
+  display: flex;
+  flex-wrap: wrap;
+  /* stylelint-disable-next-line unit-allowed-list */
+  gap: 0.5em;
+  align-items: center;
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-sm);
+  font-style: italic;
+  line-height: var(--noi-line-height-tight);
+}
+
+.channel-followers-count {
+  color: var(--noi-color-light-main);
+  font-weight: var(--noi-font-weight-bold);
+}
+
+.channel-logo {
+  flex-shrink: 0;
+  --channel-logo-size: getRem(40);
+}
+
+.channel-offline-loading {
+  block-size: getRem(200);
+  inline-size: var(--_card-inline);
+}
+
+.following-wrapper {
+  position: absolute;
+  display: grid;
+  color: var(--noi-color-green-main);
+  background-color: var(--noi-color-gray-950);
+  block-size: getRem(40);
+  inline-size: getRem(40);
+  inset-block-start: getRem(8);
+  inset-inline-end: getRem(8);
+  place-items: center;
+  border-radius: var(--noi-border-radius-circle);
+}
+
+.offline-wrapper {
+  position: absolute;
+  inset-inline-start: getRem(16);
+  inset-block-end: getRem(8);
+}

@@ -1,0 +1,31 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: getRem(24) getRem(32);
+}
+
+.title {
+  @mixin label m, semi-bold;
+  margin: 0;
+  margin-block-end: getRem(16);
+}
+
+.list {
+  @mixin list-style-none;
+  @mixin label s, regular;
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+  padding: 0;
+}
+
+.list-item {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-1x);
+  justify-content: space-between;
+}
+
+.value {
+  font-weight: var(--noi-font-weight-regular);
+}

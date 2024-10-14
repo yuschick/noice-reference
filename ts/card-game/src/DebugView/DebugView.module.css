@@ -1,0 +1,100 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  inline-size: 100%;
+  block-size: 100vh;
+  padding: var(--noi-spacing-2x);
+  overflow: hidden;
+  color: var(--noi-color-text-light);
+  font-size: var(--noi-font-size-sm);
+  background: var(--noi-color-gray-950);
+  border-inline-start: 1px solid var(--noi-color-gray-700);
+}
+
+.fake-checkbox-label {
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-lg);
+}
+
+.tools-container {
+  display: grid;
+  grid-template-columns: 1fr auto max-content;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+}
+
+.checkboxes-container {
+  display: flex;
+  flex-direction: column;
+  inline-size: getRem(300);
+}
+
+.checkbox-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+}
+
+.event-types-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.event-type-container {
+  inline-size: var(--debug-view-column-width);
+  min-inline-size: var(--debug-view-column-width);
+  padding: var(--noi-spacing-1x);
+  border: 1px solid var(--noi-color-gray-700);
+}
+
+.event-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  inline-size: 100%;
+  margin-block-start: var(--noi-spacing-half);
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.event-row {
+  display: flex;
+  flex-wrap: nowrap;
+  inline-size: 100%;
+  border-block-end: 1px solid var(--noi-color-gray-800);
+}
+
+.event {
+  display: flex;
+  flex-direction: column;
+  inline-size: var(--debug-view-column-width);
+  max-inline-size: var(--debug-view-column-width);
+  margin-inline-end: var(--noi-spacing-half);
+  margin-block-end: var(--noi-spacing-half);
+}
+
+.event-topic {
+  padding: var(--noi-spacing-1x);
+  text-align: start;
+  background-color: var(--noi-color-gray-750);
+  cursor: pointer;
+  inline-size: 100%;
+  min-inline-size: 100%;
+
+  &.error {
+    background-color: var(--noi-color-status-error-main);
+  }
+
+  &:hover {
+    background-color: var(--noi-color-gray-650);
+  }
+}
+
+.event-content {
+  padding: var(--noi-spacing-1x);
+  font-size: var(--noi-font-size-xs);
+  white-space: pre-wrap;
+  background-color: var(--noi-color-gray-850);
+  inline-size: 100%;
+}

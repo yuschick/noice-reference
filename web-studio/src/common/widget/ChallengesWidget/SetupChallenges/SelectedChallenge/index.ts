@@ -1,0 +1,1 @@
+export { SelectedChallenge } from './SelectedChallenge';

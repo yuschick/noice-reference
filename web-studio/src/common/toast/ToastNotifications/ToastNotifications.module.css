@@ -1,0 +1,19 @@
+.toast {
+  gap: var(--noi-spacing-2x);
+  padding: var(--noi-spacing-3x) getRem(32);
+  font-size: var(--noi-font-size-lg);
+  border-radius: var(--noi-border-radius-xs);
+  inline-size: 100%;
+}
+
+.toast-success {
+  background-color: var(--noi-color-green-main);
+}
+
+.toast-error {
+  background-color: var(--noi-color-status-error-main);
+}
+
+.icon {
+  flex-shrink: 0;
+}

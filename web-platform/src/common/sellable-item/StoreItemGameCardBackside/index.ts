@@ -1,0 +1,1 @@
+export { StoreItemGameCardBackside } from './StoreItemGameCardBackside';

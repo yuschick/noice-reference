@@ -1,0 +1,44 @@
+.match-end-player-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  justify-content: center;
+  padding: var(--noi-spacing-2x);
+  text-align: center;
+}
+
+.local-player-text {
+  overflow: hidden;
+  color: var(--noi-color-teal-main);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  inline-size: 100%;
+}
+
+.other-player-text {
+  overflow: hidden;
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  inline-size: 100%;
+}
+
+.score-text {
+  overflow: hidden;
+  color: var(--noi-color-white);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  inline-size: 100%;
+}

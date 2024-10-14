@@ -1,0 +1,6 @@
+.content-warning-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+}

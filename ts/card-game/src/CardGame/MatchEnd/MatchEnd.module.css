@@ -1,0 +1,10 @@
+.match-end-content-container {
+  z-index: var(--noi-z-index-level-1);
+  display: flex;
+  justify-content: center;
+  pointer-events: all;
+}
+
+.match-end-dialog-wrapper {
+  pointer-events: all;
+}

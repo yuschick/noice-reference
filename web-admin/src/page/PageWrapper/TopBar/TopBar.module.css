@@ -1,0 +1,92 @@
+.wrapper {
+  block-size: getRem(64);
+  padding: var(--noi-spacing-2x) getRem(24);
+  background-color: var(--neutral-700);
+}
+
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-8x);
+  align-items: center;
+  block-size: 100%;
+}
+
+.left-container {
+  display: flex;
+  flex: 1;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-8x);
+  align-items: center;
+}
+
+.logo-wrapper {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  color: var(--white);
+
+  .icon {
+    inline-size: getRem(53);
+    block-size: getRem(24);
+  }
+
+  .text {
+    font-weight: var(--noi-font-weight-bold);
+    font-size: var(--font-size-l);
+    font-family: var(--noi-font-family-body);
+    line-height: var(--line-height-large);
+    text-transform: uppercase;
+  }
+}
+
+.user-menu-wrapper {
+  position: relative;
+}
+
+.user-menu {
+  @mixin list-style-none;
+  position: absolute;
+  inset-inline-end: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+  inline-size: getRem(192);
+  margin: 0;
+  padding: var(--noi-spacing-4x);
+  background-color: var(--neutral-600);
+  border-radius: getRem(7);
+  /* stylelint-disable-next-line declaration-property-value-disallowed-list */
+  box-shadow: 0 0 4px rgba(14, 16, 21, 0.2);
+}
+
+.user-menu-link {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: getRem(10);
+  align-items: center;
+  padding: getRem(10);
+  color: var(--neutral-200);
+  text-decoration: none;
+  border-radius: getRem(7);
+
+  &:hover {
+    background-color: var(--neutral-700);
+  }
+
+  .icon {
+    inline-size: getRem(20);
+    block-size: getRem(20);
+  }
+
+  .title {
+    @mixin label s, medium;
+  }
+}
+
+.right-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-8x);
+  align-items: center;
+}

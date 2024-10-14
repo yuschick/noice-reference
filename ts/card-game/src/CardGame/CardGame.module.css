@@ -1,0 +1,31 @@
+.card-game-root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  block-size: 100%;
+  inline-size: 100%;
+  pointer-events: none;
+
+  &.hidden {
+    visibility: hidden;
+  }
+}
+
+.card-game-match-end-vignette {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  block-size: getRem(320);
+  background: linear-gradient(180deg, transparent 0%, var(--noi-color-black-main) 100%);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.card-game-bottom-content {
+  z-index: var(--noi-z-index-level-1);
+}
+
+.card-game-root:has(dialog[open]) .card-game-bottom-content {
+  opacity: 0.5;
+}

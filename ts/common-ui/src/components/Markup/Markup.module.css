@@ -1,0 +1,36 @@
+.white {
+  color: var(--noi-color-text-light);
+}
+
+.yellow {
+  color: var(--noi-color-yellow-green-main);
+}
+
+.red {
+  color: var(--noi-color-magenta-main);
+}
+
+.blue {
+  color: var(--noi-color-blue-main);
+}
+
+.green {
+  color: var(--noi-color-green-main);
+}
+
+.purple {
+  color: var(--noi-color-purple-main);
+}
+
+.link {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-1x);
+  align-items: center;
+  color: var(--noi-color-gray-400);
+  transition: color var(--noi-duration-quick);
+
+  &:hover {
+    color: var(--noi-color-text-light);
+  }
+}

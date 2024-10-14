@@ -1,0 +1,1 @@
+export { PermissionWrapper } from './PermissionWrapper';

@@ -1,0 +1,6 @@
+.external-link {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-1x);
+  align-items: center;
+}

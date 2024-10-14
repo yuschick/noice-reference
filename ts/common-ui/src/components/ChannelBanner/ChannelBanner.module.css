@@ -1,0 +1,20 @@
+.banner {
+  inline-size: var(--noi-layout-max-content-size);
+  background-color: var(--noi-color-gray-800);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  aspect-ratio: 1596 / 256;
+
+  &.no-banner {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    color: var(--noi-color-gray-550);
+  }
+}
+
+.no-banner-logo {
+  block-size: 50%;
+}

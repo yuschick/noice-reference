@@ -1,0 +1,3 @@
+.chat-scroll-container {
+  @mixin narrow-scrollbar;
+}

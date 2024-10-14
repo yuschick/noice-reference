@@ -1,0 +1,26 @@
+{
+    "include": [
+        "./lib/**/*.ts",
+        "./gen/**/*.ts",
+    ],
+    "exclude": [
+        "./dist",
+    ],
+    "compilerOptions": {
+	"baseUrl": "src",
+        "composite": true,
+        "target": "ES6",
+        "lib": [
+            "ESNext"
+        ],
+        "module": "commonjs",
+        "allowJs": true,
+        "moduleResolution": "node",
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "outDir": "./dist"
+    }
+}

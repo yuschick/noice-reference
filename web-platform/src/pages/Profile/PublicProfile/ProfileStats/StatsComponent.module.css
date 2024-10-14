@@ -1,0 +1,32 @@
+.wrapper {
+  inline-size: getRem(112);
+}
+
+.value {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-2xl);
+  line-height: var(--noi-line-height-tight);
+}
+
+.title {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  max-inline-size: 100%;
+  line-height: var(--noi-line-height-tight);
+
+  @media (min-width: getRem(600)) {
+    font-size: var(--noi-font-size-md);
+  }
+}
+
+.loading-value {
+  block-size: var(--noi-font-size-2xl);
+  inline-size: 100%;
+}
+
+.loading-title {
+  block-size: var(--noi-font-size-md);
+  inline-size: 100%;
+}

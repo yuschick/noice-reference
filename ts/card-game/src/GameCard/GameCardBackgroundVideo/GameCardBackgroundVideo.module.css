@@ -1,0 +1,8 @@
+.game-card-bg-video {
+  position: absolute;
+  object-fit: cover;
+  cursor: default;
+  inset: 0;
+  block-size: 100%;
+  inline-size: 100%;
+}

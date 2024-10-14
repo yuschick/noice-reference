@@ -1,0 +1,31 @@
+{
+  "name": "@noice-com/apollo-client-utils",
+  "packageManager": "yarn@4.1.0",
+  "version": "1.0.0",
+  "main": "./src/index.ts",
+  "description": "Utility types and functions for apollo client",
+  "engines": {
+    "node": ">=20.4.0"
+  },
+  "scripts": {
+    "graphql:codegen:build": "graphql-codegen --config codegen.yml",
+    "check-types": "tsc --build tsconfig.types.json",
+    "lint": "yarn check-types && eslint ./src"
+  },
+  "prettier": "@noice-com/eslint-config/prettier.config.js",
+  "dependencies": {
+    "@apollo/client": "^3.7.17",
+    "@noice-com/platform-client": "workspace:*",
+    "@noice-com/utils": "workspace:*",
+    "graphql": "^16.8.0",
+    "graphql-ws": "^5.14.0"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.0",
+    "@noice-com/eslint-config": "workspace:*",
+    "eslint": "^8.48.0",
+    "prettier": "^2.8.8",
+    "typescript": "^5.2.2"
+  },
+  "sideEffects": false
+}

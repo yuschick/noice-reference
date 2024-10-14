@@ -1,0 +1,123 @@
+/* stylelint-disable declaration-property-value-disallowed-list */
+/* stylelint-disable declaration-property-value-allowed-list */
+.wrapper {
+  position: relative;
+  perspective: getRem(500);
+  perspective-origin: 0 getRem(100);
+  max-inline-size: var(--game-card-width-breakpoint-large);
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.content {
+  position: relative;
+  padding: getRem(5);
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: getRem(22);
+  backface-visibility: hidden;
+
+  &.fast-front {
+    animation: card-front-appear-fast 3000ms forwards;
+  }
+
+  &.slow-front {
+    animation: card-front-appear-slow 3000ms forwards;
+  }
+
+  .failure & {
+    opacity: 0.5;
+  }
+}
+
+.backside {
+  position: absolute;
+  background: var(--game-card-back-side-image-url);
+  background-size: contain;
+  transform: rotateZ(-180deg);
+  backface-visibility: hidden;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  inline-size: 98%;
+  block-size: 100%;
+  animation: card-backside-appear 3000ms forwards;
+}
+
+.video-wrapper {
+  position: relative;
+  pointer-events: none;
+}
+
+.video {
+  position: absolute;
+  z-index: var(--noi-z-index-level-3);
+  transform: translate(-49%, -30%);
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  min-inline-size: getRem(446);
+}
+
+@keyframes card-front-appear-fast {
+  0% {
+    transform: rotateX(0) rotateY(180deg) rotateZ(0);
+    animation-timing-function: ease-in-out;
+  }
+
+  3% {
+    transform: rotateX(-6deg) rotateY(180deg) rotateZ(0);
+    animation-timing-function: ease-in-out;
+  }
+
+  23% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+}
+
+@keyframes card-front-appear-slow {
+  0% {
+    transform: rotateX(0) rotateY(180deg) rotateZ(0);
+    animation-timing-function: ease-in-out;
+  }
+
+  3% {
+    transform: rotateX(-6deg) rotateY(180deg) rotateZ(0);
+    animation-timing-function: ease-in-out;
+  }
+
+  23% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(-2.5deg);
+    animation-timing-function: ease-out;
+  }
+
+  80% {
+    transform: rotateZ(-2.5deg);
+  }
+
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes card-backside-appear {
+  0% {
+    transform: rotateX(0) rotateY(180deg) rotateZ(0);
+    animation-timing-function: ease-in-out;
+  }
+
+  3% {
+    transform: rotateX(-6deg) rotateY(0deg) rotateZ(0);
+    animation-timing-function: ease-in-out;
+  }
+
+  23% {
+    transform: rotateX(0deg) rotateY(-180deg) rotateZ(-2.5deg);
+    animation-timing-function: ease-out;
+  }
+
+  80% {
+    transform: rotateZ(-2.5deg) rotateY(-180deg);
+  }
+
+  100% {
+    transform: rotateZ(0deg) rotateY(-180deg);
+  }
+}

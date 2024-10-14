@@ -1,0 +1,6 @@
+.match-results-dialog-content-container {
+  display: flex;
+  flex-direction: column;
+  inline-size: 100%;
+  gap: var(--noi-spacing-6x);
+}

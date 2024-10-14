@@ -1,0 +1,20 @@
+body {
+  --platform-background: transparent;
+  --noi-font-family-body: var(--font-family-inter);
+  background-color: var(--neutral-800);
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+  margin: 0;
+  padding: getRem(16) var(--noi-spacing-3x);
+  border: 1px solid var(--neutral-500);
+  border-radius: getRem(5);
+
+  > legend {
+    @mixin label s, medium;
+    color: var(--neutral-200);
+  }
+}

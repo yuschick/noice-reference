@@ -1,0 +1,37 @@
+.universal-challenge-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  background: linear-gradient(180deg, #302e38 0%, #484554 100%);
+  border-radius: var(--noi-border-radius-md);
+  max-inline-size: getRem(216);
+}
+
+.challenge-header-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+}
+
+.challenge-info-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  padding: var(--noi-spacing-3x);
+}
+
+.description-text {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-base);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-medium);
+}
+
+.progressbar {
+  --horizontal-progress-bar-progress-color: var(--noi-color-teal-main);
+  --horizontal-progress-bar-background-color: var(--noi-color-gray-700);
+  block-size: getRem(4);
+}

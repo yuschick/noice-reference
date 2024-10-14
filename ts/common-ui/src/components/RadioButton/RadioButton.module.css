@@ -1,0 +1,115 @@
+@layer noice.ui {
+  .radio-button-root {
+    --_radio-size: getRem(20);
+    --_radio-gap: var(--noi-spacing-2x);
+    --_radio-inactive-border: var(--noi-color-text-light-secondary);
+    --_radio-active-border: var(--noi-gradient-green-teal);
+    --_radio-active-fill: var(--noi-gradient-green-teal);
+
+    &.dark {
+      --_radio-active-border: var(--noi-color-text-dark);
+      --_radio-active-fill: var(--noi-color-text-dark);
+    }
+
+    &.disabled {
+      --_radio-active-border: var(--noi-color-green-800);
+      --_radio-active-fill: var(--noi-color-green-800);
+    }
+
+    display: inline-flex;
+    flex-direction: column;
+  }
+
+  .wrapper {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    gap: var(--_radio-gap);
+    align-items: center;
+    justify-content: start;
+
+    .rtl & {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+
+  .radio-button-wrapper {
+    block-size: var(--_radio-size);
+    inline-size: var(--_radio-size);
+    flex-shrink: 0;
+  }
+
+  .radio-button {
+    position: relative;
+    margin: 0;
+    border-radius: var(--noi-border-radius-circle);
+    -webkit-appearance: none;
+    appearance: none;
+    block-size: 100%;
+    inline-size: 100%;
+
+    &::before {
+      position: absolute;
+      padding: var(--noi-spacing-half);
+      border: 2px solid var(--_radio-inactive-border);
+      border-radius: var(--noi-border-radius-circle);
+      content: '';
+      block-size: 100%;
+      inline-size: 100%;
+      inset: 0;
+    }
+
+    &::after {
+      position: absolute;
+      background: var(--_radio-active-fill);
+      border-radius: var(--noi-border-radius-circle);
+      transition: scale var(--noi-duration-quick) ease;
+      content: '';
+      block-size: calc(var(--_radio-size) / 2);
+      inline-size: calc(var(--_radio-size) / 2);
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+      translate: -50% -50%;
+      scale: 0;
+
+      @supports not (translate: 50%) {
+        transform: translate(-50%, -50%);
+      }
+
+      @supports not (scale: 0) {
+        transform: scale(0);
+      }
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    &:checked::before {
+      background: var(--_radio-active-border);
+      border: none;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+    }
+
+    &:checked::after {
+      scale: 1;
+
+      @supports not (scale: 1) {
+        transform: scale(1);
+      }
+    }
+  }
+
+  .description-wrapper {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    margin-inline-start: calc(var(--_radio-size) + var(--_radio-gap));
+
+    .rtl & {
+      margin-inline-start: 0;
+      margin-inline-end: calc(var(--_radio-size) + var(--_radio-gap));
+    }
+  }
+}

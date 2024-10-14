@@ -1,0 +1,32 @@
+{
+  "react component": {
+    "prefix": "rc",
+    "body": [
+      "import React from 'react';",
+      "",
+      "export function ${1:$TM_FILENAME_BASE}() {",
+      "  return (",
+      "    <div></div>",
+      "  );",
+      "}",
+      ""
+    ],
+  },
+
+  "react component with Props": {
+    "prefix": "rcp",
+    "body": [
+      "import React from 'react';",
+      "",
+      "interface Props {",
+      "}",
+      "",
+      "export function ${1:$TM_FILENAME_BASE}({}: Props) {",
+      "  return (",
+      "    <div></div>",
+      "  );",
+      "}",
+      ""
+    ],
+  }
+}

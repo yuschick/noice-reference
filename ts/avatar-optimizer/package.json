@@ -1,0 +1,28 @@
+{
+  "name": "@noice-com/avatar-optimizer",
+  "packageManager": "yarn@4.1.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "check-types": "tsc --build tsconfig.types.json",
+    "lint": "yarn check-types && eslint ./src --cache --cache-location ./node_modules/.cache/eslint-cache",
+    "lint:fix": "yarn check-types && eslint ./src --fix --cache --cache-location ./node_modules/.cache/eslint-cache"
+  },
+  "prettier": "@noice-com/eslint-config/prettier.config.js",
+  "dependencies": {
+    "@noice-com/avatar-builder": "workspace:*",
+    "@noice-com/utils": "workspace:*",
+    "@noice-com/web-renderer": "workspace:*",
+    "meshoptimizer": "^0.19.0",
+    "three": "^0.168.0",
+    "xatlasjs": "^0.1.0"
+  },
+  "devDependencies": {
+    "@noice-com/eslint-config": "workspace:*",
+    "@types/three": "^0.168.0",
+    "comlink": "^4.4.1",
+    "eslint": "^8.48.0",
+    "prettier": "^2.8.8",
+    "typescript": "^5.2.2"
+  },
+  "sideEffects": false
+}

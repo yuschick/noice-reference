@@ -1,0 +1,41 @@
+.challenges {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  animation: show var(--noi-duration-regular) forwards;
+  inline-size: 100%;
+
+  @container (inline-size > getRem(460)) {
+    flex-direction: row;
+  }
+}
+
+.challenges-tooltip-challenge-status {
+  display: block;
+  margin-block-start: var(--noi-spacing-2x);
+
+  &.unresolved {
+    color: var(--noi-color-text-light-secondary);
+  }
+
+  &.success {
+    color: var(--noi-color-green-main);
+  }
+
+  &.failure {
+    color: var(--noi-color-status-error-main);
+  }
+}
+
+@keyframes show {
+  0% {
+    transform: translateY(100%);
+    transition-timing-function: ease-out;
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}

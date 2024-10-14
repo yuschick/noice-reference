@@ -1,0 +1,9 @@
+.mature-rated-content-switch-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+}
+
+.hyperlinks {
+  padding-inline-start: getRem(48);
+}

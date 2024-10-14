@@ -1,0 +1,44 @@
+.wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--noi-spacing-1x);
+}
+
+.label {
+  @mixin label s, medium;
+  color: var(--neutral-200);
+
+  .changes & {
+    color: var(--warning-400);
+  }
+
+  .touched .input:invalid + & {
+    color: var(--danger-400);
+  }
+}
+
+.input {
+  @mixin label s, medium;
+  padding: var(--noi-spacing-3x) var(--noi-spacing-2x);
+  background-color: var(--neutral-700);
+  border: 1px solid var(--neutral-500);
+  border-radius: getRem(7);
+
+  &::placeholder {
+    color: var(--neutral-300);
+    opacity: 1;
+  }
+
+  &:focus {
+    border-color: var(--primary-500);
+    outline: none;
+  }
+
+  .changes & {
+    border-color: var(--warning-400);
+  }
+
+  .touched &:invalid {
+    border-color: var(--noice-red-400);
+  }
+}

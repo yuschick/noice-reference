@@ -1,0 +1,21 @@
+.muted {
+  color: var(--noi-color-text-light-secondary);
+}
+
+.block {
+  display: grid;
+  gap: var(--noi-spacing-2x);
+}
+
+.list {
+  line-height: var(--noi-line-height-medium);
+  list-style-type: initial;
+  margin-inline-start: getRem(30);
+}
+
+.footer {
+  margin-block-start: var(--noi-spacing-2x);
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}

@@ -1,0 +1,5 @@
+.card-wrapper {
+  position: relative;
+  pointer-events: none;
+  inline-size: 100%;
+}

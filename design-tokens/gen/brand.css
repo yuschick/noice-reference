@@ -1,0 +1,253 @@
+/* stylelint-disable declaration-property-value-allowed-list */
+/* stylelint-disable declaration-property-value-disallowed-list */
+/* Auto generated from design-tokens lib */
+:root,
+::backdrop {
+  /* border */
+  --noi-border-radius-circle: 50%;
+  --noi-border-radius-pill: 999px;
+  --noi-border-radius-xs: getRem(4);
+  --noi-border-radius-sm: getRem(8);
+  --noi-border-radius-md: getRem(16);
+  --noi-border-radius-lg: getRem(24);
+  --noi-border-radius-xl: getRem(32);
+  --noi-border-radius-2xl: getRem(40);
+
+  /* color */
+  --noi-color-black-main: #000000;
+  --noi-color-white-main: #ffffff;
+  --noi-color-status-error-900: #24000b;
+  --noi-color-status-error-800: #57001a;
+  --noi-color-status-error-700: #8a0029;
+  --noi-color-status-error-600: #bd0038;
+  --noi-color-status-error-500: #ef0047;
+  --noi-color-status-error-400: #ff2465;
+  --noi-color-status-error-300: #ff5789;
+  --noi-color-status-error-200: #ff8aad;
+  --noi-color-status-error-100: #ffbdd0;
+  --noi-color-status-error-main: var(--noi-color-status-error-500);
+  --noi-color-status-alert-900: #292500;
+  --noi-color-status-alert-800: #5c5400;
+  --noi-color-status-alert-700: #8f8300;
+  --noi-color-status-alert-600: #c2b100;
+  --noi-color-status-alert-500: #f7e200;
+  --noi-color-status-alert-400: #ffed29;
+  --noi-color-status-alert-300: #fff15c;
+  --noi-color-status-alert-200: #fff58f;
+  --noi-color-status-alert-100: #fffac2;
+  --noi-color-status-alert-main: var(--noi-color-status-alert-500);
+  --noi-color-yellow-green-900: #171f00;
+  --noi-color-yellow-green-800: #3e5200;
+  --noi-color-yellow-green-700: #668500;
+  --noi-color-yellow-green-600: #8cb800;
+  --noi-color-yellow-green-500: #b2e900;
+  --noi-color-yellow-green-400: #caff1f;
+  --noi-color-yellow-green-300: #d6ff52;
+  --noi-color-yellow-green-200: #e2ff85;
+  --noi-color-yellow-green-100: #eeffb8;
+  --noi-color-yellow-green-main: var(--noi-color-yellow-green-500);
+  --noi-color-green-900: #0c3404;
+  --noi-color-green-800: #186309;
+  --noi-color-green-700: #23910d;
+  --noi-color-green-600: #2ec011;
+  --noi-color-green-500: #3ceb18;
+  --noi-color-green-400: #64ef48;
+  --noi-color-green-300: #8cf377;
+  --noi-color-green-200: #b3f7a6;
+  --noi-color-green-100: #dbfbd5;
+  --noi-color-green-main: var(--noi-color-green-500);
+  --noi-color-teal-900: #001f1e;
+  --noi-color-teal-800: #005251;
+  --noi-color-teal-700: #008583;
+  --noi-color-teal-600: #00b8b6;
+  --noi-color-teal-500: #00eae8;
+  --noi-color-teal-400: #1ffffd;
+  --noi-color-teal-300: #52fffe;
+  --noi-color-teal-200: #85fffe;
+  --noi-color-teal-100: #b8fffe;
+  --noi-color-teal-main: var(--noi-color-teal-500);
+  --noi-color-violet-900: #0d0128;
+  --noi-color-violet-800: #1d015b;
+  --noi-color-violet-700: #2d028d;
+  --noi-color-violet-600: #3d03bf;
+  --noi-color-violet-500: #4d03f1;
+  --noi-color-violet-400: #6c2cfc;
+  --noi-color-violet-300: #8f5efd;
+  --noi-color-violet-200: #b290fd;
+  --noi-color-violet-100: #d5c3fe;
+  --noi-color-violet-main: var(--noi-color-violet-400);
+  --noi-color-violet-magenta-900: #300141;
+  --noi-color-violet-magenta-800: #540174;
+  --noi-color-violet-magenta-700: #7902a6;
+  --noi-color-violet-magenta-600: #9d03d9;
+  --noi-color-violet-magenta-500: #bb12fc;
+  --noi-color-violet-magenta-400: #ca45fd;
+  --noi-color-violet-magenta-300: #d877fd;
+  --noi-color-violet-magenta-200: #e6a9fe;
+  --noi-color-violet-magenta-100: #f5dcff;
+  --noi-color-violet-magenta-main: var(--noi-color-violet-magenta-500);
+  --noi-color-magenta-900: #280029;
+  --noi-color-magenta-800: #5a005c;
+  --noi-color-magenta-700: #8b008f;
+  --noi-color-magenta-600: #bd00c2;
+  --noi-color-magenta-500: #ef00f5;
+  --noi-color-magenta-400: #fa29ff;
+  --noi-color-magenta-300: #fb5cff;
+  --noi-color-magenta-200: #fc8fff;
+  --noi-color-magenta-100: #fec2ff;
+  --noi-color-magenta-main: var(--noi-color-magenta-500);
+  --noi-color-blue-950: #06001a;
+  --noi-color-blue-900: #0c0032;
+  --noi-color-blue-850: #190D3F;
+  --noi-color-blue-800: #251a4d;
+  --noi-color-blue-750: #322659;
+  --noi-color-blue-700: #403663;
+  --noi-color-blue-650: #50476b;
+  --noi-color-blue-600: #5e5775;
+  --noi-color-blue-550: #6b6482;
+  --noi-color-blue-500: #78728d;
+  --noi-color-blue-450: #858099;
+  --noi-color-blue-400: #938ea4;
+  --noi-color-blue-350: #a19caf;
+  --noi-color-blue-300: #aeaabb;
+  --noi-color-blue-250: #bbb8c6;
+  --noi-color-blue-200: #c9c6d2;
+  --noi-color-blue-150: #d7d5dd;
+  --noi-color-blue-100: #e4e3e8;
+  --noi-color-blue-50: #f3f2f5;
+  --noi-color-blue-main: var(--noi-color-blue-900);
+  --noi-color-gray-950: #0c0b0e;
+  --noi-color-gray-900: #18171c;
+  --noi-color-gray-850: #24222a;
+  --noi-color-gray-800: #302e38;
+  --noi-color-gray-750: #3c3946;
+  --noi-color-gray-700: #484554;
+  --noi-color-gray-650: #545062;
+  --noi-color-gray-600: #615c70;
+  --noi-color-gray-550: #6d677e;
+  --noi-color-gray-500: #79738c;
+  --noi-color-gray-450: #868198;
+  --noi-color-gray-400: #948fa3;
+  --noi-color-gray-350: #a19daf;
+  --noi-color-gray-300: #afabbb;
+  --noi-color-gray-250: #bcb9c6;
+  --noi-color-gray-200: #c9c7d1;
+  --noi-color-gray-150: #d7d5dd;
+  --noi-color-gray-100: #e5e3e9;
+  --noi-color-gray-50: #f2f1f4;
+  --noi-color-dark-main: var(--noi-color-blue-main);
+  --noi-color-dark-main-transparent-5: #06001a0d;
+  --noi-color-dark-main-transparent-10: #06001a1a;
+  --noi-color-dark-main-transparent-20: #06001a33;
+  --noi-color-dark-main-transparent-30: #06001a4d;
+  --noi-color-dark-main-transparent-40: #06001a66;
+  --noi-color-dark-main-transparent-50: #06001a80;
+  --noi-color-dark-main-transparent-60: #06001a99;
+  --noi-color-dark-main-transparent-70: #06001ab3;
+  --noi-color-dark-main-transparent-80: #06001acc;
+  --noi-color-dark-main-transparent-90: #06001ae6;
+  --noi-color-light-main: var(--noi-color-white-main);
+  --noi-color-light-main-transparent-5: #ffffff0d;
+  --noi-color-light-main-transparent-10: #ffffff1a;
+  --noi-color-light-main-transparent-20: #ffffff33;
+  --noi-color-light-main-transparent-30: #ffffff4d;
+  --noi-color-light-main-transparent-40: #ffffff66;
+  --noi-color-light-main-transparent-50: #ffffff80;
+  --noi-color-light-main-transparent-60: #ffffff99;
+  --noi-color-light-main-transparent-70: #ffffffb3;
+  --noi-color-light-main-transparent-80: #ffffffcc;
+  --noi-color-light-main-transparent-90: #ffffffe6;
+  --noi-color-black-main-transparent-5: #0000000d;
+  --noi-color-black-main-transparent-10: #0000001a;
+  --noi-color-black-main-transparent-20: #00000033;
+  --noi-color-black-main-transparent-30: #0000004d;
+  --noi-color-black-main-transparent-40: #00000066;
+  --noi-color-black-main-transparent-50: #00000080;
+  --noi-color-black-main-transparent-60: #00000099;
+  --noi-color-black-main-transparent-70: #000000b3;
+  --noi-color-black-main-transparent-80: #000000cc;
+  --noi-color-black-main-transparent-90: #000000e6;
+  --noi-color-text-dark-secondary: var(--noi-color-blue-600);
+  --noi-color-text-dark: var(--noi-color-dark-main);
+  --noi-color-text-light-secondary: var(--noi-color-gray-350);
+  --noi-color-text-light: var(--noi-color-light-main);
+
+  /* font-family */
+  --noi-font-family-body: 'Rubik', sans-serif;
+
+  /* font-weight */
+  --noi-font-weight-base: 400;
+  --noi-font-weight-regular: var(--noi-font-weight-base);
+  --noi-font-weight-medium: calc(var(--noi-font-weight-base) + 100);
+  --noi-font-weight-bold: calc(var(--noi-font-weight-base) + 300);
+  --noi-font-weight-extra-bold: calc(var(--noi-font-weight-base) + 400);
+
+  /* font-size */
+  --noi-font-size-xs: getRem(12);
+  --noi-font-size-sm: getRem(14);
+  --noi-font-size-md: getRem(16);
+  --noi-font-size-lg: getRem(20);
+  --noi-font-size-xl: getRem(24);
+  --noi-font-size-2xl: getRem(32);
+  --noi-font-size-3xl: getRem(48);
+  --noi-font-size-4xl: getRem(64);
+
+  /* gradient */
+  --noi-gradient-violet: linear-gradient(90deg, var(--noi-color-violet-700) 0%, var(--noi-color-violet-600) 100%);
+  --noi-gradient-green-teal: linear-gradient(90deg, var(--noi-color-green-main) 0%, var(--noi-color-teal-main) 100%);
+  --noi-gradient-violet-magenta: linear-gradient(90deg, var(--noi-color-violet-main) 0%, var(--noi-color-magenta-main) 100%);
+  --noi-gradient-spectrum-full: linear-gradient(90deg, var(--noi-color-yellow-green-main) 0%, var(--noi-color-green-main) 20%, var(--noi-color-teal-main) 40%, var(--noi-color-violet-main) 60%, var(--noi-color-violet-magenta-main) 80%, var(--noi-color-magenta-main) 100%);
+  --noi-gradient-spectrum-medium: linear-gradient(90deg, var(--noi-color-green-main) 0%, var(--noi-color-teal-main) 50%, var(--noi-color-magenta-main) 100%);
+
+  /* line-height */
+  --noi-line-height-tight: 1;
+  --noi-line-height-medium: 1.2;
+  --noi-line-height-loose: 1.5;
+
+  /* letter-spacing */
+  --noi-letter-spacing-loose: 0.02em;
+
+  /* duration */
+  --noi-duration-quick: 150ms;
+  --noi-duration-regular: 200ms;
+
+  /* layout */
+  --noi-layout-direction-modifier: 1;
+  --noi-layout-max-content-size: getRem(1596);
+
+  /* spacing */
+  --noi-spacing-base: getRem(4);
+  --noi-spacing-half: calc(var(--noi-spacing-base) / 2);
+  --noi-spacing-1x: calc(var(--noi-spacing-base) * 1);
+  --noi-spacing-2x: calc(var(--noi-spacing-base) * 2);
+  --noi-spacing-3x: calc(var(--noi-spacing-base) * 3);
+  --noi-spacing-4x: calc(var(--noi-spacing-base) * 4);
+  --noi-spacing-5x: calc(var(--noi-spacing-base) * 5);
+  --noi-spacing-6x: calc(var(--noi-spacing-base) * 6);
+  --noi-spacing-7x: calc(var(--noi-spacing-base) * 7);
+  --noi-spacing-8x: calc(var(--noi-spacing-base) * 8);
+  --noi-spacing-10x: calc(var(--noi-spacing-base) * 10);
+  --noi-spacing-12x: calc(var(--noi-spacing-base) * 12);
+  --noi-spacing-14x: calc(var(--noi-spacing-base) * 14);
+  --noi-spacing-16x: calc(var(--noi-spacing-base) * 16);
+  --noi-spacing-20x: calc(var(--noi-spacing-base) * 20);
+
+  /* z-index */
+  --noi-z-index-base: 0;
+  --noi-z-index-behind: calc(var(--noi-z-index-base) - 1);
+  --noi-z-index-level-1: calc(var(--noi-z-index-base) + 1);
+  --noi-z-index-level-2: calc(var(--noi-z-index-level-1) + 1);
+  --noi-z-index-level-3: calc(var(--noi-z-index-level-2) + 1);
+  --noi-z-index-level-4: calc(var(--noi-z-index-level-3) + 1);
+  --noi-z-index-level-5: calc(var(--noi-z-index-level-4) + 1);
+  --noi-z-index-level-6: calc(var(--noi-z-index-level-5) + 1);
+  --noi-z-index-level-7: calc(var(--noi-z-index-level-6) + 1);
+  --noi-z-index-level-8: calc(var(--noi-z-index-level-7) + 1);
+  --noi-z-index-level-9: calc(var(--noi-z-index-level-8) + 1);
+  --noi-z-index-level-10: calc(var(--noi-z-index-level-9) + 1);
+
+  /* Conditional: layout */
+  &[dir="rtl"] {
+    --noi-layout-direction-modifier: -1;
+  }
+}

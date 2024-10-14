@@ -1,0 +1,142 @@
+.animated-booster-score {
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  --_booster-success-icon-color-1: #78f400;
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  --_booster-success-icon-color-2: #78f40000;
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  --_booster-success-label-color-1: #001b0400;
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  --_booster-success-label-color-2: #001b04ff;
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  --_booster-success-label-color-3: #00470a99;
+
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: getRem(1);
+  align-items: center;
+  padding: 0 var(--noi-spacing-2x) 0 getRem(3);
+  background-color: transparent;
+  border-radius: getRem(11);
+  opacity: 1;
+  animation: booster-score-label-animation calc(var(--_booster-score-duration) + 100ms)
+    forwards;
+
+  &:after {
+    position: absolute;
+    background-image: none;
+    background-size: 100% 100%;
+    animation: bonus-score-vfx-layer 500ms backwards;
+    content: ' ';
+    inset: getRem(-18) getRem(-17) getRem(-18) getRem(-18);
+  }
+}
+
+@keyframes bonus-score-vfx-layer {
+  /* This is the method which allows me to avoid using heavy sprite sheet tecnique but still maintaining playback control */
+  5%,
+  100% {
+    background-image: var(--_booster-bonus-score-vfx-url);
+  }
+}
+
+.animated-booster-score-icon {
+  background: none;
+  box-shadow: none;
+  animation: booster-score-icon-animation var(--_booster-score-duration) forwards;
+  block-size: getRem(26);
+  inline-size: getRem(26);
+}
+
+.animated-booster-score-text {
+  color: var(--_booster-success-icon-color-1);
+  font-weight: var(--noi-font-weight-bold);
+  animation: booster-score-text-animation var(--_booster-score-duration) forwards;
+}
+
+@keyframes booster-score-icon-animation {
+  0% {
+    color: var(--_booster-success-icon-color-2);
+    scale: 4;
+  }
+
+  8% {
+    color: var(--_booster-success-icon-color-1);
+    transition-timing-function: cubic-bezier(0.4, 0.25, 0.88, 0.77);
+  }
+
+  26% {
+    scale: 0.9;
+    transition-timing-function: ease-out;
+  }
+
+  34% {
+    scale: 1.1;
+  }
+
+  38% {
+    scale: 1;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes booster-score-text-animation {
+  0% {
+    color: var(--_booster-success-label-color-1);
+    opacity: 0;
+  }
+
+  22% {
+    color: var(--_booster-success-icon-color-1);
+    transform: translateX(getRem(-15));
+    opacity: 0;
+  }
+
+  36% {
+    color: var(--_booster-success-icon-color-1);
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  45% {
+    color: var(--noi-color-dark-main);
+  }
+
+  100% {
+    color: var(--noi-color-dark-main);
+  }
+}
+
+@keyframes booster-score-label-animation {
+  0% {
+    background-color: var(--_booster-success-label-color-1);
+  }
+
+  22% {
+    background-color: var(--_booster-success-label-color-2);
+  }
+
+  36% {
+    background-color: var(--_booster-success-icon-color-1);
+  }
+
+  45% {
+    background-color: var(--noi-color-white-main);
+  }
+
+  74% {
+    background-color: var(--noi-color-white-main);
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    transition-timing-function: ease-out;
+  }
+
+  100% {
+    background-color: transparent;
+    transform: translateY(getRem(24)) scale(0.7);
+    opacity: 0;
+  }
+}

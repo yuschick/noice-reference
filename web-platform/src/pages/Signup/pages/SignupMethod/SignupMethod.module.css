@@ -1,0 +1,39 @@
+.early-access-note-title {
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+}
+
+.channel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+}
+
+.closed-beta-text {
+  color: var(--noi-color-text-dark);
+  line-height: var(--noi-line-height-tight);
+  text-align: center;
+}
+
+.closed-beta-read-more-button {
+  padding: 0;
+  color: var(--noi-color-text-dark);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-medium);
+  text-decoration: underline;
+  background: none;
+  cursor: pointer;
+}
+
+.hcaptcha-text {
+  color: var(--noi-color-text-dark-secondary);
+  font-size: var(--noi-font-size-xs);
+  text-align: center;
+}
+
+.warning-loading {
+  border-radius: var(--noi-border-radius-md);
+}

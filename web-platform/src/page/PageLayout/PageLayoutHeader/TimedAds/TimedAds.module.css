@@ -1,0 +1,15 @@
+.icon-wrapper {
+  display: none;
+
+  @media (max-width: getRem(1349)) {
+    display: block;
+  }
+}
+
+.expanded-wrapper {
+  display: none;
+
+  @media (min-width: getRem(1350)) {
+    display: block;
+  }
+}

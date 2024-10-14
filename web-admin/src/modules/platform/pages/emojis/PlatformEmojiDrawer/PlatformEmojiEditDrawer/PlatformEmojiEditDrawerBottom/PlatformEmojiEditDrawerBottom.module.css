@@ -1,0 +1,42 @@
+.bottom {
+  position: sticky;
+  inset-block-end: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+  padding-block-start: getRem(16);
+  background-color: var(--neutral-700);
+  inline-size: 100%;
+
+  &:after {
+    position: absolute;
+    inset-inline-end: 0;
+    inset-block-end: getRem(-16);
+    inset-inline-start: 0;
+    block-size: getRem(16);
+    background-color: var(--neutral-700);
+    content: '';
+  }
+}
+
+.bottom-buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  justify-content: space-between;
+}
+
+.delete-content {
+  @mixin paragraph m, bold;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.delete-buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+}

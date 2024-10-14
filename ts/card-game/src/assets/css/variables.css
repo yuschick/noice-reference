@@ -1,0 +1,120 @@
+/* stylelint-disable declaration-property-value-disallowed-list */
+/* stylelint-disable declaration-property-value-allowed-list */
+:root {
+  --active-card-success-gradient: linear-gradient(
+    transparent 75%,
+    var(--success-green-color-transparent-30) 99%,
+    var(--noi-color-green-main) 2%,
+    var(--noi-color-green-main)
+  );
+  --active-card-failure-gradient: linear-gradient(
+    transparent 75%,
+    var(--noi-color-status-error-700) 99%,
+    var(--noi-color-status-error-main) 2%,
+    var(--noi-color-status-error-main)
+  );
+  --active-card-best-play-gradient: linear-gradient(
+    transparent 75%,
+    var(--noi-color-violet-magenta-700) 99%,
+    var(--noi-color-violet-magenta-400) 2%,
+    var(--noi-color-violet-magenta-400)
+  );
+
+  --match-end-animation-duration-disappear: 750ms;
+  --match-end-animation-duration-appear: 500ms;
+  --match-end-animation-duration-small-part: 250ms;
+  --match-end-focus-on-group-score-duation: 1250ms;
+
+  /**
+  * Game card
+  */
+
+  /* 
+   * @todo legacy stuff, should be removed with card v2
+   */
+  --game-card-width-xsmall: getRem(78);
+  --game-card-width-small: getRem(112);
+  --game-card-width-medium: getRem(152);
+  --game-card-width-large: getRem(192);
+  --game-card-height-xsmall: getRem(124);
+  --game-card-height-small: getRem(176);
+  --game-card-height-medium: getRem(256);
+  --game-card-height-large: getRem(320);
+  --game-card-border-radius: getRem(12);
+  --game-card-border-width: getRem(2);
+  --game-card-inner-border-radius: getRem(10); /* border radius - border width */
+  --game-card-art-border-radius: getRem(7); /* border radius - (border width + 3) */
+  --game-card-mouse-is-hovering-transition: 100ms;
+  --game-card-hover-art-transition: 500ms;
+
+  /* 
+   * card v3
+   */
+  --game-card-width-breakpoint-xsmall: getRem(80);
+  --game-card-width-breakpoint-small: getRem(120);
+  --game-card-width-breakpoint-medium: getRem(160);
+  --game-card-width-breakpoint-large: getRem(200);
+  --game-card-width-breakpoint-xlarge: getRem(300);
+  --game-card-width-breakpoint-xxlarge: getRem(400);
+  --game-card-aspect-ratio: 0.625;
+  --game-card-hover-transition-duration: 75ms;
+
+  /**
+ * Boosters
+ */
+  /* stylelint-disable unit-allowed-list */
+  --game-card-booster-box-shadow: 0px 0px 4px var(--noi-color-black-main-transparent-20),
+    0px 0px 8px var(--noi-color-black-main-transparent-20),
+    0px 4px 8px -4px var(--noi-color-black-main-transparent-20);
+  --game-card-booster-size-small: getRem(24);
+  --game-card-booster-size-medium: getRem(32);
+  --game-card-booster-size-large: getRem(40);
+  --game-card-booster-border-radius-xsmall: getRem(2);
+  --game-card-booster-border-radius-small: getRem(4);
+  --game-card-booster-border-radius-medium: getRem(6);
+  --game-card-booster-border-radius-large: getRem(8);
+  --booster-border-radius: var(--noi-border-radius-circle);
+
+  /**
+  * VFX
+  */
+  --success-green-color-transparent-30: #00ff9955;
+
+  --game-card-bottomlabel-pointsloader-gradient: linear-gradient(
+    88deg,
+    #abb7ff33 1%,
+    #a9cbff99 70%,
+    #c1f8ffaa 90%,
+    #ffffff 99%
+  );
+  --game-card-bottomlabel-pointsloader-gradient-medium: linear-gradient(
+    88deg,
+    #abb7ff22 1%,
+    #a9cbff66 70%,
+    #c1f8ff88 92%,
+    #ffffcc 99%
+  );
+  --basic-button-progress-gradient-color-blue: #c7d6ff66;
+  --progress-button-highlight-radial-gradient: radial-gradient(
+      60% 60% at 50% 50%,
+      rgb(153, 255, 230) 0%,
+      #00ff8800 100%
+    ),
+    radial-gradient(
+      100% 100% at 50% 50%,
+      #00ffd500 10%,
+      rgb(0, 255, 221) 35%,
+      #00ffd500 38%
+    );
+  --available-booster-button-highlight-radial-gradient: radial-gradient(
+      60% 60% at 50% 50%,
+      rgb(153, 174, 255) 0%,
+      #00ffff00 100%
+    ),
+    radial-gradient(
+      100% 100% at 50% 50%,
+      #00ffff00 10%,
+      rgb(153, 174, 255) 35%,
+      #00ffff00 38%
+    );
+}

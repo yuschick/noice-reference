@@ -1,0 +1,14 @@
+.wrapper {
+  padding: var(--noi-spacing-10x) var(--noi-spacing-20x);
+
+  .content {
+    display: grid;
+    gap: var(--noi-spacing-6x);
+    max-inline-size: getRem(800);
+    margin: auto;
+  }
+}
+
+.icon-complete {
+  color: var(--noi-color-green-main);
+}

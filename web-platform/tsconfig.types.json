@@ -1,0 +1,61 @@
+{
+  "extends": "./tsconfig.json",
+  "exclude": ["node_modules/*", "types/*", "dist/*"],
+  "references": [
+    {
+      "path": "../../lib/ts/gen/schemas"
+    },
+    {
+      "path": "../../lib/ts/platform-client"
+    },
+    {
+      "path": "../../lib/ts/utils"
+    },
+    {
+      "path": "../../lib/ts/server"
+    },
+    {
+      "path": "../../lib/ts/common-ui"
+    },
+    {
+      "path": "../../lib/ts/chat-react-core"
+    },
+    {
+      "path": "../../lib/ts/chat-react-web"
+    },
+    {
+      "path": "../../lib/ts/avatar-builder"
+    },
+    {
+      "path": "../../lib/ts/renderer"
+    },
+    {
+      "path": "../../lib/ts/apollo-client-utils"
+    },
+    {
+      "path": "../../lib/ts/social-react-core"
+    },
+    {
+      "path": "../../lib/ts/social"
+    },
+    {
+      "path": "../../lib/ts/stream"
+    },
+    {
+      "path": "../../lib/ts/card-game"
+    },
+    {
+      "path": "../../lib/ts/webview-bridge"
+    }
+  ],
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "isolatedModules": true,
+    "declarationDir": "./.types",
+    "noEmit": true,
+    "pretty": true,
+    "resolveJsonModule": true,
+    "tsBuildInfoFile": ".tscache/tsconfig.types.tsbuildinfo"
+  }
+}

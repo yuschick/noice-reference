@@ -1,0 +1,9 @@
+.connection-error {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  color: var(--noi-color-magenta-300);
+  font-size: var(--noi-font-size-lg);
+  margin-block-start: getRem(16);
+}

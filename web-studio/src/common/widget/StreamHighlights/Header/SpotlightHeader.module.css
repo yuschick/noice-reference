@@ -1,0 +1,7 @@
+.header {
+  color: var(--noi-color-gray-650);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-xl);
+  text-transform: uppercase;
+  margin-block-end: getRem(24);
+}

@@ -1,0 +1,63 @@
+.team-info-root {
+  --team-info-icon-rotation: 180deg;
+  --team-info-icon-size: getRem(16);
+  --team-info-button-height: getRem(48);
+
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  container-type: inline-size;
+}
+
+.team-info-button {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--noi-spacing-4x);
+  line-height: var(--noi-line-height-tight);
+  background: var(--noi-color-light-main-transparent-10);
+  border-radius: var(--noi-border-radius-pill);
+  cursor: pointer;
+  user-select: none;
+  block-size: var(--team-info-button-height);
+  inline-size: 100%;
+
+  .dialog-open & {
+    --team-info-icon-rotation: 0deg;
+  }
+}
+
+.team-info-button-icon {
+  color: var(--noi-color-text-light-secondary);
+  vertical-align: middle;
+  transform: rotate(var(--team-info-icon-rotation));
+  transition: transform ease-in-out 150ms;
+  inline-size: var(--team-info-icon-size);
+  block-size: var(--team-info-icon-size);
+  margin-inline-start: var(--noi-spacing-2x);
+}
+
+.team-info-team-label {
+  display: none;
+  flex-grow: 1;
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  text-align: start;
+  text-transform: uppercase;
+  @mixin truncate-text;
+
+  @container (inline-size > getRem(160)) {
+    display: initial;
+  }
+}
+
+.team-info-score-label {
+  flex-grow: 0;
+  flex-shrink: 0;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  margin-inline-start: var(--noi-spacing-2x);
+}

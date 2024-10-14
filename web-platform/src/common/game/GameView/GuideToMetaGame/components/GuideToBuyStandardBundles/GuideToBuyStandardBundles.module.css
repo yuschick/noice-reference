@@ -1,0 +1,11 @@
+.label {
+  color: var(--noi-color-teal-main);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+}
+
+.background-asset {
+  &:after {
+    transform: rotate(15deg);
+  }
+}

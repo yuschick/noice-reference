@@ -1,0 +1,16 @@
+.channel-role {
+  display: block;
+  color: var(--noi-color-status-error-main);
+  font-size: var(--noi-font-size-sm);
+  padding-block-start: var(--noi-spacing-half);
+}
+
+.role-icon {
+  margin-inline-end: var(--noi-spacing-1x);
+  vertical-align: middle;
+}
+
+.role-label {
+  display: inline-block;
+  vertical-align: middle;
+}

@@ -1,0 +1,5 @@
+.social-links-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--noi-spacing-4x);
+}

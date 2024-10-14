@@ -1,0 +1,19 @@
+@define-mixin paragraph $size, $weight {
+  font-weight: var(--noi-font-weight-$(weight));
+  font-size: var(--font-size-$(size));
+  line-height: 160%;
+}
+
+@define-mixin label $size, $weight {
+  font-weight: var(--noi-font-weight-$(weight));
+  font-size: var(--font-size-$(size));
+  line-height: getRem(16);
+}
+
+@define-mixin heading $tag {
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--heading-size-$(tag));
+  font-family: var(--noi-font-family-body);
+  line-height: 125%;
+  letter-spacing: -0.02em;
+}

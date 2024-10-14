@@ -1,0 +1,13 @@
+.title {
+  font-size: var(--noi-font-size-lg);
+  margin-block-end: var(--noi-spacing-2x);
+}
+
+.bold {
+  font-weight: var(--noi-font-weight-bold);
+}
+
+.content {
+  display: grid;
+  gap: var(--noi-spacing-4x);
+}

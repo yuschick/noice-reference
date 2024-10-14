@@ -1,0 +1,40 @@
+.channel-info-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  grid-area: info;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+}
+
+.channel-info-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+}
+
+.channel-name {
+  overflow: hidden;
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  /* add end padding, so ellipsis does not cut italic font */
+  padding-inline-end: var(--noi-spacing-1x);
+}
+
+.overview-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-6x);
+}
+
+.title {
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+}
+
+.subtitle {
+  color: var(--noi-color-text-dark-secondary);
+  font-size: var(--noi-font-size-md);
+}

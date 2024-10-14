@@ -1,0 +1,34 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--noi-spacing-12x);
+  align-items: center;
+  justify-content: space-around;
+}
+
+.reward-box-clipper {
+  inline-size: getRem(134);
+  block-size: getRem(134);
+  position: absolute;
+}
+
+.reward-box {
+  position: absolute;
+  inline-size: getRem(200);
+  block-size: getRem(200);
+  inset-block-end: 0;
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+}
+
+.button-wrapper {
+  inline-size: min(100%, getRem(400));
+  margin-inline: auto;
+  visibility: hidden;
+
+  &.show {
+    visibility: visible;
+  }
+}

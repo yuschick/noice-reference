@@ -1,0 +1,5 @@
+.image {
+  border-radius: var(--noi-border-radius-circle);
+  inline-size: getRem(40);
+  block-size: getRem(40);
+}

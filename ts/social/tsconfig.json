@@ -1,0 +1,54 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "include": ["src/**/*.ts", "src/**/*.tsx", "gen/*"],
+  "exclude": ["dist"],
+  "references": [
+    {
+      "path": "../gen/schemas"
+    },
+    {
+      "path": "../platform-client"
+    },
+    {
+      "path": "../utils"
+    },
+    {
+      "path": "../common-ui"
+    },
+    {
+      "path": "../social-react-core"
+    }
+  ],
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "module": "commonjs",
+    "target": "ES6",
+    "declarationDir": "./dist",
+    "paths": {
+      "@social-assets/*": ["src/assets/*"],
+      "@social-components": ["src/components"],
+      "@social-types": ["src/types"],
+      "@social-hooks": ["src/hooks"],
+      "@social-story-helpers": ["src/story-helpers"],
+      "@social-transform": ["src/transform"],
+      "@social-classes": ["src/classes"],
+      "@social-globals": ["src/globals"],
+      "@social-context": ["src/context"],
+      "@social-context/*": ["src/context/*"],
+      "@social-utils": ["src/utils"],
+      "@social-gen": ["gen"]
+    },
+    "lib": ["DOM", "DOM.Iterable", "ES6"],
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": false,
+    "strict": true,
+    "typeRoots": ["types", "node_modules/@types", "../../../../node_modules/@types"],
+    "tsBuildInfoFile": ".tscache/tsconfig.tsbuildinfo"
+  }
+}

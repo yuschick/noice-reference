@@ -1,0 +1,52 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": ["src/types/**/*", "src/**/*.ts", "src/**/*.tsx", "gen/*", "config.ts", "server.ts"],
+  "exclude": ["node_modules/*", "types/*", "dist/*"],
+  "references": [
+    {
+      "path": "../../lib/ts/gen/schemas"
+    },
+    {
+      "path": "../../lib/ts/platform-client"
+    },
+    {
+      "path": "../../lib/ts/utils"
+    },
+    {
+      "path": "../../lib/ts/apollo-client-utils"
+    },
+    {
+      "path": "../../lib/ts/common-ui"
+    },
+    {
+      "path": "../../lib/ts/assets-core"
+    }
+  ],
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "paths": {
+      "@assets/*": ["src/assets/*"],
+      "@common/*": ["src/common/*"],
+      "@module-common": ["src/module-common"],
+      "@modules": ["src/modules"],
+      "@page": ["src/page"],
+      "@pages": ["src/pages"],
+      "@gen": ["gen"]
+    },
+    "module": "commonjs",
+    "target": "ES6",
+    "lib": ["DOM", "ES2021"],
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": false,
+    "strict": true,
+    "typeRoots": ["types", "node_modules/@types", "../../node_modules/@types"],
+    "tsBuildInfoFile": ".tscache/tsconfig.tsbuildinfo",
+    "isolatedModules": true
+  }
+}

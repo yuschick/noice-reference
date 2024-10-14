@@ -1,0 +1,1 @@
+export { RewardedVideoBanner } from './RewardedVideoBanner';

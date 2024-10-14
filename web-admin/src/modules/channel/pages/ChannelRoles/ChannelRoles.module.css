@@ -1,0 +1,19 @@
+.icon {
+  margin-inline-end: var(--noi-spacing-2x);
+  vertical-align: middle;
+
+  &.streamer {
+    color: var(--success-400);
+  }
+
+  &.moderator {
+    color: var(--primary-400);
+  }
+}
+
+.avatar-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+}

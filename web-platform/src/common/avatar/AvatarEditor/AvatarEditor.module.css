@@ -1,0 +1,65 @@
+.wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: nowrap;
+  inline-size: 100%;
+  block-size: 100%;
+
+  @media (min-width: getRem(700)) {
+    flex-direction: row;
+  }
+}
+
+.right-column {
+  position: relative;
+  flex-grow: 10;
+  box-shadow: inset 1px 0 0 var(--noi-color-light-main-transparent-05);
+  container-type: size;
+}
+
+.renderer-wrapper {
+  block-size: 50vh;
+  /* stylelint-disable-next-line unit-no-unknown, unit-allowed-list */
+  inline-size: 100qi;
+
+  @media (min-width: getRem(700)) {
+    block-size: 100vh;
+  }
+}
+
+.loading-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  inline-size: 100%;
+  block-size: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.randomise-button {
+  position: absolute;
+  inset-block-end: var(--noi-spacing-4x);
+  inset-inline-end: var(--noi-spacing-4x);
+
+  @media (min-width: getRem(700)) {
+    inset-block-end: var(--noi-spacing-8x);
+    inset-inline-end: var(--noi-spacing-8x);
+  }
+}
+
+.customisation-selectors {
+  position: absolute;
+  z-index: var(--noi-z-index-level-2);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-3x);
+  align-items: center;
+  inset-block-start: getRem(16);
+  inset-inline-start: getRem(16);
+
+  @media (min-width: getRem(700)) {
+    inset-block-start: getRem(24);
+    inset-inline-start: getRem(24);
+  }
+}

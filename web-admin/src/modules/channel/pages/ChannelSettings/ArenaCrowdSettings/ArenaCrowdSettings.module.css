@@ -1,0 +1,37 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+  align-items: flex-start;
+}
+
+.form-input {
+  inline-size: 100%;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: flex-start;
+}
+
+.popout {
+  inline-size: getRem(305);
+}
+
+.select-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-8x);
+  align-items: center;
+}
+
+.select-label {
+  @mixin label m, semi-bold;
+  inline-size: getRem(160);
+}
+
+.select {
+  inline-size: min(getRem(304), 100%);
+}

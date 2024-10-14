@@ -1,0 +1,38 @@
+/* stylelint-disable declaration-property-value-allowed-list */
+/* stylelint-disable declaration-property-value-disallowed-list */
+.header-text-container {
+  display: flex;
+  flex-direction: column;
+  inline-size: 100%;
+  gap: getRem(2);
+  line-height: var(--noi-line-height-tight);
+  text-shadow: getRem(-2) getRem(-2) 0 rgba(0, 0, 0, 0.8),
+    getRem(2) getRem(-2) 0 rgba(0, 0, 0, 0.8), getRem(-2) getRem(2) 0 rgba(0, 0, 0, 0.8),
+    getRem(2) getRem(2) 0 rgba(0, 0, 0, 0.8);
+}
+
+.header-text {
+  font-weight: var(--noi-font-weight-extra-bold);
+  font-size: var(--noi-font-size-lg);
+  font-style: italic;
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+  inline-size: getRem(136);
+
+  &.centered {
+    text-align: center;
+    margin-inline-start: getRem(-6);
+  }
+}
+
+.sub-text {
+  overflow: hidden;
+  color: var(--noi-color-yellow-green-500);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-md);
+  font-style: normal;
+  white-space: nowrap;
+  text-transform: none;
+  text-overflow: ellipsis;
+  inline-size: getRem(136);
+}

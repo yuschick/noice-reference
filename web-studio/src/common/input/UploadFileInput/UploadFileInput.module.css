@@ -1,0 +1,34 @@
+.label {
+  position: relative;
+  display: inline-block;
+  padding: var(--noi-spacing-3x) getRem(16);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  background-color: var(--noi-color-light-main-transparent-10);
+  border-radius: var(--noi-border-radius-pill);
+  cursor: pointer;
+  transition: background-color var(--noi-duration-quick);
+  block-size: getRem(40);
+  min-inline-size: max-content;
+
+  &:hover {
+    background-color: var(--noi-color-light-main-transparent-20);
+  }
+
+  &:has(.input:disabled):hover {
+    background-color: var(--noi-color-light-main-transparent-10);
+    cursor: not-allowed;
+  }
+}
+
+.input {
+  position: absolute;
+  z-index: var(--noi-z-index-behind);
+  inline-size: getRem(0.1);
+  block-size: getRem(0.1);
+  overflow: hidden;
+  opacity: 0;
+}

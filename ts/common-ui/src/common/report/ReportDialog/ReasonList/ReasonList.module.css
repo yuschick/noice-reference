@@ -1,0 +1,33 @@
+.reason-list-label {
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+}
+
+.reason-list {
+  @mixin list-style-none;
+  display: grid;
+  gap: getRem(1);
+}
+
+.reason {
+  display: grid;
+  grid-template-columns: auto min-content;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  padding: var(--noi-spacing-2x) var(--noi-spacing-4x);
+  background: var(--noi-color-gray-100);
+  inline-size: 100%;
+
+  &:first-child {
+    border-radius: var(--noi-border-radius-sm) var(--noi-border-radius-sm) 0 0;
+  }
+
+  &:last-child {
+    margin: 0;
+    border-radius: 0 0 var(--noi-border-radius-sm) var(--noi-border-radius-sm);
+  }
+
+  &:has(input:checked) {
+    background: var(--noi-color-gray-150);
+  }
+}

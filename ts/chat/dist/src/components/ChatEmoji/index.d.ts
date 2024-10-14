@@ -1,0 +1,1 @@
+export { ChatEmoji } from './ChatEmoji';

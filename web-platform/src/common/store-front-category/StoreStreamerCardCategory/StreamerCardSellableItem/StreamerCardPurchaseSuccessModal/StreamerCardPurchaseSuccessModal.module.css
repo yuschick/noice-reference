@@ -1,0 +1,180 @@
+.modal-content {
+  --animation-card-entry: 300ms;
+  --animation-card-turn: 500ms;
+  --animation-title-slide: 300ms;
+
+  min-block-size: 100%;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+.title {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-3x);
+  color: var(--noi-color-white-main);
+  font-weight: var(--noi-font-weight-extra-bold);
+  font-size: var(--noi-font-size-2xl);
+  letter-spacing: var(--noi-letter-spacing-loose);
+  text-align: center;
+  text-transform: uppercase;
+
+  @media (min-width: getRem(600)) {
+    font-size: var(--noi-font-size-4xl);
+  }
+}
+
+.text-highlight {
+  display: block;
+  background: var(--noi-gradient-green-teal);
+  -webkit-background-clip: text;
+  background-clip: text;
+  transform: translateX(125%);
+  animation: slide-title-right var(--animation-title-slide) forwards ease-out;
+  -webkit-text-fill-color: transparent;
+
+  @media (prefers-reduced-motion: reduce) {
+    transform: 0;
+    animation: none;
+  }
+}
+
+@keyframes slide-title-right {
+  0% {
+    transform: translateX(-20%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+.right-side-text {
+  display: inline-block;
+  font-style: italic;
+  transform: translateX();
+  animation: slide-title-left var(--animation-title-slide) forwards ease-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes slide-title-left {
+  0% {
+    transform: translateX(20%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+.body {
+  display: grid;
+  gap: var(--noi-spacing-6x);
+  align-items: center;
+  overflow: hidden;
+  /* gaps are here as paddings, so there is enough space for card when moving it */
+  padding-block: var(--noi-spacing-6x);
+
+  @media (min-width: getRem(600)) {
+    /* gaps are here as paddings, so there is enough space for card when moving it */
+    padding-block: var(--noi-spacing-8x);
+  }
+}
+
+.channel-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-3x);
+  align-items: center;
+  justify-content: center;
+}
+
+.channel-details {
+  display: flex;
+  flex-direction: column;
+  color: var(--noi-color-text-light-secondary);
+  font-style: italic;
+  line-height: var(--noi-line-height-tight);
+}
+
+.channel-name {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-extra-bold);
+  font-size: var(--noi-font-size-xl);
+}
+
+.game-season-info {
+  color: var(--noi-color-text-light-secondary);
+  letter-spacing: var(--noi-letter-spacing-loose);
+}
+
+.game-season-name {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+}
+
+.card-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  transform: translateX(128%);
+  animation: card-section-slide 501ms forwards;
+  animation-delay: calc(var(--animation-card-entry) + var(--animation-card-turn) * 2.7);
+
+  @media (prefers-reduced-motion: reduce) {
+    transform: 0;
+    animation: none;
+  }
+}
+
+@keyframes card-section-slide {
+  0% {
+    transform: translateX(125%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.card {
+  inline-size: var(--game-card-width-breakpoint-large);
+  perspective: getRem(500);
+  perspective-origin: getRem(0) getRem(90);
+  animation: card-entry var(--animation-card-entry) cubic-bezier(0.67, 0.94, 0.81, 1.07);
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes card-entry {
+  0% {
+    scale: 2.7;
+    opacity: 0;
+  }
+
+  100% {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+.footer {
+  display: grid;
+  gap: var(--noi-spacing-3x);
+  inline-size: min(100%, getRem(256));
+
+  @media (min-width: getRem(600)) {
+    inline-size: min(100%, getRem(328));
+  }
+}

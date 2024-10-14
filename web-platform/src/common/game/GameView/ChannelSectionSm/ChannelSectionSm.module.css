@@ -1,0 +1,90 @@
+.section {
+  position: absolute;
+  z-index: var(--noi-z-index-level-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+  padding: var(--noi-spacing-4x);
+  background: var(--noi-color-gray-850);
+  visibility: hidden;
+  opacity: 0;
+  transition-delay: 0ms, var(--noi-duration-regular);
+  transition-duration: var(--noi-duration-regular), 0ms;
+  /* visibility is changed immediately from visible to hidden after some delay, so that doesn't affect the performance */
+  /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
+  transition-property: opacity, visibility;
+  block-size: getRem(132);
+  inset-inline-end: 0;
+  inset-inline-start: 0;
+
+  &.shown {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 300ms;
+  }
+}
+
+.channel-info-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.overlay {
+  --overlay-block-size: getRem(40);
+  position: absolute;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  padding: 0 var(--noi-spacing-4x);
+  background: linear-gradient(transparent, var(--noi-color-black-main));
+  block-size: var(--overlay-block-size);
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  inset-block-start: calc(var(--overlay-block-size) * -1);
+  pointer-events: none;
+}
+
+.channel-button {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-3x);
+  align-items: center;
+  padding: 0;
+  background-color: transparent;
+  border-radius: var(--noi-border-radius-pill);
+  cursor: pointer;
+  padding-inline-end: var(--noi-spacing-4x);
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--noi-color-light-main-transparent-10);
+      box-shadow: 0 0 0 getRem(4) var(--noi-color-light-main-transparent-10);
+    }
+  }
+}
+
+.channel-name {
+  overflow: hidden;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-extra-bold);
+  font-size: var(--noi-font-size-lg);
+  font-style: italic;
+  line-height: var(--noi-line-height-tight);
+  white-space: nowrap;
+  text-align: start;
+  text-overflow: ellipsis;
+  inline-size: 100%;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+
+  &:not(:empty) {
+    margin-block-start: var(--noi-spacing-2x);
+  }
+}

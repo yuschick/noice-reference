@@ -1,0 +1,18 @@
+.row-wrapper {
+  display: inline-flex;
+  gap: var(--noi-spacing-1x);
+  align-items: flex-end;
+  justify-content: flex-start;
+  margin-inline-start: getRem(16);
+  pointer-events: all;
+}
+
+.row-item {
+  padding: getRem(16) var(--noi-spacing-3x);
+}
+
+.hand-divider {
+  inline-size: getRem(1);
+  block-size: getRem(100);
+  background: linear-gradient(transparent, var(--noi-color-light-main-transparent-10));
+}

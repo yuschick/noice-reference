@@ -1,0 +1,82 @@
+.has-updates {
+  box-shadow: 0 0 3px 0 var(--warning-400);
+}
+
+.expanded {
+  background-color: var(--neutral-700);
+}
+
+.title-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+
+  &:hover {
+    background-color: var(--neutral-600);
+  }
+}
+
+.toggle {
+  margin: var(--noi-spacing-3x) getRem(16);
+  margin-inline-end: 0;
+}
+
+.title {
+  @mixin label m, regular;
+  flex-grow: 1;
+  margin: 0;
+}
+
+.button {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-1x);
+  align-items: center;
+  padding: var(--noi-spacing-3x) getRem(16);
+  text-align: start;
+  background-color: transparent;
+  cursor: pointer;
+  padding-inline-start: 0;
+  inline-size: 100%;
+}
+
+.description {
+  color: var(--neutral-300);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+  padding: var(--noi-spacing-2x) getRem(24) getRem(24);
+  color: var(--neutral-200);
+}
+
+.warning-content {
+  align-items: center;
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+  justify-content: space-between;
+}
+
+.add-group-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+}
+
+.copy-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+}
+
+.removed-wrapper {
+  @mixin label s, regular;
+  color: var(--warning-400);
+}

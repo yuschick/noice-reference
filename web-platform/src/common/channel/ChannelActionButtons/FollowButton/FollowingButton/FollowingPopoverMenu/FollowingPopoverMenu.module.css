@@ -1,0 +1,13 @@
+.switch-container {
+  min-inline-size: getRem(256);
+}
+
+.global-setting-text {
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-xs);
+  line-height: var(--noi-line-height-medium);
+}
+
+.profile-setting-link {
+  color: var(--noi-color-text-light);
+}

@@ -1,0 +1,23 @@
+{
+  "name": "@noice-com/schemas",
+  "version": "1.0.0",
+  "packageManager": "yarn@4.1.0",
+  "description": "Generated protobuf types.",
+  "files": [
+    "./**/*.ts",
+    "./*.ts",
+    "tsconfig.json"
+  ],
+  "scripts": {
+    "build": "tsc --build",
+    "watch": "tsc --watch --preserveWatchOutput",
+    "prepack": "yarn run build"
+  },
+  "dependencies": {
+    "typescript": "^5.2.2"
+  },
+  "engines": {
+    "node": ">=20.4.0"
+  },
+  "sideEffects": false
+}

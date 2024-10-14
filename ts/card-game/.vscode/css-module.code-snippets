@@ -1,0 +1,8 @@
+{
+  "import css module": {
+    "prefix": "icss",
+    "body": [
+      "import styles from './${1:ComponentName}.module.css'"
+    ]
+  }
+}

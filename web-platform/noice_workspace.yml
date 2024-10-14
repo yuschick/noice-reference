@@ -1,0 +1,461 @@
+name: client
+
+labels:
+  - client
+
+build_dependencies:
+  - ts-apollo-client-utils
+  - ts-card-game
+  - ts-chat
+  - ts-chat-react-core
+  - ts-common-ui
+  - ts-schemas
+  - ts-lib
+  - ts-utils
+  - ts-server
+  - ts-social
+  - ts-social-react-core
+  - ts-stream
+  - ts-webview-bridge
+  - esbuild
+  - eslint-config
+  - esbuild-plugins
+  - vite-plugins
+  - eslint-config-react
+  - yarn-config
+  - .yarnrc.yml
+  - yarn.lock
+  - package.json
+  - clients/web-platform/package.json
+  - tsconfig.json
+  - tsconfig.base.json
+  - graphql-schema
+  - web-renderer
+  - avatar-builder
+  - postcss
+  - ftue-config
+  - design-tokens
+  - ts-assets-core
+  - ts-common-react-core
+
+artifact_directories:
+  - node_modules
+  - ../../.yarn/cache
+
+lint:
+  - type: yarn_run
+    id: lint
+    name: client-lint
+    run_on_host: ${{ env.CI == "true" }}
+    cmd: '${{ parseBoolean(inputs.fix) ? "lint:fix" : "lint" }}'
+
+test:
+  - type: yarn_run
+    run_on_host: ${{ env.CI == "true" }}
+    cmd: test
+
+generate:
+  - type: yarn_run
+    run_on_host: ${{ env.CI == "true" }}
+    cmd: codegen:build-all
+
+# Env variables for helm deploys
+env: &helm_variables_env
+  IS_LOCAL: false
+  VERBOSE_LOGGING: false
+  DISCORD_CLIENT_ID: ${{ vars.DISCORD_CLIENT_ID }}
+  PORT: 8081
+  USE_GOOGLE_ADS_TESTMODE: true
+  SENTRY_AUTH_TOKEN: ${{ vault_secret("secret/data/ci/client_sentry", "token") }}
+  WORKSPACE_HASH: ${{ workspace_hash }}
+
+build:
+  - type: parallel
+    runners:
+      - type: image_build
+        id: build_docker_container
+        image_name: web-client
+        pull_first: true
+        dockerfile: Dockerfile
+        registry: ${{ vars.DOCKER_REGISTRY }}
+        target: web-client
+        build_args:
+          build_time: ${{ new Date().toISOString() }}
+          build_hash: ${{ git.commit }}
+          workspace_hash: ${{ workspace_hash }}
+        secrets:
+          yarnrc: ${{ read_file(path_join(root_dir, '/.yarnrc.yml')) }}
+
+      - type: sequential
+        runners:
+          - type: yarn_run
+            id: create_static_client_pr
+            condition: ${{ env.FAST_BUILD != "true" && env.CI == "true" }}
+            # also builds storybooks
+            cmd: build-all-stg
+            run_on_host: ${{ env.CI == "true" }}
+            env:
+              - 'HASH_ROUTING=true'
+              - 'BASE_PATH=/${{ workspace.name }}/${{ github?.event?.number ? "pr/" + github?.event?.number + "/" : "" }}client/'
+              - 'BUNDLE_BASE_PATH=${{ vars.DEV_PAGES_URL }}/${{ workspace.name }}/${{ github?.event?.number ? "pr/" + github?.event?.number + "/" : "" }}client/'
+              - 'DIST_PATH=dist-pr'
+              - 'WORKSPACE_HASH=${{ workspace_hash }}'
+
+          - type: parallel
+            runners:
+              - type: noice_pages
+                id: client_noice_pages
+                condition: ${{ env.FAST_BUILD != "true" && env.CI == "true" && github?.event?.number }}
+                source: ./dist-pr
+                sub_path: 'client/'
+                comment_prefix: 'Client available: '
+
+              - type: noice_pages
+                condition: ${{ env.FAST_BUILD != "true" }}
+                id: pr_storybook_upload
+                source: ./storybook-static
+                sub_path: 'storybook/'
+                comment_prefix: 'Storybook available: '
+
+deploy:
+  envs:
+    dev:
+      - type: yarn_run
+        id: create_static_client_cdn
+        cmd: build-dev
+        run_on_host: ${{ env.CI == "true" }}
+        env:
+          - 'HASH_ROUTING=false'
+          - 'BASE_PATH=/'
+          - 'BUNDLE_BASE_PATH=${{ vars.DEV_GCP_CDN_URL }}/'
+          - 'DIST_PATH=dist-cdn'
+          - 'WORKSPACE_HASH=${{ workspace_hash }}'
+
+      - &build_cdn_rename_index
+        type: bash_exec
+        cmd: sudo mv ./dist-cdn/index.html ./dist-cdn/index-${{workspace_hash}}.html
+
+      - &cdn
+        type: s3_sync
+        condition: ${{ env.CI == "true" }}
+        source: ./dist-cdn
+        target: ${{ vars.DEV_GCP_CDN_BUCKET }}
+        aws_access_key_id: ${{ vault_secret("secret/data/dev/gcp/ci/client-buckets-hmac", "access_key_id") }}
+        aws_secret_access_key: ${{ vault_secret("secret/data/dev/gcp/ci/client-buckets-hmac", "secret_access_key") }}
+        assume_role: ${{ vars.DEV_CDN_ROLE }}
+        aws_region: ${{ vars.AWS_REGION }}
+        soft_delete: true
+        cache_control: max-age=43200
+        acl: 'bucket-owner-full-control'
+        content_types:
+          '.html': 'text/html'
+          '.js': 'application/javascript'
+          '.css': 'text/css'
+          'apple-app-site-association': 'application/json'
+
+      - &push
+        condition: ${{ env.CI == "true" }}
+        type: image_push
+        image: web-client:${{ workspace_hash }}
+        id: push
+
+      - type: helm_apply
+        condition: ${{ env.CI == "true" }}
+        variables: &helm_variables
+          env:
+            <<: *helm_variables_env
+            CDN_URL: ${{ vars.DEV_GCP_ASSETS_CDN_URL }}
+            SERVICES_LIB_HOST: https://platform.int.dev.noice.com
+            SERVICES_LIB_WEBSOCKET: wss://platform.int.dev.noice.com
+            STUDIO_URL: ${{ vars.DEV_STUDIO_URL }}
+            APPLE_REDIRECT_URI: ${{ vars.DEV_PLATFORM_APPLE_REDIRECT_URI }}
+            ADMIN_URL: ${{ vars.DEV_ADMIN_URL }}
+            HCAPTCHA_SITE_KEY: ${{ vars.DEV_HCAPTCHA_KEY }}
+            BUNDLE_BASE_PATH: ${{ vars.DEV_GCP_CDN_URL }}
+            ADYEN_CLIENT_KEY: ${{ vars.DEV_ADYEN_CLIENT_KEY }}
+            ADYEN_ENVIRONMENT: $${ vars.DEV_ADYEN_ENVIRONMENT }
+            CHARGEBEE_SITE: ${{ vars.DEV_CHARGEBEE_SITE }}
+            SENTRY_ENVIRONMENT: ${{ vars.DEV_SENTRY_ENVIRONMENT }}
+            REFINER_PROJECT_ID: ${{ vars.DEV_REFINER_PROJECT_ID }}
+            FIREBASE_ENABLED: ${{ vars.DEV_FIREBASE_ENABLED }}
+            FIREBASE_API_KEY: ${{ vars.DEV_FIREBASE_API_KEY }}
+            FIREBASE_AUTH_DOMAIN: ${{ vars.DEV_FIREBASE_AUTH_DOMAIN }}
+            FIREBASE_PROJECT_ID: ${{ vars.DEV_FIREBASE_PROJECT_ID }}
+            FIREBASE_STORAGE_BUCKET: ${{ vars.DEV_FIREBASE_STORAGE_BUCKET }}
+            FIREBASE_MESSAGING_SENDER_ID: ${{ vars.DEV_FIREBASE_MESSAGING_SENDER_ID }}
+            FIREBASE_APP_ID: ${{ vars.DEV_FIREBASE_APP_ID }}
+            FIREBASE_VAPID_KEY: ${{ vars.DEV_FIREBASE_VAPID_KEY }}
+          secrets: &helm_variables_secrets
+            ADMIN_SERVICE_AUTH_KEY: admin-service-auth-key
+
+          image: ${{ steps.push.image }}
+
+          resources:
+            requests:
+              cpu: 50m
+              memory: 128Mi
+
+          mesh:
+            enabled: true
+
+          ingressInternal:
+            enabled: true
+            subdomain: mvp
+
+          healthCheck:
+            livenessProbe:
+              httpGet:
+                path: /login
+            readinessProbe:
+              httpGet:
+                path: /login
+
+          monitoringEndpoints: []
+
+      - type: prometheus_rules
+
+    stg:
+      - type: yarn_run
+        id: create_static_client_cdn
+        cmd: build-stg
+        run_on_host: ${{ env.CI == "true" }}
+        env:
+          - 'HASH_ROUTING=false'
+          - 'BASE_PATH=/'
+          - 'BUNDLE_BASE_PATH=${{ vars.STG_GCP_CDN_URL }}/'
+          - 'DIST_PATH=dist-cdn'
+          - 'WORKSPACE_HASH=${{ workspace_hash }}'
+
+      - <<: *build_cdn_rename_index
+
+      - <<: *cdn
+        target: ${{ vars.STG_GCP_CDN_BUCKET }}
+        aws_access_key_id: ${{ vault_secret("secret/data/stg/gcp/ci/client-buckets-hmac", "access_key_id") }}
+        aws_secret_access_key: ${{ vault_secret("secret/data/stg/gcp/ci/client-buckets-hmac", "secret_access_key") }}
+
+      - <<: *push
+
+      - type: helm_apply
+        # this isn't used in stg but is here if tests have to be done,
+        # prd configs should be testable also in stg
+        condition: ${{ false }}
+        chart: external_secret
+        name: noice-client-basic-auth
+        id: secret
+        variables:
+          create: false
+          name: noice-client-basic-auth
+          data:
+            - key: secret/data/stg/noice-client-basic-auth
+              name: auth
+              property: auth
+
+      - type: helm_apply
+        id: client
+        condition: ${{ env.CI == "true" }}
+        variables:
+          <<: *helm_variables
+          env:
+            <<: *helm_variables_env
+            CDN_URL: ${{ vars.STG_GCP_ASSETS_CDN_URL }}
+            SERVICES_LIB_HOST: https://platform.int.stg.noice.com
+            SERVICES_LIB_WEBSOCKET: wss://platform.int.stg.noice.com
+            STUDIO_URL: ${{ vars.STG_STUDIO_URL }}
+            APPLE_REDIRECT_URI: ${{ vars.STG_PLATFORM_APPLE_REDIRECT_URI }}
+            ADMIN_URL: ${{ vars.STG_ADMIN_URL }}
+            HCAPTCHA_SITE_KEY: ${{ vars.STG_HCAPTCHA_KEY }}
+            DISCORD_CLIENT_ID: ${{ vars.DISCORD_CLIENT_ID }}
+            PORT: 8081
+            LIST_ONLY_LIVE_CHANNELS: false
+            BUNDLE_BASE_PATH: ${{ vars.STG_GCP_CDN_URL }}
+            ADYEN_CLIENT_KEY: ${{ vars.STG_ADYEN_CLIENT_KEY }}
+            ADYEN_ENVIRONMENT: ${{ vars.STG_ADYEN_ENVIRONMENT }}
+            CHARGEBEE_SITE: ${{ vars.STG_CHARGEBEE_SITE }}
+            SENTRY_AUTH_TOKEN: ${{ vault_secret("secret/data/ci/client_sentry", "token") }}
+            SENTRY_ENVIRONMENT: ${{ vars.STG_SENTRY_ENVIRONMENT }}
+            REFINER_PROJECT_ID: ${{ vars.STG_REFINER_PROJECT_ID }}
+            FIREBASE_ENABLED: ${{ vars.STG_FIREBASE_ENABLED }}
+            FIREBASE_API_KEY: ${{ vars.STG_FIREBASE_API_KEY }}
+            FIREBASE_AUTH_DOMAIN: ${{ vars.STG_FIREBASE_AUTH_DOMAIN }}
+            FIREBASE_PROJECT_ID: ${{ vars.STG_FIREBASE_PROJECT_ID }}
+            FIREBASE_STORAGE_BUCKET: ${{ vars.STG_FIREBASE_STORAGE_BUCKET }}
+            FIREBASE_MESSAGING_SENDER_ID: ${{ vars.STG_FIREBASE_MESSAGING_SENDER_ID }}
+            FIREBASE_APP_ID: ${{ vars.STG_FIREBASE_APP_ID }}
+            FIREBASE_VAPID_KEY: ${{ vars.STG_FIREBASE_VAPID_KEY }}
+            ZENDESK_SNIPPET_SRC: ${{ vars.ZENDESK_PLATFORM_SNIPPET_SRC }}
+          secrets:
+            <<: *helm_variables_secrets
+
+          ingress:
+            enabled: false
+            subdomain: mvp
+            additionalAnnotations:
+              nginx.ingress.kubernetes.io/auth-type: ''
+              nginx.ingress.kubernetes.io/auth-secret: ''
+              nginx.ingress.kubernetes.io/auth-realm: ''
+
+          ingressInternal:
+            enabled: true
+            subdomain: mvp
+
+          autoscaling:
+            enabled: true
+            minReplicas: 2
+            maxReplicas: 5
+      # To make stg and prd match
+      - type: bash_exec
+        id: bunny_purge
+        cmd: |
+          bash -c 'echo "Nothing to purge"'
+
+      - type: prometheus_rules
+
+    prd:
+      - type: yarn_run
+        id: create_static_client_cdn
+        cmd: build-stg
+        run_on_host: ${{ env.CI == "true" }}
+        env:
+          - 'HASH_ROUTING=false'
+          - 'BASE_PATH=/'
+          - 'BUNDLE_BASE_PATH=${{ vars.PRD_GCP_CDN_URL }}/'
+          - 'DIST_PATH=dist-cdn'
+          - 'WORKSPACE_HASH=${{ workspace_hash }}'
+
+      - <<: *build_cdn_rename_index
+
+      - <<: *cdn
+        target: ${{ vars.PRD_GCP_CDN_BUCKET }}
+        aws_access_key_id: ${{ vault_secret("secret/data/prd/gcp/ci/client-buckets-hmac", "access_key_id") }}
+        aws_secret_access_key: ${{ vault_secret("secret/data/prd/gcp/ci/client-buckets-hmac", "secret_access_key") }}
+
+      - <<: *push
+
+      - type: helm_apply
+        condition: ${{ env.CI == "true" }}
+        chart: external_secret
+        name: noice-client-basic-auth
+        id: secret
+        variables:
+          create: true
+          name: noice-client-basic-auth
+          data:
+            - key: secret/data/prd/noice-client-basic-auth
+              name: auth
+              property: auth
+
+      - type: helm_apply
+        id: client
+        condition: ${{ env.CI == "true" }}
+        variables:
+          <<: *helm_variables
+          env:
+            <<: *helm_variables_env
+            CDN_URL: ${{ vars.PRD_GCP_ASSETS_CDN_URL }}
+            SERVICES_LIB_HOST: https://platform.prd.noice.com
+            SERVICES_LIB_WEBSOCKET: wss://platform.prd.noice.com
+            STUDIO_URL: ${{ vars.PRD_STUDIO_URL }}
+            APPLE_REDIRECT_URI: ${{ vars.PRD_PLATFORM_APPLE_REDIRECT_URI }}
+            ADMIN_URL: ${{ vars.PRD_ADMIN_URL }}
+            HCAPTCHA_SITE_KEY: ${{ vars.PRD_HCAPTCHA_KEY }}
+            DISCORD_CLIENT_ID: ${{ vars.DISCORD_CLIENT_ID }}
+            PORT: 8081
+            LIST_ONLY_LIVE_CHANNELS: true
+            BUNDLE_BASE_PATH: ${{ vars.PRD_GCP_CDN_URL }}
+            ADYEN_CLIENT_KEY: ${{ vars.PRD_ADYEN_CLIENT_KEY }}
+            ADYEN_ENVIRONMENT: ${{ vars.PRD_ADYEN_ENVIRONMENT }}
+            CHARGEBEE_SITE: ${{ vars.PRD_CHARGEBEE_SITE }}
+            USE_GOOGLE_ADS_TESTMODE: false
+            SENTRY_AUTH_TOKEN: ${{ vault_secret("secret/data/ci/client_sentry", "token") }}
+            SENTRY_ENVIRONMENT: ${{ vars.PRD_SENTRY_ENVIRONMENT }}
+            REFINER_PROJECT_ID: ${{ vars.PRD_REFINER_PROJECT_ID }}
+            FIREBASE_ENABLED: ${{ vars.PRD_FIREBASE_ENABLED }}
+            FIREBASE_API_KEY: ${{ vars.PRD_FIREBASE_API_KEY }}
+            FIREBASE_AUTH_DOMAIN: ${{ vars.PRD_FIREBASE_AUTH_DOMAIN }}
+            FIREBASE_PROJECT_ID: ${{ vars.PRD_FIREBASE_PROJECT_ID }}
+            FIREBASE_STORAGE_BUCKET: ${{ vars.PRD_FIREBASE_STORAGE_BUCKET }}
+            FIREBASE_MESSAGING_SENDER_ID: ${{ vars.PRD_FIREBASE_MESSAGING_SENDER_ID }}
+            FIREBASE_APP_ID: ${{ vars.PRD_FIREBASE_APP_ID }}
+            FIREBASE_VAPID_KEY: ${{ vars.PRD_FIREBASE_VAPID_KEY }}
+            ZENDESK_SNIPPET_SRC: ${{ vars.ZENDESK_PLATFORM_SNIPPET_SRC }}
+
+          secrets:
+            <<: *helm_variables_secrets
+
+          ingress:
+            enabled: true
+            subdomain: mvp
+            additionalAnnotations:
+              nginx.ingress.kubernetes.io/auth-type: basic
+              nginx.ingress.kubernetes.io/auth-secret: noice-client-basic-auth
+              nginx.ingress.kubernetes.io/auth-realm: 'Authentication Required'
+
+          ingressInternal:
+            enabled: true
+            subdomain: mvp
+
+          autoscaling:
+            enabled: true
+            minReplicas: 2
+            maxReplicas: 5
+
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+      - type: bash_exec
+        id: bunny_purge
+        cmd: |
+          bash -c 'curl --request POST \
+          --url https://api.bunny.net/pullzone/2213724/purgeCache \
+          --header "AccessKey: ${{ vault_secret("secret/data/prd/bunny", "API_KEY") }}" \
+          --header "content-type: application/json"'
+
+      - type: prometheus_rules
+
+    local:
+      - type: helm_apply
+        name: web-client
+        variables:
+          image: ${{ vars.docker_registry }}/web-client:${{ workspace_hash }}
+          env: &local_deploy_env
+            IS_LOCAL: true
+            VERBOSE_LOGGING: true
+            SERVICES_LIB_HOST: http://platform.localhost:8080
+            SERVICES_LIB_WEBSOCKET: ws://platform.localhost:8080
+            STUDIO_URL: ${{ vars.DEV_STUDIO_URL }}
+            APPLE_REDIRECT_URI: ${{ vars.DEV_PLATFORM_APPLE_REDIRECT_URI }}
+            ADMIN_URL: ${{ vars.DEV_ADMIN_URL }}
+            CDN_URL: ${{ vars.DEV_GCP_ASSETS_CDN_URL }}
+            PORT: 8081
+            HCAPTCHA_SITE_KEY: ${{ vars.DEV_HCAPTCHA_KEY }}
+            DISCORD_CLIENT_ID: ${{ vars.DISCORD_CLIENT_ID }}
+            ADYEN_CLIENT_KEY: ${{ vars.DEV_ADYEN_CLIENT_KEY }}
+            ADYEN_ENVIRONMENT: ${{ vars.DEV_ADYEN_ENVIRONMENT }}
+            CHARGEBEE_SITE: ${{ vars.DEV_CHARGEBEE_SITE }}
+            SENTRY_AUTH_TOKEN: ${{ vault_secret("secret/data/ci/client_sentry", "token") }}
+            SENTRY_ENVIRONMENT: ${{ vars.DEV_SENTRY_ENVIRONMENT }}
+            REFINER_PROJECT_ID: ${{ vars.DEV_REFINER_PROJECT_ID }}
+            WORKSPACE_HASH: ${{ workspace_hash }}
+            USE_GOOGLE_ADS_TESTMODE: true
+            FIREBASE_API_KEY: ${{ vars.DEV_FIREBASE_API_KEY }}
+            FIREBASE_AUTH_DOMAIN: ${{ vars.DEV_FIREBASE_AUTH_DOMAIN }}
+            FIREBASE_PROJECT_ID: ${{ vars.DEV_FIREBASE_PROJECT_ID }}
+            FIREBASE_STORAGE_BUCKET: ${{ vars.DEV_FIREBASE_STORAGE_BUCKET }}
+            FIREBASE_MESSAGING_SENDER_ID: ${{ vars.DEV_FIREBASE_MESSAGING_SENDER_ID }}
+            FIREBASE_APP_ID: ${{ vars.DEV_FIREBASE_APP_ID }}
+
+          ingress:
+            enabled: true
+            k3d: true
+            path: /
+            subdomain: mvp
+
+    local-dev:
+      - type: yarn_run
+        cmd: watch-serve-local
+        name: web-client-watch-serve
+        detached: true
+        ports:
+          - port: 8080
+            host_port: 8081

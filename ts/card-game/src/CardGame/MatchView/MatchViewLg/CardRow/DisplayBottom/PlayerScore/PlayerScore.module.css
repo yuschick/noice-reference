@@ -1,0 +1,39 @@
+.container {
+  user-select: none;
+  inline-size: 100%;
+}
+
+.score-label {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  text-align: center;
+
+  .card-success & {
+    color: var(--noi-color-green-main);
+  }
+
+  .best-play & {
+    color: var(--noi-color-violet-magenta-main);
+  }
+}
+
+.name-label {
+  @mixin truncate-text;
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  text-align: center;
+  opacity: 0;
+
+  &.show-name {
+    opacity: 1;
+  }
+}
+
+.loading-container {
+  @mixin loading-shine var(--noi-color-gray-800);
+  inline-size: 100%;
+  block-size: getRem(32);
+}

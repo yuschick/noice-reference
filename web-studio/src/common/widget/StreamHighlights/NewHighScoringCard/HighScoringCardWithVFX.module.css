@@ -1,0 +1,132 @@
+.content {
+  position: relative;
+
+  .success & {
+    animation: card-pop var(--game-card-with-vfx-duration) linear;
+  }
+}
+
+.card {
+  inline-size: var(--game-card-width-breakpoint-medium);
+}
+
+.game-card {
+  position: relative;
+  margin: 0 var(--noi-spacing-3x) getRem(16) getRem(36);
+  perspective: getRem(5000);
+
+  &.success {
+    animation: card-pop var(--game-card-with-vfx-duration) linear;
+  }
+}
+
+@keyframes card-pop {
+  10% {
+    transform: rotateX(0) rotateY(-3deg) rotateZ(-4deg) translateZ(getRem(120));
+    animation-timing-function: ease-in;
+  }
+
+  80% {
+    transform: rotateX(0) rotateY(-1deg) rotateZ(-4deg) translateZ(getRem(120));
+    animation-timing-function: ease-in-out;
+  }
+}
+
+.sprite-container {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  inline-size: getRem(224);
+  block-size: getRem(288);
+  overflow: hidden;
+  transform: translate(-50%, -50%) scale(var(--game-card-with-vfx-sprite-scale, 1));
+  transition: transform 100ms linear;
+  pointer-events: none;
+
+  .success & {
+    animation: success-sprite-opacity var(--game-card-with-vfx-duration) forwards;
+  }
+
+  .medium & {
+    --game-card-with-vfx-sprite-scale: 1.4;
+  }
+}
+
+@keyframes success-sprite-opacity {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+    animation-timing-function: ease-in-out;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.sprite-image {
+  position: absolute;
+  inset-block-start: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  inline-size: getRem(5600);
+  background-image: var(--game-card-with-vfx-sprite-image);
+}
+
+.highlight-container {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  z-index: var(--noi-z-index-level-1);
+  border-radius: var(--noi-border-radius-sm);
+  opacity: 0;
+  mask-image: linear-gradient(-30deg, transparent 0 35%, white 50%, transparent 65% 100%);
+  mask-size: 100% 300%;
+  animation: highlight-movement var(--game-card-with-vfx-duration) ease-in-out;
+}
+
+@keyframes highlight-movement {
+  0% {
+    mask-position: top;
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  50% {
+    mask-position: bottom;
+  }
+
+  95% {
+    opacity: 1;
+  }
+
+  100% {
+    mask-position: top;
+    opacity: 0;
+  }
+}
+
+.highlight {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  border-radius: var(--noi-border-radius-sm);
+
+  .success & {
+    background-color: var(--noi-color-green-700);
+  }
+}

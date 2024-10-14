@@ -1,0 +1,377 @@
+# --noi-border-{variable}
+border:
+  radius-circle: 50%
+  radius-pill: 999px
+  radius-xs: getRem(4)
+  radius-sm: getRem(8)
+  radius-md: getRem(16)
+  radius-lg: getRem(24)
+  radius-xl: getRem(32)
+  radius-2xl: getRem(40)
+
+# --noi-color-{variable}
+color:
+  black-main: "#000000"
+  white-main: "#ffffff"
+
+  status-error-900: "#24000b"
+  status-error-800: "#57001a"
+  status-error-700: "#8a0029"
+  status-error-600: "#bd0038"
+  status-error-500: "#ef0047"
+  status-error-400: "#ff2465"
+  status-error-300: "#ff5789"
+  status-error-200: "#ff8aad"
+  status-error-100: "#ffbdd0"
+  status-error-main: var(color.status-error-500)
+
+  status-alert-900: "#292500"
+  status-alert-800: "#5c5400"
+  status-alert-700: "#8f8300"
+  status-alert-600: "#c2b100"
+  status-alert-500: "#f7e200"
+  status-alert-400: "#ffed29"
+  status-alert-300: "#fff15c"
+  status-alert-200: "#fff58f"
+  status-alert-100: "#fffac2"
+  status-alert-main: var(color.status-alert-500)
+
+  yellow-green-900: "#171f00"
+  yellow-green-800: "#3e5200"
+  yellow-green-700: "#668500"
+  yellow-green-600: "#8cb800"
+  yellow-green-500: "#b2e900"
+  yellow-green-400: "#caff1f"
+  yellow-green-300: "#d6ff52"
+  yellow-green-200: "#e2ff85"
+  yellow-green-100: "#eeffb8"
+  yellow-green-main: var(color.yellow-green-500)
+
+  green-900: "#0c3404"
+  green-800: "#186309"
+  green-700: "#23910d"
+  green-600: "#2ec011"
+  green-500: "#3ceb18"
+  green-400: "#64ef48"
+  green-300: "#8cf377"
+  green-200: "#b3f7a6"
+  green-100: "#dbfbd5"
+  green-main: var(color.green-500)
+
+  teal-900: "#001f1e"
+  teal-800: "#005251"
+  teal-700: "#008583"
+  teal-600: "#00b8b6"
+  teal-500: "#00eae8"
+  teal-400: "#1ffffd"
+  teal-300: "#52fffe"
+  teal-200: "#85fffe"
+  teal-100: "#b8fffe"
+  teal-main: var(color.teal-500)
+
+  violet-900: "#0d0128"
+  violet-800: "#1d015b"
+  violet-700: "#2d028d"
+  violet-600: "#3d03bf"
+  violet-500: "#4d03f1"
+  violet-400: "#6c2cfc"
+  violet-300: "#8f5efd"
+  violet-200: "#b290fd"
+  violet-100: "#d5c3fe"
+  violet-main: var(color.violet-400)
+
+  violet-magenta-900: "#300141"
+  violet-magenta-800: "#540174"
+  violet-magenta-700: "#7902a6"
+  violet-magenta-600: "#9d03d9"
+  violet-magenta-500: "#bb12fc"
+  violet-magenta-400: "#ca45fd"
+  violet-magenta-300: "#d877fd"
+  violet-magenta-200: "#e6a9fe"
+  violet-magenta-100: "#f5dcff"
+  violet-magenta-main: var(color.violet-magenta-500)
+
+  magenta-900: "#280029"
+  magenta-800: "#5a005c"
+  magenta-700: "#8b008f"
+  magenta-600: "#bd00c2"
+  magenta-500: "#ef00f5"
+  magenta-400: "#fa29ff"
+  magenta-300: "#fb5cff"
+  magenta-200: "#fc8fff"
+  magenta-100: "#fec2ff"
+  magenta-main: var(color.magenta-500)
+
+  blue-950: "#06001a"
+  blue-900: "#0c0032"
+  blue-850: "#190D3F"
+  blue-800: "#251a4d"
+  blue-750: "#322659"
+  blue-700: "#403663"
+  blue-650: "#50476b"
+  blue-600: "#5e5775"
+  blue-550: "#6b6482"
+  blue-500: "#78728d"
+  blue-450: "#858099"
+  blue-400: "#938ea4"
+  blue-350: "#a19caf"
+  blue-300: "#aeaabb"
+  blue-250: "#bbb8c6"
+  blue-200: "#c9c6d2"
+  blue-150: "#d7d5dd"
+  blue-100: "#e4e3e8"
+  blue-50: "#f3f2f5"
+  blue-main: var(color.blue-900)
+
+  gray-950: "#0c0b0e"
+  gray-900: "#18171c"
+  gray-850: "#24222a"
+  gray-800: "#302e38"
+  gray-750: "#3c3946"
+  gray-700: "#484554"
+  gray-650: "#545062"
+  gray-600: "#615c70"
+  gray-550: "#6d677e"
+  gray-500: "#79738c"
+  gray-450: "#868198"
+  gray-400: "#948fa3"
+  gray-350: "#a19daf"
+  gray-300: "#afabbb"
+  gray-250: "#bcb9c6"
+  gray-200: "#c9c7d1"
+  gray-150: "#d7d5dd"
+  gray-100: "#e5e3e9"
+  gray-50: "#f2f1f4"
+
+  dark-main: var(color.blue-main)
+  dark-main-transparent-5: '#06001a0d'
+  dark-main-transparent-10: '#06001a1a'
+  dark-main-transparent-20: '#06001a33'
+  dark-main-transparent-30: '#06001a4d'
+  dark-main-transparent-40: '#06001a66'
+  dark-main-transparent-50: '#06001a80'
+  dark-main-transparent-60: '#06001a99'
+  dark-main-transparent-70: '#06001ab3'
+  dark-main-transparent-80: '#06001acc'
+  dark-main-transparent-90: '#06001ae6'
+
+  light-main: var(color.white-main)
+  light-main-transparent-5: '#ffffff0d'
+  light-main-transparent-10: '#ffffff1a'
+  light-main-transparent-20: '#ffffff33'
+  light-main-transparent-30: '#ffffff4d'
+  light-main-transparent-40: '#ffffff66'
+  light-main-transparent-50: '#ffffff80'
+  light-main-transparent-60: '#ffffff99'
+  light-main-transparent-70: '#ffffffb3'
+  light-main-transparent-80: '#ffffffcc'
+  light-main-transparent-90: '#ffffffe6'
+  black-main-transparent-5: '#0000000d'
+  black-main-transparent-10: '#0000001a'
+  black-main-transparent-20: '#00000033'
+  black-main-transparent-30: '#0000004d'
+  black-main-transparent-40: '#00000066'
+  black-main-transparent-50: '#00000080'
+  black-main-transparent-60: '#00000099'
+  black-main-transparent-70: '#000000b3'
+  black-main-transparent-80: '#000000cc'
+  black-main-transparent-90: '#000000e6'
+
+  text-dark-secondary: var(color.blue-600)
+  text-dark: var(color.dark-main)
+  text-light-secondary: var(color.gray-350)
+  text-light: var(color.light-main)
+
+# --noi-font-{variable}
+font-family:
+  body: "'Rubik', sans-serif"
+
+font-weight:
+  base: 400
+  regular: var(font-weight.base)
+  medium:
+    type: calc
+    calc: var(font-weight.base) + 100
+  bold:
+    type: calc
+    calc: var(font-weight.base) + 300
+  extra-bold:
+    type: calc
+    calc: var(font-weight.base) + 400
+
+font-size:
+  xs: getRem(12)
+  sm: getRem(14)
+  md: getRem(16)
+  lg: getRem(20)
+  xl: getRem(24)
+  2xl: getRem(32)
+  3xl: getRem(48)
+  4xl: getRem(64)
+
+# --noi-gradient-{variable}
+gradient:
+  violet:
+    type: gradient
+    direction: 90deg
+    stops:
+      - color: var(color.violet-700)
+        position: 0%
+      - color: var(color.violet-600)
+        position: 100%
+
+  green-teal:
+    type: gradient
+    direction: 90deg
+    stops:
+      - color: var(color.green-main)
+        position: 0%
+      - color: var(color.teal-main)
+        position: 100%
+
+  violet-magenta:
+    type: gradient
+    direction: 90deg
+    stops:
+      - color: var(color.violet-main)
+        position: 0%
+      - color: var(color.magenta-main)
+        position: 100%
+
+  spectrum-full:
+    type: gradient
+    direction: 90deg
+    stops:
+      - color: var(color.yellow-green-main)
+        position: 0%
+      - color: var(color.green-main)
+        position: 20%
+      - color: var(color.teal-main)
+        position: 40%
+      - color: var(color.violet-main)
+        position: 60%
+      - color: var(color.violet-magenta-main)
+        position: 80%
+      - color: var(color.magenta-main)
+        position: 100%
+
+  spectrum-medium:
+    type: gradient
+    direction: 90deg
+    stops:
+      - color: var(color.green-main)
+        position: 0%
+      - color: var(color.teal-main)
+        position: 50%
+      - color: var(color.magenta-main)
+        position: 100%
+
+# --noi-line-height-{variable}
+line-height:
+  tight: "1"
+  medium: "1.2"
+  loose: "1.5"
+
+# --noi-letter-spacing-{variable}
+letter-spacing:
+  loose: 0.02em
+
+# noi-letter-spacing-{variable}
+duration:
+  quick: 150ms
+  regular: 200ms
+
+# --noi-layout-{variable}
+layout:
+  direction-modifier: 1
+  max-content-size: getRem(1596)
+
+conditional-values:
+  layout:
+    direction-modifier:
+      value: -1
+      statement: '&[dir="rtl"]'
+
+# --noi-spacing-{variable}
+spacing:
+  base: getRem(4)
+  half:
+    type: calc
+    calc: var(spacing.base) / 2
+  1x:
+    type: calc
+    calc: var(spacing.base) * 1
+  2x:
+    type: calc
+    calc: var(spacing.base) * 2
+  3x:
+    type: calc
+    calc: var(spacing.base) * 3
+  4x:
+    type: calc
+    calc: var(spacing.base) * 4
+  5x:
+    type: calc
+    calc: var(spacing.base) * 5
+  6x:
+    type: calc
+    calc: var(spacing.base) * 6
+  7x:
+    type: calc
+    calc: var(spacing.base) * 7
+  8x:
+    type: calc
+    calc: var(spacing.base) * 8
+  10x:
+    type: calc
+    calc: var(spacing.base) * 10
+  12x:
+    type: calc
+    calc: var(spacing.base) * 12
+  14x:
+    type: calc
+    calc: var(spacing.base) * 14
+  16x:
+    type: calc
+    calc: var(spacing.base) * 16
+  20x:
+    type: calc
+    calc: var(spacing.base) * 20
+
+# --noi-z-index-{variable}
+z-index:
+  base: 0
+  behind:
+    type: calc
+    calc: var(z-index.base) - 1
+  level-1:
+    type: calc
+    calc: var(z-index.base) + 1
+  level-2:
+    type: calc
+    calc: var(z-index.level-1) + 1
+  level-3:
+    type: calc
+    calc: var(z-index.level-2) + 1
+  level-4:
+    type: calc
+    calc: var(z-index.level-3) + 1
+  level-5:
+    type: calc
+    calc: var(z-index.level-4) + 1
+  level-6:
+    type: calc
+    calc: var(z-index.level-5) + 1
+  level-7:
+    type: calc
+    calc: var(z-index.level-6) + 1
+  level-8:
+    type: calc
+    calc: var(z-index.level-7) + 1
+  level-9:
+    type: calc
+    calc: var(z-index.level-8) + 1
+  level-10:
+    type: calc
+    calc: var(z-index.level-9) + 1
+

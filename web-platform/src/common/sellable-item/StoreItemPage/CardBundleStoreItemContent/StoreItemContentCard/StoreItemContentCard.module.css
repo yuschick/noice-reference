@@ -1,0 +1,158 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  opacity: 0;
+  animation: card-slide-in 250ms var(--store-item-content-card-slide-animation-delay)
+    cubic-bezier(0.48, 0.7, 0.45, 0.99) forwards;
+
+  &.streamer-card {
+    z-index: var(--noi-z-index-level-1);
+  }
+
+  @media (min-width: getRem(760)) {
+    &:nth-child(3n) {
+      page-break-after: always;
+      break-after: always;
+    }
+  }
+
+  @media (min-width: getRem(960)) {
+    &:nth-child(3n) {
+      page-break-after: always;
+      break-after: always;
+    }
+  }
+}
+
+@keyframes card-slide-in {
+  0% {
+    transform: translateX(getRem(-25));
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.card-v3 {
+  inline-size: var(--game-card-width-breakpoint-medium);
+}
+
+.reveal-button {
+  padding: 0;
+  background-color: transparent;
+}
+
+.progress-wrapper {
+  margin-block-start: getRem(24);
+  transform-origin: top center;
+  opacity: 1;
+
+  .revealed & {
+    animation: card-progress-slide-in 275ms 500ms forwards
+      cubic-bezier(0.54, 0.46, 0.7, 1.42);
+  }
+
+  &.preview {
+    opacity: 0;
+    animation: popup 250ms var(--store-item-content-card-slide-animation-delay) forwards;
+  }
+}
+
+@keyframes card-progress-slide-in {
+  0% {
+    transform: translateY(getRem(-15)) scale(0.5);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes popup {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    transform: scale(0.5);
+    opacity: 0;
+    transition-timing-function: ease-out;
+  }
+
+  75% {
+    transform: scale(1.15);
+    opacity: 1;
+    transition-timing-function: ease-in;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.new-label {
+  color: var(--noi-color-green-main);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-md);
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 0 getRem(14) var(--noi-color-green-800);
+}
+
+.progress-bar-wrapper {
+  position: relative;
+  inline-size: 100%;
+}
+
+.progress-display {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  inline-size: 100%;
+  padding: 0 var(--noi-spacing-2x);
+}
+
+.progress-bar {
+  --horizontal-progress-bar-progress-color: var(--noi-color-light-main-transparent-25);
+  --horizontal-progress-bar-background-color: var(--noi-color-light-main-transparent-20);
+}
+
+.progress-bar-extra-fill {
+  position: absolute;
+  inset-block-start: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  inline-size: var(--_card-bundle-card-progress-width);
+  background-color: var(--noi-color-gray-50);
+  border-radius: var(--noi-border-radius-xs);
+}
+
+.upgrade-info {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+  text-align: center;
+}
+
+.level-up-label {
+  color: transparent;
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  text-transform: uppercase;
+  background: var(--noi-gradient-green-teal);
+  background-clip: text;
+}

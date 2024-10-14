@@ -1,0 +1,109 @@
+.top-bar-container {
+  container: top-bar / inline-size;
+  block-size: 100%;
+  display: grid;
+  align-content: center;
+  align-items: center;
+}
+
+.top-bar-wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr repeat(4, max-content);
+  gap: var(--noi-spacing-4x);
+  align-content: center;
+  align-items: center;
+  justify-content: start;
+  padding: 0 var(--noi-spacing-4x);
+  background-color: var(--noi-color-gray-850);
+
+  @container top-bar (min-width: getRem(1200)) {
+    gap: var(--noi-spacing-8x);
+  }
+
+  .top-bar-responsive-user-menu {
+    display: none;
+
+    @container top-bar (min-width: getRem(1200)) {
+      display: block;
+    }
+  }
+}
+
+.stream-stats-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-6x);
+  justify-content: center;
+}
+
+.stream-stat {
+  display: none;
+  gap: var(--noi-spacing-half);
+  line-height: var(--noi-line-height-tight);
+
+  &[data-selected-stat='true'],
+  &[data-stream-status] {
+    display: grid;
+  }
+
+  @container top-bar (min-width: getRem(983)) {
+    display: grid;
+  }
+}
+
+.stream-stat.select-stat-button {
+  display: grid;
+  padding: var(--noi-spacing-2x);
+  text-align: start;
+  background: none;
+  border-radius: var(--noi-border-radius-xs);
+  cursor: pointer;
+
+  @media (hover: hover) {
+    &:hover {
+      background: var(--noi-color-light-main-transparent-5);
+    }
+  }
+
+  @container top-bar (min-width: getRem(983)) {
+    display: none;
+  }
+}
+
+.stream-stat-label {
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-xs);
+}
+
+.stream-stat-value {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-md);
+  font-variant-numeric: tabular-nums;
+
+  .is-offline & {
+    color: var(--noi-color-text-light-secondary);
+  }
+}
+
+.stream-stat-toggle {
+  text-align: start;
+  background: none;
+  cursor: pointer;
+}
+
+.stream-status-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  padding: var(--noi-spacing-2x) var(--noi-spacing-4x);
+}
+
+.user-menus-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-1x);
+  align-items: center;
+}

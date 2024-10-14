@@ -1,0 +1,83 @@
+:root {
+  --avatar-size: getRem(40);
+}
+
+.circle-avatar {
+  position: relative;
+  flex-shrink: 0;
+  inline-size: var(--avatar-size);
+  block-size: var(--avatar-size);
+  background-color: var(--noi-color-gray-800);
+  background-size: 100%;
+  border-radius: var(--noi-border-radius-circle);
+  cursor: pointer;
+  user-select: none;
+
+  &.missing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:after {
+      color: var(--noi-color-text-light-secondary);
+      font-weight: var(--noi-font-weight-extra-bold);
+      font-size: var(--noi-font-size-lg);
+      content: '?';
+    }
+  }
+
+  &.offline {
+    filter: grayscale(1);
+  }
+
+  &.loading {
+    @mixin loading-shine var(--noi-color-gray-600);
+  }
+
+  &:hover {
+    background-color: var(--noi-color-gray-600);
+
+    &:after {
+      color: var(--noi-color-gray-200);
+    }
+  }
+}
+
+.friend-icon {
+  position: absolute;
+  inset-inline-end: getRem(-16);
+  inset-block-end: getRem(0);
+  inline-size: getRem(20);
+  pointer-events: none;
+}
+
+.button-wrapper {
+  block-size: var(--avatar-size);
+}
+
+.button {
+  inline-size: var(--avatar-size);
+  block-size: var(--avatar-size);
+  padding: 0;
+  background: none;
+}
+
+.tooltip-content {
+  text-align: center;
+}
+
+.tooltip-score {
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+}
+
+.tooltip-name {
+  @mixin truncate-text;
+  display: inline-block;
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+  inline-size: 100%;
+}

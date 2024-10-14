@@ -1,0 +1,5 @@
+.line {
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  border: unset;
+  border-block-start: 1px var(--noi-color-light-main-transparent-10) solid;
+}

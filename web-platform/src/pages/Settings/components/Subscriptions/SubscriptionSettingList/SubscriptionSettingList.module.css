@@ -1,0 +1,11 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-8x);
+}
+
+.info {
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-sm);
+  margin-block-end: var(--noi-spacing-4x);
+}

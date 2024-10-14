@@ -1,0 +1,5 @@
+.signup-content-main {
+  display: grid;
+  gap: getRem(24);
+  padding: var(--_signup-content-block-padding) var(--_signup-content-inline-padding);
+}

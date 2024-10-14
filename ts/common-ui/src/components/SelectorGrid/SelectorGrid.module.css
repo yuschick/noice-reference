@@ -1,0 +1,134 @@
+.wrapper {
+  position: relative;
+}
+
+.listbox {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--noi-border-radius-md);
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.list {
+  @mixin list-style-none;
+
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  transition: transform 500ms;
+
+  &.absolute-pages {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+  }
+
+  &.non-active-page {
+    z-index: var(--noi-z-index-base);
+    opacity: 0;
+  }
+
+  &.active-page {
+    z-index: var(--noi-z-index-level-1);
+  }
+
+  &.previous-page {
+    transform: translateX(calc(-100% - getRem(80)));
+
+    .going-forward & {
+      opacity: 1;
+    }
+  }
+
+  &.next-page {
+    transform: translateX(calc(100% + getRem(80)));
+
+    .going-backward & {
+      opacity: 1;
+    }
+  }
+}
+
+.option {
+  inline-size: var(--selector-grid-row-width);
+  padding: var(--noi-spacing-1x);
+}
+
+.option-content {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: var(--noi-color-gray-900);
+  border: 1px solid var(--noi-color-gray-750);
+  border-radius: var(--noi-border-radius-sm);
+  cursor: pointer;
+  transition: border var(--noi-duration-quick);
+
+  .option:hover & {
+    border: 2px solid var(--noi-color-green-main);
+  }
+
+  .option[aria-selected='true'] & {
+    border: 4px solid var(--noi-color-green-main);
+  }
+}
+
+.img {
+  inline-size: 100%;
+  filter: saturate(0.35);
+  transition: filter var(--noi-duration-quick);
+
+  .option:hover &,
+  .option[aria-selected='true'] & {
+    filter: saturate(1);
+  }
+}
+
+.button {
+  position: absolute;
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+
+  &.previous-button {
+    inset-inline-end: calc(100% + getRem(8));
+  }
+
+  &.next-button {
+    inset-inline-start: calc(100% + getRem(8));
+  }
+}
+
+.pager {
+  @mixin list-style-none;
+
+  position: absolute;
+  inset-block-start: calc(100% + getRem(24));
+  inset-inline-start: 50%;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  margin: 0;
+  padding: 0;
+  transform: translateX(-50%);
+}
+
+.pager-button {
+  padding: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.pager-dot {
+  inline-size: getRem(12);
+  block-size: getRem(12);
+  background-color: var(--noi-color-gray-950);
+  border-radius: var(--noi-border-radius-circle);
+
+  .active-pager-button & {
+    background-color: var(--noi-color-magenta-main);
+  }
+}

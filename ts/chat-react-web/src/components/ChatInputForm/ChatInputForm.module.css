@@ -1,0 +1,107 @@
+.wrapper {
+  position: relative;
+}
+
+.partial-emoji-matches {
+  position: absolute;
+  inset-block-end: calc(100% + getRem(8));
+}
+
+.emoji-drawer {
+  position: absolute;
+  inset-block-end: calc(100% + getRem(8));
+}
+
+.command-drawer {
+  position: absolute;
+  inset-block-end: calc(100% + getRem(8));
+  inline-size: 100%;
+}
+
+.reply-to-container {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  inline-size: 100%;
+  margin-block-end: var(--noi-spacing-1x);
+  padding-inline-start: var(--noi-spacing-2x);
+  background-color: var(--noi-color-gray-800);
+  border-radius: var(--noi-border-radius-md);
+}
+
+.reply-label {
+  font-size: var(--_chat-message-time-font-size, var(--noi-font-size-xs));
+  word-break: break-all;
+}
+
+.container {
+  position: relative;
+  display: grid;
+  grid-template-areas: 'input send';
+  grid-template-columns: 1fr min-content;
+  gap: var(--noi-spacing-2x);
+  align-items: end;
+  inline-size: 100%;
+
+  &:has(.settings) {
+    grid-template-areas: 'input input' 'settings send';
+    grid-template-columns: 1fr min-content;
+    align-items: center;
+  }
+}
+
+.input-container {
+  position: relative;
+  grid-area: input;
+  block-size: 100%;
+}
+
+.settings {
+  grid-area: settings;
+}
+
+.send-button {
+  grid-area: send;
+}
+
+.emoji-drawer-button-container {
+  position: absolute;
+  inset-block-start: calc(50% - getRem(20));
+  inset-inline-end: 0;
+
+  .show-emoji-drawer & {
+    &:after {
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      inline-size: 100%;
+      block-size: 100%;
+      content: '';
+    }
+  }
+}
+
+.emoji-drawer-button {
+  color: var(--noi-color-gray-400) !important;
+
+  &:hover {
+    color: var(--noi-color-text-light) !important;
+    background-color: transparent !important;
+  }
+
+  &:disabled,
+  &:disabled:hover {
+    color: var(--noi-color-gray-700) !important;
+    background: none !important;
+  }
+}
+
+.send-message-button {
+  @mixin button-sinks-on-pressed;
+
+  &:disabled {
+    color: var(--noi-color-gray-700) !important;
+    background-color: var(--noi-color-gray-800) !important;
+  }
+}

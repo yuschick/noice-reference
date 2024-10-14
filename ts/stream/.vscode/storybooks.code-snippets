@@ -1,0 +1,40 @@
+{
+	"storybook story": {
+		"prefix": "sbs",
+		"body": [
+			"import { ${TM_FILENAME_BASE/([^.]+).*/${1}/} } from './${TM_FILENAME_BASE/([^.]+).*/${1}/}';",
+			"",
+			"export default {",
+			"  title: '${TM_FILENAME_BASE/([^.]+).*/${1}/}',",
+  		"  component: ${TM_FILENAME_BASE/([^.]+).*/${1}/},",
+			"};",
+			"",
+			"export const Default = {",
+			"  args: {},",
+			"};"
+		]
+	},
+	"storybook story with loading": {
+		"prefix": "sbl",
+		"body": [
+			"import React from 'react';",
+			"",
+			"import { ${TM_FILENAME_BASE/([^.]+).*/${1}/} } from './${TM_FILENAME_BASE/([^.]+).*/${1}/}';",
+			"",
+			"export default {",
+			"  title: '${TM_FILENAME_BASE/([^.]+).*/${1}/}',",
+  		"  component: ${TM_FILENAME_BASE/([^.]+).*/${1}/},",
+			"};",
+			"",
+			"export const Default = {",
+			"  args: {},",
+			"};",
+			"",
+			"export const Loading = {",
+			"  render: () => (",
+			"    <${TM_FILENAME_BASE/([^.]+).*/${1}/}.Loading />",
+			"  )",
+			"};"
+		]
+	}
+}

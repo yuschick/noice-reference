@@ -1,0 +1,7 @@
+.chat-input-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-inline: var(--chat-input-container-padding-inline, 0);
+}

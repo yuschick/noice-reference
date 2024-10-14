@@ -1,0 +1,30 @@
+.divider {
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  border: unset;
+  border-block-start: 1px solid var(--noi-color-light-main-transparent-10);
+}
+
+.channel-store-info-wrapper {
+  margin-block: var(--noi-spacing-6x) var(--noi-spacing-14x);
+  display: grid;
+  gap: var(--noi-spacing-3x);
+  color: var(--noi-color-text-light-secondary);
+
+  @container (min-width: getRem(552)) {
+    margin-block: var(--noi-spacing-2x) var(--noi-spacing-8x);
+  }
+}
+
+.channel-store-title {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  color: var(--noi-color-text-light);
+  font-size: var(--noi-font-size-xl);
+  text-transform: uppercase;
+}
+
+.channel-name {
+  font-weight: var(--noi-font-weight-medium);
+}

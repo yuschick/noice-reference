@@ -1,0 +1,41 @@
+.subscribers-count {
+  color: var(--noi-color-text-light-secondary);
+  line-height: var(--noi-line-height-medium);
+}
+
+.subscribers {
+  padding-inline: var(--noi-spacing-2x);
+  line-height: var(--noi-line-height-tight);
+}
+
+.subscriber-row {
+  display: grid;
+  grid-template-areas: 'badge subscriber date';
+  grid-template-columns: getRem(20) 1fr 1fr;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+
+  &.header {
+    padding-block: var(--noi-spacing-1x);
+  }
+
+  &.content {
+    padding-block: var(--noi-spacing-2x);
+  }
+}
+
+.subscribers-label {
+  color: var(--noi-color-text-light-secondary);
+}
+
+.subscribers-badge {
+  grid-area: badge;
+}
+
+.subscribers-subscriber {
+  grid-area: subscriber;
+}
+
+.subscribers-date {
+  grid-area: date;
+}

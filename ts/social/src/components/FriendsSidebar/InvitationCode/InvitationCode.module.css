@@ -1,0 +1,23 @@
+.invitation-code-wrapper {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) min-content;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  padding: var(--noi-spacing-4x);
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-medium);
+  background-color: var(--noi-color-violet-600);
+  border-radius: var(--noi-border-radius-lg);
+
+  .code-wrapper {
+    overflow-y: auto;
+    white-space: nowrap;
+    max-inline-size: 100%;
+  }
+}
+
+.copied-tooltip {
+  color: var(--noi-color-green-main);
+}

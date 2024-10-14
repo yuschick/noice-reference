@@ -1,0 +1,71 @@
+.match-end-results-dialog-best-plays-container {
+  padding-block-start: var(--noi-spacing-6x);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-6x);
+  align-items: center;
+  inline-size: 100%;
+  border-block-start: 1px solid var(--noi-color-gray-50);
+}
+
+.cards-and-players-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-6x);
+  justify-content: center;
+  inline-size: 100%;
+}
+
+.card-and-player-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  justify-content: flex-end;
+  min-inline-size: var(--game-card-width-breakpoint-medium);
+}
+
+.best-plays-text {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}
+
+.profile-image-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+}
+
+.best-play-player-name-text {
+  color: var(--noi-color-text-dark);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+}
+
+.empty-card {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--noi-color-gray-50);
+  border-radius: var(--game-card-border-radius);
+  inline-size: var(--game-card-width-breakpoint-medium);
+  block-size: 100%;
+  min-block-size: getRem(256);
+}
+
+.empy-card-text {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}

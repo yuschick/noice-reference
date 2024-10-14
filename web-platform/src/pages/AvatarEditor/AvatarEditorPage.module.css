@@ -1,0 +1,18 @@
+.wrapper {
+  inline-size: 100%;
+  block-size: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.button {
+  position: absolute;
+  inset-block-start: getRem(32);
+  inset-inline-end: getRem(32);
+  z-index: var(--noi-z-index-level-2);
+}
+
+.content {
+  block-size: 100vh;
+  inline-size: 100vw;
+}

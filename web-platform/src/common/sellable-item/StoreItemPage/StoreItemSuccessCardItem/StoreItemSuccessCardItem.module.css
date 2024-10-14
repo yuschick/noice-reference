@@ -1,0 +1,129 @@
+.wrapper {
+  /* stylelint-disable-next-line declaration-property-value-disallowed-list */
+  --_card-levelup-highlight-gradient: linear-gradient(
+    40deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(119, 0, 132, 0) 20%,
+    rgba(169, 0, 188, 1) 43.02%,
+    rgba(206, 0, 229, 1) 45.28%,
+    rgba(221, 56, 254, 1) 46.79%,
+    rgba(184, 122, 255, 1) 48.3%,
+    rgba(142, 167, 255, 1) 49.43%,
+    rgba(81, 200, 255, 1) 50.57%,
+    rgba(0, 223, 239, 1) 51.7%,
+    rgba(0, 234, 199, 1) 52.83%,
+    rgba(0, 244, 146, 1) 53.58%,
+    rgba(0, 255, 68, 1) 54.72%,
+    rgba(0, 229, 3, 1) 56.23%,
+    rgba(0, 188, 3, 0.7) 57.74%,
+    rgba(0, 132, 2, 0) 70%,
+    rgba(0, 0, 0, 0) 93%
+  );
+  --_card-levelup-jump-animation-duration: 950ms;
+  --_card-levelup-jump-animation-delay: 250ms;
+
+  display: flex;
+  flex-direction: column;
+  gap: getRem(18);
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.card-wrapper {
+  position: relative;
+  perspective: getRem(5000);
+
+  &.streamer-card {
+    z-index: var(--noi-z-index-level-1);
+  }
+}
+
+.card-v3 {
+  inline-size: var(--game-card-width-breakpoint-medium);
+}
+
+.highlight-wrapper {
+  position: fixed;
+  z-index: var(--noi-z-index-level-2);
+  overflow: hidden;
+  border-radius: var(--game-card-inner-border-radius);
+  mix-blend-mode: plus-lighter;
+  pointer-events: none;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  inline-size: var(--game-card-width-breakpoint-medium);
+  aspect-ratio: var(--game-card-aspect-ratio);
+}
+
+.highlight {
+  position: absolute;
+  background-image: var(--_card-levelup-highlight-gradient);
+  transform: translateY(75%);
+  animation: background-highlight 1900ms ease-in-out;
+  inline-size: 400%;
+  block-size: 300%;
+  inset-inline-start: -100%;
+  inset-block-start: -150%;
+}
+
+@keyframes background-highlight {
+  0% {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+
+  99% {
+    transform: translateY(-50%);
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.show-upgrade-animation .card-animator,
+.show-upgrade-animation .card-level-up-vfx-wrapper,
+.show-upgrade-animation .highlight-wrapper {
+  animation: card-jump var(--_card-levelup-jump-animation-duration)
+    var(--_card-levelup-jump-animation-delay) forwards;
+}
+
+@keyframes card-jump {
+  0% {
+    scale: 1;
+    animation-timing-function: cubic-bezier(0.31, 0.01, 0, 1);
+  }
+
+  50% {
+    scale: 1.05;
+    animation-timing-function: cubic-bezier(1, 0, 0.73, 1);
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+.progress-bar-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+  align-items: center;
+  inline-size: 100%;
+  padding-inline: var(--noi-spacing-2x);
+}
+
+.default-progress-bar {
+  --horizontal-progress-bar-progress-color: var(--noi-color-gray-50);
+  --horizontal-progress-bar-highlight-color: var(--noi-color-teal-main);
+  --horizontal-progress-bar-background-color: var(--noi-color-light-main-transparent-20);
+}
+
+.upgraded-progress-bar {
+  --horizontal-progress-bar-progress-color: var(--noi-color-teal-main);
+  --horizontal-progress-bar-highlight-color: var(--noi-color-teal-main);
+  --horizontal-progress-bar-background-color: var(--noi-color-light-main-transparent-20);
+}

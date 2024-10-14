@@ -1,0 +1,90 @@
+.collect-reward-vfx {
+  position: absolute;
+  inset-block-start: getRem(-72);
+  inset-inline-start: getRem(-59);
+  pointer-events: none;
+}
+
+.reward-collect-video {
+  position: absolute;
+  z-index: var(--noi-z-index-level-3);
+}
+
+.collect-vfx-bg-wrapper {
+  position: absolute;
+  overflow: hidden;
+  inset: 0;
+}
+
+.collect-vfx-bg {
+  position: absolute;
+  background-image: radial-gradient(
+      var(--radialGradientScale) var(--radialGradientScale) at 50% 50%,
+      #07fff300 30%,
+      #07fff388 48%,
+      #07fff300 70%
+    ),
+    radial-gradient(
+      var(--radialGradientScale2) var(--radialGradientScale2) at 50% 50%,
+      #07fff300 30%,
+      #07fff388 48%,
+      #07fff300 70%
+    ),
+    radial-gradient(
+      var(--radialGradientScale3) var(--radialGradientScale3) at 50% 50%,
+      #07fff300 30%,
+      #07fff388 48%,
+      #07fff300 70%
+    );
+  background-position: center -50%;
+  background-size: 100% 100%;
+  transform: translate(-50%, -50%);
+  opacity: 0.8;
+  mix-blend-mode: screen;
+  animation: circle-bg 2000ms 300ms linear;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  inline-size: 25rem;
+  block-size: 25rem;
+}
+
+@keyframes circle-bg {
+  0% {
+    --radialGradientScale: 0%;
+    --radialgradientscale2: 0%;
+    --radialgradientscale3: 0%;
+  }
+
+  10% {
+    --radialGradientScale2: 0%;
+    --radialgradientscale3: 0%;
+    opacity: 0.8;
+  }
+
+  20% {
+    --radialgradientscale3: 0%;
+    opacity: 0.8;
+  }
+
+  50% {
+    --radialGradientScale: 150%;
+  }
+
+  60% {
+    --radialGradientScale: 150%;
+    --radialgradientscale2: 150%;
+  }
+
+  70% {
+    --radialGradientScale: 150%;
+    --radialgradientscale2: 150%;
+    --radialGradientScale3: 150%;
+    opacity: 0;
+  }
+
+  100% {
+    --radialGradientScale: 150%;
+    --radialGradientScale2: 150%;
+    opacity: 0;
+  }
+}

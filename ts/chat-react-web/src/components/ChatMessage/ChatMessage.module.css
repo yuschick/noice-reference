@@ -1,0 +1,175 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0 var(--noi-spacing-2x);
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-inline: var(--chat-message-margin-inline, 0);
+  padding: var(--noi-spacing-1x);
+  font-size: var(--_chat-message-font-size, var(--noi-font-size-sm));
+  line-height: var(--noi-line-height-loose);
+  vertical-align: baseline;
+  border-radius: var(--noi-border-radius-md);
+  scroll-margin: getRem(32);
+  scroll-padding: var(--noi-spacing-8x);
+
+  &:hover,
+  &:has(:focus-visible),
+  &.mentions-me {
+    background-color: var(--noi-color-gray-800);
+  }
+
+  &[data-chat='first-unread-message'] {
+    &::after {
+      position: absolute;
+      color: var(--noi-color-magenta-main);
+      font-size: var(--_chat-message-font-size, var(--noi-font-size-sm));
+      content: 'New';
+      inset-block-start: 0;
+      inset-inline-end: 0;
+      translate: 0 -50%;
+
+      /* stylelint-disable-next-line max-nesting-depth */
+      @supports not (translate: 50%) {
+        transform: translate(0, -50%);
+      }
+    }
+
+    &::before {
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      block-size: getRem(1);
+      background-color: var(--noi-color-magenta-main);
+      inline-size: 85%;
+      content: '';
+    }
+  }
+}
+
+.tools-wrapper {
+  flex-shrink: 0;
+  margin: getRem(-4);
+}
+
+.avatar-wrapper {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  gap: getRem(6);
+  align-items: center;
+}
+
+.static-timestamp {
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--_chat-message-time-font-size, var(--noi-font-size-xs));
+  font-variant-numeric: tabular-nums;
+}
+
+.text-container {
+  display: inline;
+  align-self: center;
+  word-break: break-all;
+}
+
+.player-name {
+  display: inline;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--_chat-message-font-size, var(--noi-font-size-sm));
+  /* This is to align the badges better vertically */
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  line-height: getRem(20);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  block-size: calc(var(--noi-line-height-loose) + getRem(2));
+}
+
+.message-content {
+  color: var(--noi-color-text-light);
+  font-size: var(--_chat-message-font-size, var(--noi-font-size-sm));
+  line-height: var(--noi-line-height-loose);
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.mention {
+  color: var(--noi-color-green-main);
+  font-weight: var(--noi-font-weight-medium);
+}
+
+.relative-timestamp {
+  position: absolute;
+  display: none;
+  color: var(--noi-color-text-light);
+  font-size: var(--noi-font-size-xs);
+  inset-inline-end: getRem(8);
+  inset-block-end: getRem(-6);
+
+  .container:hover & {
+    display: block;
+  }
+}
+
+.reply-button {
+  position: absolute;
+  inset-inline-end: getRem(8);
+  inset-block-end: calc(100% - getRem(16));
+  display: none;
+
+  .container:hover & {
+    z-index: var(--noi-z-index-level-1);
+    display: block;
+  }
+}
+
+.deleted-message {
+  color: var(--noi-color-gray-650);
+}
+
+.message-username {
+  all: unset;
+  padding: 0;
+
+  &.is-other-player {
+    position: relative;
+    overflow-wrap: anywhere;
+    cursor: pointer;
+
+    &::before {
+      position: absolute;
+      border-radius: var(--noi-border-radius-xs);
+      transition: background-color var(--noi-duration-quick);
+      content: '';
+      inset: getRem(-4) getRem(0);
+    }
+
+    &:hover::before,
+    &:focus-visible::before {
+      background-color: var(--noi-color-light-main-transparent-20);
+    }
+  }
+}
+
+.emoji {
+  block-size: getRem(28);
+  inline-size: getRem(28);
+}
+
+.badges {
+  position: relative;
+  display: inline-block;
+  margin-inline-end: var(--noi-spacing-half);
+  block-size: getRem(24);
+  vertical-align: middle;
+}
+
+.badge {
+  display: inline-block;
+  vertical-align: bottom;
+  inline-size: getRem(20);
+  block-size: getRem(20);
+  margin-inline-end: var(--noi-spacing-half);
+}

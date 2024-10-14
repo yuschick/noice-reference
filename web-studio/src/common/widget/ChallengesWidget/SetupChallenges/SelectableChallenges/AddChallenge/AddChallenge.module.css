@@ -1,0 +1,16 @@
+.add-challenge-title {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+  margin-block-end: var(--noi-spacing-2x);
+}
+
+.add-challenge-footer {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  margin-block-start: var(--noi-spacing-2x);
+}

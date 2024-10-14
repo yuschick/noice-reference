@@ -1,0 +1,13 @@
+.spotlight-wrapper {
+  position: absolute;
+  z-index: var(--noi-z-index-base);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(transparent 50%, var(--noi-color-black-main-transparent-80));
+  pointer-events: none;
+  inset: 0;
+  container-type: size;
+}

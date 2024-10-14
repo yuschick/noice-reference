@@ -1,0 +1,1 @@
+export { CardHighlightBooster } from './CardHighlightBooster';

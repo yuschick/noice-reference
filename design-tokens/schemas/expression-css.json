@@ -1,0 +1,20 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"title": "CSS Expression",
+	"description": "Defines a raw CSS value (CSS only)",
+	"type": "object",
+	"properties": {
+		"type": {
+			"type": "string",
+			"const": "css"
+		},
+		"css": {
+			"type": "string",
+			"description": "The raw CSS to inject for this variable. You must reference variables by their COMPILED names (ex. --noi-{group}-{var-name})!"
+		}
+	},
+	"required": [
+		"type",
+		"css"
+	]
+}

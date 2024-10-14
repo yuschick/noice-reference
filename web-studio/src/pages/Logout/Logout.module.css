@@ -1,0 +1,10 @@
+.sign-out-wrapper {
+  display: grid;
+  block-size: 100dvh;
+  inline-size: 100%;
+  place-items: center;
+}
+
+.text {
+  font-size: var(--noi-font-size-lg);
+}

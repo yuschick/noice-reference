@@ -1,0 +1,16 @@
+.page-content {
+  display: grid;
+  gap: var(--noi-spacing-8x);
+}
+
+.page-title {
+  font-weight: var(--noi-font-weight-extra-bold);
+  font-size: var(--noi-font-size-xl);
+  font-style: italic;
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+
+  @media (min-width: getRem(1200)) {
+    font-size: var(--noi-font-size-2xl);
+  }
+}

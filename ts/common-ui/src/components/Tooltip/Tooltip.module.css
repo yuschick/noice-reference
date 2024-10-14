@@ -1,0 +1,62 @@
+@layer noice.ui {
+  .tooltip-content {
+    padding: var(--noi-spacing-2x) var(--noi-spacing-4x);
+    overflow: hidden;
+  }
+
+  .tooltip {
+    position: fixed;
+    z-index: var(--noi-z-index-level-5);
+    color: var(--noi-color-text-light);
+    font-size: var(--noi-font-size-sm);
+    line-height: var(--noi-line-height-loose);
+    background-color: var(--noi-color-gray-950);
+    border-radius: var(--noi-border-radius-md);
+    opacity: 0;
+    transition: opacity var(--noi-duration-quick) var(--tooltip-delay) ease-in-out;
+    max-inline-size: min(100%, getRem(500));
+
+    @media (prefers-reduced-motion: reduce) {
+      opacity: 0.9;
+    }
+
+    &.is-visible {
+      opacity: 1;
+    }
+
+    /* Hitbox for hover */
+    &::after {
+      position: absolute;
+      display: block;
+      content: '';
+      inset: 0;
+    }
+
+    &[data-placement^='bottom']::after {
+      inset-block-start: calc(var(--tooltip-offset) * -1);
+    }
+
+    &[data-placement^='left']::after {
+      inset-inline-end: calc(var(--tooltip-offset) * -1);
+    }
+
+    &[data-placement^='right']::after {
+      inset-inline-start: calc(var(--tooltip-offset) * -1);
+    }
+
+    &[data-placement^='top']::after {
+      inset-block-end: calc(var(--tooltip-offset) * -1);
+    }
+  }
+
+  .tooltip-arrow {
+    position: absolute;
+    z-index: var(--noi-z-index-behind);
+    background: var(--noi-color-gray-950);
+    transform: rotate(45deg);
+    transform-origin: center;
+    pointer-events: none;
+    inline-size: getRem(12);
+    block-size: getRem(12);
+  }
+}

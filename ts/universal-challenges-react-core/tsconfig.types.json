@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "references": [
+    {
+      "path": "../gen/schemas"
+    },
+    {
+      "path": "../utils"
+    },
+    {
+      "path": "../platform-client"
+    },
+    {
+      "path": "../common-ui"
+    },
+  ]
+}

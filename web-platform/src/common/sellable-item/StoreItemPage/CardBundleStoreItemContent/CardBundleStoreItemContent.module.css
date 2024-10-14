@@ -1,0 +1,11 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--store-card-bundle-modal-bundle-gap);
+  align-content: flex-start;
+  align-items: flex-start;
+  align-self: stretch;
+  padding: getRem(32) getRem(56);
+  background: var(--noi-color-light-main-transparent-5);
+  border-radius: var(--noi-border-radius-lg);
+}

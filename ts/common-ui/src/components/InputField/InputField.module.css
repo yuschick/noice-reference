@@ -1,0 +1,298 @@
+@layer noice.ui {
+  .input-and-description-wrapper {
+    --_input-field-background-disabled: var(--noi-color-blue-100);
+    --_input-field-background-hover: var(--noi-color-blue-50);
+    --_input-field-background-readonly: var(--noi-color-blue-100);
+    --_input-field-background: var(--noi-color-blue-50);
+    --_input-field-border-focus: var(--noi-color-teal-main);
+    --_input-field-border-hover: var(--noi-color-blue-400);
+    --_input-field-border: var(--noi-color-blue-200);
+    --_input-field-color-disabled: var(--noi-color-blue-400);
+    --_input-field-color: var(--noi-color-text-dark);
+    --_input-field-description-color: var(--noi-color-text-dark-secondary);
+    --_input-field-error-color: var(--noi-color-status-error-main);
+    --_input-field-size: getRem(48);
+    --_input-label-color-focus: var(--noi-color-teal-600);
+    --_input-label-color: var(--noi-color-text-dark-secondary);
+    --_input-label-active-offset: var(--noi-spacing-1x);
+    --_input-label-active-offset-multiplier: 2;
+    --_input-padding-inline: var(--noi-spacing-6x);
+    --_input-border-radius: var(--noi-border-radius-sm);
+    --_input-cancel-button-color: var(--noi-color-text-light);
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--noi-spacing-1x);
+    inline-size: 100%;
+
+    /* Sizes */
+    &.sm {
+      --_input-field-size: getRem(40);
+      --_input-label-active-offset: var(--noi-spacing-half);
+      --_input-label-active-offset-multiplier: 4;
+    }
+
+    &.lg {
+      --_input-field-size: getRem(56);
+      --_input-label-active-offset: var(--noi-spacing-2x);
+      --_input-label-active-offset-multiplier: 1.5;
+    }
+
+    /* Colors */
+    &.blue {
+      --_input-field-background-disabled: var(--noi-color-blue-700);
+      --_input-field-background-hover: var(--noi-color-blue-750);
+      --_input-field-background-readonly: var(--noi-color-blue-700);
+      --_input-field-background: var(--noi-color-blue-750);
+      --_input-field-border-hover: var(--noi-color-blue-500);
+      --_input-field-border: var(--noi-color-blue-650);
+      --_input-field-description-color: var(--noi-color-text-light-secondary);
+      --_input-field-color-disabled: var(--noi-color-blue-500);
+      --_input-field-color: var(--noi-color-text-light);
+      --_input-label-color-focus: var(--noi-color-teal-main);
+      --_input-field-error-color: var(--noi-color-status-error-300);
+      --_input-label-color: var(--noi-color-text-light-secondary);
+
+      &.fixed {
+        --_input-label-color: var(--noi-color-text-light);
+      }
+    }
+
+    &.gray {
+      --_input-field-background-disabled: var(--noi-color-gray-700);
+      --_input-field-background-hover: var(--noi-color-gray-750);
+      --_input-field-background-readonly: var(--noi-color-gray-700);
+      --_input-field-background: var(--noi-color-gray-750);
+      --_input-field-border-hover: var(--noi-color-gray-500);
+      --_input-field-border: var(--noi-color-gray-650);
+      --_input-field-description-color: var(--noi-color-text-light-secondary);
+      --_input-field-color-disabled: var(--noi-color-gray-500);
+      --_input-field-color: var(--noi-color-text-light);
+      --_input-label-color-focus: var(--noi-color-teal-main);
+      --_input-field-error-color: var(--noi-color-status-error-300);
+      --_input-label-color: var(--noi-color-text-light-secondary);
+
+      &.fixed {
+        --_input-label-color: var(--noi-color-text-light);
+      }
+    }
+
+    /* Shapes */
+    &.pill {
+      --_input-border-radius: var(--noi-border-radius-2xl);
+    }
+
+    /* Label types */
+    &.disappearing,
+    &.fixed {
+      --_input-label-active-offset: 0;
+    }
+
+    &.fixed {
+      --_input-label-color: var(--noi-color-text-dark);
+    }
+  }
+
+  .input-and-slots-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: var(--noi-spacing-2x);
+    align-content: center;
+    align-items: center;
+    color: var(--_input-field-color);
+    background-color: var(--_input-field-background);
+    border: 1px solid var(--_input-field-border);
+    border-radius: var(--_input-border-radius);
+    min-block-size: var(--_input-field-size);
+    inline-size: 100%;
+    max-inline-size: 100%;
+
+    &:has(.slot-end) {
+      padding-inline-end: var(--_input-padding-inline);
+    }
+
+    &:has(.slot-start) {
+      padding-inline-start: var(--_input-padding-inline);
+    }
+
+    &:has(:disabled) {
+      --_input-field-color: var(--_input-field-color-disabled);
+      background-color: var(--_input-field-background-disabled);
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    @media (hover: hover) {
+      &:not(:has(:disabled, [aria-invalid='true'], :user-invalid)):hover {
+        background-color: var(--_input-field-background-hover);
+        border-color: var(--_input-field-border-hover);
+      }
+    }
+
+    &:not(:has(:disabled)):has([aria-invalid='true'], :user-invalid) {
+      --_input-field-border: var(--noi-color-status-error-main);
+    }
+
+    &:not(:has(:disabled)):has([readonly]) {
+      background-color: var(--_input-field-background-readonly);
+      cursor: default;
+    }
+
+    &:not(:has(:disabled, [aria-invalid='true'], :user-invalid)):has(
+        .input-field:focus-visible
+      ) {
+      border-color: var(--_input-field-border-focus);
+      outline: none;
+    }
+  }
+
+  .input-label-wrapper {
+    position: relative;
+    flex-grow: 1;
+    block-size: 100%;
+  }
+
+  .fixed-label-wrapper {
+    margin-block-end: var(--noi-spacing-1x);
+    padding: 0;
+  }
+
+  .label-text-fixed {
+    color: var(--_input-label-color);
+    font-weight: var(--noi-font-weight-medium);
+    font-size: var(--noi-font-size-sm);
+    line-height: var(--noi-line-height-tight);
+  }
+
+  .label-text {
+    --_label-text-inline-offset: var(--_input-padding-inline);
+
+    position: absolute;
+    color: var(--_input-label-color);
+    font-size: var(--noi-font-size-md);
+    transition: font-size var(--noi-duration-quick), translate var(--noi-duration-quick),
+      inset-block-start var(--noi-duration-quick);
+    inset-block-start: 50%;
+    inset-inline-start: 0;
+    translate: var(--_label-text-inline-offset) -50%;
+
+    @supports not (translate: 100%) {
+      transform: translate(var(--_label-text-inline-offset), -50%);
+    }
+
+    .input-and-slots-wrapper:has(.slot-start) & {
+      --_label-text-inline-offset: 0;
+    }
+
+    .input-and-description-wrapper.disappearing & {
+      transition: none;
+    }
+
+    .input-and-description-wrapper.disappearing:has(
+        .input-field:focus,
+        .input-field:not(:placeholder-shown)
+      )
+      & {
+      /* stylelint-disable unit-allowed-list */
+      position: absolute;
+      display: inline-block;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      border: none;
+      clip: rect(0 0 0 0);
+      block-size: 1px;
+      inline-size: 1px;
+      /* stylelint-enable unit-allowed-list */
+    }
+
+    .input-label-wrapper:has(
+        .input-field:not(:placeholder-shown),
+        .input-field[rows]:not([rows='1']),
+        .input-field:not(:disabled):focus
+      )
+      & {
+      font-size: var(--noi-font-size-sm);
+      inset-block-start: 0;
+      translate: var(--_label-text-inline-offset) var(--_input-label-active-offset);
+
+      @supports not (translate: 100%) {
+        transform: translate(
+          var(--_label-text-inline-offset),
+          var(--_input-label-active-offset)
+        );
+      }
+    }
+
+    .input-label-wrapper:has(.input-field[aria-invalid='true']:not(:disabled)) & {
+      color: var(--noi-color-status-error-main);
+    }
+
+    .input-label-wrapper:has(.input-field:not(:disabled, [aria-invalid='true']):focus) & {
+      color: var(--_input-label-color-focus);
+    }
+  }
+
+  .input-field {
+    color: var(--_input-field-color);
+    inline-size: 100%;
+    font-weight: var(--noi-font-weight-medium);
+    font-size: var(--noi-font-size-md);
+    font-family: var(--noi-font-family-body);
+    background-color: transparent;
+    border: none;
+    padding-inline: var(--_input-padding-inline);
+    padding-block-start: calc(
+      var(--_input-label-active-offset) * var(--_input-label-active-offset-multiplier)
+    );
+    block-size: 100%;
+
+    &::placeholder {
+      color: var(--noi-color-text-light-secondary);
+    }
+
+    &:focus,
+    &:focus-visible {
+      border: none;
+      outline: none;
+    }
+
+    .input-and-slots-wrapper:has(.slot-end) & {
+      padding-inline-end: 0;
+    }
+
+    .input-and-slots-wrapper:has(.slot-start) & {
+      padding-inline-start: 0;
+    }
+
+    /* Fix search input cancel button on Safari (web and mobile) */
+    &[type='search']::-webkit-search-cancel-button {
+      background-color: var(--_input-cancel-button-color);
+      -webkit-appearance: none;
+      -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23777'><path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/></svg>");
+      block-size: getRem(18);
+      inline-size: getRem(18);
+    }
+  }
+
+  .input-description {
+    color: var(--_input-field-description-color);
+    max-inline-size: 100%;
+  }
+
+  .input-secondary-wrapper {
+    color: var(--_input-label-color);
+    font-size: var(--noi-font-size-sm);
+    line-height: var(--noi-line-height-loose);
+    padding-inline: var(--_input-padding-inline);
+  }
+
+  .error {
+    color: var(--_input-field-error-color);
+    max-inline-size: 100%;
+
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
+}

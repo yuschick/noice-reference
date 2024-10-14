@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
+    "vunguyentuan.vscode-postcss",
+    "clinyong.vscode-css-modules",
+    "andrewleedham.vscode-css-modules",
+    "phoenisx.cssvar",
+    "graphql.vscode-graphql",
+    "graphql.vscode-graphql-syntax"
+  ]
+}

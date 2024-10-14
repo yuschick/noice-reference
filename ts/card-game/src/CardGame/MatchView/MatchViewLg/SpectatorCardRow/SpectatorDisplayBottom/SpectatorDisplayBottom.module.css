@@ -1,0 +1,37 @@
+.bottom-wrapper {
+  position: relative;
+  z-index: var(--noi-z-index-level-1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  inline-size: getRem(112);
+  block-size: getRem(52);
+  padding-block-start: var(--noi-spacing-3x);
+}
+
+.booster-score {
+  position: absolute;
+  inset-block-start: getRem(4);
+  inset-inline-end: getRem(-10);
+  z-index: var(--noi-z-index-level-2);
+}
+
+.score-update-animation {
+  scale: 1;
+  animation: scale-jump 300ms forwards;
+}
+
+@keyframes scale-jump {
+  0% {
+    scale: 1;
+  }
+
+  40% {
+    scale: 1.4;
+  }
+
+  100% {
+    scale: 1;
+  }
+}

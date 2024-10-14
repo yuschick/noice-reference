@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  margin-block-end: getRem(32);
+}
+
+.title-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+}
+
+.details {
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-xs);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: var(--noi-font-size-xl);
+  text-transform: uppercase;
+}

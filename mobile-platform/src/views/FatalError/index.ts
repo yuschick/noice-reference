@@ -1,0 +1,1 @@
+export { FatalErrorView } from './FatalErrorView';

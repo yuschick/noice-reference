@@ -1,0 +1,38 @@
+.revision {
+  @mixin label s, medium;
+  color: var(--neutral-300);
+}
+
+.action-wrapper-place {
+  block-size: getRem(48);
+}
+
+.action-wrapper {
+  position: fixed;
+  inline-size: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  padding: getRem(16) 0;
+  background-color: var(--neutral-800);
+  inset-block-end: 0;
+}
+
+.loading-wrapper {
+  overflow: hidden;
+  border: 1px solid var(--neutral-600);
+  border-radius: getRem(7);
+  border-block-end: none;
+}
+
+.loading-row {
+  @mixin loading-shine var(--neutral-700);
+  block-size: getRem(44);
+  border-block-end: 1px solid var(--neutral-600);
+}
+
+.removed-wrapper {
+  @mixin label s, regular;
+  color: var(--warning-400);
+}

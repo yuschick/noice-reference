@@ -1,0 +1,20 @@
+.beta-logo {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  text-decoration: none;
+}
+
+.beta-sub {
+  display: none;
+
+  @media (min-width: getRem(600)) {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: end;
+    color: var(--noi-color-text-light-secondary);
+    font-weight: var(--noi-font-weight-medium);
+    font-size: var(--noi-font-size-xs);
+    margin-inline-start: var(--noi-spacing-1x);
+  }
+}

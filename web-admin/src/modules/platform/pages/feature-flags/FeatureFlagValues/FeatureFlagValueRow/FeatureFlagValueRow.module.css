@@ -1,0 +1,32 @@
+.row {
+  @mixin label s, regular;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+}
+
+.value-name {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-1x);
+  inline-size: 33.33%;
+  min-inline-size: min-content;
+
+  .new & {
+    color: var(--warning-400);
+  }
+}
+
+.percentage {
+  color: var(--neutral-300);
+
+  .new & {
+    color: var(--warning-400);
+  }
+}
+
+.object-value {
+  margin: 0;
+  inline-size: 100%;
+}

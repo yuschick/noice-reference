@@ -1,0 +1,7 @@
+.active-boosters-vfx-root {
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+  inset: -16% -26% -16%;
+  image-rendering: -webkit-optimize-contrast;
+}

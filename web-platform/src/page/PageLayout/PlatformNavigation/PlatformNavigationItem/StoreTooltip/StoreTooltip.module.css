@@ -1,0 +1,51 @@
+.tooltip-part {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--noi-spacing-3x);
+  border-block-end: var(--noi-color-gray-700) 1px solid;
+
+  &:last-of-type {
+    border-block-end: none;
+  }
+}
+
+.tooltip-title {
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  text-transform: uppercase;
+}
+
+.label-title {
+  display: block;
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-sm);
+  margin-block-end: var(--noi-spacing-1x);
+}
+
+.title {
+  display: block;
+  color: var(--noi-color-text-light);
+  font-size: var(--noi-font-size-sm);
+}
+
+.progress-text {
+  display: block;
+  margin: var(--noi-spacing-1x) 0;
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-sm);
+}
+
+.progress-bar {
+  --horizontal-progress-bar-progress-color: var(--noi-color-yellow-main);
+  block-size: getRem(8);
+}
+
+.currency-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+}

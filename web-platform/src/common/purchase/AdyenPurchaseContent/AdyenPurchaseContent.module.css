@@ -1,0 +1,20 @@
+.adyen-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-4x);
+}
+
+.legal-text-wrapper {
+  color: var(--noi-color-text-light-secondary);
+  font-size: var(--noi-font-size-sm);
+}
+
+.adyen-wrapper {
+  inline-size: 100%;
+}
+
+.adyen-disabled {
+  padding: getRem(16) getRem(24);
+  background-color: var(--noi-color-gray-50);
+  border-radius: var(--noi-border-radius-sm);
+}

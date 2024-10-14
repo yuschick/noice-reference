@@ -1,0 +1,7 @@
+.description {
+  color: var(--noi-color-text-dark-secondary);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-loose);
+  text-align: center;
+}

@@ -1,0 +1,7 @@
+.feats {
+  list-style-type: '✔';
+
+  & li {
+    padding: var(--noi-spacing-2x);
+  }
+}

@@ -1,0 +1,21 @@
+.container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--noi-color-black-main);
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.stream-player {
+  block-size: calc(100% - var(--theater-mode-bottom-margin));
+
+  .minimized & {
+    block-size: 100%;
+  }
+}
+
+.bottom-bar {
+  background-color: var(--noi-color-gray-950);
+  min-block-size: var(--theater-mode-bottom-margin);
+}

@@ -1,0 +1,7 @@
+@layer noice.ui {
+  .stream-root {
+    position: absolute;
+    inline-size: 100%;
+    block-size: 100%;
+  }
+}

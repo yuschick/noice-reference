@@ -1,0 +1,1 @@
+export { CardRowTeamInfoSm } from './CardRowTeamInfoSm';

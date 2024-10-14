@@ -1,0 +1,30 @@
+.modal-text {
+  @mixin paragraph m, regular;
+}
+
+.modal-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-4x);
+  margin-block-start: var(--noi-spacing-6x);
+}
+
+.title {
+  @mixin label m, semi-bold;
+  margin: 0;
+  color: var(--white);
+}
+
+.subtitle {
+  @mixin label s;
+  color: var(--neutral-100);
+  margin-block-start: var(--noi-spacing-2x);
+}
+
+.action {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  justify-content: space-between;
+}

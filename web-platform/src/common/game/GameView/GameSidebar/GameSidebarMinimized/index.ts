@@ -1,0 +1,1 @@
+export { GameSidebarMinimized } from './GameSidebarMinimized';

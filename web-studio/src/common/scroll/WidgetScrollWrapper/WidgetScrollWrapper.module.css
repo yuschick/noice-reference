@@ -1,0 +1,16 @@
+.new-messages-btn-wrapper {
+  position: sticky;
+  z-index: var(--noi-z-index-level-1);
+  opacity: 1;
+  inline-size: 50%;
+  inset-inline-start: 50%;
+  translate: -50% 0;
+
+  &.bottom {
+    inset-block-end: 1%;
+  }
+
+  &.top {
+    inset-block-end: calc(99% - getRem(40));
+  }
+}

@@ -1,0 +1,7 @@
+/* stylelint-disable declaration-property-value-allowed-list */
+:root {
+  /**
+   * Page Wrapper
+   */
+  --page-wrapper-header-height: var(--top-bar-height, getRem(56));
+}

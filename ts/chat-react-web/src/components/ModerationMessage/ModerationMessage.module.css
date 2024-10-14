@@ -1,0 +1,12 @@
+.message {
+  --_message-border-color: var(--noi-color-magenta-main);
+}
+
+.wrapper {
+  font-size: var(--_chat-message-font-size, var(--noi-font-size-sm));
+}
+
+.sender {
+  color: var(--noi-color-magenta-main);
+  font-weight: var(--noi-font-weight-bold);
+}

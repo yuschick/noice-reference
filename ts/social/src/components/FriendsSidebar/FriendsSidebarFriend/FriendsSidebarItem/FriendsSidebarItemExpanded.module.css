@@ -1,0 +1,53 @@
+.friends-sidebar-item-expanded {
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+  align-items: center;
+  justify-content: start;
+  padding: var(--noi-spacing-1x);
+  line-height: var(--noi-line-height-tight);
+  background-color: transparent;
+  border-radius: var(--noi-border-radius-md);
+  cursor: pointer;
+  block-size: getRem(48);
+
+  &:hover {
+    background-color: var(--noi-color-light-main-transparent-10);
+  }
+}
+
+.friend-details-wrapper {
+  flex-grow: 1;
+  text-align: start;
+}
+
+.friend-name-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  /* stylelint-disable-next-line unit-allowed-list */
+  gap: 0.25em;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-md);
+}
+
+.friend-name {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-half);
+}
+
+.friend-name-icon {
+  flex-shrink: 0;
+}
+
+.request-buttons-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+}

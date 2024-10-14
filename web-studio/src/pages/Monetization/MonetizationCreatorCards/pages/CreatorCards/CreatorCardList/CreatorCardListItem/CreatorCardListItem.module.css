@@ -1,0 +1,81 @@
+.card-panel {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-8x);
+  align-self: stretch;
+  padding: var(--noi-spacing-8x);
+  color: var(--noi-color-text-light);
+  text-align: unset;
+  text-decoration: none;
+  background-color: var(--noi-color-gray-900);
+  border-radius: var(--noi-border-radius-md);
+  cursor: pointer;
+  inline-size: getRem(446);
+  margin-block-end: 0;
+}
+
+.card {
+  inline-size: var(--game-card-width-breakpoint-small);
+  flex-shrink: 0;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: no-wrap;
+  gap: var(--noi-spacing-4x);
+}
+
+.card-name {
+  font-weight: var(--noi-font-weight-bold);
+  font-size: var(--noi-font-size-lg);
+  line-height: var(--noi-line-height-tight);
+  word-break: break-all;
+}
+
+.description-block {
+  gap: var(--noi-spacing-1x);
+}
+
+.block-label {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-1x);
+  align-items: center;
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-regular);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+}
+
+.base-card-name {
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-md);
+  line-height: var(--noi-line-height-tight);
+}
+
+.card-availability {
+  font-size: var(--noi-font-size-sm);
+
+  &.published {
+    color: var(--noi-color-green-main);
+  }
+
+  &.not-published {
+    color: var(--noi-color-status-error-main);
+  }
+}
+
+.card-sale-config-details {
+  margin-block-start: var(--noi-spacing-1x);
+}
+
+.card-sale-config-detail {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+  white-space: nowrap;
+}

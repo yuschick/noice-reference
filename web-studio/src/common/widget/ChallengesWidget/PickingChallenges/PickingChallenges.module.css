@@ -1,0 +1,18 @@
+.picking-challenges-title {
+  color: var(--noi-color-text-light-secondary);
+  font-weight: var(--noi-font-weight-medium);
+  font-size: var(--noi-font-size-sm);
+  line-height: var(--noi-line-height-tight);
+  text-transform: uppercase;
+  margin-block-end: var(--noi-spacing-2x);
+}
+
+.picking-challenges-challenges-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noi-spacing-1x);
+}
+
+.picking-challenges-actions-wrapper {
+  margin-top: var(--noi-spacing-2x);
+}

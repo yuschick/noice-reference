@@ -1,0 +1,23 @@
+.profile-menu-profile-wrapper {
+  display: grid;
+  grid-template-columns: min-content auto;
+  gap: var(--noi-spacing-3x);
+  align-items: center;
+}
+
+.name {
+  @mixin truncate-text;
+  display: block;
+  color: var(--noi-color-text-light);
+  font-weight: var(--noi-font-weight-bold);
+}
+
+.online-status {
+  display: block;
+  color: var(--noi-color-green-main);
+  font-size: var(--noi-font-size-sm);
+
+  &.offline {
+    color: var(--noi-color-text-light-secondary);
+  }
+}

@@ -1,0 +1,13 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: center;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.video-wrapper {
+  aspect-ratio: 16 / 9;
+}

@@ -1,0 +1,38 @@
+.tabs-navigation {
+  border-block-end: getRem(1) solid var(--neutral-500);
+  padding: 0 getRem(16);
+}
+
+.tab-list {
+  @mixin list-style-none;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-8x);
+}
+
+.tab {
+  @mixin label s, regular;
+  position: relative;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  padding: var(--noi-spacing-3x) 0;
+  color: var(--neutral-200);
+  text-decoration: none;
+
+  &[aria-current='page'] {
+    color: var(--white);
+
+    &:after {
+      position: absolute;
+      inset-block-start: calc(100% + getRem(1));
+      inset-inline-end: 0;
+      inset-inline-start: 0;
+      display: block;
+      block-size: getRem(4);
+      background-color: var(--primary-500);
+      content: '';
+    }
+  }
+}

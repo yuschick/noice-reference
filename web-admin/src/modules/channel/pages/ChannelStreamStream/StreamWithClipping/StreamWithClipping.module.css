@@ -1,0 +1,21 @@
+.stream-clip-form {
+  display: grid;
+  gap: var(--noi-spacing-4x);
+}
+
+.generating-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+  block-size: getRem(32);
+  font-size: var(--font-size-s);
+}
+
+.guide-wrapper {
+  font-size: var(--font-size-s);
+}
+
+.length-value {
+  font-weight: var(--noi-font-weight-bold);
+}

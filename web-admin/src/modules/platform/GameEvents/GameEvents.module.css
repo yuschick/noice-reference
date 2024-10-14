@@ -1,0 +1,30 @@
+.timeline-form {
+  display: flex;
+  flex-direction: column;
+  gap: getRem(24);
+  block-size: 100%;
+}
+
+.timeline-field {
+  flex-grow: 1;
+}
+
+.timeline-buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-4x);
+}
+
+.warning {
+  @mixin label s, medium;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--noi-spacing-2x);
+  align-items: center;
+
+  .icon {
+    inline-size: getRem(24);
+    block-size: getRem(24);
+    color: var(--warning-400);
+  }
+}

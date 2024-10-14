@@ -1,0 +1,22 @@
+@layer chat-emoji {
+  .wrapper {
+    display: inline-block;
+    inline-size: getRem(30);
+    block-size: getRem(30);
+  }
+
+  .emoji {
+    vertical-align: middle;
+    border-radius: var(--noi-border-radius-sm);
+    transition: background-color var(--noi-duration-quick),
+      transform var(--noi-duration-quick);
+    inline-size: 100%;
+    aspect-ratio: 1/1;
+
+    .wrapper:hover & {
+      background-color: var(--noi-color-gray-650);
+      border-radius: var(--noi-border-radius-sm);
+      transform: scale(1.15);
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.game-card-with-vfx-wrapper {
+  position: relative;
+  inline-size: var(--game-card-width-breakpoint-large);
+}
+
+.game-card-with-vfx-video-wrapper {
+  position: absolute;
+  inset: getRem(-100);
+  pointer-events: none;
+}
+
+.game-card-with-vfx-video {
+  inline-size: 100%;
+}

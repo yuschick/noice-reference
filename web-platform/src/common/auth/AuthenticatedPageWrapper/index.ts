@@ -1,0 +1,1 @@
+export { AuthenticatedPageWrapper } from './AuthenticatedPageWrapper';
